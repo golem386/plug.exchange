@@ -1,4 +1,4 @@
-import NavBar from "./navbar/NavBar";
-import FooterBar from './footer/FooterBar';
+import NavBar from "./appheader/Navbar";
+import FooterBar from "./appfooter/Footerbar";
 
-export { NavBar,FooterBar };
+export { NavBar, FooterBar };

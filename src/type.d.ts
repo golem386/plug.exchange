@@ -1,16 +1,30 @@
 interface IArticle {
-    id: number
-    title: string
-    body: string
-  }
-  
-  type ArticleState = {
-    articles: IArticle[]
-  }
-  
-  type ArticleAction = {
-    type: string
-    article: IArticle
-  }
-  
-  type DispatchType = (args: ArticleAction) => ArticleAction
+  model: String;
+}
+interface ICoin {
+  name: String;
+  image: String;
+}
+type ArticleState = {
+  model: any;
+  CoinDetail: {
+    name: String;
+    image: String;
+  };
+  receiveCoinDetail: {
+    name: String;
+    image: String;
+  };
+};
+
+type ArticleAction = {
+  type: string;
+  model: IArticle;
+};
+type CoinAction = {
+  type: string;
+  Coin: ICoin;
+};
+type DispatchType = (
+  args: ArticleAction | CoinAction
+) => ArticleAction | CoinAction;

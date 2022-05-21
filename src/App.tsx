@@ -1,7 +1,7 @@
 import React from "react";
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux'
 import thunk from "redux-thunk";
-import reducer from "./store/reducer";
+import reducer from "./redux/reducer";
 import { applyMiddleware, createStore, Store } from "redux";
 import { Button } from "@mui/material";
 import { styled } from "@mui/system";
@@ -17,11 +17,11 @@ const MyComponent = styled("div")({
 });
 function App() {
   return (
-    // <Provider store={store}>
-    <MyComponent>
-      <IndexPage />
-    </MyComponent>
-    // </Provider>
+    <Provider store={store}>
+      <MyComponent>
+        <IndexPage />
+      </MyComponent>
+    </Provider>
   );
 }
 
