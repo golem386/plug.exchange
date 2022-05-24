@@ -1,24 +1,27 @@
-import { Button, styled } from "@mui/material";
-import React, { Component } from "react";
-import ShereLogo from "../../assets/icon/ShereLogo.png";
+import { Button, styled } from '@mui/material';
+import React, { Component } from 'react';
+import ShereLogo from '../../assets/icon/ShereLogo.png';
 
-const MainDiv = styled("div")({
-  display: "flex",
-  alignItems: "center",
+const MainDiv = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
 });
 const ShereImage = styled(Button)({
-  backgroundColor: "#f2f2f2",
+  backgroundColor: '#f2f2f2',
   paddingLeft: 7,
   paddingRight: 7,
   paddingBottom: 14,
   paddingTop: 14,
   borderRadius: 16,
 });
-const PreText = styled("p")({
+const PreText = styled('p')({
   marginLeft: 5,
+  fontFamily: 'inter',
+  fontWeight: '500',
+  fontSize: 16,
 });
-const Read = styled("span")({
-  color: "#BB36FF",
+const Read = styled('span')({
+  color: '#BB36FF',
   marginLeft: 2,
 });
 const Resetmore = () => {

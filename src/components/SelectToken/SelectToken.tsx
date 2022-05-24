@@ -115,10 +115,12 @@ const Selecttoken = (props: PropsComponent) => {
               onModel("Swep");
               props.select === "PayToken" ? onSelectIcon({
                 name: val.type,
-                image: val.icon
+                image: val.icon,
+                fullName:val.name,
               }) : onReceiveIcon({
                 name: val.type,
-                image: val.icon
+                image: val.icon,
+                fullName:val.name,
               });
             }}>
               <ListMain>

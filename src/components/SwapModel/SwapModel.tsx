@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import { Button, FormControl, Input, MenuItem, Select } from "@mui/material";
 import React, { Component, useEffect } from "react";
 import menu from "../../assets/icon/menu.png";
-import Eth from "../../assets/icon/Eth.png";
 import DownAero from "../../assets/icon/DownAero.png";
 import UpDown from "../../assets/icon/UpDown.png";
 import ShortVartical from "../../assets/icon/ShortVartical.png";
@@ -103,6 +102,9 @@ const ReceiveMain = styled("div")({
 });
 const YouReceive = styled("p")({
   padding: 20,
+  fontFamily:'inter',
+  fontWeight:'500',
+  fontSize:16
 });
 const UpDownImage = styled("img")({
   backgroundColor: "white",

@@ -1,4 +1,4 @@
-import * as actionTypes from "./actionTypes";
+import * as actionTypes from './actionTypes';
 
 export function onModelOpen(model: IArticle) {
   const action: ArticleAction = {
@@ -29,3 +29,22 @@ export function onReceiveCoin(Coin: ICoin) {
   };
 }
 
+export function connetWallet(Coin: ICoin) {
+  const action: CoinAction = {
+    type: actionTypes.CONNECT_WALLET,
+    Coin,
+  };
+  return (dispatch: DispatchType) => {
+    dispatch(action);
+  };
+}
+
+export function connetNetwork(Coin: ICoin) {
+  const action: CoinAction = {
+    type: actionTypes.CONNET_NETWORK,
+    Coin,
+  };
+  return (dispatch: DispatchType) => {
+    dispatch(action);
+  };
+}

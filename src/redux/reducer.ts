@@ -1,22 +1,33 @@
-import * as actionTypes from "./actionTypes";
-import Eth from "../assets/icon/Eth.png";
+import * as actionTypes from './actionTypes';
+import Eth from '../assets/icon/Eth.png';
+import Coin2 from '../assets/icon/coin2.png';
+import Coin from '../assets/icon/coin.png';
 
 const initialState: ArticleState = {
-  model: "abdc",
+  model: 'abdc',
   CoinDetail: {
-    name: "ETH",
+    name: 'ETH',
     image: Eth,
+    fullName:'Ethereum'
   },
-  receiveCoinDetail:{
-    name: "ETH",
-    image: Eth,
+  receiveCoinDetail: {
+    name: 'AVAX',
+    image: Coin2,
+    fullName:'Avalanche'
+  },
+  ConnectWallet: {
+    name: '',
+    image: '',
+    Subname: '',
+    Price: ''
+  },
+  ConnectNetwork: {
+    name: '',
+    image: '',
   },
 };
 
-const reducer = (
-  state: ArticleState = initialState,
-  action: any
-): ArticleState => {
+const reducer = (state: ArticleState = initialState, action: any): ArticleState => {
   switch (action.type) {
     case actionTypes.OPEN_MODEL:
       return {
@@ -32,6 +43,16 @@ const reducer = (
       return {
         ...state,
         receiveCoinDetail: action.Coin,
+      };
+    case actionTypes.CONNECT_WALLET:
+      return {
+        ...state,
+        ConnectWallet: action.Coin,
+      };
+    case actionTypes.CONNET_NETWORK:
+      return {
+        ...state,
+        ConnectNetwork: action.Coin,
       };
   }
   return state;

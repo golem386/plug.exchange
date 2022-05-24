@@ -10,8 +10,20 @@ type ArticleState = {
   CoinDetail: {
     name: String;
     image: String;
+    fullName: String;
   };
   receiveCoinDetail: {
+    name: String;
+    image: String;
+    fullName:String;
+  };
+  ConnectWallet: {
+    name: String;
+    image: String;
+    Subname: String;
+    Price: String;
+  };
+  ConnectNetwork: {
     name: String;
     image: String;
   };
@@ -25,6 +37,4 @@ type CoinAction = {
   type: string;
   Coin: ICoin;
 };
-type DispatchType = (
-  args: ArticleAction | CoinAction
-) => ArticleAction | CoinAction;
+type DispatchType = (args: ArticleAction | CoinAction) => ArticleAction | CoinAction;

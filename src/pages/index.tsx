@@ -1,3 +1,3 @@
-import IndexPage from "./home/Home";
+import IndexPage from "./Home/Home";
 
 export { IndexPage };

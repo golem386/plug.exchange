@@ -3,13 +3,13 @@ import { Grid } from "@mui/material";
 import React, { Component } from "react";
 import { useSelector } from "react-redux";
 import { FooterBar, NavBar } from "../../components";
-import { Blurmodel } from "../../components/blurmodel";
-import { Chart } from "../../components/chart";
-import { Resetmore } from "../../components/restartmodel";
-import { Selectedtoken } from "../../components/selectedtoken";
-import { Selecttoken } from "../../components/selecttoken";
-import { Swapmodel } from "../../components/swapmodel";
-import { Transactionsetting } from "../../components/transactionsetting";
+import { Blurmodel } from "../../components/BlurModel";
+import { Chart } from "../../components/Chart";
+import { Resetmore } from "../../components/RestartModel";
+import { Selectedtoken } from "../../components/SelectedToken";
+import { Selecttoken } from "../../components/SelectToken";
+import { Swapmodel } from "../../components/SwapModel";
+import { Transactionsetting } from "../../components/TransactionSetting";
 
 const MainDiv = styled("div")({
   marginLeft: "5%",
