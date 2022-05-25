@@ -25,6 +25,7 @@ import {
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { connetNetwork, connetWallet } from '../../redux/actionCreators';
+import ChooseNetworkModel from '../ChooseNetworkModel/ChooseNetworkModel';
 const MainComponent = styled('div')({
   display: 'flex',
   paddingLeft: 10,
@@ -216,7 +217,7 @@ const TitleIcon = styled('p')({
   fontSize: '15px',
   fontWeight: '600',
 });
-const DropDownTitleIcon = styled('p')({
+const DropDownTitleIcon = styled('span')({
   fontFamily: 'Inter',
   fontSize: '15px',
   fontWeight: '500',
@@ -306,15 +307,16 @@ const CoinDropIcon = styled('img')({
 });
 const CostomGrid = styled(Grid)({
   display: 'flex',
+  justifyContent: 'space-between',
   // alignItems: 'center',
 });
 const CostomMenu = styled(Menu)({
   marginTop: '5%',
 });
 const CostomMenuItem = styled(MenuItem)({
-  paddingTop: 0,
-  paddingBottom: 0,
-  paddingRight: '50px',
+  paddingTop: 3,
+  paddingBottom: 3,
+  paddingRight: '30px',
 });
 const ImageIconDropDown = styled('img')({
   height: '30px',
@@ -323,12 +325,13 @@ const ImageIconDropDown = styled('img')({
 });
 const DropMain = styled('div')({
   // padding: '5px',
-  width: '300px',
+  width: '260px',
   display: 'flex',
   alignItems: 'center',
   paddingLeft: 10,
   paddingRight: 15,
   justifyContent: 'space-between',
+  cursor: 'pointer',
   '&:hover': {
     backgroundColor: '#f7f7f7',
   },
@@ -336,6 +339,8 @@ const DropMain = styled('div')({
 const DIV = styled('div')({
   alignItems: 'center',
   display: 'flex',
+  marginTop: 3,
+  marginBottom: 3,
 });
 const Connected = styled('p')({
   paddingLeft: '10px',
@@ -368,7 +373,7 @@ const H1 = styled('span')({
   fontWeight: '600',
   marginLeft: 10,
 });
-const DropTitle = styled('p')({
+const DropTitle = styled('span')({
   fontSize: '16px',
   fontFamily: 'Inter',
   fontWeight: '600',
@@ -384,6 +389,7 @@ const FileCopy = styled('img')({
   height: '20px',
   width: '20px',
   paddingRight: '10px',
+  cursor: 'pointer',
 });
 const HistoryDiv = styled('div')({
   backgroundColor: '#f7f7f7',
@@ -401,6 +407,7 @@ const HistoryTitle = styled('span')({
 const MainDiv = styled('div')({
   alignItems: 'center',
   display: 'flex',
+  cursor: 'pointer',
 });
 const Span = styled('span')({
   fontFamily: 'inter',
@@ -413,6 +420,10 @@ const Warning = styled('span')({
   fontWeight: 600,
   fontSize: 16,
   color: 'red',
+});
+const ControlGrids = styled(Grid)({
+  display: 'flex',
+  justifyContent: 'space-between',
 });
 
 type DataObject = {
@@ -434,39 +445,12 @@ const Navbar = () => {
     name: '',
     coin: '',
   });
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const handleOpenError = () => setErrorStatus(true);
-  const handleCloseError = () => setErrorStatus(false);
-
-  const connetWalletData = (coin: any) => {
-    dispatch(connetWallet(coin));
-  };
-  const connetNetworkData = (coin: any) => {
-    dispatch(connetNetwork(coin));
-  };
-
-  const CoinDetail: any = useSelector((state: ArticleState) => state.ConnectWallet);
-  const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
-
-  const connetWalletFunction = (value: DataObject) => {
-    setWallet(value);
-  };
-  const connetNetworkFunction = (value: DataObject) => {
-    setNetwork(value);
-  };
-
-  const Network = () => {
-    if (WalletData.name !== '' && NetworkData.name !== '') {
-      connetWalletData(WalletData);
-      connetNetworkData(NetworkData);
-    }
-  };
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [anchorElPrice, setAnchorElPrice] = React.useState<null | HTMLElement>(null);
   const openmenu = Boolean(anchorEl);
   const openmenuPrice = Boolean(anchorElPrice);
+  const CoinDetail: any = useSelector((state: ArticleState) => state.ConnectWallet);
+  const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -480,11 +464,61 @@ const Navbar = () => {
   const handleClosemenuPrice = () => {
     setAnchorElPrice(null);
   };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
+  const handleOpenError = () => setErrorStatus(true);
+  const handleCloseError = () => setErrorStatus(false);
+
+  const connetWalletData = (coin: any) => {
+    dispatch(connetWallet(coin));
+  };
+  const connetNetworkData = (coin: any) => {
+    dispatch(connetNetwork(coin));
+  };
+  const connetWalletFunction = (value: DataObject) => {
+    setWallet(value);
+  };
+  const connetNetworkFunction = (value: DataObject) => {
+    setNetwork(value);
+  };
+
+  const Network = () => {
+    if (WalletData.name !== '' && NetworkData.name !== '') {
+      connetWalletData(WalletData);
+      connetNetworkData(NetworkData);
+    }
+  };
+
+  const DishConnectWallet = () => {
+    handleClosemenuPrice();
+    satCheck(false);
+    setWallet({
+      name: '',
+      coin: '',
+    });
+    setNetwork({
+      name: '',
+      coin: '',
+    });
+    connetWalletData({
+      name: '',
+      coin: '',
+    });
+    connetNetworkData({
+      name: '',
+      coin: '',
+    });
+  };
+
+  const SelectData = () =>{
+    Network();
+    handleClose();
+  }
   return (
     <>
       <MainComponent>
-        <Grid container spacing={4}>
+        <ControlGrids container spacing={4}>
           <Grid item sm={1}>
             <Imgs src={Logo} height="43px" width="90px" />
           </Grid>
@@ -613,11 +647,15 @@ const Navbar = () => {
                   <HistoryDiv>
                     <MainDiv>
                       <img src={History} />
-                      <HistoryTitle>Histor</HistoryTitle>
+                      <HistoryTitle>History</HistoryTitle>
                     </MainDiv>
-                    <MainDiv>
+                    <MainDiv
+                      onClick={() => {
+                        DishConnectWallet();
+                      }}
+                    >
                       <img src={DishConnect} />
-                      <HistoryTitle>Disconnect</HistoryTitle>
+                      <HistoryTitle>{CoinNetwork.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
                     </MainDiv>
                   </HistoryDiv>
                 </CostomMenu>
@@ -627,197 +665,37 @@ const Navbar = () => {
               <img src={setting} />
             </SettingButton>
           </CostomGrid>
-        </Grid>
+        </ControlGrids>
       </MainComponent>
-      <ModalCostom
+      <ChooseNetworkModel
+        satCheck={() => {
+          satCheck(!Check);
+        }}
+        SelectData={() =>{SelectData()}}
+        Network={() => {
+          Network();
+        }}
+        Check={Check}
+        WalletData={WalletData.name}
+        ErrorStatus={ErrorStatus}
+        handleCloseError={() => {
+          handleCloseError();
+        }}
+        handleOpenError={() => {
+          handleOpenError();
+        }}
+        connetNetworkFunction={(val: any) => {
+          connetNetworkFunction(val);
+        }}
+        connetWalletFunction={(val: any) => {
+          connetWalletFunction(val);
+        }}
         open={open}
-        onClose={() => {
+        handleClose={() => {
           handleClose();
         }}
-      >
-        <Box sx={style}>
-          <TitleView>
-            <Title>Choose Network</Title>
-            <img
-              src={Cros}
-              onClick={() => {
-                handleClose();
-              }}
-            />
-          </TitleView>
-          <ViewMainView>
-            {ConnectNewworkOne.map((val, i) => {
-              return NetworkData.name === val.name ? (
-                <ViewMainActive>
-                  <SelectImg src={select} />
-                  <ImageIcon src={val.coin} />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMainActive>
-              ) : (
-                <ViewMain
-                  onClick={() => {
-                    connetNetworkFunction(val);
-                  }}
-                >
-                  <ImageIcon src={val.coin} />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMain>
-              );
-            })}
-          </ViewMainView>
-          <ViewMainView>
-            {ConnectNewworkTow.map((val, i) => {
-              return NetworkData.name === val.name ? (
-                <ViewMainActive>
-                  <SelectImg src={select} />
-                  <ImageIcon src={val.coin} />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMainActive>
-              ) : (
-                <ViewMain
-                  onClick={() => {
-                    connetNetworkFunction(val);
-                  }}
-                >
-                  <ImageIcon src={val.coin} />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMain>
-              );
-            })}
-          </ViewMainView>
-          <ViewMainView>
-            <ViewMain>
-              <TitleIcon
-                onClick={() => {
-                  handleOpenError();
-                }}
-              >
-                Error Modal
-              </TitleIcon>
-            </ViewMain>
-            <ModalCostom
-              open={ErrorStatus}
-              onClose={() => {
-                handleCloseError();
-              }}
-            >
-              <Box sx={styleError}>
-                <TitleView>
-                  <Title>Wrong Network</Title>
-                  <img
-                    src={Cros}
-                    onClick={() => {
-                      handleCloseError();
-                    }}
-                  />
-                </TitleView>
-                <MainDiv>
-                  <ImageIcon src={Coin} />
-                  <Span>Arbitrum</Span>
-                </MainDiv>
-                <br />
-                <Warning>You select wrong network please select anothor network</Warning>
-                <br/>
-                <br/>
-                <ConnectButton variant="text" onClick={() => {}}>
-                  Ok
-                </ConnectButton>
-              </Box>
-            </ModalCostom>
-          </ViewMainView>
-          <Title>Choose Wallet</Title>
-          <ViewMainView>
-            {ConnectWalletOne.map((val, i) => {
-              return WalletData.name === val.name ? (
-                <ViewMainActive>
-                  <SelectImg src={select} />
-                  <ImageIcon src={val.coin} />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMainActive>
-              ) : (
-                <ViewMain
-                  onClick={() => {
-                    connetWalletFunction(val);
-                  }}
-                >
-                  <ImageIcon src={val.coin} />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMain>
-              );
-            })}
-          </ViewMainView>
-          <ViewMainView>
-            {ConnectWalletTow.map((val, i) => {
-              return WalletData.name === val.name ? (
-                <ViewMainActive>
-                  <SelectImg src={select} />
-                  <ImageIcon src={val.coin} />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMainActive>
-              ) : (
-                <ViewMain
-                  onClick={() => {
-                    connetWalletFunction(val);
-                  }}
-                >
-                  <ImageIcon src={val.coin} />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMain>
-              );
-            })}
-          </ViewMainView>
-          <ViewMainView>
-            {ConnectWalletThree.map((val, i) => {
-              return WalletData.name === val.name ? (
-                <ViewMainActive>
-                  <SelectImg src={select} />
-                  <ImageIcon src={val.coin} />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMainActive>
-              ) : (
-                <ViewMain
-                  onClick={() => {
-                    connetWalletFunction(val);
-                  }}
-                >
-                  <ImageIcon src={val.coin} />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMain>
-              );
-            })}
-          </ViewMainView>
-          <TitleControl>
-            <FormControlLabel
-              control={
-                <Radio
-                  onClick={(e: any) => {
-                    satCheck(!Check);
-                  }}
-                  checked={Check ? true : false}
-                />
-              }
-              label=""
-            />
-            <Condition>
-              I accept the <ConditionPink>Terms of Services</ConditionPink> &{' '}
-              <ConditionPink>Privacy Policy</ConditionPink>
-            </Condition>
-          </TitleControl>
-          {Check ? (
-            <ConnectButton
-              variant="text"
-              onClick={() => {
-                Network();
-                handleClose();
-              }}
-            >
-              Connect Wallet
-            </ConnectButton>
-          ) : (
-            <ConnectButtonDisebal variant="text">Connect Wallet</ConnectButtonDisebal>
-          )}
-        </Box>
-      </ModalCostom>
+        NetworkData={NetworkData.name}
+      />
     </>
   );
 };
