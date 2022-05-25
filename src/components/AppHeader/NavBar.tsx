@@ -11,6 +11,8 @@ import DownAero from '../../assets/icon/DownAero.png';
 import DownIconWhite from '../../assets/icon/DownIconWhite.png';
 import Coin from '../../assets/icon/coin.png';
 import filecopy from '../../assets/icon/filecopy.png';
+import History from '../../assets/icon/History.png';
+import DishConnect from '../../assets/icon/DishConnect.png';
 import {
   ConnectNewworkOne,
   ConnectNewworkTow,
@@ -85,6 +87,7 @@ const CostomButton = styled(Button)({
   textTransform: 'initial',
   marginLeft: 5,
   marginRight: 5,
+  height: 60,
 });
 
 const CostomButtonActive = styled(Button)({
@@ -98,6 +101,7 @@ const CostomButtonActive = styled(Button)({
   textTransform: 'initial',
   marginLeft: 5,
   marginRight: 5,
+  height: 60,
 });
 const CostomButtonActiveCoin = styled(Button)({
   borderRadius: 20,
@@ -118,6 +122,7 @@ const SettingButton = styled(Button)({
   padding: '20px 0px',
   color: '#000000',
   opacity: '0.65',
+  height: 60,
 });
 const NotResult = styled('p')({
   padding: 30,
@@ -135,14 +140,30 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '40%',
+  width: '35%',
   bgcolor: 'background.paper',
   boxShadow: 24,
   paddingLeft: 4,
   paddingRight: 4,
   paddingBottom: 4,
   paddingTop: 1,
-  height: '85%',
+  height: '90%',
+  borderRadius: 2,
+  overFlow: 'auto',
+};
+const styleError = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '30%',
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  paddingLeft: 4,
+  paddingRight: 4,
+  paddingBottom: 4,
+  paddingTop: 1,
+  height: '30%',
   borderRadius: 2,
   overFlow: 'auto',
 };
@@ -269,7 +290,7 @@ const CoinPrice = styled('div')({
   marginLeft: 5,
   marginRight: 5,
   borderRadius: 16,
-  height: '80%',
+  height: 60,
 });
 const Into = styled('p')({
   backgroundColor: 'white',
@@ -285,7 +306,7 @@ const CoinDropIcon = styled('img')({
 });
 const CostomGrid = styled(Grid)({
   display: 'flex',
-  alignItems: 'center',
+  // alignItems: 'center',
 });
 const CostomMenu = styled(Menu)({
   marginTop: '5%',
@@ -335,31 +356,63 @@ const NetWorth = styled('div')({
   paddingLeft: '10px',
   padding: '5px',
 });
-const NetWorthTitle = styled('p')({
+const NetWorthTitle = styled('span')({
   fontSize: '14px',
   fontFamily: 'Inter',
   fontWeight: '600',
+  marginLeft: 10,
 });
-const H1 = styled('p')({
+const H1 = styled('span')({
   fontSize: '24px',
   fontFamily: 'Inter',
   fontWeight: '600',
+  marginLeft: 10,
 });
 const DropTitle = styled('p')({
   fontSize: '16px',
   fontFamily: 'Inter',
   fontWeight: '600',
 });
-const DropPrice = styled('p')({
+const DropPrice = styled('span')({
   fontSize: '14px',
   fontFamily: 'Inter',
   fontWeight: '600',
   color: '#d4d4d4',
+  marginLeft: 10,
 });
 const FileCopy = styled('img')({
   height: '20px',
   width: '20px',
   paddingRight: '10px',
+});
+const HistoryDiv = styled('div')({
+  backgroundColor: '#f7f7f7',
+  paddingLeft: 15,
+});
+const HistoryTitle = styled('span')({
+  fontSize: '16px',
+  fontFamily: 'Inter',
+  fontWeight: '600',
+  color: 'black',
+  marginLeft: 10,
+  marginBottom: 10,
+  marginTop: 10,
+});
+const MainDiv = styled('div')({
+  alignItems: 'center',
+  display: 'flex',
+});
+const Span = styled('span')({
+  fontFamily: 'inter',
+  fontWeight: 600,
+  fontSize: 16,
+  color: 'black',
+});
+const Warning = styled('span')({
+  fontFamily: 'inter',
+  fontWeight: 600,
+  fontSize: 16,
+  color: 'red',
 });
 
 type DataObject = {
@@ -370,6 +423,7 @@ const Navbar = () => {
   const classes = useStyles();
   const dispatch: any = useDispatch();
   const [open, setOpen] = React.useState(false);
+  const [ErrorStatus, setErrorStatus] = React.useState(false);
   const [Check, satCheck] = React.useState<Boolean>(false);
   const [filterInput, setFilterInput] = React.useState<String>('');
   const [WalletData, setWallet] = React.useState<DataObject>({
@@ -382,6 +436,10 @@ const Navbar = () => {
   });
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleOpenError = () => setErrorStatus(true);
+  const handleCloseError = () => setErrorStatus(false);
+
   const connetWalletData = (coin: any) => {
     dispatch(connetWallet(coin));
   };
@@ -400,11 +458,10 @@ const Navbar = () => {
   };
 
   const Network = () => {
-    if(WalletData.name !== '' && NetworkData.name !== ''){
+    if (WalletData.name !== '' && NetworkData.name !== '') {
       connetWalletData(WalletData);
       connetNetworkData(NetworkData);
     }
-   
   };
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [anchorElPrice, setAnchorElPrice] = React.useState<null | HTMLElement>(null);
@@ -527,15 +584,15 @@ const Navbar = () => {
                     horizontal: 'left',
                   }}
                 >
-                  <Connected>
-                    <DropPrice>Connected with MetaMask</DropPrice>
-                  </Connected>
+                  <DropPrice>Connected with MetaMask</DropPrice>
                   <Copy>
                     <FileCopy src={filecopy} />
                     <p>0x37...0420</p>
                   </Copy>
                   <NetWorth>
                     <NetWorthTitle>Net Worth</NetWorthTitle>
+                    <br />
+                    <br />
                     <H1>36.34 USDT</H1>
                   </NetWorth>
                   {DropDownDataWallet.map((val, i) => {
@@ -553,6 +610,16 @@ const Navbar = () => {
                       </DropMain>
                     );
                   })}
+                  <HistoryDiv>
+                    <MainDiv>
+                      <img src={History} />
+                      <HistoryTitle>Histor</HistoryTitle>
+                    </MainDiv>
+                    <MainDiv>
+                      <img src={DishConnect} />
+                      <HistoryTitle>Disconnect</HistoryTitle>
+                    </MainDiv>
+                  </HistoryDiv>
                 </CostomMenu>
               </div>
             )}
@@ -617,6 +684,46 @@ const Navbar = () => {
                 </ViewMain>
               );
             })}
+          </ViewMainView>
+          <ViewMainView>
+            <ViewMain>
+              <TitleIcon
+                onClick={() => {
+                  handleOpenError();
+                }}
+              >
+                Error Modal
+              </TitleIcon>
+            </ViewMain>
+            <ModalCostom
+              open={ErrorStatus}
+              onClose={() => {
+                handleCloseError();
+              }}
+            >
+              <Box sx={styleError}>
+                <TitleView>
+                  <Title>Wrong Network</Title>
+                  <img
+                    src={Cros}
+                    onClick={() => {
+                      handleCloseError();
+                    }}
+                  />
+                </TitleView>
+                <MainDiv>
+                  <ImageIcon src={Coin} />
+                  <Span>Arbitrum</Span>
+                </MainDiv>
+                <br />
+                <Warning>You select wrong network please select anothor network</Warning>
+                <br/>
+                <br/>
+                <ConnectButton variant="text" onClick={() => {}}>
+                  Ok
+                </ConnectButton>
+              </Box>
+            </ModalCostom>
           </ViewMainView>
           <Title>Choose Wallet</Title>
           <ViewMainView>

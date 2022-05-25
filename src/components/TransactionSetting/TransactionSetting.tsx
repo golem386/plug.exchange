@@ -153,17 +153,18 @@ const FlexRow = styled("div")({
     alignItems: 'center',
     justifyContent: 'space-around'
 });
-const AutoRout = styled("p")({
+const AutoRout = styled("span")({
     fontFamily: 'Inter',
     fontWeight: '500',
     fontSize: '16px',
-    color: '#a6a6a6'
+    color: '#a6a6a6',
+    marginBottom:5
 });
 const MainRow = styled("div")({
 
 });
 const FlexRowMain = styled("div")({
-    marginLeft: 10,
+    marginLeft: 15,
 });
 const MainDivs = styled("div")({
     margin: 10,

@@ -28,34 +28,27 @@ const SwapDiv = styled("div")({
   justifyContent: "space-between",
   paddingLeft: 15,
   paddingRight: 15,
+  cursor:'pointer',
+  paddingTop:15
 });
 
-const Swap = styled("p")({
+const Swap = styled("span")({
   fontSize: "24px",
   fontWeight: "600",
   color: "black",
   fontFamily: "Inter",
 });
-const Pay = styled("p")({
+const Pay = styled("span")({
   fontSize: "16px",
   fontWeight: "500",
   color: "black",
   fontFamily: "Inter",
 });
-const Max = styled("p")({
+const Max = styled("span")({
   fontSize: "16px",
   fontWeight: "500",
   color: "#BB36FF",
   fontFamily: "Inter",
-});
-const InputMain = styled("div")({
-  backgroundColor: "#f2f2f2",
-  alignItems: "center",
-  display: "flex",
-  padding: 10,
-  borderRadius: 16,
-  marginLeft: 15,
-  marginRight: 15,
 });
 const TextInput = styled("input")({
   width: "90%",
@@ -71,40 +64,19 @@ const TextInput = styled("input")({
     outline: 'none'
   }
 });
-const EthIcon = styled("img")({
-  height: 20,
-  width: 20,
-});
-const MainIcon = styled("div")({
-  boxShadow: "0px 15px 25px rgba(0, 0, 0, 0.1)",
-  borderRadius: "100px",
-  display: "flex",
-  alignItems: "center",
-  backgroundColor: "white",
-  paddingLeft: 10,
-  paddingRight: 10,
-  height: 35,
-});
-const TypeText = styled("p")({
-  fontSize: 16,
-  fontWeight: "600",
-  paddingLeft: 5,
-  fontFamily: "Inter",
-});
-const DownImg = styled("img")({
-  paddingLeft: 15,
-});
 const ReceiveMain = styled("div")({
   backgroundColor: "#e8e8e8",
   marginTop: "10%",
   position: "relative",
   paddingBottom: "10%",
+  paddingTop:'10px'
 });
-const YouReceive = styled("p")({
+const YouReceive = styled("span")({
   padding: 20,
   fontFamily:'inter',
   fontWeight:'500',
-  fontSize:16
+  fontSize:16,
+
 });
 const UpDownImage = styled("img")({
   backgroundColor: "white",
@@ -115,16 +87,6 @@ const UpDownImage = styled("img")({
   top: -20,
   left: "40%",
 });
-const SetSelect = styled(Select)({
-  height: 35,
-  borderRadius: 40,
-  backgroundColor: "#e8e8e8",
-});
-const SetSelectToken = styled(Select)({
-  height: 35,
-  borderRadius: 40,
-  backgroundColor: "white",
-});
 const MainViewInputToken = styled("div")({
   display: "flex",
   alignItems: "center",
@@ -134,6 +96,7 @@ const MainViewInputToken = styled("div")({
   borderRadius: 16,
   paddingLeft: 10,
   height: 70,
+  marginTop:10
 });
 const MainViewInput = styled("div")({
   display: "flex",
@@ -144,6 +107,7 @@ const MainViewInput = styled("div")({
   borderRadius: 16,
   paddingLeft: 10,
   height: 70,
+  marginTop:10
 });
 const OrderBtn = styled(Button)({
   margin: 15,
@@ -161,12 +125,14 @@ const ETH = styled('p')({
 const ImgVarticalShort = styled('img')({
   height: '15px',
   width: '15px',
-  marginLeft: 10
+  marginLeft: 10,
+  cursor:'pointer',
 })
 const ImgDownAero = styled('img')({
   height: '7.78px',
   width: '12.73px',
-  marginRight: '5%'
+  marginRight: '5%',
+  cursor:'pointer',
 })
 const ShortView = styled('div')({
   display: 'flex',
@@ -280,12 +246,16 @@ const Icon = styled('img')({
   height: '18px',
   marginLeft: 5,
   marginRight: 5,
+  cursor:'pointer',
+  
 })
 const IconHr = styled('img')({
   width: '20.5px',
   height: '2px',
   marginLeft: 5,
   marginRight: 5,
+  cursor:'pointer',
+  padding:5
 })
 
 const QusetionIcon = styled('img')({
