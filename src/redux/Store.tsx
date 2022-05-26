@@ -1,13 +1,10 @@
-import reducer from "./Reducers/reducer";
-import rootReducer from "./Reducers/RootReducer";
+import reducer from './Reducers/reducer';
+import rootReducer from './Reducers/RootReducer';
 // ** Redux, Thunk & Root Reducer Imports
-import thunk from "redux-thunk";
+import thunk from 'redux-thunk';
 // import createDebounce from "redux-debounced";
-import { createStore, applyMiddleware, compose, Store } from "redux";
-import {
-    useDispatch as useReduxDispatch,
-    useSelector as useReduxSelector,
-} from "react-redux";
+import { createStore, applyMiddleware, compose, Store } from 'redux';
+import { useDispatch as useReduxDispatch, useSelector as useReduxSelector } from 'react-redux';
 
 declare global {
   interface Window {
@@ -28,7 +25,6 @@ export const useSelector = useReduxSelector;
 export const useDispatch = () => useReduxDispatch();
 
 export { store };
-
 
 // export const store: Store<ArticleState, ArticleAction> & {
 //     dispatch: DispatchType;
