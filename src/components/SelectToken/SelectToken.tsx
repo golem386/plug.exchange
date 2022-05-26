@@ -21,7 +21,7 @@ import coin from '../../assets/icon/coin6.png';
 import { list } from '../../contexts/SelectTokenDATA';
 import { Dispatch } from 'redux';
 import { useDispatch } from 'react-redux';
-import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../redux/actionCreators';
+import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../redux/Actions';
 import { useSelector } from 'react-redux';
 import info from '../../assets/icon/info.png';
 

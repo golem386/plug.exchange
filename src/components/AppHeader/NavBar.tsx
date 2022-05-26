@@ -5,26 +5,15 @@ import React from 'react';
 import Logo from '../../assets/logo.png';
 import setting from '../../assets/icon/setting.png';
 import Serch from '../../assets/icon/Serch.png';
-import select from '../../assets/icon/select.png';
-import Cros from '../../assets/icon/Cros.png';
 import DownAero from '../../assets/icon/DownAero.png';
 import DownIconWhite from '../../assets/icon/DownIconWhite.png';
-import Coin from '../../assets/icon/coin.png';
 import filecopy from '../../assets/icon/filecopy.png';
 import History from '../../assets/icon/History.png';
 import DishConnect from '../../assets/icon/DishConnect.png';
-import {
-  ConnectNewworkOne,
-  ConnectNewworkTow,
-  ConnectWalletOne,
-  ConnectWalletThree,
-  ConnectWalletTow,
-  DropDownData,
-  DropDownDataWallet,
-} from '../../contexts/ConnectWalletDATA';
+import { DropDownData, DropDownDataWallet } from '../../contexts/ConnectWalletDATA';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { connetNetwork, connetWallet } from '../../redux/actionCreators';
+import { connetNetwork, connetWallet } from '../../redux/Actions';
 import ChooseNetworkModel from '../ChooseNetworkModel/ChooseNetworkModel';
 const MainComponent = styled('div')({
   display: 'flex',
@@ -511,10 +500,10 @@ const Navbar = () => {
     });
   };
 
-  const SelectData = () =>{
+  const SelectData = () => {
     Network();
     handleClose();
-  }
+  };
   return (
     <>
       <MainComponent>
@@ -671,7 +660,9 @@ const Navbar = () => {
         satCheck={() => {
           satCheck(!Check);
         }}
-        SelectData={() =>{SelectData()}}
+        SelectData={() => {
+          SelectData();
+        }}
         Network={() => {
           Network();
         }}

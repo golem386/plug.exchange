@@ -14,7 +14,7 @@ import Coin6 from '../../assets/icon/coin3.png';
 import hr from '../../assets/icon/hr.png';
 import { Dispatch } from 'redux';
 import { useDispatch } from 'react-redux';
-import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../redux/actionCreators';
+import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../redux/Actions';
 import { useSelector } from 'react-redux';
 
 const MainDiv = styled('div')({

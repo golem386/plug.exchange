@@ -8,12 +8,12 @@ import ShortVartical from '../../assets/icon/ShortVartical.png';
 
 const TextHeading = styled('div')({
   fontFamily: 'Inter',
-  fontSize: '24px',
+  fontSize: 'calc(0.75em + 1vw)',
   display: 'flex',
 });
 const TextSpan = styled('span')({
   fontFamily: 'Inter',
-  fontSize: '24px',
+  fontSize: 'calc(0.75em + 1vw)',
   opacity: '0.3',
   paddingLeft: 5,
 });
@@ -69,7 +69,7 @@ const ShortIcon = styled('img')({
 
 const CustomTabsActive = styled(Tabs)({
   // background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  marginLeft:'32vw'
+  marginLeft: '32vw',
 });
 
 const ChartButtonDiv = styled('div')({
@@ -77,6 +77,7 @@ const ChartButtonDiv = styled('div')({
   alignItems: 'center',
   justifyContent: 'flex-end',
 });
+const View = styled('div')({});
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -113,7 +114,7 @@ const Chart = () => {
   const CoinDetail: any = useSelector((state: ArticleState) => state.CoinDetail);
   const receiveCoinDetail: any = useSelector((state: ArticleState) => state.receiveCoinDetail);
   return (
-    <>
+    <View>
       <TextHeading>
         {CoinDetail.fullName}
         <TextSpan>({CoinDetail.name})</TextSpan>
@@ -312,9 +313,8 @@ const Chart = () => {
           <Box sx={{ borderBottom: 0, borderColor: 'divider' }}>
             <CustomTabsActive
               TabIndicatorProps={{
-                style: { display: 'none'},
+                style: { display: 'none' },
               }}
-              
               value={value}
               onChange={handleChange}
             >
@@ -337,7 +337,7 @@ const Chart = () => {
           </Box>
         </Box>
       </ChartDiv>
-    </>
+    </View>
   );
 };
 

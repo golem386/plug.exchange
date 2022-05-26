@@ -5,7 +5,7 @@ import Cros from '../../assets/icon/Cros.png';
 import Serch from '../../assets/icon/Serch.png';
 import logoimg from '../../assets/icon/coin3.png';
 import { useDispatch } from 'react-redux';
-import { onModelOpen } from '../../redux/actionCreators';
+import { onModelOpen } from '../../redux/Actions';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',

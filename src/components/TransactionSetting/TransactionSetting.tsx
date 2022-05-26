@@ -8,7 +8,7 @@ import check from '../../assets/icon/check.png';
 import TopAero from '../../assets/icon/TopAero.png';
 import { Dispatch } from 'redux';
 import { useDispatch } from 'react-redux';
-import { onModelOpen } from '../../redux/actionCreators';
+import { onModelOpen } from '../../redux/Actions';
 import { Switch } from '@mui/material';
 import { Margin } from '@mui/icons-material';
 
