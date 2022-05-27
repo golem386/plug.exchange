@@ -1,5 +1,5 @@
 import { Button, styled } from '@mui/material';
-import React, { Component } from 'react';
+import React from 'react';
 import ShereLogo from '../../assets/icon/ShereLogo.png';
 
 const MainDiv = styled('div')({

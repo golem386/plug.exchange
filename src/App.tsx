@@ -2,7 +2,7 @@ import React from "react";
 import { Provider } from 'react-redux'
 import { Button } from "@mui/material";
 import { styled } from "@mui/system";
-import { IndexPage } from "./pages";
+import { SwapPage } from "./pages";
 import { store } from "./redux/Store";
 
 
@@ -15,7 +15,7 @@ function App() {
   return (
     <Provider store={store}>
       <MyComponent>
-        <IndexPage />
+        <SwapPage />
       </MyComponent>
     </Provider>
   );

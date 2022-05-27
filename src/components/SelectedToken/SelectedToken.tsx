@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { styled } from '@material-ui/core';
-import { Button, TextField } from '@mui/material';
+import { Button } from '@mui/material';
 import Cros from '../../assets/icon/Cros.png';
 import Serch from '../../assets/icon/Serch.png';
 import logoimg from '../../assets/icon/coin3.png';
@@ -97,6 +97,7 @@ const TitleItemBlack = styled('p')({
   marginLeft: 10,
 });
 const Images = styled('img')({});
+
 const Selectedtoken = () => {
   const dispatch: any = useDispatch();
   const onModel = (model: any) => {

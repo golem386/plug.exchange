@@ -1,3 +1,3 @@
-import IndexPage from "./Home/Home";
+import SwapPage from "./swap";
 
-export { IndexPage };
+export { SwapPage };
