@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Button, Grid, List } from '@mui/material';
 import React, { useState } from 'react';
-import DownAero from '../../assets/icon/DownAero.png';
+import DownArrow from '../../assets/icon/DownArrow.png';
 import shere from '../../assets/icon/Shere.png';
 import short from '../../assets/icon/short.png';
 import ShowMoreIcon from '../../assets/icon/ShowMore.png';
@@ -117,11 +117,11 @@ const ShowMore = styled('p')({
   fontFamily: 'Inter',
   cursor: 'pointer',
 });
-const DownAeroImg = styled('img')({
+const DownArrowImg = styled('img')({
   height: 11,
   paddingLeft: 10,
 });
-const DownAeroImgTop = styled('img')({
+const DownArrowImgTop = styled('img')({
   height: 11,
   paddingLeft: 10,
 });
@@ -139,7 +139,7 @@ const QuoteTable = () => {
               <MainSpan>
                 1%
                 <ImageSpan>
-                  <img src={DownAero} />
+                  <img src={DownArrow} />
                 </ImageSpan>
               </MainSpan>
             </Title>
@@ -148,7 +148,7 @@ const QuoteTable = () => {
               <MainSpan>
                 206 GWEI
                 <ImageSpan>
-                  <img src={DownAero} />
+                  <img src={DownArrow} />
                 </ImageSpan>
               </MainSpan>
             </Title>
@@ -203,7 +203,7 @@ const QuoteTable = () => {
               <MainSpan>
                 1%
                 <ImageSpan>
-                  <img src={DownAero} />
+                  <img src={DownArrow} />
                 </ImageSpan>
               </MainSpan>
             </Title>
@@ -212,7 +212,7 @@ const QuoteTable = () => {
               <MainSpan>
                 206 GWEI
                 <ImageSpan>
-                  <img src={DownAero} />
+                  <img src={DownArrow} />
                 </ImageSpan>
               </MainSpan>
             </Title>
@@ -268,7 +268,7 @@ const QuoteTable = () => {
           }}
         >
           Hide Details
-          <DownAeroImgTop src={HideDetail} />
+          <DownArrowImgTop src={HideDetail} />
         </ShowMore>
       ) : (
         <ShowMore
@@ -278,7 +278,7 @@ const QuoteTable = () => {
           }}
         >
           Show More Details
-          <DownAeroImg src={ShowMoreIcon} />
+          <DownArrowImg src={ShowMoreIcon} />
         </ShowMore>
       )}
     </>

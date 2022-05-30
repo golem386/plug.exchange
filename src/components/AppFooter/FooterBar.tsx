@@ -12,7 +12,7 @@ const MainComponent = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-between',
 });
-const CoustomButtom = styled(Button)({
+const CustomButtom = styled(Button)({
   borderRadius: 100,
   margin: 10,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
@@ -27,7 +27,7 @@ const NameButton = styled(Button)({
   color: '#000000',
   opacity: '0.65',
 });
-const CoustomButtomActive = styled(Button)({
+const CustomButtomActive = styled(Button)({
   borderRadius: 100,
   margin: 10,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
@@ -39,18 +39,18 @@ const Footerbar = () => {
   return (
     <MainComponent>
       <div>
-        <CoustomButtom>
+        <CustomButtom>
           <img src={teligram} />
-        </CoustomButtom>
-        <CoustomButtom>
+        </CustomButtom>
+        <CustomButtom>
           <img src={social} />
-        </CoustomButtom>
-        <CoustomButtomActive>
+        </CustomButtom>
+        <CustomButtomActive>
           <img src={twiter} />
-        </CoustomButtomActive>
-        <CoustomButtom>
+        </CustomButtomActive>
+        <CustomButtom>
           <img src={discord} />
-        </CoustomButtom>
+        </CustomButtom>
       </div>
       <div>
         <NameButton>FAQs</NameButton>

@@ -6,7 +6,7 @@ import { connetNetwork, connetWallet } from '../../redux/Actions';
 import filecopy from '../../assets/icon/filecopy.png';
 import History from '../../assets/icon/History.png';
 import DishConnect from '../../assets/icon/DishConnect.png';
-import DownAero from '../../assets/icon/DownAero.png';
+import DownArrow from '../../assets/icon/DownArrow.png';
 import { useSelector } from 'react-redux';
 import UserAssets from './UserAssets';
 
@@ -133,7 +133,7 @@ const WalletDetails = () => {
         <ImageIconDropDown src={CoinDetail.coin} />
         <p>{CoinDetail.Subname}</p>
         <Into>{CoinDetail.Price}</Into>
-        <CoinDropIcon src={DownAero} />
+        <CoinDropIcon src={DownArrow} />
       </CoinPrice>
       <CustomMenu
         id="demo-positioned-menu2"

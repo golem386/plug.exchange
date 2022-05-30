@@ -5,8 +5,8 @@ import ShortVartical from '../../../../assets/icon/ShortVartical.png';
 import trans from '../../../../assets/icon/trans.png';
 import Question from '../../../../assets/icon/Question.svg';
 import plus from '../../../../assets/icon/plus.png';
-import TopAero from '../../../../assets/icon/TopAero.png';
-import DownAero from '../../../../assets/icon/DownAero.png';
+import TopArrow from '../../../../assets/icon/TopArrow.png';
+import DownArrow from '../../../../assets/icon/DownArrow.png';
 import Coin from '../../../../assets/icon/coin.png';
 import Coin6 from '../../../../assets/icon/coin3.png';
 import hr from '../../../../assets/icon/hr.png';
@@ -21,7 +21,7 @@ const ImgVarticalShort = styled('img')({
   marginLeft: 10,
   cursor: 'pointer',
 });
-const ImgDownAero = styled('img')({
+const ImgDownArrow = styled('img')({
   height: '7.78px',
   width: '12.73px',
   marginRight: '5%',
@@ -193,11 +193,11 @@ const SwapRouter = (props: ComponentProps) => {
           <ETH>1 ETH = 4,008.2766 USDT</ETH>
           <ImgVarticalShort src={ShortVartical} />
         </ShortView>
-        <ImgDownAero
+        <ImgDownArrow
           onClick={() => {
             setSlider(!Slider);
           }}
-          src={Slider === true ? TopAero : DownAero}
+          src={Slider === true ? TopArrow : DownArrow}
         />
       </MainContent>
       {Slider === true ? (

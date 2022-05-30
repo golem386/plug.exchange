@@ -4,7 +4,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { onModelOpen } from '../../../../redux/Actions';
-import DownAero from '../../../../assets/icon/DownAero.png';
+import DownArrow from '../../../../assets/icon/DownArrow.png';
 import { SwapArrow } from '../SwapArrow';
 
 const ReceiveMain = styled('div')({
@@ -90,7 +90,7 @@ const CurrencyOutput = () => {
           >
             <CoinImgTag src={ReceiveCoin.image} />
             <CoinTitle>{ReceiveCoin.name}</CoinTitle>
-            <CoinDropIcon src={DownAero} />
+            <CoinDropIcon src={DownArrow} />
           </SelectMainDarkCoin>
         </FormControl>
       </MainViewInput>

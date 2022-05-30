@@ -3,8 +3,8 @@ import { Button, FormControlLabel, Radio } from '@mui/material';
 import React from 'react';
 import close from '../../../../assets/icon/Cros.png';
 import Question from '../../../../assets/icon/Question.svg';
-import DownAero from '../../../../assets/icon/DownAero.png';
-import TopAero from '../../../../assets/icon/TopAero.png';
+import DownArrow from '../../../../assets/icon/DownArrow.png';
+import TopArrow from '../../../../assets/icon/TopArrow.png';
 import { useDispatch } from 'react-redux';
 import { onModelOpen } from '../../../../redux/Actions';
 import { Switch } from '@mui/material';
@@ -129,7 +129,7 @@ const TimeTextPink = styled('p')({
   alignItems: 'center',
 });
 
-const DownAeroIcon = styled('img')({
+const DownArrowIcon = styled('img')({
   height: '7.78px',
   width: '12.73px',
   marginLeft: 10,
@@ -247,8 +247,8 @@ const TransactionSettings = () => {
         {Slider === false ? (
           <TimeText>
             Instant (102.73 - 140.28 GWEI)
-            <DownAeroIcon
-              src={DownAero}
+            <DownArrowIcon
+              src={DownArrow}
               onClick={() => {
                 setSlider(!Slider);
               }}
@@ -257,11 +257,11 @@ const TransactionSettings = () => {
         ) : (
           <TimeTextPink>
             Instant (102.73 - 140.28 GWEI)
-            <DownAeroIcon
+            <DownArrowIcon
               onClick={() => {
                 setSlider(!Slider);
               }}
-              src={TopAero}
+              src={TopArrow}
             />
           </TimeTextPink>
         )}
