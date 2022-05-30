@@ -6,7 +6,7 @@ import DownIconWhite from '../../assets/icon/DownIconWhite.png';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
 import { ComponentProps } from './Props';
 
-const CostomButtonActiveCoin = styled(Button)({
+const CustomButtonActiveCoin = styled(Button)({
   borderRadius: 20,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   padding: '0px 15px',
@@ -39,10 +39,10 @@ const CoinDropIcon = styled('img')({
   width: '8.49px',
   marginLeft: 10,
 });
-const CostomMenu = styled(Menu)({
+const CustomMenu = styled(Menu)({
   marginTop: '5%',
 });
-const CostomMenuItem = styled(MenuItem)({
+const CustomMenuItem = styled(MenuItem)({
   paddingTop: 3,
   paddingBottom: 3,
   paddingRight: '30px',
@@ -66,7 +66,7 @@ const SwitchNetwork = (props: ComponentProps) => {
   };
   return (
     <div>
-      <CostomButtonActiveCoin
+      <CustomButtonActiveCoin
         id="demo-positioned-button"
         aria-controls={openmenu ? 'demo-positioned-menu' : undefined}
         aria-haspopup="true"
@@ -76,8 +76,8 @@ const SwitchNetwork = (props: ComponentProps) => {
         <ImageIcon src={CoinNetwork.coin} />
         <TitleIcon>{CoinNetwork.name}</TitleIcon>
         <CoinDropIcon src={DownIconWhite} />
-      </CostomButtonActiveCoin>
-      <CostomMenu
+      </CustomButtonActiveCoin>
+      <CustomMenu
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         anchorEl={anchorEl}
@@ -94,17 +94,17 @@ const SwitchNetwork = (props: ComponentProps) => {
       >
         {DropDownData.map((val, i) => {
           return (
-            <CostomMenuItem
+            <CustomMenuItem
               onClick={() => {
                 props.connetNetworkData(val);
               }}
             >
               <ImageIconDropDown src={val.coin} />
               <DropDownTitleIcon>{val.name}</DropDownTitleIcon>
-            </CostomMenuItem>
+            </CustomMenuItem>
           );
         })}
-      </CostomMenu>
+      </CustomMenu>
     </div>
   );
 };

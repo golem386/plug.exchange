@@ -74,7 +74,7 @@ const ListItemMain = styled(ListItem)({
 const IconImg = styled('img')({
   opacity: 0.5,
 });
-const ModalCostom = styled(Modal)({
+const ModalCustom = styled(Modal)({
   border: 'none',
   borderRadius: 20,
 });
@@ -123,7 +123,7 @@ const Selecttoken = (props: PropsComponent) => {
           loading="lazy"
         />
         <TextInputActive placeholder="Search by Name or Paste Address" />
-        <ModalCostom
+        <ModalCustom
           open={open}
           onClose={() => {
             handleClose();
@@ -134,7 +134,7 @@ const Selecttoken = (props: PropsComponent) => {
               handleClose();
             }}
           />
-        </ModalCostom>
+        </ModalCustom>
       </InputIcon>
       <List>
         {list.map((val, i) => {

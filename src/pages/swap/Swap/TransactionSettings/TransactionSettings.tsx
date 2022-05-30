@@ -49,7 +49,7 @@ const FlexView = styled('div')({
   display: 'flex',
   alignItems: 'center',
 });
-const CostomButtonActive = styled(Button)({
+const CustomButtonActive = styled(Button)({
   borderRadius: '16px',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   padding: '10px 24px',
@@ -63,7 +63,7 @@ const CostomButtonActive = styled(Button)({
   height: '52px',
   width: '47%',
 });
-const CostomButtonActiveNumber = styled(Button)({
+const CustomButtonActiveNumber = styled(Button)({
   borderRadius: '16px',
   background: '#e6e6e6',
   padding: '10px 24px',
@@ -171,7 +171,7 @@ const DivForms = styled('div')({
   width: '40%',
   justifyContent: 'space-between',
 });
-const DivFormsCostom = styled('div')({
+const DivFormsCustom = styled('div')({
   display: 'flex',
   alignItems: 'center',
   width: '70%',
@@ -228,8 +228,8 @@ const TransactionSettings = () => {
         <QuestionIcon src={Question} />
       </Slippage>
       <FlexView>
-        <CostomButtonActive>Auto</CostomButtonActive>
-        <CostomButtonActiveNumber>0.50 %</CostomButtonActiveNumber>
+        <CustomButtonActive>Auto</CustomButtonActive>
+        <CustomButtonActiveNumber>0.50 %</CustomButtonActiveNumber>
       </FlexView>
       <Slippage>
         <SlippageText>Transaction Deadline</SlippageText>
@@ -290,10 +290,10 @@ const TransactionSettings = () => {
             <GWEI>108.73 - 130.28 GWEI</GWEI>
           </MainDivs>
           <MainDivs>
-            <DivFormsCostom>
+            <DivFormsCustom>
               <FormControlLabel value="Custom" control={<Radio />} label="Custom" />
               <TextTypeinput defaultValue={10} />
-            </DivFormsCostom>
+            </DivFormsCustom>
             <GWEI>GWEI</GWEI>
           </MainDivs>
         </>

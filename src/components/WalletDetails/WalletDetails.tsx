@@ -76,7 +76,7 @@ const ImageIconDropDown = styled('img')({
   width: '30px',
   paddingRight: '20px',
 });
-const CostomMenu = styled(Menu)({
+const CustomMenu = styled(Menu)({
   marginTop: '5%',
 });
 const CoinDropIcon = styled('img')({
@@ -135,7 +135,7 @@ const WalletDetails = () => {
         <Into>{CoinDetail.Price}</Into>
         <CoinDropIcon src={DownAero} />
       </CoinPrice>
-      <CostomMenu
+      <CustomMenu
         id="demo-positioned-menu2"
         aria-labelledby="demo-positioned-button2"
         anchorEl={anchorElPrice}
@@ -175,7 +175,7 @@ const WalletDetails = () => {
             <HistoryTitle>{CoinNetwork.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
           </MainDiv>
         </HistoryDiv>
-      </CostomMenu>
+      </CustomMenu>
     </div>
   );
 };

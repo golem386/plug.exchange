@@ -62,7 +62,7 @@ const TitleDisebal = styled('p')({
   fontSize: '20px',
   fontWeight: 600,
 });
-const CostomButtonActive = styled(Button)({
+const CustomButtonActive = styled(Button)({
   borderRadius: '100px',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   padding: '3px 10px',
@@ -164,7 +164,7 @@ const CViewImgThree = styled('img')({
   width: '24px',
   marginRight: 20,
 });
-const CostomButtonActiveCoin = styled(Button)({
+const CustomButtonActiveCoin = styled(Button)({
   borderRadius: '100px',
   background: '#e6e6e6',
   padding: '3px 10px',
@@ -206,7 +206,7 @@ const SwapRouter = (props: ComponentProps) => {
             <MainTitleView>
               <Div>
                 <Title>1inch</Title>
-                <CostomButtonActive>Save $12.20</CostomButtonActive>
+                <CustomButtonActive>Save $12.20</CustomButtonActive>
               </Div>
               <Amount>2442.57</Amount>
             </MainTitleView>
@@ -219,7 +219,7 @@ const SwapRouter = (props: ComponentProps) => {
             <MainTitleView>
               <Div>
                 <TitleDisebal>1inch</TitleDisebal>
-                <CostomButtonActive>Save $12.20</CostomButtonActive>
+                <CustomButtonActive>Save $12.20</CustomButtonActive>
               </Div>
               <AmountDisebal>2442.57</AmountDisebal>
             </MainTitleView>
@@ -254,12 +254,12 @@ const SwapRouter = (props: ComponentProps) => {
             <Route>
               <CView>
                 <CoinImg src={Coin} />
-                <CostomButtonActiveCoin>v3 - 100%</CostomButtonActiveCoin>
+                <CustomButtonActiveCoin>v3 - 100%</CustomButtonActiveCoin>
               </CView>
               <CView>
                 <CViewImg src={Coin} />
                 <CViewImgTow src={Coin6} />
-                <CostomButtonActiveCoin>0.05%</CostomButtonActiveCoin>
+                <CustomButtonActiveCoin>0.05%</CustomButtonActiveCoin>
               </CView>
               <CView>
                 <CViewImgThree src={Coin6} />

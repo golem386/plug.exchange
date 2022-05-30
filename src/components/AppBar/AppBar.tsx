@@ -45,7 +45,7 @@ const TextInputActive = styled('input')({
   },
 });
 
-const CostomButton = styled(Button)({
+const CustomButton = styled(Button)({
   borderRadius: 16,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
   padding: '10px 24px',
@@ -60,7 +60,7 @@ const CostomButton = styled(Button)({
   height: 60,
 });
 
-const CostomButtonActive = styled(Button)({
+const CustomButtonActive = styled(Button)({
   borderRadius: 16,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   padding: '10px 24px',
@@ -77,7 +77,7 @@ const Imgs = styled('img')({
   marginTop: '15%',
 });
 
-const CostomGrid = styled(Grid)({
+const CustomGrid = styled(Grid)({
   display: 'flex',
   justifyContent: 'space-between',
   // alignItems: 'center',
@@ -157,8 +157,8 @@ const Navbar = () => {
             </InputIcon>
             {filterInput !== '' ? <CurrencySearch /> : null}
           </Grid>
-          <CostomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 4 : 7}>
-            <CostomButton>Buy Crypto</CostomButton>
+          <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 4 : 7}>
+            <CustomButton>Buy Crypto</CustomButton>
             {CoinNetwork.name !== '' ? (
               <SwitchNetwork
                 connetNetworkData={(val: any) => {
@@ -166,7 +166,7 @@ const Navbar = () => {
                 }}
               />
             ) : (
-              <CostomButtonActive
+              <CustomButtonActive
                 onClick={() => {
                   connetWalletFunction(nullObj);
                   connetNetworkFunction(nullObj);
@@ -175,11 +175,11 @@ const Navbar = () => {
                 }}
               >
                 Connect Wallet
-              </CostomButtonActive>
+              </CustomButtonActive>
             )}
             {CoinDetail.name === '' && CoinNetwork.name === '' ? '' : <WalletDetails />}
             <Settings />
-          </CostomGrid>
+          </CustomGrid>
         </ControlGrids>
       </MainComponent>
       <ChooseNetworkModel

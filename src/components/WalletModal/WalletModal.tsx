@@ -29,7 +29,7 @@ const styleError = {
   borderRadius: 2,
   overFlow: 'auto',
 };
-const ModalCostom = styled(Modal)({
+const ModalCustom = styled(Modal)({
   border: 'none',
   alignItems: 'center',
   display: 'flex',
@@ -170,7 +170,7 @@ const Boxs = styled('div')({
 
 const WalletModal = (props: ComponentProps) => {
   return (
-    <ModalCostom open={props.open} onClose={props.handleClose}>
+    <ModalCustom open={props.open} onClose={props.handleClose}>
       <Boxs>
         <TitleView>
           <Title>Choose Network</Title>
@@ -221,7 +221,7 @@ const WalletModal = (props: ComponentProps) => {
             <ViewMain>
               <TitleIcon onClick={props.handleOpenError}>Error Modal</TitleIcon>
             </ViewMain>
-            <ModalCostom open={props.ErrorStatus} onClose={props.handleCloseError}>
+            <ModalCustom open={props.ErrorStatus} onClose={props.handleCloseError}>
               <Box sx={styleError}>
                 <TitleView>
                   <Title>Wrong Network</Title>
@@ -239,7 +239,7 @@ const WalletModal = (props: ComponentProps) => {
                   Ok
                 </ConnectButton>
               </Box>
-            </ModalCostom>
+            </ModalCustom>
           </ViewMainView>
           <Title>Choose Wallet</Title>
           <ViewMainView>
@@ -321,7 +321,7 @@ const WalletModal = (props: ComponentProps) => {
           <ConnectButtonDisebal variant="text">Connect Wallet</ConnectButtonDisebal>
         )}
       </Boxs>
-    </ModalCostom>
+    </ModalCustom>
   );
 };
 

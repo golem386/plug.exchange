@@ -12,7 +12,7 @@ const Card = styled('div')({
   borderRadius: 24,
   filter: 'blur(5px)',
 });
-const CardCostom = styled('div')({
+const CardCustom = styled('div')({
   borderRadius: 24,
 });
 
@@ -196,7 +196,7 @@ const QuoteTable = () => {
           </List>
         </Card>
       ) : (
-        <CardCostom>
+        <CardCustom>
           <FirseDiv>
             <Title>
               Max Price Slippage:{' '}
@@ -258,7 +258,7 @@ const QuoteTable = () => {
               );
             })}
           </List>
-        </CardCostom>
+        </CardCustom>
       )}
       {data.length === loardData || data.length + 1 === loardData ? (
         <ShowMore

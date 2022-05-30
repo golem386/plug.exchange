@@ -13,10 +13,10 @@ const DropDownTitleIcon = styled('span')({
   fontSize: '16px',
   fontWeight: '600',
 });
-const CostomMenu = styled(Menu)({
+const CustomMenu = styled(Menu)({
   marginTop: '5%',
 });
-const CostomMenuItem = styled(MenuItem)({
+const CustomMenuItem = styled(MenuItem)({
   paddingTop: 10,
   paddingBottom: 10,
   paddingRight: '50px',
@@ -60,7 +60,7 @@ const Settings = () => {
       >
         <img src={setting} />
       </SettingButton>
-      <CostomMenu
+      <CustomMenu
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         anchorEl={anchorEl}
@@ -75,27 +75,27 @@ const Settings = () => {
           horizontal: 'left',
         }}
       >
-        <CostomMenuItem>
+        <CustomMenuItem>
           <ImageIconDropDown src={About} />
           <DropDownTitleIcon>About</DropDownTitleIcon>
-        </CostomMenuItem>
-        <CostomMenuItem>
+        </CustomMenuItem>
+        <CustomMenuItem>
           <ImageIconDropDown src={Question} />
           <DropDownTitleIcon>Help Center</DropDownTitleIcon>
-        </CostomMenuItem>
-        <CostomMenuItem>
+        </CustomMenuItem>
+        <CustomMenuItem>
           <ImageIconDropDown src={request} />
           <DropDownTitleIcon>Request Features</DropDownTitleIcon>
-        </CostomMenuItem>
-        <CostomMenuItem>
+        </CustomMenuItem>
+        <CustomMenuItem>
           <ImageIconDropDown src={Language} />
           <DropDownTitleIcon>Language</DropDownTitleIcon>
-        </CostomMenuItem>
-        <CostomMenuItem>
+        </CustomMenuItem>
+        <CustomMenuItem>
           <ImageIconDropDown src={Dark} />
           <DropDownTitleIcon>Dark Mode</DropDownTitleIcon>
-        </CostomMenuItem>
-      </CostomMenu>
+        </CustomMenuItem>
+      </CustomMenu>
     </div>
   );
 };
