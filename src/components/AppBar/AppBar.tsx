@@ -1,3 +1,6 @@
+
+// this file is a appbar and Create appBar Design
+
 import { Button, Grid } from '@mui/material';
 import { styled } from '@mui/system';
 import React from 'react';
@@ -92,11 +95,21 @@ type DataObject = {
   name: String;
   coin: String;
 };
+type ConnectWalletType = {
+  name: String;
+  image: String;
+  Subname: String;
+  Price: String;
+};
+type ConnectNetworkType = {
+  name: String;
+  image: String;
+};
 const nullObj = {
   name: '',
   coin: '',
 };
-const Navbar = () => {
+const AppBar = () => {
   const dispatch: any = useDispatch();
   const [open, setOpen] = React.useState(false);
   const [ErrorStatus, setErrorStatus] = React.useState(false);
@@ -105,8 +118,8 @@ const Navbar = () => {
   const [WalletData, setWallet] = React.useState<DataObject>(nullObj);
   const [NetworkData, setNetwork] = React.useState<DataObject>(nullObj);
 
-  const CoinDetail: any = useSelector((state: ArticleState) => state.ConnectWallet);
-  const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
+  const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
+  const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -143,11 +156,11 @@ const Navbar = () => {
       <MainComponent>
         <ControlGrids container spacing={4}>
           <Grid item sm={1}>
-            <Imgs src={Logo} height="43px" width="90px" />
+            <Imgs src={Logo} height="43px" width="90px" alt="logo" />
           </Grid>
           <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 7 : 4}>
             <InputIcon>
-              <img src={Serch} />
+              <img src={Serch} alt="Serch" />
               <TextInputActive
                 placeholder="Search by Token Name or Address"
                 onChange={(e) => {
@@ -217,4 +230,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default AppBar;

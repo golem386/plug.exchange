@@ -1,13 +1,15 @@
+// this file is a CurrencySearch Model and Provide outher Currency suggestion Search time
 import styled from '@emotion/styled';
 import React, { Component } from 'react';
 import coin from '../../assets/icon/coin.png';
+import { ComponentProps } from './Props';
 
 const NotResult = styled('div')({
   padding: 30,
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   borderRadius: '24px',
-    // position:'absolute',
-    // width:'52%',
+  // position:'absolute',
+  // width:'52%',
 });
 const List = styled('span')({
   display: 'flex',
@@ -40,27 +42,27 @@ const ListSubTitle = styled('span')({
   marginLeft: 5,
 });
 
-const CurrencySearch = () => {
+const CurrencySearch = (props: ComponentProps) => {
   return (
     <NotResult>
       <TokenHeading>Tokens</TokenHeading>
       <List>
-        <img src={coin} />
+        <img src={coin} alt="Coin" />
         <ListTitle>Ethereum (ETH)</ListTitle>
         <ListSubTitle>Ethereum</ListSubTitle>
       </List>
       <List>
-        <img src={coin} />
+        <img src={coin} alt="coin" />
         <ListTitle>Wrapped Ethereum (WETH)</ListTitle>
         <ListSubTitle>Ethereum</ListSubTitle>
       </List>
       <List>
-        <img src={coin} />
+        <img src={coin} alt="coin" />
         <ListTitle>Ethereum (ETH)</ListTitle>
         <ListSubTitle>Binance Smart Chain</ListSubTitle>
       </List>
       <List>
-        <img src={coin} />
+        <img src={coin} alt="coin" />
         <ListTitle>Ethereum (ETH)</ListTitle>
         <ListSubTitle>Polygon</ListSubTitle>
       </List>

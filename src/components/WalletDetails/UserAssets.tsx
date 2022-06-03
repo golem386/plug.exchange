@@ -1,3 +1,4 @@
+// this file is a UserAssets and Provide a List 
 import styled from '@emotion/styled';
 import React from 'react';
 import { DropDownDataWallet } from '../../contexts/ConnectWalletDATA';
@@ -74,7 +75,7 @@ const UserAssets = (props: ComponentProps) => {
             }}
           >
             <DIV>
-              <ImageIconDropDown src={val.coin} />
+              <ImageIconDropDown src={val.coin} alt="Icon"/>
               <DropTitle>{val.Subname}</DropTitle>
             </DIV>
             <DropPrice>{val.Price}</DropPrice>

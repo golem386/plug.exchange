@@ -1,3 +1,4 @@
+// this file is a ImportToken file and Provide a Token id
 import styled from '@emotion/styled';
 import { Button, FormControlLabel, Radio } from '@mui/material';
 import { Box } from '@mui/system';
@@ -116,7 +117,7 @@ const ConnectButton = styled(Button)({
   fontWeight: 600,
   textTransform: 'initial',
 });
-const ConnectButtonDisebal = styled(Button)({
+const ConnectButtonDisabal = styled(Button)({
   width: '100%',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   borderRadius: 16,
@@ -141,10 +142,11 @@ const ImportToken = (props: ComponentProps) => {
           onClick={() => {
             props.handleClose();
           }}
+          alt="image"
         />
       </TitleView>
       <UserId>
-        <TokenImg src={coin} />
+        <TokenImg src={coin} alt="coin"/>
         <TokenName>
           Tether <TokenCode>(USDT)</TokenCode>
         </TokenName>
@@ -182,7 +184,7 @@ const ImportToken = (props: ComponentProps) => {
           Import Token
         </ConnectButton>
       ) : (
-        <ConnectButtonDisebal variant="text">Import Token</ConnectButtonDisebal>
+        <ConnectButtonDisabal variant="text">Import Token</ConnectButtonDisabal>
       )}
     </Box>
   );

@@ -1,3 +1,4 @@
+// this file is a RestartModel and Provide a Paragraph 
 import { Button, styled } from '@mui/material';
 import React from 'react';
 import ShereLogo from '../../assets/icon/ShereLogo.png';
@@ -28,7 +29,7 @@ const Resetmore = () => {
   return (
     <MainDiv>
       <ShereImage>
-        <img src={ShereLogo} />
+        <img src={ShereLogo} alt="Shere" />
       </ShereImage>
       <PreText>
         Connect wallet to generate referral link.How it works?

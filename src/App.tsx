@@ -2,7 +2,7 @@ import React from "react";
 import { Provider } from 'react-redux'
 import { Button } from "@mui/material";
 import { styled } from "@mui/system";
-import { SwapPage } from "./pages";
+import { SwapPage } from "./pages/components";
 import { store } from "./redux/Store";
 
 

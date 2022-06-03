@@ -1,3 +1,4 @@
+// this file is a CurrencyModel file and Provide a many Outher Currancy list and Choose Any one Currancy token
 import { styled } from '@material-ui/core';
 import { Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Modal } from '@mui/material';
 import React from 'react';
@@ -105,7 +106,7 @@ const Selecttoken = (props: PropsComponent) => {
             onModel('Swep');
           }}
         >
-          <img src={Cros} />
+          <img src={Cros} alt="Cros" />
         </CrosIcon>
       </Flex>
       <InputIcon>
@@ -159,19 +160,19 @@ const Selecttoken = (props: PropsComponent) => {
               <ListMain>
                 {/*  */}
                 <ListItemIcon>
-                  <img src={val.icon} />
+                  <img src={val.icon} alt="icon" />
                 </ListItemIcon>
 
                 <ListItemTextStyle>
                   {val.name} <Type>({val.type})</Type>
                   {props.select === 'PayToken' ? (
                     CoinDetail.name === val.type ? (
-                      <img src={right} />
+                      <img src={right} alt="right" />
                     ) : (
                       ''
                     )
                   ) : receiveCoinDetail.name === val.type ? (
-                    <img src={right} />
+                    <img src={right} alt="right" />
                   ) : (
                     ''
                   )}

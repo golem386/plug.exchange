@@ -112,7 +112,7 @@ const Selectedtoken = () => {
             onModel('Swep');
           }}
         >
-          <img src={Cros} />
+          <img src={Cros} alt="Cros_icon"/>
         </CrosIcon>
       </Flex>
       <InputIcon>
@@ -121,7 +121,7 @@ const Selectedtoken = () => {
       </InputIcon>
       <List>
         <ListItem>
-          <Images src={logoimg} />
+          <Images src={logoimg} alt="Logo"/>
           <TitleItemBlack>Tether</TitleItemBlack>
           <TitleItem>(USDT)</TitleItem>
         </ListItem>

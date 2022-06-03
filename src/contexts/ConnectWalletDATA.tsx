@@ -69,7 +69,7 @@ export const DropDownDataWallet = [
     coin: chainlinklink,
   },
 ];
-export const ConnectNewworkOne = [
+export const ConnectNetWorkOne = [
   {
     name: 'Etherum',
     coin: Coin,
@@ -84,7 +84,7 @@ export const ConnectNewworkOne = [
   },
 ];
 
-export const ConnectNewworkTow = [
+export const ConnectNetWorkTow = [
   {
     name: 'Polygon',
     coin: Coin4,

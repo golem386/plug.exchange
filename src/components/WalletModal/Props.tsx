@@ -1,3 +1,4 @@
+// this file is a WalletModal Props file and Provide a props type 
 export type ComponentProps = {
     open: boolean;
     handleClose: any;

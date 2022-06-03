@@ -1,4 +1,5 @@
-import NavBar from "./AppBar/AppBar";
-import FooterBar from "./AppFooter/FooterBar";
+// this is a omponent index file and Provede a Component
+import AppBar from "./AppBar/AppBar";
+import AppFooter from "./AppFooter/AppFooter";
 
-export { NavBar, FooterBar };
+export { AppBar, AppFooter };

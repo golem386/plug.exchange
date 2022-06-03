@@ -1,7 +1,8 @@
+// this file is WalletModal and Provide a Network and Wallet List
 import React from 'react';
 import {
-  ConnectNewworkOne,
-  ConnectNewworkTow,
+  ConnectNetWorkOne,
+  ConnectNetWorkTow,
   ConnectWalletOne,
   ConnectWalletThree,
   ConnectWalletTow,
@@ -101,7 +102,7 @@ const ConnectButton = styled(Button)({
   fontWeight: '600',
   textTransform: 'initial',
 });
-const ConnectButtonDisebal = styled(Button)({
+const ConnectButtonDisable = styled(Button)({
   width: '100%',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   borderRadius: 16,
@@ -174,15 +175,15 @@ const WalletModal = (props: ComponentProps) => {
       <Boxs>
         <TitleView>
           <Title>Choose Network</Title>
-          <img src={Cros} onClick={props.handleClose} />
+          <img src={Cros} onClick={props.handleClose} alt="Image" />
         </TitleView>
         <Over>
           <ViewMainView>
-            {ConnectNewworkOne.map((val, i) => {
+            {ConnectNetWorkOne.map((val, i) => {
               return props.NetworkData === val.name ? (
                 <ViewMainActive>
-                  <SelectImg src={select} />
-                  <ImageIcon src={val.coin} />
+                  <SelectImg src={select} alt="Select_Icon"/>
+                  <ImageIcon src={val.coin} alt="Coin"/>
                   <TitleIcon>{val.name}</TitleIcon>
                 </ViewMainActive>
               ) : (
@@ -191,18 +192,18 @@ const WalletModal = (props: ComponentProps) => {
                     props.connetNetworkFunction(val);
                   }}
                 >
-                  <ImageIcon src={val.coin} />
+                  <ImageIcon src={val.coin} alt="Coin"/>
                   <TitleIcon>{val.name}</TitleIcon>
                 </ViewMain>
               );
             })}
           </ViewMainView>
           <ViewMainView>
-            {ConnectNewworkTow.map((val, i) => {
+            {ConnectNetWorkTow.map((val, i) => {
               return props.NetworkData === val.name ? (
                 <ViewMainActive>
-                  <SelectImg src={select} />
-                  <ImageIcon src={val.coin} />
+                  <SelectImg src={select} alt="Select"/>
+                  <ImageIcon src={val.coin} alt="Coin"/>
                   <TitleIcon>{val.name}</TitleIcon>
                 </ViewMainActive>
               ) : (
@@ -211,7 +212,7 @@ const WalletModal = (props: ComponentProps) => {
                     props.connetNetworkFunction(val);
                   }}
                 >
-                  <ImageIcon src={val.coin} />
+                  <ImageIcon src={val.coin} alt="Coin"/>
                   <TitleIcon>{val.name}</TitleIcon>
                 </ViewMain>
               );
@@ -225,10 +226,10 @@ const WalletModal = (props: ComponentProps) => {
               <Box sx={styleError}>
                 <TitleView>
                   <Title>Wrong Network</Title>
-                  <img src={Cros} onClick={props.handleCloseError} />
+                  <img src={Cros} onClick={props.handleCloseError} alt="Cros"/>
                 </TitleView>
                 <MainDiv>
-                  <ImageIcon src={Coin} />
+                  <ImageIcon src={Coin} alt="Coin"/>
                   <Span>Arbitrum</Span>
                 </MainDiv>
                 <br />
@@ -246,8 +247,8 @@ const WalletModal = (props: ComponentProps) => {
             {ConnectWalletOne.map((val, i) => {
               return props.WalletData === val.name ? (
                 <ViewMainActive>
-                  <SelectImg src={select} />
-                  <ImageIcon src={val.coin} />
+                  <SelectImg src={select} alt="Select"/>
+                  <ImageIcon src={val.coin} alt="Coin"/>
                   <TitleIcon>{val.name}</TitleIcon>
                 </ViewMainActive>
               ) : (
@@ -256,7 +257,7 @@ const WalletModal = (props: ComponentProps) => {
                     props.connetWalletFunction(val);
                   }}
                 >
-                  <ImageIcon src={val.coin} />
+                  <ImageIcon src={val.coin} alt="Coin"/>
                   <TitleIcon>{val.name}</TitleIcon>
                 </ViewMain>
               );
@@ -266,8 +267,8 @@ const WalletModal = (props: ComponentProps) => {
             {ConnectWalletTow.map((val, i) => {
               return props.WalletData === val.name ? (
                 <ViewMainActive>
-                  <SelectImg src={select} />
-                  <ImageIcon src={val.coin} />
+                  <SelectImg src={select} alt="Select"/>
+                  <ImageIcon src={val.coin} alt="Coin"/>
                   <TitleIcon>{val.name}</TitleIcon>
                 </ViewMainActive>
               ) : (
@@ -276,7 +277,7 @@ const WalletModal = (props: ComponentProps) => {
                     props.connetWalletFunction(val);
                   }}
                 >
-                  <ImageIcon src={val.coin} />
+                  <ImageIcon src={val.coin} alt="Coin"/>
                   <TitleIcon>{val.name}</TitleIcon>
                 </ViewMain>
               );
@@ -286,8 +287,8 @@ const WalletModal = (props: ComponentProps) => {
             {ConnectWalletThree.map((val, i) => {
               return props.WalletData === val.name ? (
                 <ViewMainActive>
-                  <SelectImg src={select} />
-                  <ImageIcon src={val.coin} />
+                  <SelectImg src={select} alt="Select"/>
+                  <ImageIcon src={val.coin} alt="Coin" />
                   <TitleIcon>{val.name}</TitleIcon>
                 </ViewMainActive>
               ) : (
@@ -296,7 +297,7 @@ const WalletModal = (props: ComponentProps) => {
                     props.connetWalletFunction(val);
                   }}
                 >
-                  <ImageIcon src={val.coin} />
+                  <ImageIcon src={val.coin} alt="Coin"/>
                   <TitleIcon>{val.name}</TitleIcon>
                 </ViewMain>
               );
@@ -318,7 +319,7 @@ const WalletModal = (props: ComponentProps) => {
             Connect Wallet
           </ConnectButton>
         ) : (
-          <ConnectButtonDisebal variant="text">Connect Wallet</ConnectButtonDisebal>
+          <ConnectButtonDisable variant="text">Connect Wallet</ConnectButtonDisable>
         )}
       </Boxs>
     </ModalCustom>

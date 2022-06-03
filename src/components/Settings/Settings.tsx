@@ -1,3 +1,4 @@
+// this file Provide Setting menu 
 import styled from '@emotion/styled';
 import { Button, Menu, MenuItem } from '@mui/material';
 import React from 'react';
@@ -7,6 +8,7 @@ import Question from '../../assets/icon/Question.svg';
 import request from '../../assets/icon/Request.svg';
 import Language from '../../assets/icon/Language.svg';
 import Dark from '../../assets/icon/Dark.svg';
+import { ComponentProps } from './Props';
 
 const DropDownTitleIcon = styled('span')({
   fontFamily: 'Inter',
@@ -40,7 +42,7 @@ const SettingButton = styled(Button)({
   height: 60,
 });
 
-const Settings = () => {
+const Settings = (props: ComponentProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const openmenu = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -58,7 +60,7 @@ const Settings = () => {
         aria-expanded={openmenu ? 'true' : undefined}
         onClick={handleClick}
       >
-        <img src={setting} />
+        <img src={setting} alt="Setting" />
       </SettingButton>
       <CustomMenu
         id="demo-positioned-menu"
@@ -76,23 +78,23 @@ const Settings = () => {
         }}
       >
         <CustomMenuItem>
-          <ImageIconDropDown src={About} />
+          <ImageIconDropDown src={About} alt="About" />
           <DropDownTitleIcon>About</DropDownTitleIcon>
         </CustomMenuItem>
         <CustomMenuItem>
-          <ImageIconDropDown src={Question} />
+          <ImageIconDropDown src={Question} alt="icon" />
           <DropDownTitleIcon>Help Center</DropDownTitleIcon>
         </CustomMenuItem>
         <CustomMenuItem>
-          <ImageIconDropDown src={request} />
+          <ImageIconDropDown src={request} alt="Request" />
           <DropDownTitleIcon>Request Features</DropDownTitleIcon>
         </CustomMenuItem>
         <CustomMenuItem>
-          <ImageIconDropDown src={Language} />
+          <ImageIconDropDown src={Language} alt="icon" />
           <DropDownTitleIcon>Language</DropDownTitleIcon>
         </CustomMenuItem>
         <CustomMenuItem>
-          <ImageIconDropDown src={Dark} />
+          <ImageIconDropDown src={Dark} alt="Dark" />
           <DropDownTitleIcon>Dark Mode</DropDownTitleIcon>
         </CustomMenuItem>
       </CustomMenu>
