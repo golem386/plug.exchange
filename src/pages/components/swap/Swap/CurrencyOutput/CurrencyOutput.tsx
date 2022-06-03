@@ -4,7 +4,7 @@ import { FormControl } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { onModelOpen } from '../../../../../redux/Actions';
+import { onModelOpen } from '../../../../../store/Actions';
 import DownArrow from '../../../../../assets/icon/DownArrow.png';
 import { ComponentProps } from './Props';
 import { SwapArrow } from '../SwapArrow';

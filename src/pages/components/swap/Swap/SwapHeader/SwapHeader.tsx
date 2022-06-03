@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { onModelOpen } from '../../../../../redux/Actions';
+import { onModelOpen } from '../../../../../store/Actions';
 import menu from '../../../../../assets/icon/menu.png';
 import { ComponentProps } from './Props';
 

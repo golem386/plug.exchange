@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { Button } from "@mui/material";
 import { styled } from "@mui/system";
 import { SwapPage } from "./pages/components";
-import { store } from "./redux/Store";
+import { store } from "./store/Store";
 
 
 const MyComponent = styled("div")({

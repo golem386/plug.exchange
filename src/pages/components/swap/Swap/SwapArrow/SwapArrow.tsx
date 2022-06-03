@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { onReceiveCoin, onSelectCoin } from '../../../../../redux/Actions';
+import { onReceiveCoin, onSelectCoin } from '../../../../../store/Actions';
 import UpDown from '../../../../../assets/icon/UpDown.png';
 import { ComponentProps } from './Props';
 

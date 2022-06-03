@@ -7,7 +7,7 @@ import Serch from '../../assets/icon/Serch.png';
 import right from '../../assets/icon/right.png';
 import { list } from '../../contexts/SelectTokenDATA';
 import { useDispatch } from 'react-redux';
-import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../redux/Actions';
+import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../store/Actions';
 import { useSelector } from 'react-redux';
 import ImportToken from '../ImportToken/ImportToken';
 import { PropsComponent } from './props';

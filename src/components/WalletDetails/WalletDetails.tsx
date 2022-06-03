@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Menu, Modal } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { connetNetwork, connetWallet } from '../../redux/Actions';
+import { connetNetwork, connetWallet } from '../../store/Actions';
 import filecopy from '../../assets/icon/filecopy.png';
 import History from '../../assets/icon/History.png';
 import DishConnect from '../../assets/icon/DishConnect.png';

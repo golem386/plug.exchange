@@ -7,7 +7,7 @@ import Question from '../../../../../assets/icon/Question.svg';
 import DownArrow from '../../../../../assets/icon/DownArrow.png';
 import TopArrow from '../../../../../assets/icon/TopArrow.png';
 import { useDispatch } from 'react-redux';
-import { onModelOpen } from '../../../../../redux/Actions';
+import { onModelOpen } from '../../../../../store/Actions';
 import { Switch } from '@mui/material';
 import { ComponentProps } from './Props';
 

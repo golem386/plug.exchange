@@ -8,7 +8,7 @@ import Logo from '../../assets/logo.png';
 import Serch from '../../assets/icon/Serch.png';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { connetNetwork, connetWallet } from '../../redux/Actions';
+import { connetNetwork, connetWallet } from '../../store/Actions';
 import ChooseNetworkModel from '../WalletModal/WalletModal';
 import { WalletDetails } from '../WalletDetails';
 import { SwitchNetwork } from '../SwitchNetwork';
