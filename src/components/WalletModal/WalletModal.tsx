@@ -12,7 +12,7 @@ import { styled } from '@mui/system';
 import Cros from '../../assets/icon/Cros.png';
 import select from '../../assets/icon/select.png';
 import Coin from '../../assets/icon/coin.png';
-import { ComponentProps } from './Props';
+import { WalletModalProps } from '..';
 
 const styleError = {
   position: 'absolute',
@@ -169,7 +169,7 @@ const Boxs = styled('div')({
   borderRadius: 10,
 });
 
-const WalletModal = (props: ComponentProps) => {
+const WalletModal = (props: WalletModalProps) => {
   return (
     <ModalCustom open={props.open} onClose={props.handleClose}>
       <Boxs>

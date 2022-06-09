@@ -8,7 +8,7 @@ import Question from '../../assets/icon/Question.svg';
 import request from '../../assets/icon/Request.svg';
 import Language from '../../assets/icon/Language.svg';
 import Dark from '../../assets/icon/Dark.svg';
-import { ComponentProps } from './Props';
+import { SettingsProps } from '..';
 
 const DropDownTitleIcon = styled('span')({
   fontFamily: 'Inter',
@@ -42,7 +42,7 @@ const SettingButton = styled(Button)({
   height: 60,
 });
 
-const Settings = (props: ComponentProps) => {
+const Settings = (props: SettingsProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const openmenu = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {

@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../store/Actions';
 import { useSelector } from 'react-redux';
 import ImportToken from '../ImportToken/ImportToken';
-import { PropsComponent } from './props';
+import { SelecttokenProps } from '..';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -80,7 +80,7 @@ const ModalCustom = styled(Modal)({
   borderRadius: 20,
 });
 
-const Selecttoken = (props: PropsComponent) => {
+const Selecttoken = (props: SelecttokenProps) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

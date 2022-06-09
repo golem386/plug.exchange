@@ -6,7 +6,7 @@ import React from 'react';
 import Cros from '../../assets/icon/Cros.png';
 import coin from '../../assets/icon/coin6.png';
 import info from '../../assets/icon/info.png';
-import { ComponentProps } from './Props';
+import { ImportTokenProps } from '..';
 
 const style = {
   position: 'absolute',
@@ -131,7 +131,7 @@ const ConnectButtonDisabal = styled(Button)({
 });
 
 
-const ImportToken = (props: ComponentProps) => {
+const ImportToken = (props: ImportTokenProps) => {
   const [Check, satCheck] = React.useState<Boolean>(false);
   return (
     <Box sx={style}>

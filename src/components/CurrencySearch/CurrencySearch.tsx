@@ -1,8 +1,8 @@
 // this file is a CurrencySearch Model and Provide outher Currency suggestion Search time
 import styled from '@emotion/styled';
 import React, { Component } from 'react';
+import { CurrencySearchProps } from '..';
 import coin from '../../assets/icon/coin.png';
-import { ComponentProps } from './Props';
 
 const NotResult = styled('div')({
   padding: 30,
@@ -42,7 +42,7 @@ const ListSubTitle = styled('span')({
   marginLeft: 5,
 });
 
-const CurrencySearch = (props: ComponentProps) => {
+const CurrencySearch = (props: CurrencySearchProps) => {
   return (
     <NotResult>
       <TokenHeading>Tokens</TokenHeading>

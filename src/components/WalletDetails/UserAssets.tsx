@@ -1,8 +1,8 @@
 // this file is a UserAssets and Provide a List 
 import styled from '@emotion/styled';
 import React from 'react';
+import { UserAssetsProps } from '..';
 import { DropDownDataWallet } from '../../contexts/ConnectWalletDATA';
-import { ComponentProps } from './Props';
 
 const NetWorth = styled('div')({
   backgroundColor: '#f7f7f7',
@@ -58,7 +58,7 @@ const DropPrice = styled('span')({
 });
 
 
-const UserAssets = (props: ComponentProps) => {
+const UserAssets = (props: UserAssetsProps) => {
   return (
     <>
       <NetWorth>

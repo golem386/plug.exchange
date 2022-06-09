@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 import { Button, Menu, MenuItem } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { SwitchNetworkProps } from '..';
 import DownIconWhite from '../../assets/icon/DownIconWhite.png';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
-import { ComponentProps } from './Props';
 
 const CustomButtonActiveCoin = styled(Button)({
   borderRadius: 20,
@@ -55,7 +55,7 @@ const ImageIconDropDown = styled('img')({
 });
 
 
-const SwitchNetwork = (props: ComponentProps) => {
+const SwitchNetwork = (props: SwitchNetworkProps) => {
   const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const openmenu = Boolean(anchorEl);
