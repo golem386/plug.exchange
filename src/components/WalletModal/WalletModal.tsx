@@ -12,7 +12,7 @@ import { styled } from '@mui/system';
 import Cros from '../../assets/icon/Cros.png';
 import select from '../../assets/icon/select.png';
 import Coin from '../../assets/icon/coin.png';
-import { WalletModalProps } from '..';
+import { WalletModalProps } from '.';
 
 const styleError = {
   position: 'absolute',

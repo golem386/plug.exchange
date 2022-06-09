@@ -9,7 +9,7 @@ import TopArrow from '../../../../assets/icon/TopArrow.png';
 import { useDispatch } from 'react-redux';
 import { onModelOpen } from '../../../../store/Actions';
 import { Switch } from '@mui/material';
-import { TransactionSettingsProps } from '../../..';
+import { TransactionSettingsProps } from '.';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',

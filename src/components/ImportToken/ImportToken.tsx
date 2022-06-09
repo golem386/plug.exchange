@@ -6,7 +6,7 @@ import React from 'react';
 import Cros from '../../assets/icon/Cros.png';
 import coin from '../../assets/icon/coin6.png';
 import info from '../../assets/icon/info.png';
-import { ImportTokenProps } from '..';
+import { ImportTokenProps } from '.';
 
 const style = {
   position: 'absolute',

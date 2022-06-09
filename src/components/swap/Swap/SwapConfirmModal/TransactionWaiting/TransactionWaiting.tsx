@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 import { CircularProgress } from '@mui/material';
 import React, { Component } from 'react';
-import { TransactionWaitingProps } from '../../../..';
+import { TransactionWaitingProps } from '.';
 
 const Title = styled('p')({
   fontFamily: 'Inter',

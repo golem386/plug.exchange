@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 import React, { Component } from 'react';
 import { useSelector } from 'react-redux';
 import {AppFooter, AppBar } from '..';
-import QuoteTable from './QuoteTable/QuoteTable';
+import QuoteTable from './QuoteTable';
 import { Resetmore } from '../RestartModel';
 import Selectedtoken from '../SelectedToken/SelectedToken';
 import { Selecttoken } from '../CurrencyModal';

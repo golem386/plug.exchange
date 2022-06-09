@@ -6,7 +6,7 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import Completed from '../../../../../../assets/icon/Completed.svg';
 import MataMask from '../../../../../../assets/icon/MataMask.svg';
 import Cros from '../../../../../../assets/icon/Cros.png';
-import { TransactionCompletedProps } from '../../../..';
+import { TransactionCompletedProps } from '.';
 
 const Title = styled('span')({
   fontFamily: 'Inter',

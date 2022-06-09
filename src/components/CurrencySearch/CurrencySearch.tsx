@@ -1,7 +1,7 @@
 // this file is a CurrencySearch Model and Provide outher Currency suggestion Search time
 import styled from '@emotion/styled';
 import React, { Component } from 'react';
-import { CurrencySearchProps } from '..';
+import { CurrencySearchProps } from '.';
 import coin from '../../assets/icon/coin.png';
 
 const NotResult = styled('div')({

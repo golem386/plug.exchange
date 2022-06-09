@@ -8,7 +8,7 @@ import Question from '../../assets/icon/Question.svg';
 import request from '../../assets/icon/Request.svg';
 import Language from '../../assets/icon/Language.svg';
 import Dark from '../../assets/icon/Dark.svg';
-import { SettingsProps } from '..';
+import { SettingsProps } from '.';
 
 const DropDownTitleIcon = styled('span')({
   fontFamily: 'Inter',

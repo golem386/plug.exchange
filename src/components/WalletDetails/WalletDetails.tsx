@@ -199,7 +199,6 @@ type DataObject = {
   name: String;
   coin: String;
 };
-
 const nullObj = {
   name: '',
   coin: '',

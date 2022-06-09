@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../store/Actions';
 import { useSelector } from 'react-redux';
 import ImportToken from '../ImportToken/ImportToken';
-import { SelecttokenProps } from '..';
+import { SelecttokenProps } from '.';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
