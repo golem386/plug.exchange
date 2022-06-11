@@ -2,13 +2,12 @@
 import styled from '@emotion/styled';
 import React, { Component } from 'react';
 import Cros from '../../../../assets/icon/Cros.png';
-import DownArrow from '../../../../assets/icon/DownArrow.png';
-import { FormControl } from '@mui/material';
 import ShortVartical from '../../../../assets/icon/ShortVartical.png';
 import { useSelector } from 'react-redux';
 import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../../../store/Actions';
 import { useDispatch } from 'react-redux';
-import UpDown from '../../../../assets/icon/UpDown.png';
+import { CurrencyInput } from '../CurrencyInput';
+import { CurrencyOutput } from '../CurrencyOutput';
 
 const MainDiv = styled('div')({
   display: 'flex',
@@ -90,98 +89,7 @@ const Max = styled('span')({
   color: '#BB36FF',
   fontFamily: 'Inter',
 });
-const CurrencyInput = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  backgroundColor: '#e8e8e8',
-  marginLeft: 15,
-  marginRight: 15,
-  borderRadius: 16,
-  paddingLeft: 10,
-  height: 70,
-  marginTop: 10,
-});
-const SelectMain = styled('div')({
-  borderRadius: '100px',
-  height: '36px',
-  boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
-  backgroundColor: 'white',
-  display: 'flex',
-  alignItems: 'center',
-});
-const CoinImgTag = styled('img')({
-  height: '36px',
-  width: '36px',
-});
-const CoinTitle = styled('p')({
-  fontFamily: 'Inter',
-  fontWeight: '600',
-  fontSize: '16px',
-  color: 'black',
-  marginLeft: 10,
-});
-const CoinDropIcon = styled('img')({
-  height: '5.19px',
-  width: '8.49px',
-  marginLeft: 10,
-});
 
-const CurrencyOutput = styled('div')({
-  backgroundColor: '#e8e8e8',
-  marginTop: '10%',
-  position: 'relative',
-  paddingBottom: '10%',
-  paddingTop: '10px',
-});
-const YouReceive = styled('span')({
-  padding: 20,
-  fontFamily: 'inter',
-  fontWeight: '500',
-  fontSize: 16,
-});
-const MainViewInput = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  backgroundColor: 'white',
-  marginLeft: 15,
-  marginRight: 15,
-  borderRadius: 16,
-  paddingLeft: 10,
-  height: 70,
-  marginTop: 10,
-});
-const TextInput = styled('input')({
-  width: '90%',
-  borderBottom: 'none',
-  border: 'none',
-  height: '52px',
-  fontFamily: 'Inter',
-  fontWeight: 600,
-  fontSize: '16px',
-  backgroundColor: 'transparent',
-  '&:focus-visible': {
-    border: 'none',
-    outline: 'none',
-  },
-});
-const SelectMainDarkCoin = styled('div')({
-  borderRadius: '100px',
-  height: '36px',
-  boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
-  backgroundColor: '#d9d9d9',
-  display: 'flex',
-  alignItems: 'center',
-});
-const SwapArrow = styled('img')({
-  backgroundColor: 'white',
-  padding: 10,
-  borderRadius: 100,
-  boxShadow: 'drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.1))',
-  position: 'absolute',
-  top: -20,
-  left: '40%',
-  cursor: 'pointer',
-});
 type Currency = {};
 type ENUM = {};
 type SWAP = {};
@@ -229,44 +137,8 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
         <Pay>You Pay</Pay>
         <Max>Max 0 ETH</Max>
       </SwapDiv>
-      <CurrencyInput>
-        <TextInput placeholder="0" />
-        <FormControl sx={{ m: 1, minWidth: 120 }}>
-          <SelectMain
-            onClick={() => {
-              onModel('SelectToken');
-            }}
-          >
-            <CoinImgTag src={CoinDetail.image} alt="Coin" />
-            <CoinTitle>{CoinDetail.name}</CoinTitle>
-            <CoinDropIcon src={DownArrow} alt="DownArrow" />
-          </SelectMain>
-        </FormControl>
-      </CurrencyInput>
-      <CurrencyOutput>
-        <SwapArrow
-          src={UpDown}
-          onClick={() => {
-            onChangeToken();
-          }}
-          alt="Icon"
-        />
-        <YouReceive>You Receive</YouReceive>
-        <MainViewInput>
-          <TextInput placeholder="0" />
-          <FormControl sx={{ m: 1, minWidth: 120 }}>
-            <SelectMainDarkCoin
-              onClick={() => {
-                onModel('ReceiveToken');
-              }}
-            >
-              <CoinImgTag src={ReceiveCoin.image} alt="Icon" />
-              <CoinTitle>{ReceiveCoin.name}</CoinTitle>
-              <CoinDropIcon src={DownArrow} alt="DownArrow" />
-            </SelectMainDarkCoin>
-          </FormControl>
-        </MainViewInput>
-      </CurrencyOutput>
+      <CurrencyInput ETH="" />
+      <CurrencyOutput />
       <ShortView>
         <ETH>1 ETH = 4,008.2766 USDT</ETH>
         <ImgVarticalShort src={ShortVartical} />

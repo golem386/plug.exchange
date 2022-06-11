@@ -1,15 +1,14 @@
-import React from "react";
-import { Provider } from 'react-redux'
-import { Button } from "@mui/material";
-import { styled } from "@mui/system";
-import { SwapPage } from "./pages";
-import { store } from "./store/Store";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { Button } from '@mui/material';
+import { styled } from '@mui/system';
+import { SwapPage } from './pages/swap';
+import { store } from './store/Store';
 
-
-const MyComponent = styled("div")({
-  backgroundColor: "#FFFFFF",
-  height: "100%",
-  width: "100%",
+const MyComponent = styled('div')({
+  backgroundColor: '#FFFFFF',
+  height: '100%',
+  width: '100%',
 });
 function App() {
   return (

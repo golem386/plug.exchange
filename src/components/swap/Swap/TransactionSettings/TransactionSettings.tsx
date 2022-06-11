@@ -1,4 +1,4 @@
-// this is a TransactionSettings file and Provide a TransactionSettings model 
+// this is a TransactionSettings file and Provide a TransactionSettings model
 import styled from '@emotion/styled';
 import { Button, FormControlLabel, Radio } from '@mui/material';
 import React from 'react';
