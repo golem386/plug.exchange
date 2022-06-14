@@ -10,6 +10,8 @@ import { onReceiveCoin, onSelectCoin } from '../../../store/Actions';
 import { CurrencyInput } from './CurrencyInput';
 import { CurrencyOutput } from './CurrencyOutput';
 import SwapConfirmModal from './SwapConfirmModal';
+import { TransactionCompleted } from './SwapConfirmModal/TransactionCompleted';
+import { TransactionWaiting } from './SwapConfirmModal/TransactionWaiting';
 import { SwapHeader } from './SwapHeader';
 import { SwapRouter } from './SwapRouter';
 import { SwapTransactionDetails } from './SwapTransactionDetails';
@@ -83,13 +85,13 @@ const Swap = (props: SwapProps) => {
           aria-describedby="modal-modal-description"
         >
           <Boxes>
-            {/* <TransactionWaiting /> */}
+            <TransactionWaiting />
             {/* <TransactionCompleted handleClose={() =>{handleClose()}}/> */}
-            <SwapConfirmModal
+            {/* <SwapConfirmModal
               handleClose={() => {
                 handleClose();
               }}
-            />
+            /> */}
           </Boxes>
         </Modal>
       </MainDiv>

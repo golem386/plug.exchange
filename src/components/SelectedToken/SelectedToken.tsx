@@ -6,6 +6,7 @@ import Serch from '../../assets/icon/Serch.png';
 import logoimg from '../../assets/icon/coin3.png';
 import { useDispatch } from 'react-redux';
 import { onModelOpen } from '../../store/Actions';
+import { SelectrdTokenProps } from '.';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -67,7 +68,7 @@ const List = styled('div')({
   justifyContent: 'space-between',
   marginLeft: '1%',
   '&:hover': {
-    backgroundColor: '#d7d7d7',
+    backgroundColor: '#f7f7f7',
   },
 });
 const ListItem = styled('div')({
@@ -98,7 +99,7 @@ const TitleItemBlack = styled('p')({
 });
 const Images = styled('img')({});
 
-const Selectedtoken = () => {
+const Selectedtoken = (props:SelectrdTokenProps) => {
   const dispatch: any = useDispatch();
   const onModel = (model: any) => {
     dispatch(onModelOpen(model));

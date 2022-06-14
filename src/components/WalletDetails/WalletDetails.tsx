@@ -10,12 +10,6 @@ import DishConnect from '../../assets/icon/DishConnect.png';
 import DownArrow from '../../assets/icon/DownArrow.png';
 import { useSelector } from 'react-redux';
 import UserAssets from './UserAssets';
-import Cros from '../../assets/icon/Cros.png';
-import Left from '../../assets/icon/Left.png';
-import Right from '../../assets/icon/Right.png';
-import { margin } from '@mui/system';
-import SwapIcon from '../../assets/icon/SwapIcon.png';
-import Time from '../../assets/icon/Time.png';
 
 const Copy = styled('div')({
   paddingLeft: '10px',
@@ -77,6 +71,9 @@ const Into = styled('p')({
   borderRadius: 16,
   marginLeft: 15,
   boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
+  fontWeight: 500,
+  fontSize: 14,
+  fontFamily: 'Inter',
 });
 const ImageIconDropDown = styled('img')({
   height: '30px',
@@ -189,7 +186,12 @@ const TimeText = styled('span')({
 const TimeImage = styled('img')({
   height: 12,
   width: 12,
-  opacity:0.2
+  opacity: 0.2,
+});
+const Name = styled('p')({
+  fontFamily: 'Inter',
+  fontWeight: 800,
+  fontSize: 14,
 });
 
 const Status = styled('div')({});
@@ -245,7 +247,7 @@ const WalletDetails = () => {
         onClick={handleClickPrice}
       >
         <ImageIconDropDown src={CoinDetail.coin} alt="Coin" />
-        <p>{CoinDetail.Subname}</p>
+        <Name>{CoinDetail.Subname}</Name>
         <Into>{CoinDetail.Price}</Into>
         <CoinDropIcon src={DownArrow} alt="DownArrow" />
       </CoinPrice>

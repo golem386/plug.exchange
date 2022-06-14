@@ -32,7 +32,7 @@ const Max = styled('span')({
 const MainViewInputToken = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  backgroundColor: '#e8e8e8',
+  backgroundColor: '#F7F7F7',
   marginLeft: 15,
   marginRight: 15,
   borderRadius: 16,

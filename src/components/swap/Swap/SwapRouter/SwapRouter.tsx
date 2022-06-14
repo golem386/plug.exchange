@@ -40,7 +40,7 @@ const MainContent = styled('div')({
 });
 const UsdtList = styled('div')({
   borderRadius: '16px',
-  backgroundColor: 'rgba(0, 0, 0, 0.03)',
+  backgroundColor: '#F7F7F7',
   borderWidth: '2px',
   borderColor: '#ededed',
   borderStyle: 'solid',
@@ -167,7 +167,7 @@ const CViewImgThree = styled('img')({
 });
 const CustomButtonActiveCoin = styled(Button)({
   borderRadius: '100px',
-  background: '#e6e6e6',
+  background: '#F7F7F7',
   padding: '3px 10px',
   fontSize: '14px',
   fontWeight: '600',

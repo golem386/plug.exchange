@@ -10,7 +10,7 @@ import { SwapArrow } from '../SwapArrow';
 import { CurrencyOutputProps } from '.';
 
 const ReceiveMain = styled('div')({
-  backgroundColor: '#e8e8e8',
+  backgroundColor: '#F7F7F7',
   marginTop: '10%',
   position: 'relative',
   paddingBottom: '10%',
@@ -51,7 +51,7 @@ const SelectMainDarkCoin = styled('div')({
   borderRadius: '100px',
   height: '36px',
   boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
-  backgroundColor: '#d9d9d9',
+  backgroundColor: '#F7F7F7',
   display: 'flex',
   alignItems: 'center',
 });

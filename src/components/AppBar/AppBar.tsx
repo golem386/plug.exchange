@@ -35,7 +35,7 @@ const TextInputActive = styled('input')({
   display: 'flex',
   backgroundColor: '#F7F7F7',
   borderRadius: '16px',
-  padding: '7px',
+  padding: '3px',
   borderBottom: 0,
   border: 'none',
   height: 52,
@@ -82,13 +82,16 @@ const Imgs = styled('img')({
 
 const CustomGrid = styled(Grid)({
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'space-around',
   // alignItems: 'center',
 });
 
 const ControlGrids = styled(Grid)({
   display: 'flex',
   justifyContent: 'space-between',
+});
+const LogoGrid = styled(Grid)({
+  marginRight:0
 });
 
 type DataObject = {
@@ -155,10 +158,10 @@ const AppBar = () => {
     <>
       <MainComponent>
         <ControlGrids container spacing={4}>
-          <Grid item sm={1}>
-            <Imgs src={Logo} height="43px" width="90px" alt="logo" />
-          </Grid>
-          <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 7 : 4}>
+          <LogoGrid item sm={1}>
+            <Imgs src={Logo} height="38px" width="80px" alt="logo" />
+          </LogoGrid>
+          <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 6 : 4}>
             <InputIcon>
               <img src={Serch} alt="Serch" />
               <TextInputActive
@@ -170,7 +173,7 @@ const AppBar = () => {
             </InputIcon>
             {filterInput !== '' ? <CurrencySearch /> : null}
           </Grid>
-          <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 4 : 7}>
+          <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 5 : 7}>
             <CustomButton>Buy Crypto</CustomButton>
             {CoinNetwork.name !== '' ? (
               <SwitchNetwork

@@ -67,11 +67,11 @@ const CustomButtonActive = styled(Button)({
 });
 const CustomButtonActiveNumber = styled(Button)({
   borderRadius: '16px',
-  background: '#e6e6e6',
+  background: '#f7f7f7',
   padding: '10px 24px',
-  color: '#c9c9c9',
+  color: '#b3b3b3',
   fontStyle: 'Inter',
-  textTransform: 'lowercase',
+  textTransform: 'initial',
   marginRight: 15,
   height: '52px',
   width: '47%',
@@ -80,7 +80,7 @@ const CustomButtonActiveNumber = styled(Button)({
   fontWeight: 500,
 });
 const MainInput = styled('div')({
-  backgroundColor: '#f2f2f2',
+  backgroundColor: '#f7f7f7',
   paddingRight: 10,
   marginLeft: 15,
   marginRight: 15,
@@ -157,7 +157,7 @@ const AutoRout = styled('span')({
   fontFamily: 'Inter',
   fontWeight: '500',
   fontSize: '16px',
-  color: '#a6a6a6',
+  color: '#b3b3b3',
   marginBottom: 5,
 });
 const MainRow = styled('div')({});
@@ -183,22 +183,30 @@ const Comper = styled('p')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '14px',
-  color: '#d1d1d1',
+  color: '#b3b3b3',
 });
 const GWEI = styled('p')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '14px',
-  color: '#d1d1d1',
+  color: '#b3b3b3',
 });
+const Span = styled('span')({
+  fontFamily: 'Inter',
+  fontWeight: '600',
+  fontSize: '14px',
+  color: '#b3b3b3',
+});
+
 const TextTypeinput = styled('input')({
-  backgroundColor: '#d1d1d1',
+  backgroundColor: '#f7f7f7',
   border: 'none',
-  borderRadius: '30px',
+  borderRadius: '22px',
   height: '36px',
-  width: '145px',
+  width: '100%',
   outline: 'none',
-  padding: 7,
+  padding: 3,
+  paddingLeft: 15,
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
@@ -241,7 +249,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
       <MainInput>
         <FlexView>
           <TextInput />
-          Minutes
+          <Span>Minutes</Span>
         </FlexView>
       </MainInput>
       <hr />
@@ -249,7 +257,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
         <PriseText>Gas Price</PriseText>
         {Slider === false ? (
           <TimeText>
-            Instant (102.73 - 140.28 GWEI)
+            <Span>Instant (102.73 - 140.28 GWEI)</Span>
             <DownArrowIcon
               src={DownArrow}
               onClick={() => {

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Button } from '@mui/material';
 import { styled } from '@mui/system';
-import { SwapPage } from './pages/swap';
 import { store } from './store/Store';
+import SwapPage from './pages/swap';
 
 const MyComponent = styled('div')({
   backgroundColor: '#FFFFFF',
