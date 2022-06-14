@@ -57,7 +57,7 @@ const ImagDiv = styled('div')({
   justifyContent: 'flex-end',
 });
 const Main = styled('div')({
-  margin:30
+  marginTop:10
 });
 
 const TransactionCompleted = (props: TransactionCompletedProps) => {

@@ -1,7 +1,5 @@
 // this is a WalletModal index file and Export WalletModal Component
 export type WalletModalProps = {
-    open: boolean;
-    handleClose: any;
     NetworkData: String;
     connetNetworkFunction: any;
     handleOpenError: any;

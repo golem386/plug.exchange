@@ -27,6 +27,9 @@ const Title = styled('p')({
 });
 const ETH = styled('span')({
   color: '#BB36FF',
+  fontFamily: 'Inter',
+  fontSize: 16,
+  fontWeight: 500,
 });
 const ImgVarticalShort = styled('img')({
   height: '15px',
@@ -38,7 +41,7 @@ const ShortView = styled('div')({
   display: 'flex',
   alignItems: 'center',
   marginLeft: '5%',
-  marginTop: 15,
+  marginTop: 10,
 });
 const DIv = styled('div')({
   backgroundColor: '#F7F7F7',
@@ -111,32 +114,12 @@ export type SwapConfirmModalProps = {
 };
 
 const SwapConfirmModal = (props: SwapConfirmModalProps) => {
-  const dispatch: any = useDispatch();
-  const CoinDetail: any = useSelector((state: ArticleState) => state.CoinDetail);
-  const ReceiveCoin: any = useSelector((state: ArticleState) => state.receiveCoinDetail);
-  const onModel = (article: any) => {
-    dispatch(onModelOpen(article));
-  };
-  const onSelectIcon = (coin: any) => {
-    dispatch(onSelectCoin(coin));
-  };
-  const onReceiveIcon = (coin: any) => {
-    dispatch(onReceiveCoin(coin));
-  };
-  const onChangeToken = () => {
-    onSelectIcon(ReceiveCoin);
-    onReceiveIcon(CoinDetail);
-  };
   return (
     <>
       <MainDiv>
         <Title>Swap Confirmation</Title>
         <Image src={Cros} onClick={props.handleClose} />
       </MainDiv>
-      <SwapDiv>
-        <Pay>You Pay</Pay>
-        <Max>Max 0 ETH</Max>
-      </SwapDiv>
       <CurrencyInput ETH="" />
       <CurrencyOutput />
       <ShortView>

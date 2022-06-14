@@ -15,6 +15,9 @@ import { SwapRouterProps } from '.';
 
 const ETH = styled('p')({
   color: '#BB36FF',
+  fontFamily: 'Inter',
+  fontSize: 16,
+  fontWeight: 500,
 });
 const ImgVarticalShort = styled('img')({
   height: '15px',

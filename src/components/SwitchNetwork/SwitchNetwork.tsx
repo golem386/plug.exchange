@@ -1,4 +1,4 @@
-// this is a SwitchNetwork File and Switch Network 
+// this is a SwitchNetwork File and Switch Network
 import styled from '@emotion/styled';
 import { Button, Menu, MenuItem } from '@mui/material';
 import React from 'react';
@@ -54,7 +54,6 @@ const ImageIconDropDown = styled('img')({
   paddingRight: '20px',
 });
 
-
 const SwitchNetwork = (props: SwitchNetworkProps) => {
   const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -74,9 +73,9 @@ const SwitchNetwork = (props: SwitchNetworkProps) => {
         aria-expanded={openmenu ? 'true' : undefined}
         onClick={handleClick}
       >
-        <ImageIcon src={CoinNetwork.coin} alt="Icon"/>
+        <ImageIcon src={CoinNetwork.coin} alt="Icon" />
         <TitleIcon>{CoinNetwork.name}</TitleIcon>
-        <CoinDropIcon src={DownIconWhite} alt="Download"/>
+        <CoinDropIcon src={DownIconWhite} alt="Download" />
       </CustomButtonActiveCoin>
       <CustomMenu
         id="demo-positioned-menu"
@@ -100,7 +99,7 @@ const SwitchNetwork = (props: SwitchNetworkProps) => {
                 props.connetNetworkData(val);
               }}
             >
-              <ImageIconDropDown src={val.coin} alt="Icon"/>
+              <ImageIconDropDown src={val.coin} alt="Icon" />
               <DropDownTitleIcon>{val.name}</DropDownTitleIcon>
             </CustomMenuItem>
           );

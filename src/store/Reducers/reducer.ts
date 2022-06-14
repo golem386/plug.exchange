@@ -5,21 +5,25 @@ import Coin from '../../assets/icon/coin.png';
 
 const initialState: ArticleState = {
   model: 'abdc',
+  Model:{
+    name:'',
+    Status:false
+  },
   CoinDetail: {
     name: 'ETH',
     image: Eth,
-    fullName:'Ethereum'
+    fullName: 'Ethereum',
   },
   receiveCoinDetail: {
     name: 'AVAX',
     image: Coin2,
-    fullName:'Avalanche'
+    fullName: 'Avalanche',
   },
   ConnectWallet: {
     name: '',
     image: '',
     Subname: '',
-    Price: ''
+    Price: '',
   },
   ConnectNetwork: {
     name: '',
@@ -53,6 +57,11 @@ const reducer = (state: ArticleState = initialState, action: any): ArticleState 
       return {
         ...state,
         ConnectNetwork: action.Coin,
+      };
+    case actionTypes.ON_MODEL:
+      return {
+        ...state,
+        Model: action.Status,
       };
   }
   return state;

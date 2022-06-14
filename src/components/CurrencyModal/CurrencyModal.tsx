@@ -64,10 +64,13 @@ const ListMain = styled(ListItemButton)({
   alignItems: 'center',
   justifyContent: 'space-around',
 });
-const ListItemTextStyle = styled(ListItemText)({});
+const ListItemTextStyle = styled(ListItemText)({
+  fontFamily: 'Inter',
+});
 const Type = styled('span')({
   opacity: 0.5,
   marginRight: 10,
+  fontFamily: 'Inter',
 });
 const ListItemMain = styled(ListItem)({
   height: 53,

@@ -4,7 +4,7 @@ import { Button, Modal } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { onModelOpen } from '../../../store/Actions';
+import { onModelOpen, onModelStatus } from '../../../store/Actions';
 
 import { onReceiveCoin, onSelectCoin } from '../../../store/Actions';
 import { CurrencyInput } from './CurrencyInput';
@@ -47,14 +47,9 @@ export type SwapProps = {
 const Swap = (props: SwapProps) => {
   const dispatch: any = useDispatch();
   const CoinDetail: any = useSelector((state: ArticleState) => state.CoinDetail);
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const ConnectWallet: any = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
   const ReceiveCoin: any = useSelector((state: ArticleState) => state.receiveCoinDetail);
-  const [Slider, setSlider] = React.useState<Boolean>(false);
-  const [AddEntey, setAddEntey] = React.useState<Boolean>(false);
   const onModel = (article: any) => {
     dispatch(onModelOpen(article));
   };
@@ -75,25 +70,22 @@ const Swap = (props: SwapProps) => {
         <CurrencyInput ETH="Max 0 ETH" />
         <CurrencyOutput />
         <SwapRouter btnTitle={props.btnTitle} />
-        <OrderBtn onClick={ConnectWallet.name !== '' && CoinNetwork.name !== '' ? handleOpen : () => {}}>
+        <OrderBtn
+          onClick={
+            ConnectWallet.name !== '' && CoinNetwork.name !== ''
+              ? () => {
+                  dispatch(onModelStatus({ name: 'Tranjection Waiting', Model: true }));
+                  setTimeout(() => {
+                    dispatch(onModelStatus({ name: 'Transaction Completed', Model: true }));
+                  }, 1000);
+                }
+              : () => {
+                  dispatch(onModelStatus({ name: 'Swap ConfirmModal', Model: true }));
+                }
+          }
+        >
           {ConnectWallet.name !== '' && CoinNetwork.name !== '' ? 'Swap' : props.btnTitle}
         </OrderBtn>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Boxes>
-            <TransactionWaiting />
-            {/* <TransactionCompleted handleClose={() =>{handleClose()}}/> */}
-            {/* <SwapConfirmModal
-              handleClose={() => {
-                handleClose();
-              }}
-            /> */}
-          </Boxes>
-        </Modal>
       </MainDiv>
       {props.btnTitle === 'Connect Wallet' ? (
         ConnectWallet.name !== '' && CoinNetwork.name !== '' ? (

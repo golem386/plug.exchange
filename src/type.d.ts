@@ -5,8 +5,17 @@ interface ICoin {
   name: String;
   image: String;
 }
+interface StatusPayload {
+  name: String;
+  Model: boolean;
+}
+
 type ArticleState = {
   model: any;
+  Model: {
+    name: '';
+    Status: boolean;
+  };
   CoinDetail: {
     name: String;
     image: String;
@@ -15,7 +24,7 @@ type ArticleState = {
   receiveCoinDetail: {
     name: String;
     image: String;
-    fullName:String;
+    fullName: String;
   };
   ConnectWallet: {
     name: String;
@@ -37,4 +46,9 @@ type CoinAction = {
   type: string;
   Coin: ICoin;
 };
-type DispatchType = (args: ArticleAction | CoinAction) => ArticleAction | CoinAction;
+type StatusAction = {
+  type: string;
+  Status: StatusPayload;
+};
+
+type DispatchType = (args: ArticleAction | CoinAction) => ArticleAction | CoinAction | StatusAction;

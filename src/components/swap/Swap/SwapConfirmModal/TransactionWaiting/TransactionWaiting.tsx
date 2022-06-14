@@ -1,4 +1,4 @@
-// this is a TransactionWaiting file and Provide a TransactionWaiting model 
+// this is a TransactionWaiting file and Provide a TransactionWaiting model
 import styled from '@emotion/styled';
 import { CircularProgress } from '@mui/material';
 import React, { Component } from 'react';
@@ -24,7 +24,7 @@ const CircularProgressIcon = styled(CircularProgress)({
   marginTop: 50,
 });
 const Main = styled('div')({
-  margin: 30,
+  marginTop: 10,
 });
 
 const TransactionWaiting = (props: TransactionWaitingProps) => {

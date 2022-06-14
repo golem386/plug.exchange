@@ -1,4 +1,3 @@
-
 // this file is a appbar and Create appBar Design
 
 import { Button, Grid } from '@mui/material';
@@ -8,7 +7,7 @@ import Logo from '../../assets/logo.png';
 import Serch from '../../assets/icon/Serch.png';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { connetNetwork, connetWallet } from '../../store/Actions';
+import { connetNetwork, connetWallet, onModelStatus } from '../../store/Actions';
 import ChooseNetworkModel from '../WalletModal/WalletModal';
 import { WalletDetails } from '../WalletDetails';
 import { SwitchNetwork } from '../SwitchNetwork';
@@ -82,7 +81,7 @@ const Imgs = styled('img')({
 
 const CustomGrid = styled(Grid)({
   display: 'flex',
-  justifyContent: 'space-around',
+  justifyContent: 'space-evenly',
   // alignItems: 'center',
 });
 
@@ -91,7 +90,7 @@ const ControlGrids = styled(Grid)({
   justifyContent: 'space-between',
 });
 const LogoGrid = styled(Grid)({
-  marginRight:0
+  marginRight: 0,
 });
 
 type DataObject = {
@@ -114,7 +113,6 @@ const nullObj = {
 };
 const AppBar = () => {
   const dispatch: any = useDispatch();
-  const [open, setOpen] = React.useState(false);
   const [ErrorStatus, setErrorStatus] = React.useState(false);
   const [Check, satCheck] = React.useState<Boolean>(false);
   const [filterInput, setFilterInput] = React.useState<String>('');
@@ -124,8 +122,9 @@ const AppBar = () => {
   const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () => {
+    dispatch(onModelStatus({ name: 'Connect Wallet', Model: true }));
+  };
 
   const handleOpenError = () => setErrorStatus(true);
   const handleCloseError = () => setErrorStatus(false);
@@ -152,12 +151,12 @@ const AppBar = () => {
 
   const SelectData = () => {
     Network();
-    handleClose();
+    dispatch(onModelStatus({ name: '', Model: false }));
   };
   return (
     <>
       <MainComponent>
-        <ControlGrids container spacing={4}>
+        <ControlGrids container spacing={5}>
           <LogoGrid item sm={1}>
             <Imgs src={Logo} height="38px" width="80px" alt="logo" />
           </LogoGrid>
@@ -222,10 +221,6 @@ const AppBar = () => {
         }}
         connetWalletFunction={(val: any) => {
           connetWalletFunction(val);
-        }}
-        open={open}
-        handleClose={() => {
-          handleClose();
         }}
         NetworkData={NetworkData.name}
       />
