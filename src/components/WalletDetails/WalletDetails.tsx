@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { connetNetwork, connetWallet } from '../../store/Actions';
 import filecopy from '../../assets/icon/filecopy.png';
 import History from '../../assets/icon/History.png';
-import DishConnect from '../../assets/icon/DishConnect.png';
+import DisConnect from '../../assets/icon/DisConnect.png';
 import DownArrow from '../../assets/icon/DownArrow.png';
 import { useSelector } from 'react-redux';
 import UserAssets from './UserAssets';
@@ -229,7 +229,7 @@ const WalletDetails = () => {
   const connetNetworkData = (coin: any) => {
     dispatch(connetNetwork(coin));
   };
-  const DishConnectWallet = () => {
+  const DisConnectWallet = () => {
     handleClosemenuPrice();
     satCheck(false);
     setWallet(nullObj);
@@ -288,10 +288,10 @@ const WalletDetails = () => {
           </MainDiv>
           <MainDiv
             onClick={() => {
-              DishConnectWallet();
+              DisConnectWallet();
             }}
           >
-            <img src={DishConnect} alt="Dishconnect" />
+            <img src={DisConnect} alt="Disconnect" />
             <HistoryTitle>{CoinNetwork.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
           </MainDiv>
         </HistoryDiv>

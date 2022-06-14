@@ -32,6 +32,7 @@ const FirseDiv = styled('div')({
 });
 const Title = styled('p')({
   color: 'black',
+  fontFamily: 'Inter',
 });
 const ImageSpan = styled('span')({
   color: 'black',
@@ -39,6 +40,7 @@ const ImageSpan = styled('span')({
 });
 const MainSpan = styled('span')({
   color: '#DC7FB6',
+  fontFamily: 'Inter',
 });
 const SecondDiv = styled('div')({
   backgroundColor: '#f0f0f0',
@@ -125,6 +127,9 @@ const DownArrowImg = styled('img')({
 const DownArrowImgTop = styled('img')({
   height: 11,
   paddingLeft: 10,
+});
+const MainTitle = styled('p')({
+  fontFamily: 'Inter',
 });
 type QuoteTableProps = {
   //   allowedSlippage: number;
@@ -235,7 +240,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                     <ListDiv>
                       <HeaderDiv>
                         <ImageIcon src={val.icon} alt="icon" />
-                        <p>{val.name}</p>
+                        <MainTitle>{val.name}</MainTitle>
                         <ShereIcon src={shere} alt="shere" />
                       </HeaderDiv>
                       <Grid container spacing={0}>

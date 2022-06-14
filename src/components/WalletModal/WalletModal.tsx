@@ -359,16 +359,6 @@ const WalletModal = (props: WalletModalProps) => {
             }}
           />
         ) : null}
-        {/* <TransactionCompleted
-            handleClose={() => {
-              dispatch(onModelStatus({ name: '', Model: false }));
-            }}
-          />
-        <SwapConfirmModal
-          handleClose={() => {
-            props.handleClose;
-          }}
-        /> */}
       </Boxs>
     </ModalCustom>
   );

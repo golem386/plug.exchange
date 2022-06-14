@@ -3,9 +3,6 @@ import styled from '@emotion/styled';
 import React, { Component } from 'react';
 import Cros from '../../../../assets/icon/Cros.png';
 import ShortVartical from '../../../../assets/icon/ShortVartical.png';
-import { useSelector } from 'react-redux';
-import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../../../store/Actions';
-import { useDispatch } from 'react-redux';
 import { CurrencyInput } from '../CurrencyInput';
 import { CurrencyOutput } from '../CurrencyOutput';
 

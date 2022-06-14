@@ -1,8 +1,7 @@
-// this is a TransactionCompleted file and Provide a model 
+// this is a TransactionCompleted file and Provide a model
 import styled from '@emotion/styled';
-import { Button, CircularProgress } from '@mui/material';
+import { Button } from '@mui/material';
 import React, { Component } from 'react';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import Completed from '../../../../../assets/icon/Completed.svg';
 import MataMask from '../../../../../assets/icon/MataMask.svg';
 import Cros from '../../../../../assets/icon/Cros.png';
@@ -57,7 +56,7 @@ const ImagDiv = styled('div')({
   justifyContent: 'flex-end',
 });
 const Main = styled('div')({
-  marginTop:10
+  marginTop: 10,
 });
 
 const TransactionCompleted = (props: TransactionCompletedProps) => {
