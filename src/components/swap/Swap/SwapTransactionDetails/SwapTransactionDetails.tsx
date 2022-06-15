@@ -2,7 +2,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { SwapTransactionDetailsProps } from '.';
 
 const DetailView = styled('div')({
   backgroundColor: '#F7F7F7',
@@ -26,6 +25,14 @@ const ItemText = styled('div')({
   color: '#000000',
 });
 
+export type SwapTransactionDetailsProps = {
+  btnTitle: String;
+  expectedOutput: number | null;
+  priceImpact: number | null;
+  minReceived: number | null;
+  maxSent: number | null;
+  allowedSlippage: number | null;
+};
 const SwapTransactionDetails = (props: SwapTransactionDetailsProps) => {
   const ConnectWallet: any = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);

@@ -37,10 +37,23 @@ const Swap = (props: SwapProps) => {
   return (
     <>
       <MainDiv>
-        <SwapHeader />
-        <CurrencyInput ETH="Max 0 ETH" />
-        <CurrencyOutput />
-        <SwapRouter btnTitle={props.btnTitle} />
+        <SwapHeader transactionSettingHandler={null} />
+        <CurrencyInput
+          ETH="Max 0 ETH"
+          userInputTokenBalance={null}
+          showMaxButton={null}
+          inputValue={null}
+          inputOnChangeHandler={null}
+          toggleCurrencyModal={null}
+          selectedCurrency={null}
+        />
+        <CurrencyOutput
+          inputOnChangeHandler={null}
+          inputValue={null}
+          selectedCurrency={null}
+          toggleCurrencyModal={null}
+        />
+        <SwapRouter btnTitle={props.btnTitle} liquiditySources={null} router={null} />
         <OrderBtn
           onClick={
             ConnectWallet.name !== '' && CoinNetwork.name !== ''
@@ -60,7 +73,14 @@ const Swap = (props: SwapProps) => {
       </MainDiv>
       {props.btnTitle === 'Connect Wallet' ? (
         ConnectWallet.name !== '' && CoinNetwork.name !== '' ? (
-          <SwapTransactionDetails btnTitle={props.btnTitle} />
+          <SwapTransactionDetails
+            btnTitle={props.btnTitle}
+            expectedOutput={null}
+            priceImpact={null}
+            minReceived={null}
+            maxSent={null}
+            allowedSlippage={null}
+          />
         ) : null
       ) : null}
     </>

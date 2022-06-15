@@ -21,7 +21,12 @@ const MainDiv = styled('div')({
   marginRight: '5%',
   marginTop: '4%',
 });
-
+const Quotadiv = styled('div')({
+  marginTop: '15%',
+});
+const Resetmorediv = styled('div')({
+  marginTop: '15%',
+});
 const SwapPage = () => {
   const Model: any = useSelector((state: ArticleState) => state.model);
   return (
@@ -31,12 +36,22 @@ const SwapPage = () => {
         <Grid container spacing={5}>
           <Grid item sm={8}>
             <PairLineChart />
+            <Quotadiv>
+              <QuoteTables />
+            </Quotadiv>
           </Grid>
           <Grid item sm={4}>
             {Model === 'Transaction' ? (
-              <TransactionSettings />
+              <TransactionSettings isOpen={null}/>
             ) : Model === 'SelectToken' ? (
-              <Selecttoken select="PayToken" />
+              <Selecttoken
+                select="PayToken"
+                activeList={null}
+                currencySearchHandler={null}
+                isOpen={null}
+                actionHandler={null}
+                activeTokenId={null}
+              />
             ) : Model === 'ReceiveToken' ? (
               <Selectedtoken select="ReceiveToken" />
             ) : (
@@ -44,18 +59,9 @@ const SwapPage = () => {
             )}
             {/* <Selectedtoken /> */}
             {/* <Swap btnTitle='Review Order' /> */}
-          </Grid>
-        </Grid>
-        <br />
-        <br />
-        <br />
-        <br />
-        <Grid container spacing={5}>
-          <Grid item sm={8}>
-            <QuoteTables />
-          </Grid>
-          <Grid item sm={4}>
-            <Resetmore />
+            <Resetmorediv>
+              <Resetmore />
+            </Resetmorediv>
           </Grid>
         </Grid>
       </MainDiv>

@@ -4,7 +4,6 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { onModelOpen } from '../../../../store/Actions';
 import menu from '../../../../assets/icon/menu.png';
-import { SwapHeaderProps } from '.';
 
 const SwapDiv = styled('div')({
   display: 'flex',
@@ -22,6 +21,9 @@ const Swap = styled('span')({
   color: 'black',
   fontFamily: 'Inter',
 });
+export type SwapHeaderProps = {
+  transactionSettingHandler: () => void | null;
+};
 const SwapHeader = (props: SwapHeaderProps) => {
   const dispatch: any = useDispatch();
   const onModel = (article: any) => {

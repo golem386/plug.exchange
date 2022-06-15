@@ -6,7 +6,6 @@ import React from 'react';
 import Cros from '../../assets/icon/Cros.png';
 import coin from '../../assets/icon/coin6.png';
 import info from '../../assets/icon/info.png';
-import { ImportTokenProps } from '.';
 
 const style = {
   position: 'absolute',
@@ -130,6 +129,12 @@ const ConnectButtonDisabal = styled(Button)({
   opacity: 0.3,
 });
 
+type Token = {};
+
+export type ImportTokenProps = {
+  handleClose: any;
+  importedToken: Token[] | null;
+};
 
 const ImportToken = (props: ImportTokenProps) => {
   const [Check, satCheck] = React.useState<Boolean>(false);
@@ -146,7 +151,7 @@ const ImportToken = (props: ImportTokenProps) => {
         />
       </TitleView>
       <UserId>
-        <TokenImg src={coin} alt="coin"/>
+        <TokenImg src={coin} alt="coin" />
         <TokenName>
           Tether <TokenCode>(USDT)</TokenCode>
         </TokenName>

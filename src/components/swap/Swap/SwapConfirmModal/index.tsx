@@ -98,16 +98,16 @@ type WAITING = {};
 type COMPLETED = {};
 export type SwapConfirmModalProps = {
   handleClose: any;
-  //   inputToken: Currency;
-  //   outputToken: Currency;
-  //   swapAmount: number;
-  //   expectedOutput: number;
-  //   minReceived: number;
-  //   allowedSlippage: number;
-  //   gasEstimateInUSD: number;
-  //   priceImpact: number;
-  //   swapHandler: () => void;
-  //   swapTXStatus: ENUM | SWAP | ERROR | WAITING | COMPLETED;
+  inputToken: Currency | null;
+  outputToken: Currency | null;
+  swapAmount: number | null;
+  expectedOutput: number | null;
+  minReceived: number | null;
+  allowedSlippage: number | null;
+  gasEstimateInUSD: number | null;
+  priceImpact: number | null;
+  swapHandler: () => void | null;
+  swapTXStatus: ENUM | SWAP | ERROR | WAITING | COMPLETED | null;
 };
 
 const SwapConfirmModal = (props: SwapConfirmModalProps) => {
@@ -117,8 +117,21 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
         <Title>Swap Confirmation</Title>
         <Image src={Cros} onClick={props.handleClose} />
       </MainDiv>
-      <CurrencyInput ETH="" />
-      <CurrencyOutput />
+      <CurrencyInput
+        ETH=""
+        userInputTokenBalance={null}
+        showMaxButton={null}
+        inputValue={null}
+        inputOnChangeHandler={null}
+        toggleCurrencyModal={null}
+        selectedCurrency={null}
+      />
+      <CurrencyOutput
+        inputOnChangeHandler={null}
+        inputValue={null}
+        selectedCurrency={null}
+        toggleCurrencyModal={null}
+      />
       <ShortView>
         <ETH>1 ETH = 4,008.2766 USDT</ETH>
         <ImgVarticalShort src={ShortVartical} />

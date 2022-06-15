@@ -1,4 +1,4 @@
-// this is a CurrencyOutput file and Provide a Currency Output value and input Design 
+// this is a CurrencyOutput file and Provide a Currency Output value and input Design
 import styled from '@emotion/styled';
 import { FormControl } from '@mui/material';
 import React from 'react';
@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import { onModelOpen } from '../../../../store/Actions';
 import DownArrow from '../../../../assets/icon/DownArrow.png';
 import { SwapArrow } from '../SwapArrow';
-import { CurrencyOutputProps } from '.';
 
 const ReceiveMain = styled('div')({
   backgroundColor: '#F7F7F7',
@@ -71,7 +70,14 @@ const CoinDropIcon = styled('img')({
   width: '8.49px',
   marginLeft: 10,
 });
-const CurrencyOutput = (props:CurrencyOutputProps) => {
+
+export type CurrencyOutputProps = {
+  inputOnChangeHandler: () => void | null;
+  inputValue: number | null;
+  selectedCurrency: any | null;
+  toggleCurrencyModal: () => void | null;
+};
+const CurrencyOutput = (props: CurrencyOutputProps) => {
   const dispatch: any = useDispatch();
   const ReceiveCoin: any = useSelector((state: ArticleState) => state.receiveCoinDetail);
 
@@ -80,7 +86,7 @@ const CurrencyOutput = (props:CurrencyOutputProps) => {
   };
   return (
     <ReceiveMain>
-      <SwapArrow />
+      <SwapArrow switchCurrencyHandler={null} />
       <YouReceive>You Receive</YouReceive>
       <MainViewInput>
         <TextInput placeholder="0" />
@@ -90,9 +96,9 @@ const CurrencyOutput = (props:CurrencyOutputProps) => {
               onModel('ReceiveToken');
             }}
           >
-            <CoinImgTag src={ReceiveCoin.image} alt="Icon"/>
+            <CoinImgTag src={ReceiveCoin.image} alt="Icon" />
             <CoinTitle>{ReceiveCoin.name}</CoinTitle>
-            <CoinDropIcon src={DownArrow} alt="DownArrow"/>
+            <CoinDropIcon src={DownArrow} alt="DownArrow" />
           </SelectMainDarkCoin>
         </FormControl>
       </MainViewInput>

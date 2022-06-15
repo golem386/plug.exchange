@@ -9,7 +9,6 @@ import TopArrow from '../../../../assets/icon/TopArrow.png';
 import { useDispatch } from 'react-redux';
 import { onModelOpen } from '../../../../store/Actions';
 import { Switch } from '@mui/material';
-import { TransactionSettingsProps } from '.';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -216,6 +215,9 @@ const TextTypeinput = styled('input')({
   },
 });
 
+export type TransactionSettingsProps = {
+  isOpen: boolean | null;
+};
 const TransactionSettings = (props: TransactionSettingsProps) => {
   const dispatch: any = useDispatch();
   const [Slider, setSlider] = React.useState<Boolean>(false);

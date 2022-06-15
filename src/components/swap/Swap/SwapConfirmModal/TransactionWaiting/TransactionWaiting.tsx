@@ -2,7 +2,6 @@
 import styled from '@emotion/styled';
 import { CircularProgress } from '@mui/material';
 import React, { Component } from 'react';
-import { TransactionWaitingProps } from '.';
 
 const Title = styled('p')({
   fontFamily: 'Inter',
@@ -27,6 +26,10 @@ const Main = styled('div')({
   marginTop: 10,
 });
 
+export type TransactionWaitingProps = {
+  swapCurrency: string | null;
+  receivedCurrency: string | null;
+};
 const TransactionWaiting = (props: TransactionWaitingProps) => {
   return (
     <Main>

@@ -12,13 +12,13 @@ import { styled } from '@mui/system';
 import Cros from '../../assets/icon/Cros.png';
 import select from '../../assets/icon/select.png';
 import Coin from '../../assets/icon/coin.png';
-import { WalletModalProps } from '.';
 import { TransactionWaiting } from '../swap/Swap/SwapConfirmModal/TransactionWaiting';
 import { TransactionCompleted } from '../swap/Swap/SwapConfirmModal/TransactionCompleted';
 import SwapConfirmModal from '../swap/Swap/SwapConfirmModal';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { onModelStatus } from '../../store/Actions';
+import CustomModel from '../CustomModel/CustomModel';
 
 const styleError = {
   position: 'absolute',
@@ -175,10 +175,22 @@ const Boxs = styled('div')({
   borderRadius: 10,
 });
 
+export type WalletModalProps = {
+  NetworkData: String;
+  connetNetworkFunction: any;
+  handleOpenError: any;
+  handleCloseError: any;
+  ErrorStatus: boolean;
+  connetWalletFunction: any;
+  WalletData: String;
+  Check: Boolean;
+  Network: any;
+  satCheck: any;
+  SelectData: any;
+};
 const WalletModal = (props: WalletModalProps) => {
   const dispatch: any = useDispatch();
   const ModelStatus: any = useSelector((state: ArticleState) => state.Model);
-  console.log(ModelStatus);
   return (
     <ModalCustom
       open={ModelStatus.Model}
@@ -187,178 +199,33 @@ const WalletModal = (props: WalletModalProps) => {
       }}
     >
       <Boxs>
-        {ModelStatus.name === 'Tranjection Waiting' ? (
-          <TransactionWaiting />
-        ) : ModelStatus.name === 'Connect Wallet' ? (
-          <>
-            <TitleView>
-              <Title>Choose Network</Title>
-              <img
-                src={Cros}
-                onClick={() => {
-                  dispatch(onModelStatus({ name: '', Model: false }));
-                }}
-                alt="Image"
-              />
-            </TitleView>
-            <Over>
-              <ViewMainView>
-                {ConnectNetWorkOne.map((val, i) => {
-                  return props.NetworkData === val.name ? (
-                    <ViewMainActive>
-                      <SelectImg src={select} alt="Select_Icon" />
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMainActive>
-                  ) : (
-                    <ViewMain
-                      onClick={() => {
-                        props.connetNetworkFunction(val);
-                      }}
-                    >
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMain>
-                  );
-                })}
-              </ViewMainView>
-              <ViewMainView>
-                {ConnectNetWorkTow.map((val, i) => {
-                  return props.NetworkData === val.name ? (
-                    <ViewMainActive>
-                      <SelectImg src={select} alt="Select" />
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMainActive>
-                  ) : (
-                    <ViewMain
-                      onClick={() => {
-                        props.connetNetworkFunction(val);
-                      }}
-                    >
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMain>
-                  );
-                })}
-              </ViewMainView>
-              <ViewMainView>
-                <ViewMain>
-                  <TitleIcon onClick={props.handleOpenError}>Error Modal</TitleIcon>
-                </ViewMain>
-                <ModalCustom open={props.ErrorStatus} onClose={props.handleCloseError}>
-                  <Box sx={styleError}>
-                    <TitleView>
-                      <Title>Wrong Network</Title>
-                      <img src={Cros} onClick={props.handleCloseError} alt="Cros" />
-                    </TitleView>
-                    <MainDiv>
-                      <ImageIcon src={Coin} alt="Coin" />
-                      <Span>Arbitrum</Span>
-                    </MainDiv>
-                    <br />
-                    <Warning>You select wrong network please select anothor network</Warning>
-                    <br />
-                    <br />
-                    <ConnectButton variant="text" onClick={() => {}}>
-                      Ok
-                    </ConnectButton>
-                  </Box>
-                </ModalCustom>
-              </ViewMainView>
-              <Title>Choose Wallet</Title>
-              <ViewMainView>
-                {ConnectWalletOne.map((val, i) => {
-                  return props.WalletData === val.name ? (
-                    <ViewMainActive>
-                      <SelectImg src={select} alt="Select" />
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMainActive>
-                  ) : (
-                    <ViewMain
-                      onClick={() => {
-                        props.connetWalletFunction(val);
-                      }}
-                    >
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMain>
-                  );
-                })}
-              </ViewMainView>
-              <ViewMainView>
-                {ConnectWalletTow.map((val, i) => {
-                  return props.WalletData === val.name ? (
-                    <ViewMainActive>
-                      <SelectImg src={select} alt="Select" />
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMainActive>
-                  ) : (
-                    <ViewMain
-                      onClick={() => {
-                        props.connetWalletFunction(val);
-                      }}
-                    >
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMain>
-                  );
-                })}
-              </ViewMainView>
-              <ViewMainView>
-                {ConnectWalletThree.map((val, i) => {
-                  return props.WalletData === val.name ? (
-                    <ViewMainActive>
-                      <SelectImg src={select} alt="Select" />
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMainActive>
-                  ) : (
-                    <ViewMain
-                      onClick={() => {
-                        props.connetWalletFunction(val);
-                      }}
-                    >
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMain>
-                  );
-                })}
-              </ViewMainView>
-            </Over>
-            <TitleControl>
-              <FormControlLabel
-                control={<Radio onClick={props.satCheck} checked={props.Check ? true : false} />}
-                label=""
-              />
-              <Condition>
-                I accept the <ConditionPink>Terms of Services</ConditionPink>
-                <ConditionPink>Privacy Policy</ConditionPink>
-              </Condition>
-            </TitleControl>
-            {props.Check ? (
-              <ConnectButton variant="text" onClick={props.SelectData}>
-                Connect Wallet
-              </ConnectButton>
-            ) : (
-              <ConnectButtonDisable variant="text">Connect Wallet</ConnectButtonDisable>
-            )}
-          </>
-        ) : ModelStatus.name === 'Transaction Completed' ? (
-          <TransactionCompleted
-            handleClose={() => {
-              dispatch(onModelStatus({ name: '', Model: false }));
-            }}
-          />
-        ) : ModelStatus.name === 'Swap ConfirmModal' ? (
-          <SwapConfirmModal
-            handleClose={() => {
-              dispatch(onModelStatus({ name: '', Model: false }));
-            }}
-          />
-        ) : null}
+        <CustomModel
+          satCheck={(val) => {
+            props.satCheck(val);
+          }}
+          SelectData={() => {
+            props.SelectData();
+          }}
+          Network={() => {
+            props.Network();
+          }}
+          Check={props.Check}
+          WalletData={props.WalletData}
+          ErrorStatus={props.ErrorStatus}
+          handleCloseError={(val) => {
+            props.handleCloseError(val);
+          }}
+          handleOpenError={(val) => {
+            props.handleOpenError(val);
+          }}
+          connetNetworkFunction={(val: any) => {
+            props.connetNetworkFunction(val);
+          }}
+          connetWalletFunction={(val: any) => {
+            props.connetWalletFunction(val);
+          }}
+          NetworkData={props.NetworkData}
+        />
       </Boxs>
     </ModalCustom>
   );

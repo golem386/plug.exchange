@@ -11,7 +11,6 @@ import DownArrow from '../../../../assets/icon/DownArrow.png';
 import Coin from '../../../../assets/icon/coin.png';
 import Coin6 from '../../../../assets/icon/coin3.png';
 import hr from '../../../../assets/icon/hr.png';
-import { SwapRouterProps } from '.';
 
 const ETH = styled('p')({
   color: '#BB36FF',
@@ -186,6 +185,25 @@ const CView = styled('div')({
   alignItems: 'center',
 });
 
+type RouteWithValidQuotes = {};
+type BestRoute = {
+  route: RouteWithValidQuotes[];
+  protocol: string;
+  proportion: string;
+};
+type LiquiditySource = {
+  protocol: string;
+  amountSavedInUSD: number;
+  minimumReceived: number;
+  minimumReceivedInUSD: number;
+  gasEstimateInETH: number;
+  gasEstimateInUSD: number;
+};
+export type SwapRouterProps = {
+  btnTitle: String;
+  liquiditySources: LiquiditySource[] | null;
+  router: BestRoute[] | null;
+};
 const SwapRouter = (props: SwapRouterProps) => {
   const [Slider, setSlider] = React.useState<Boolean>(false);
   const [AddEntey, setAddEntey] = React.useState<Boolean>(false);

@@ -10,7 +10,6 @@ import { useDispatch } from 'react-redux';
 import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../store/Actions';
 import { useSelector } from 'react-redux';
 import ImportToken from '../ImportToken/ImportToken';
-import { SelecttokenProps } from '.';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -83,6 +82,16 @@ const ModalCustom = styled(Modal)({
   borderRadius: 20,
 });
 
+export type Currencys = {};
+export type SelecttokenProps = {
+  select: String;
+  activeList: Currencys[] | null;
+  currencySearchHandler: () => void | null;
+  isOpen: boolean | null;
+  actionHandler: () => void | null;
+  activeTokenId: string | null;
+};
+
 const Selecttoken = (props: SelecttokenProps) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -137,6 +146,7 @@ const Selecttoken = (props: SelecttokenProps) => {
             handleClose={() => {
               handleClose();
             }}
+            importedToken={null}
           />
         </ModalCustom>
       </InputIcon>

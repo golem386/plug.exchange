@@ -1,4 +1,4 @@
-// this file Provide Setting menu 
+// this file Provide Setting menu
 import styled from '@emotion/styled';
 import { Button, Menu, MenuItem } from '@mui/material';
 import React from 'react';
@@ -8,7 +8,6 @@ import Question from '../../assets/icon/Question.svg';
 import request from '../../assets/icon/Request.svg';
 import Language from '../../assets/icon/Language.svg';
 import Dark from '../../assets/icon/Dark.svg';
-import { SettingsProps } from '.';
 
 const DropDownTitleIcon = styled('span')({
   fontFamily: 'Inter',
@@ -41,7 +40,11 @@ const SettingButton = styled(Button)({
   opacity: '0.65',
   height: 60,
 });
+type Setting = {};
 
+type SettingsProps = {
+  settings: Setting[] | null;
+};
 const Settings = (props: SettingsProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const openmenu = Boolean(anchorEl);

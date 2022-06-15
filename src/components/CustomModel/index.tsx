@@ -1,0 +1,1 @@
+import CustomModel from './CustomModel'

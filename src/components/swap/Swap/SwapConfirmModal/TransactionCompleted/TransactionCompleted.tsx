@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import Completed from '../../../../../assets/icon/Completed.svg';
 import MataMask from '../../../../../assets/icon/MataMask.svg';
 import Cros from '../../../../../assets/icon/Cros.png';
-import { TransactionCompletedProps } from '.';
 
 const Title = styled('span')({
   fontFamily: 'Inter',
@@ -59,6 +58,11 @@ const Main = styled('div')({
   marginTop: 10,
 });
 
+export type TransactionCompletedProps = {
+  handleClose: any;
+  transactionUrl: string | null;
+  watchAssetHandler: () => void | null;
+};
 const TransactionCompleted = (props: TransactionCompletedProps) => {
   return (
     <Main>

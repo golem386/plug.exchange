@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { onReceiveCoin, onSelectCoin } from '../../../../store/Actions';
 import UpDown from '../../../../assets/icon/UpDown.png';
-import { SwapArrowProps } from '.';
 
 const UpDownImage = styled('img')({
   backgroundColor: 'white',
@@ -18,6 +17,9 @@ const UpDownImage = styled('img')({
   cursor: 'pointer',
 });
 
+export type SwapArrowProps = {
+  switchCurrencyHandler: Function | null
+};
 const SwapArrow = (props: SwapArrowProps) => {
   const dispatch: any = useDispatch();
   const CoinDetail: any = useSelector((state: ArticleState) => state.CoinDetail);

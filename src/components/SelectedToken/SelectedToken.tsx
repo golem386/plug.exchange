@@ -6,13 +6,12 @@ import Serch from '../../assets/icon/Serch.png';
 import logoimg from '../../assets/icon/coin3.png';
 import { useDispatch } from 'react-redux';
 import { onModelOpen } from '../../store/Actions';
-import { SelectrdTokenProps } from '.';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   width: '100%',
-  height: '100%',
+  height: '50%',
   overflow: 'auto',
 });
 const Token = styled('p')({
@@ -99,6 +98,9 @@ const TitleItemBlack = styled('p')({
 });
 const Images = styled('img')({});
 
+export type SelectrdTokenProps = {
+  select:string
+}
 const Selectedtoken = (props:SelectrdTokenProps) => {
   const dispatch: any = useDispatch();
   const onModel = (model: any) => {

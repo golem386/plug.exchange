@@ -1,4 +1,4 @@
-// this is a CurrencyInput file and Provide a Currency Input value and input Design 
+// this is a CurrencyInput file and Provide a Currency Input value and input Design
 import styled from '@emotion/styled';
 import { FormControl } from '@mui/material';
 import React from 'react';
@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { onModelOpen } from '../../../../store/Actions';
 import DownArrow from '../../../../assets/icon/DownArrow.png';
-import { CurrencyInputProps } from '.';
 
 const SwapDiv = styled('div')({
   display: 'flex',
@@ -78,7 +77,17 @@ const CoinDropIcon = styled('img')({
   width: '8.49px',
   marginLeft: 10,
 });
-const CurrencyInput = (props:CurrencyInputProps) => {
+
+export type CurrencyInputProps = {
+  ETH: string;
+  userInputTokenBalance: number | null;
+  showMaxButton: boolean | null;
+  inputValue: number | null;
+  inputOnChangeHandler: () => void | null;
+  toggleCurrencyModal: () => void | null;
+  selectedCurrency: any | null;
+};
+const CurrencyInput = (props: CurrencyInputProps) => {
   const dispatch: any = useDispatch();
   const CoinDetail: any = useSelector((state: ArticleState) => state.CoinDetail);
 
@@ -99,9 +108,9 @@ const CurrencyInput = (props:CurrencyInputProps) => {
               onModel('SelectToken');
             }}
           >
-            <CoinImgTag src={CoinDetail.image} alt="Coin"/>
+            <CoinImgTag src={CoinDetail.image} alt="Coin" />
             <CoinTitle>{CoinDetail.name}</CoinTitle>
-            <CoinDropIcon src={DownArrow} alt="DownArrow"/>
+            <CoinDropIcon src={DownArrow} alt="DownArrow" />
           </SelectMain>
         </FormControl>
       </MainViewInputToken>

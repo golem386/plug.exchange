@@ -170,7 +170,7 @@ const AppBar = () => {
                 }}
               />
             </InputIcon>
-            {filterInput !== '' ? <CurrencySearch /> : null}
+            {filterInput !== '' ? <CurrencySearch searchValue={null} /> : null}
           </Grid>
           <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 5 : 7}>
             <CustomButton>Buy Crypto</CustomButton>
@@ -193,7 +193,7 @@ const AppBar = () => {
               </CustomButtonActive>
             )}
             {CoinDetail.name === '' && CoinNetwork.name === '' ? '' : <WalletDetails />}
-            <Settings />
+            <Settings settings={null}/>
           </CustomGrid>
         </ControlGrids>
       </MainComponent>
