@@ -1,4 +1,4 @@
-// this file is a CurrencySearch Model and Provide outher Currency suggestion Search time
+// this file is a CurrencySearch Modal and Provide outher Currency suggestion Search time
 import styled from '@emotion/styled';
 import React, { Component } from 'react';
 import coin from '../../assets/icon/coin.png';

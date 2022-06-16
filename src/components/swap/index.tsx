@@ -1,7 +1,7 @@
-// this is a Swap File and Create Swap Model and manage other model and Swep Props Pass
+// this is a Swap File and Create Swap Modal and manage other modal and Swep Props Pass
 import { AppFooter, AppBar } from '..';
 import QuoteTable from './QuoteTable';
-import { Resetmore } from '../RestartModel';
+import { Resetmore } from '../RestartModal';
 import Selectedtoken from '../SelectedToken/SelectedToken';
 import { Selecttoken } from '../CurrencyModal';
 import PairLineChart from './PairLineChart';

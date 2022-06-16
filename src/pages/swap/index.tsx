@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 import { useSelector } from 'react-redux';
 import { AppBar, AppFooter } from '../../components';
 import { Selecttoken } from '../../components/CurrencyModal';
-import { Resetmore } from '../../components/RestartModel';
+import { Resetmore } from '../../components/RestartModal';
 import { Selectedtoken } from '../../components/SelectedToken';
 import PairLineChart from '../../components/swap/PairLineChart';
 import QuoteTables from '../../components/swap/QuoteTable';
@@ -28,7 +28,7 @@ const Resetmorediv = styled('div')({
   marginTop: '15%',
 });
 const SwapPage = () => {
-  const Model: any = useSelector((state: ArticleState) => state.model);
+  const Modal: any = useSelector((state: ArticleState) => state.modal);
   return (
     <>
       <AppBar />
@@ -41,9 +41,9 @@ const SwapPage = () => {
             </Quotadiv>
           </Grid>
           <Grid item sm={4}>
-            {Model === 'Transaction' ? (
+            {Modal === 'Transaction' ? (
               <TransactionSettings isOpen={null}/>
-            ) : Model === 'SelectToken' ? (
+            ) : Modal === 'SelectToken' ? (
               <Selecttoken
                 select="PayToken"
                 activeList={null}
@@ -52,7 +52,7 @@ const SwapPage = () => {
                 actionHandler={null}
                 activeTokenId={null}
               />
-            ) : Model === 'ReceiveToken' ? (
+            ) : Modal === 'ReceiveToken' ? (
               <Selectedtoken select="ReceiveToken" />
             ) : (
               <Swap btnTitle="Connect Wallet" />

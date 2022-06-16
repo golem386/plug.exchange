@@ -1,10 +1,10 @@
-// this is a swap index file and Provide a Swap model layout
+// this is a swap index file and Provide a Swap modal layout
 import styled from '@emotion/styled';
 import { Button, Modal } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { onModelStatus } from '../../../store/Actions';
+import { onModalStatus } from '../../../store/Actions';
 import { CurrencyInput } from './CurrencyInput';
 import { CurrencyOutput } from './CurrencyOutput';
 import { SwapHeader } from './SwapHeader';
@@ -58,13 +58,13 @@ const Swap = (props: SwapProps) => {
           onClick={
             ConnectWallet.name !== '' && CoinNetwork.name !== ''
               ? () => {
-                  dispatch(onModelStatus({ name: 'Tranjection Waiting', Model: true }));
+                  dispatch(onModalStatus({ name: 'transaction Waiting', Modal: true }));
                   setTimeout(() => {
-                    dispatch(onModelStatus({ name: 'Transaction Completed', Model: true }));
+                    dispatch(onModalStatus({ name: 'Transaction Completed', Modal: true }));
                   }, 1000);
                 }
               : () => {
-                  dispatch(onModelStatus({ name: 'Swap ConfirmModal', Model: true }));
+                  dispatch(onModalStatus({ name: 'Swap ConfirmModal', Modal: true }));
                 }
           }
         >

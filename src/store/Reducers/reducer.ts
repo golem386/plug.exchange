@@ -4,8 +4,8 @@ import Coin2 from '../../assets/icon/coin2.png';
 import Coin from '../../assets/icon/coin.png';
 
 const initialState: ArticleState = {
-  model: 'abdc',
-  Model:{
+  modal: 'abdc',
+  Modal:{
     name:'',
     Status:false
   },
@@ -33,10 +33,10 @@ const initialState: ArticleState = {
 
 const reducer = (state: ArticleState = initialState, action: any): ArticleState => {
   switch (action.type) {
-    case actionTypes.OPEN_MODEL:
+    case actionTypes.OPEN_MODAL:
       return {
         ...state,
-        model: action.model,
+        modal: action.modal,
       };
     case actionTypes.SELECT_TOKEN:
       return {
@@ -58,10 +58,10 @@ const reducer = (state: ArticleState = initialState, action: any): ArticleState 
         ...state,
         ConnectNetwork: action.Coin,
       };
-    case actionTypes.ON_MODEL:
+    case actionTypes.ON_MODAL:
       return {
         ...state,
-        Model: action.Status,
+        Modal: action.Status,
       };
   }
   return state;

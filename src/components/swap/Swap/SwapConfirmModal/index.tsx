@@ -1,4 +1,4 @@
-// this is a SwapConfirmmpdel File and Provide a SwapConfirmation Model
+// this is a SwapConfirmmpdel File and Provide a SwapConfirmation Modal
 import styled from '@emotion/styled';
 import React, { Component } from 'react';
 import Cros from '../../../../assets/icon/Cros.png';

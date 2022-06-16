@@ -4,7 +4,7 @@ import { FormControl } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { onModelOpen } from '../../../../store/Actions';
+import { onModalOpen } from '../../../../store/Actions';
 import DownArrow from '../../../../assets/icon/DownArrow.png';
 
 const SwapDiv = styled('div')({
@@ -91,8 +91,8 @@ const CurrencyInput = (props: CurrencyInputProps) => {
   const dispatch: any = useDispatch();
   const CoinDetail: any = useSelector((state: ArticleState) => state.CoinDetail);
 
-  const onModel = (article: any) => {
-    dispatch(onModelOpen(article));
+  const onModal = (article: any) => {
+    dispatch(onModalOpen(article));
   };
   return (
     <>
@@ -105,7 +105,7 @@ const CurrencyInput = (props: CurrencyInputProps) => {
         <FormControl sx={{ m: 1, minWidth: 120 }}>
           <SelectMain
             onClick={() => {
-              onModel('SelectToken');
+              onModal('SelectToken');
             }}
           >
             <CoinImgTag src={CoinDetail.image} alt="Coin" />

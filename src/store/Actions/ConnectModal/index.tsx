@@ -20,9 +20,9 @@ export function connetNetwork(Coin: ICoin) {
   };
 }
 
-export function onModelStatus(Status: StatusPayload) {
+export function onModalStatus(Status: StatusPayload) {
   const action: any = {
-    type: actionTypes.ON_MODEL,
+    type: actionTypes.ON_MODAL,
     Status,
   };
   return (dispatch: DispatchType) => {

@@ -1,4 +1,4 @@
-// this is a TransactionSettings file and Provide a TransactionSettings model
+// this is a TransactionSettings file and Provide a TransactionSettings modal
 import styled from '@emotion/styled';
 import { Button, FormControlLabel, Radio } from '@mui/material';
 import React from 'react';
@@ -7,7 +7,7 @@ import Question from '../../../../assets/icon/Question.svg';
 import DownArrow from '../../../../assets/icon/DownArrow.png';
 import TopArrow from '../../../../assets/icon/TopArrow.png';
 import { useDispatch } from 'react-redux';
-import { onModelOpen } from '../../../../store/Actions';
+import { onModalOpen } from '../../../../store/Actions';
 import { Switch } from '@mui/material';
 
 const MainDiv = styled('div')({
@@ -221,8 +221,8 @@ export type TransactionSettingsProps = {
 const TransactionSettings = (props: TransactionSettingsProps) => {
   const dispatch: any = useDispatch();
   const [Slider, setSlider] = React.useState<Boolean>(false);
-  const onModel = (article: any) => {
-    dispatch(onModelOpen(article));
+  const onModal = (article: any) => {
+    dispatch(onModalOpen(article));
   };
   return (
     <MainDiv>
@@ -231,7 +231,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
         <img
           src={close}
           onClick={() => {
-            onModel('Swep');
+            onModal('Swep');
           }}
           alt="Close"
         />

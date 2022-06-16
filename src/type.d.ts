@@ -1,5 +1,5 @@
 interface IArticle {
-  model: String;
+  modal: String;
 }
 interface ICoin {
   name: String;
@@ -7,12 +7,12 @@ interface ICoin {
 }
 interface StatusPayload {
   name: String;
-  Model: boolean;
+  Modal: boolean;
 }
 
 type ArticleState = {
-  model: any;
-  Model: {
+  modal: any;
+  Modal: {
     name: '';
     Status: boolean;
   };
@@ -40,7 +40,7 @@ type ArticleState = {
 
 type ArticleAction = {
   type: string;
-  model: IArticle;
+  modal: IArticle;
 };
 type CoinAction = {
   type: string;

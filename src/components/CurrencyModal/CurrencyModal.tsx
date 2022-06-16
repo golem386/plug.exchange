@@ -1,13 +1,13 @@
-// this file is a CurrencyModel file and Provide a many Outher Currancy list and Choose Any one Currancy token
+// this file is a CurrencyModal file and Provide a many Outher Currancy list and Choose Any one Currancy token
 import { styled } from '@material-ui/core';
 import { Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Modal } from '@mui/material';
 import React from 'react';
 import Cros from '../../assets/icon/Cros.png';
-import Serch from '../../assets/icon/Serch.png';
+import Search from '../../assets/icon/Search.png';
 import right from '../../assets/icon/right.png';
 import { list } from '../../contexts/SelectTokenDATA';
 import { useDispatch } from 'react-redux';
-import { onModelOpen, onReceiveCoin, onSelectCoin } from '../../store/Actions';
+import { onModalOpen, onReceiveCoin, onSelectCoin } from '../../store/Actions';
 import { useSelector } from 'react-redux';
 import ImportToken from '../ImportToken/ImportToken';
 
@@ -98,8 +98,8 @@ const Selecttoken = (props: SelecttokenProps) => {
   const handleClose = () => setOpen(false);
 
   const dispatch: any = useDispatch();
-  const onModel = (model: any) => {
-    dispatch(onModelOpen(model));
+  const onModal = (modal: any) => {
+    dispatch(onModalOpen(modal));
   };
   const onSelectIcon = (coin: any) => {
     dispatch(onSelectCoin(coin));
@@ -115,7 +115,7 @@ const Selecttoken = (props: SelecttokenProps) => {
         <Token>Select a Token</Token>
         <CrosIcon
           onClick={() => {
-            onModel('Swep');
+            onModal('Swep');
           }}
         >
           <img src={Cros} alt="Cros" />
@@ -123,8 +123,8 @@ const Selecttoken = (props: SelecttokenProps) => {
       </Flex>
       <InputIcon>
         <IconImg
-          src={Serch}
-          srcSet={Serch}
+          src={Search}
+          srcSet={Search}
           onClick={
             props.select === 'PayToken'
               ? () => {
@@ -156,7 +156,7 @@ const Selecttoken = (props: SelecttokenProps) => {
             <ListItemMain
               disablePadding
               onClick={() => {
-                onModel('Swep');
+                onModal('Swep');
                 props.select === 'PayToken'
                   ? onSelectIcon({
                       name: val.type,

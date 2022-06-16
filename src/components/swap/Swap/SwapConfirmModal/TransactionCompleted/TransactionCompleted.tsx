@@ -1,4 +1,4 @@
-// this is a TransactionCompleted file and Provide a model
+// this is a TransactionCompleted file and Provide a modal
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
 import React, { Component } from 'react';

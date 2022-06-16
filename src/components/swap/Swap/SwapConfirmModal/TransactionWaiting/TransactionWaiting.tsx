@@ -1,4 +1,4 @@
-// this is a TransactionWaiting file and Provide a TransactionWaiting model
+// this is a TransactionWaiting file and Provide a TransactionWaiting modal
 import styled from '@emotion/styled';
 import { CircularProgress } from '@mui/material';
 import React, { Component } from 'react';

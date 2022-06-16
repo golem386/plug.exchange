@@ -2,10 +2,10 @@ import React from 'react';
 import { styled } from '@material-ui/core';
 import { Button } from '@mui/material';
 import Cros from '../../assets/icon/Cros.png';
-import Serch from '../../assets/icon/Serch.png';
+import Search from '../../assets/icon/Search.png';
 import logoimg from '../../assets/icon/coin3.png';
 import { useDispatch } from 'react-redux';
-import { onModelOpen } from '../../store/Actions';
+import { onModalOpen } from '../../store/Actions';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -98,13 +98,13 @@ const TitleItemBlack = styled('p')({
 });
 const Images = styled('img')({});
 
-export type SelectrdTokenProps = {
+export type SelectedtokenProps = {
   select:string
 }
-const Selectedtoken = (props:SelectrdTokenProps) => {
+const Selectedtoken = (props:SelectedtokenProps) => {
   const dispatch: any = useDispatch();
-  const onModel = (model: any) => {
-    dispatch(onModelOpen(model));
+  const onModal = (modal: any) => {
+    dispatch(onModalOpen(modal));
   };
   return (
     <MainDiv>
@@ -112,14 +112,14 @@ const Selectedtoken = (props:SelectrdTokenProps) => {
         <Token>Select a Token</Token>
         <CrosIcon
           onClick={() => {
-            onModel('Swep');
+            onModal('Swep');
           }}
         >
           <img src={Cros} alt="Cros_icon"/>
         </CrosIcon>
       </Flex>
       <InputIcon>
-        <IconImg src={Serch} srcSet={Serch} alt="img" loading="lazy" />
+        <IconImg src={Search} srcSet={Search} alt="img" loading="lazy" />
         <TextInputActive placeholder="Search by Name or Paste Address" />
       </InputIcon>
       <List>

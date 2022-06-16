@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { onModelOpen } from '../../../../store/Actions';
+import { onModalOpen } from '../../../../store/Actions';
 import menu from '../../../../assets/icon/menu.png';
 
 const SwapDiv = styled('div')({
@@ -26,8 +26,8 @@ export type SwapHeaderProps = {
 };
 const SwapHeader = (props: SwapHeaderProps) => {
   const dispatch: any = useDispatch();
-  const onModel = (article: any) => {
-    dispatch(onModelOpen(article));
+  const onModal = (article: any) => {
+    dispatch(onModalOpen(article));
   };
   return (
     <SwapDiv>
@@ -35,7 +35,7 @@ const SwapHeader = (props: SwapHeaderProps) => {
       <img
         src={menu}
         onClick={() => {
-          onModel('Transaction');
+          onModal('Transaction');
         }}
         alt="Menu"
       />

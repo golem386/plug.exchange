@@ -4,15 +4,15 @@ import { Button, Grid } from '@mui/material';
 import { styled } from '@mui/system';
 import React from 'react';
 import Logo from '../../assets/logo.png';
-import Serch from '../../assets/icon/Serch.png';
+import Search from '../../assets/icon/Search.png';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { connetNetwork, connetWallet, onModelStatus } from '../../store/Actions';
-import ChooseNetworkModel from '../WalletModal/WalletModal';
+import {connetNetwork, connetWallet, onModalStatus } from '../../store/Actions';
 import { WalletDetails } from '../WalletDetails';
 import { SwitchNetwork } from '../SwitchNetwork';
 import Settings from '../Settings/Settings';
 import { CurrencySearch } from '../CurrencySearch';
+import CustomModal from '../Modal/Modal';
 
 const MainComponent = styled('div')({
   display: 'flex',
@@ -123,7 +123,7 @@ const AppBar = () => {
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
 
   const handleOpen = () => {
-    dispatch(onModelStatus({ name: 'Connect Wallet', Model: true }));
+    dispatch(onModalStatus({ name: 'Connect Wallet', Modal: true }));
   };
 
   const handleOpenError = () => setErrorStatus(true);
@@ -151,7 +151,7 @@ const AppBar = () => {
 
   const SelectData = () => {
     Network();
-    dispatch(onModelStatus({ name: '', Model: false }));
+    dispatch(onModalStatus({ name: '', Modal: false }));
   };
   return (
     <>
@@ -162,7 +162,7 @@ const AppBar = () => {
           </LogoGrid>
           <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 6 : 4}>
             <InputIcon>
-              <img src={Serch} alt="Serch" />
+              <img src={Search} alt="Search" />
               <TextInputActive
                 placeholder="Search by Token Name or Address"
                 onChange={(e) => {
@@ -193,11 +193,11 @@ const AppBar = () => {
               </CustomButtonActive>
             )}
             {CoinDetail.name === '' && CoinNetwork.name === '' ? '' : <WalletDetails />}
-            <Settings settings={null}/>
+            <Settings settings={null} />
           </CustomGrid>
         </ControlGrids>
       </MainComponent>
-      <ChooseNetworkModel
+      <CustomModal
         satCheck={() => {
           satCheck(!Check);
         }}
