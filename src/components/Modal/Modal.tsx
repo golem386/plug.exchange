@@ -184,7 +184,7 @@ export type WalletModalProps = {
   WalletData: String;
   Check: Boolean;
   Network: any;
-  satCheck: any;
+  setCheck: any;
   SelectData: any;
 };
 const CustomModal = (props: WalletModalProps) => {
@@ -202,8 +202,8 @@ const CustomModal = (props: WalletModalProps) => {
           <TransactionWaiting swapCurrency={null} receivedCurrency={null} />
         ) : ModalStatus.name === 'Connect Wallet' ? (
           <WalletModal
-            satCheck={(val) => {
-              props.satCheck(val);
+            setCheck={(val) => {
+              props.setCheck(val);
             }}
             SelectData={() => {
               props.SelectData();

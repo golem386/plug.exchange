@@ -114,7 +114,7 @@ const nullObj = {
 const AppBar = () => {
   const dispatch: any = useDispatch();
   const [ErrorStatus, setErrorStatus] = React.useState(false);
-  const [Check, satCheck] = React.useState<Boolean>(false);
+  const [Check, setCheck] = React.useState<Boolean>(false);
   const [filterInput, setFilterInput] = React.useState<String>('');
   const [WalletData, setWallet] = React.useState<DataObject>(nullObj);
   const [NetworkData, setNetwork] = React.useState<DataObject>(nullObj);
@@ -185,7 +185,7 @@ const AppBar = () => {
                 onClick={() => {
                   connetWalletFunction(nullObj);
                   connetNetworkFunction(nullObj);
-                  satCheck(false);
+                  setCheck(false);
                   handleOpen();
                 }}
               >
@@ -198,8 +198,8 @@ const AppBar = () => {
         </ControlGrids>
       </MainComponent>
       <CustomModal
-        satCheck={() => {
-          satCheck(!Check);
+        setCheck={() => {
+          setCheck(!Check);
         }}
         SelectData={() => {
           SelectData();

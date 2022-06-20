@@ -185,7 +185,7 @@ export type WalletModalProps = {
   WalletData: String;
   Check: Boolean;
   Network: any;
-  satCheck: any;
+  setCheck: any;
   SelectData: any;
 };
 const WalletModal = (props: WalletModalProps) => {
@@ -331,7 +331,7 @@ const WalletModal = (props: WalletModalProps) => {
         </ViewMainView>
       </Over>
       <TitleControl>
-        <FormControlLabel control={<Radio onClick={props.satCheck} checked={props.Check ? true : false} />} label="" />
+        <FormControlLabel control={<Radio onClick={props.setCheck} checked={props.Check ? true : false} />} label="" />
         <Condition>
           I accept the <ConditionPink>Terms of Services</ConditionPink>
           <ConditionPink>Privacy Policy</ConditionPink>

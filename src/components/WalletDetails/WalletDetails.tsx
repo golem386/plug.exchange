@@ -215,7 +215,7 @@ const WalletDetails = () => {
   const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
   const openmenuPrice = Boolean(anchorElPrice);
   const [WalletData, setWallet] = React.useState<DataObject>(nullObj);
-  const [Check, satCheck] = React.useState<Boolean>(false);
+  const [Check, setCheck] = React.useState<Boolean>(false);
   const [NetworkData, setNetwork] = React.useState<DataObject>(nullObj);
   const handleClickPrice = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElPrice(event.currentTarget);
@@ -231,7 +231,7 @@ const WalletDetails = () => {
   };
   const DisConnectWallet = () => {
     handleClosemenuPrice();
-    satCheck(false);
+    setCheck(false);
     setWallet(nullObj);
     setNetwork(nullObj);
     connetWalletData(nullObj);

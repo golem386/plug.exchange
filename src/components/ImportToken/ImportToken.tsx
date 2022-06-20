@@ -137,7 +137,7 @@ export type ImportTokenProps = {
 };
 
 const ImportToken = (props: ImportTokenProps) => {
-  const [Check, satCheck] = React.useState<Boolean>(false);
+  const [Check, setCheck] = React.useState<Boolean>(false);
   return (
     <Box sx={style}>
       <TitleView>
@@ -175,7 +175,7 @@ const ImportToken = (props: ImportTokenProps) => {
           control={
             <Radio
               onClick={(e: any) => {
-                satCheck(!Check);
+                setCheck(!Check);
               }}
               checked={Check ? true : false}
             />
