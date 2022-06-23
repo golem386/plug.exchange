@@ -92,7 +92,7 @@ export type SelecttokenProps = {
   activeTokenId: string | null;
 };
 
-const Selecttoken = (props: SelecttokenProps) => {
+const CurrencyModal = (props: SelecttokenProps) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -201,4 +201,4 @@ const Selecttoken = (props: SelecttokenProps) => {
   );
 };
 
-export default Selecttoken;
+export default CurrencyModal;

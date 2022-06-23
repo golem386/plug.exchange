@@ -85,7 +85,7 @@ export type CurrencyInputProps = {
   inputValue: number | null;
   inputOnChangeHandler: () => void | null;
   toggleCurrencyModal: () => void | null;
-  selectedCurrency: any | null;
+  selectedCurrency: string | boolean | null;
 };
 const CurrencyInput = (props: CurrencyInputProps) => {
   const dispatch: any = useDispatch();

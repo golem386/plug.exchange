@@ -132,7 +132,7 @@ const ConnectButtonDisabal = styled(Button)({
 type Token = {};
 
 export type ImportTokenProps = {
-  handleClose: any;
+  handleClose: Function;
   importedToken: Token[] | null;
 };
 

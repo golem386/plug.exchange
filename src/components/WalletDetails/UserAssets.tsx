@@ -57,7 +57,7 @@ const DropPrice = styled('span')({
 });
 
 export type UserAssetsProps = {
-  connetWalletData: any;
+  connetWalletData: Function;
 };
 
 const UserAssets = (props: UserAssetsProps) => {

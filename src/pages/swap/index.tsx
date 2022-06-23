@@ -7,14 +7,12 @@ import styled from '@emotion/styled';
 import { Grid } from '@mui/material';
 import React, { Component } from 'react';
 import { useSelector } from 'react-redux';
-import { AppBar, AppFooter } from '../../components';
-import { Selecttoken } from '../../components/CurrencyModal';
-import { Resetmore } from '../../components/RestartModal';
+import { AppBar, AppFooter, CurrencyModal, ReferralModal } from '../../components';
 import { Selectedtoken } from '../../components/SelectedToken';
-import PairLineChart from '../../components/swap/PairLineChart';
-import QuoteTables from '../../components/swap/QuoteTable';
+import PairLineChart from '../../components/swap/PairLineChart/PairLineChart';
+import QuoteTables from '../../components/swap/QuoteTable/QuoteTables';
 import Swap from '../../components/swap/Swap';
-import { TransactionSettings } from '../../components/swap/Swap/TransactionSettings';
+import TransactionSettings from '../../components/swap/Swap/TransactionSettings/TransactionSettings';
 
 const MainDiv = styled('div')({
   marginLeft: '5%',
@@ -37,14 +35,14 @@ const SwapPage = () => {
           <Grid item sm={8}>
             <PairLineChart />
             <Quotadiv>
-              <QuoteTables />
+              <QuoteTables quotes={null} allowedSlippage={null} lastRefresh={null} userSelectedGasPrice={null} />
             </Quotadiv>
           </Grid>
           <Grid item sm={4}>
             {Modal === 'Transaction' ? (
-              <TransactionSettings isOpen={null}/>
+              <TransactionSettings isOpen={null} />
             ) : Modal === 'SelectToken' ? (
-              <Selecttoken
+              <CurrencyModal
                 select="PayToken"
                 activeList={null}
                 currencySearchHandler={null}
@@ -60,7 +58,7 @@ const SwapPage = () => {
             {/* <Selectedtoken /> */}
             {/* <Swap btnTitle='Review Order' /> */}
             <Resetmorediv>
-              <Resetmore />
+              <ReferralModal />
             </Resetmorediv>
           </Grid>
         </Grid>

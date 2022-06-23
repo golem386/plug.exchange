@@ -12,8 +12,8 @@ import { styled } from '@mui/system';
 import Cros from '../../assets/icon/Cros.png';
 import select from '../../assets/icon/select.png';
 import Coin from '../../assets/icon/coin.png';
-import { TransactionWaiting } from '../swap/Swap/SwapConfirmModal/TransactionWaiting';
-import { TransactionCompleted } from '../swap/Swap/SwapConfirmModal/TransactionCompleted';
+import  TransactionWaiting  from '../swap/Swap/SwapConfirmModal/TransactionWaiting/TransactionWaiting';
+import  TransactionCompleted  from '../swap/Swap/SwapConfirmModal/TransactionCompleted/TransactionCompleted';
 import SwapConfirmModal from '../swap/Swap/SwapConfirmModal';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -177,16 +177,16 @@ const Boxs = styled('div')({
 
 export type WalletModalProps = {
   NetworkData: String;
-  connetNetworkFunction: any;
-  handleOpenError: any;
-  handleCloseError: any;
+  connetNetworkFunction: Function;
+  handleOpenError: Function;
+  handleCloseError: Function;
   ErrorStatus: boolean;
-  connetWalletFunction: any;
+  connetWalletFunction: Function;
   WalletData: String;
   Check: Boolean;
-  Network: any;
-  setCheck: any;
-  SelectData: any;
+  Network: Function;
+  setCheck: Function;
+  SelectData: Function;
 };
 const WalletModal = (props: WalletModalProps) => {
   const dispatch: any = useDispatch();
@@ -246,13 +246,13 @@ const WalletModal = (props: WalletModalProps) => {
         </ViewMainView>
         <ViewMainView>
           <ViewMain>
-            <TitleIcon onClick={props.handleOpenError}>Error Modal</TitleIcon>
+            <TitleIcon onClick={() =>{props.handleOpenError(true)}}>Error Modal</TitleIcon>
           </ViewMain>
-          <ModalCustom open={props.ErrorStatus} onClose={props.handleCloseError}>
+          <ModalCustom open={props.ErrorStatus} onClose={() =>{props.handleCloseError(false)}}>
             <Box sx={styleError}>
               <TitleView>
                 <Title>Wrong Network</Title>
-                <img src={Cros} onClick={props.handleCloseError} alt="Cros" />
+                <img src={Cros} onClick={() =>{props.handleCloseError(false)}} alt="Cros" />
               </TitleView>
               <MainDiv>
                 <ImageIcon src={Coin} alt="Coin" />
@@ -331,14 +331,14 @@ const WalletModal = (props: WalletModalProps) => {
         </ViewMainView>
       </Over>
       <TitleControl>
-        <FormControlLabel control={<Radio onClick={props.setCheck} checked={props.Check ? true : false} />} label="" />
+        <FormControlLabel control={<Radio onClick={() =>{props.setCheck(props.Check)}} checked={props.Check ? true : false} />} label="" />
         <Condition>
           I accept the <ConditionPink>Terms of Services</ConditionPink>
           <ConditionPink>Privacy Policy</ConditionPink>
         </Condition>
       </TitleControl>
       {props.Check ? (
-        <ConnectButton variant="text" onClick={props.SelectData}>
+        <ConnectButton variant="text" onClick={() =>{props.SelectData()}}>
           Connect Wallet
         </ConnectButton>
       ) : (

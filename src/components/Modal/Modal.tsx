@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import React, { Component } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { TransactionWaiting } from '../swap/Swap/SwapConfirmModal/TransactionWaiting';
+import TransactionWaiting from '../swap/Swap/SwapConfirmModal/TransactionWaiting/TransactionWaiting';
 import Cros from '../../assets/icon/Cros.png';
 import select from '../../assets/icon/select.png';
 import Coin from '../../assets/icon/coin.png';
-import { TransactionCompleted } from '../swap/Swap/SwapConfirmModal/TransactionCompleted';
+import TransactionCompleted from '../swap/Swap/SwapConfirmModal/TransactionCompleted/TransactionCompleted';
 import SwapConfirmModal from '../swap/Swap/SwapConfirmModal';
 import {
   ConnectNetWorkOne,
@@ -16,7 +16,7 @@ import {
   ConnectWalletTow,
 } from '../../contexts/ConnectWalletDATA';
 import { Box, Button, FormControlLabel, Modal, Radio } from '@mui/material';
-import { WalletModal } from '../WalletModal';
+import WalletModal from '../WalletModal/WalletModal';
 import { onModalStatus } from '../../store/Actions';
 
 const styleError = {
@@ -176,16 +176,16 @@ const Boxs = styled('div')({
 
 export type WalletModalProps = {
   NetworkData: String;
-  connetNetworkFunction: any;
-  handleOpenError: any;
-  handleCloseError: any;
+  connetNetworkFunction: Function;
+  handleOpenError: Function;
+  handleCloseError: Function;
   ErrorStatus: boolean;
-  connetWalletFunction: any;
+  connetWalletFunction: Function;
   WalletData: String;
   Check: Boolean;
-  Network: any;
-  setCheck: any;
-  SelectData: any;
+  Network: Function;
+  setCheck: Function;
+  SelectData: Function;
 };
 const CustomModal = (props: WalletModalProps) => {
   const dispatch: any = useDispatch();

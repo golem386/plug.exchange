@@ -5,11 +5,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { onModalStatus } from '../../../store/Actions';
-import { CurrencyInput } from './CurrencyInput';
-import { CurrencyOutput } from './CurrencyOutput';
-import { SwapHeader } from './SwapHeader';
-import { SwapRouter } from './SwapRouter';
-import { SwapTransactionDetails } from './SwapTransactionDetails';
+import  CurrencyInput  from './CurrencyInput/CurrencyInput';
+import  CurrencyOutput  from './CurrencyOutput/CurrencyOutput';
+import  SwapHeader  from './SwapHeader/SwapHeader';
+import  SwapRouter  from './SwapRouter/SwapRouter';
+import  SwapTransactionDetails  from './SwapTransactionDetails/SwapTransactionDetails';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',

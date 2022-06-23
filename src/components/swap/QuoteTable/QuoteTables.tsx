@@ -8,6 +8,7 @@ import short from '../../../assets/icon/short.png';
 import ShowMoreIcon from '../../../assets/icon/ShowMore.png';
 import HideDetail from '../../../assets/icon/HideDetail.png';
 import { data } from '../../../contexts/QuoteTableDATA';
+import { type } from 'os';
 
 const QuoteTable = styled('div')({
   borderRadius: 24,
@@ -131,11 +132,14 @@ const DownArrowImgTop = styled('img')({
 const MainTitle = styled('p')({
   fontFamily: 'Inter',
 });
+
+type Quotes = {}
+
 type QuoteTableProps = {
-  //   allowedSlippage: number;
-  //   lastRefresh: number;
-  //   userSelectedGasPrice: number;
-  //   quotes: Quotes[];
+    allowedSlippage: number | null;
+    lastRefresh: number | null;
+    userSelectedGasPrice: number | null;
+    quotes: Quotes[] | null;
 };
 const QuoteTables = (props: QuoteTableProps) => {
   const [loardData, setLoardData] = useState<any>(1);

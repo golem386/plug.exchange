@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import React, { Component } from 'react';
 import Cros from '../../../../assets/icon/Cros.png';
 import ShortVartical from '../../../../assets/icon/ShortVartical.png';
-import { CurrencyInput } from '../CurrencyInput';
-import { CurrencyOutput } from '../CurrencyOutput';
+import  CurrencyInput  from '../CurrencyInput/CurrencyInput';
+import  CurrencyOutput  from '../CurrencyOutput/CurrencyOutput';
 
 const MainDiv = styled('div')({
   display: 'flex',
@@ -97,7 +97,7 @@ type ERROR = {};
 type WAITING = {};
 type COMPLETED = {};
 export type SwapConfirmModalProps = {
-  handleClose: any;
+  handleClose: Function;
   inputToken: Currency | null;
   outputToken: Currency | null;
   swapAmount: number | null;
@@ -115,7 +115,7 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
     <>
       <MainDiv>
         <Title>Swap Confirmation</Title>
-        <Image src={Cros} onClick={props.handleClose} />
+        <Image src={Cros} onClick={() =>{props.handleClose(false)}} />
       </MainDiv>
       <CurrencyInput
         ETH=""

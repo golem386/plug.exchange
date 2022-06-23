@@ -7,11 +7,11 @@ import Logo from '../../assets/logo.png';
 import Search from '../../assets/icon/Search.png';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import {connetNetwork, connetWallet, onModalStatus } from '../../store/Actions';
-import { WalletDetails } from '../WalletDetails';
-import { SwitchNetwork } from '../SwitchNetwork';
+import { connetNetwork, connetWallet, onModalStatus } from '../../store/Actions';
+import  WalletDetails  from '../WalletDetails/WalletDetails';
+import  SwitchNetwork  from '../SwitchNetwork/SwitchNetwork';
 import Settings from '../Settings/Settings';
-import { CurrencySearch } from '../CurrencySearch';
+import CurrencySearch from '../CurrencySearch/CurrencySearch';
 import CustomModal from '../Modal/Modal';
 
 const MainComponent = styled('div')({

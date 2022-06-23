@@ -59,7 +59,7 @@ const Main = styled('div')({
 });
 
 export type TransactionCompletedProps = {
-  handleClose: any;
+  handleClose: () => void;
   transactionUrl: string | null;
   watchAssetHandler: () => void | null;
 };

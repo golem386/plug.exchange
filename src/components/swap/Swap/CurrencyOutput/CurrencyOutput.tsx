@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { onModalOpen } from '../../../../store/Actions';
 import DownArrow from '../../../../assets/icon/DownArrow.png';
-import { SwapArrow } from '../SwapArrow';
+import  SwapArrow  from '../SwapArrow/SwapArrow';
 
 const ReceiveMain = styled('div')({
   backgroundColor: '#F7F7F7',
@@ -74,7 +74,7 @@ const CoinDropIcon = styled('img')({
 export type CurrencyOutputProps = {
   inputOnChangeHandler: () => void | null;
   inputValue: number | null;
-  selectedCurrency: any | null;
+  selectedCurrency: string | number | null;
   toggleCurrencyModal: () => void | null;
 };
 const CurrencyOutput = (props: CurrencyOutputProps) => {

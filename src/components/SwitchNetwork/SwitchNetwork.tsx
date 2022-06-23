@@ -54,7 +54,7 @@ const ImageIconDropDown = styled('img')({
 });
 
 export type SwitchNetworkProps = {
-  connetNetworkData: any;
+  connetNetworkData: Function;
 };
 
 const SwitchNetwork = (props: SwitchNetworkProps) => {

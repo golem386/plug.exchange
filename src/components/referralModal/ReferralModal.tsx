@@ -25,7 +25,7 @@ const Read = styled('span')({
   color: '#BB36FF',
   marginLeft: 2,
 });
-const Resetmore = () => {
+const ReferralModal = () => {
   return (
     <MainDiv>
       <ShereImage>
@@ -39,4 +39,4 @@ const Resetmore = () => {
   );
 };
 
-export default Resetmore;
+export default ReferralModal;
