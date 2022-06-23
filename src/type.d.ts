@@ -5,17 +5,9 @@ interface ICoin {
   name: String;
   image: String;
 }
-interface StatusPayload {
-  name: String;
-  Modal: boolean;
-}
 
 type ArticleState = {
   modal: any;
-  Modal: {
-    name: '';
-    Status: boolean;
-  };
   CoinDetail: {
     name: String;
     image: String;

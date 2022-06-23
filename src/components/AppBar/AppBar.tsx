@@ -7,12 +7,13 @@ import Logo from '../../assets/logo.png';
 import Search from '../../assets/icon/Search.png';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { connetNetwork, connetWallet, onModalStatus } from '../../store/Actions';
-import  WalletDetails  from '../WalletDetails/WalletDetails';
-import  SwitchNetwork  from '../SwitchNetwork/SwitchNetwork';
+import { connetNetwork, connetWallet } from '../../store/Actions';
+import WalletDetails from '../WalletDetails/WalletDetails';
+import SwitchNetwork from '../SwitchNetwork/SwitchNetwork';
 import Settings from '../Settings/Settings';
 import CurrencySearch from '../CurrencySearch/CurrencySearch';
 import CustomModal from '../Modal/Modal';
+import WalletModal from '../WalletModal/WalletModal';
 
 const MainComponent = styled('div')({
   display: 'flex',
@@ -118,12 +119,14 @@ const AppBar = () => {
   const [filterInput, setFilterInput] = React.useState<String>('');
   const [WalletData, setWallet] = React.useState<DataObject>(nullObj);
   const [NetworkData, setNetwork] = React.useState<DataObject>(nullObj);
-
+  const [open, setOpen] = React.useState(false);
   const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
-
-  const handleOpen = () => {
-    dispatch(onModalStatus({ name: 'Connect Wallet', Modal: true }));
+  const openModal = () => {
+    setOpen(true);
+  };
+  const closeModel = () => {
+    setOpen(false);
   };
 
   const handleOpenError = () => setErrorStatus(true);
@@ -151,7 +154,7 @@ const AppBar = () => {
 
   const SelectData = () => {
     Network();
-    dispatch(onModalStatus({ name: '', Modal: false }));
+    closeModel();
   };
   return (
     <>
@@ -186,7 +189,7 @@ const AppBar = () => {
                   connetWalletFunction(nullObj);
                   connetNetworkFunction(nullObj);
                   setCheck(false);
-                  handleOpen();
+                  openModal();
                 }}
               >
                 Connect Wallet
@@ -198,31 +201,42 @@ const AppBar = () => {
         </ControlGrids>
       </MainComponent>
       <CustomModal
-        setCheck={() => {
-          setCheck(!Check);
+        Component={
+          <WalletModal
+            setCheck={(val) => {
+              setCheck(val);
+            }}
+            SelectData={() => {
+              SelectData();
+            }}
+            Network={() => {
+              Network();
+            }}
+            Check={Check}
+            WalletData={WalletData}
+            ErrorStatus={ErrorStatus}
+            handleCloseError={() => {
+              handleCloseError();
+            }}
+            handleOpenError={() => {
+              handleOpenError();
+            }}
+            connetNetworkFunction={(val: any) => {
+              connetNetworkFunction(val);
+            }}
+            connetWalletFunction={(val: any) => {
+              connetWalletFunction(val);
+            }}
+            NetworkData={NetworkData}
+            onClose={() => {
+              closeModel();
+            }}
+          />
+        }
+        Status={open}
+        Close={() => {
+          closeModel();
         }}
-        SelectData={() => {
-          SelectData();
-        }}
-        Network={() => {
-          Network();
-        }}
-        Check={Check}
-        WalletData={WalletData.name}
-        ErrorStatus={ErrorStatus}
-        handleCloseError={() => {
-          handleCloseError();
-        }}
-        handleOpenError={() => {
-          handleOpenError();
-        }}
-        connetNetworkFunction={(val: any) => {
-          connetNetworkFunction(val);
-        }}
-        connetWalletFunction={(val: any) => {
-          connetWalletFunction(val);
-        }}
-        NetworkData={NetworkData.name}
       />
     </>
   );

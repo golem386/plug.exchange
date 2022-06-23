@@ -5,10 +5,6 @@ import Coin from '../../assets/icon/coin.png';
 
 const initialState: ArticleState = {
   modal: 'abdc',
-  Modal:{
-    name:'',
-    Status:false
-  },
   CoinDetail: {
     name: 'ETH',
     image: Eth,
@@ -57,11 +53,6 @@ const reducer = (state: ArticleState = initialState, action: any): ArticleState 
       return {
         ...state,
         ConnectNetwork: action.Coin,
-      };
-    case actionTypes.ON_MODAL:
-      return {
-        ...state,
-        Modal: action.Status,
       };
   }
   return state;

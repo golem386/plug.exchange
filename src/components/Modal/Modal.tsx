@@ -17,7 +17,6 @@ import {
 } from '../../contexts/ConnectWalletDATA';
 import { Box, Button, FormControlLabel, Modal, Radio } from '@mui/material';
 import WalletModal from '../WalletModal/WalletModal';
-import { onModalStatus } from '../../store/Actions';
 
 const styleError = {
   position: 'absolute',
@@ -175,84 +174,20 @@ const Boxs = styled('div')({
 });
 
 export type WalletModalProps = {
-  NetworkData: String;
-  connetNetworkFunction: Function;
-  handleOpenError: Function;
-  handleCloseError: Function;
-  ErrorStatus: boolean;
-  connetWalletFunction: Function;
-  WalletData: String;
-  Check: Boolean;
-  Network: Function;
-  setCheck: Function;
-  SelectData: Function;
+  Component:any
+  Status:boolean
+  Close:Function
 };
 const CustomModal = (props: WalletModalProps) => {
-  const dispatch: any = useDispatch();
-  const ModalStatus: any = useSelector((state: ArticleState) => state.Modal);
   return (
     <ModalCustom
-      open={ModalStatus.Modal}
+      open={props.Status}
       onClose={() => {
-        dispatch(onModalStatus({ name: '', Modal: false }));
+        props.Close(false)
       }}
     >
       <Boxs>
-        {ModalStatus.name === 'transaction Waiting' ? (
-          <TransactionWaiting swapCurrency={null} receivedCurrency={null} />
-        ) : ModalStatus.name === 'Connect Wallet' ? (
-          <WalletModal
-            setCheck={(val) => {
-              props.setCheck(val);
-            }}
-            SelectData={() => {
-              props.SelectData();
-            }}
-            Network={() => {
-              props.Network();
-            }}
-            Check={props.Check}
-            WalletData={props.WalletData}
-            ErrorStatus={props.ErrorStatus}
-            handleCloseError={(val) => {
-              props.handleCloseError(val);
-            }}
-            handleOpenError={(val) => {
-              props.handleOpenError(val);
-            }}
-            connetNetworkFunction={(val: any) => {
-              props.connetNetworkFunction(val);
-            }}
-            connetWalletFunction={(val: any) => {
-              props.connetWalletFunction(val);
-            }}
-            NetworkData={props.NetworkData}
-          />
-        ) : ModalStatus.name === 'Transaction Completed' ? (
-          <TransactionCompleted
-            handleClose={() => {
-              dispatch(onModalStatus({ name: '', Modal: false }));
-            }}
-            transactionUrl={null}
-            watchAssetHandler={null}
-          />
-        ) : ModalStatus.name === 'Swap ConfirmModal' ? (
-          <SwapConfirmModal
-            inputToken={null}
-            outputToken={null}
-            swapAmount={null}
-            expectedOutput={null}
-            minReceived={null}
-            allowedSlippage={null}
-            gasEstimateInUSD={null}
-            priceImpact={null}
-            swapHandler={null}
-            swapTXStatus={null}
-            handleClose={() => {
-              dispatch(onModalStatus({ name: '', Modal: false }));
-            }}
-          />
-        ) : null}
+        {props.Component}
       </Boxs>
     </ModalCustom>
   );

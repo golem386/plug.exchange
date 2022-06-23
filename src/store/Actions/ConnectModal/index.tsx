@@ -19,13 +19,3 @@ export function connetNetwork(Coin: ICoin) {
     dispatch(action);
   };
 }
-
-export function onModalStatus(Status: StatusPayload) {
-  const action: any = {
-    type: actionTypes.ON_MODAL,
-    Status,
-  };
-  return (dispatch: DispatchType) => {
-    dispatch(action);
-  };
-}

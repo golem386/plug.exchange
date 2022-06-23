@@ -1,15 +1,18 @@
 // this is a swap index file and Provide a Swap modal layout
 import styled from '@emotion/styled';
 import { Button, Modal } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { onModalStatus } from '../../../store/Actions';
-import  CurrencyInput  from './CurrencyInput/CurrencyInput';
-import  CurrencyOutput  from './CurrencyOutput/CurrencyOutput';
-import  SwapHeader  from './SwapHeader/SwapHeader';
-import  SwapRouter  from './SwapRouter/SwapRouter';
-import  SwapTransactionDetails  from './SwapTransactionDetails/SwapTransactionDetails';
+import CustomModal from '../../Modal/Modal';
+import CurrencyInput from './CurrencyInput/CurrencyInput';
+import CurrencyOutput from './CurrencyOutput/CurrencyOutput';
+import SwapConfirmModal from './SwapConfirmModal';
+import TransactionCompleted from './SwapConfirmModal/TransactionCompleted/TransactionCompleted';
+import TransactionWaiting from './SwapConfirmModal/TransactionWaiting/TransactionWaiting';
+import SwapHeader from './SwapHeader/SwapHeader';
+import SwapRouter from './SwapRouter/SwapRouter';
+import SwapTransactionDetails from './SwapTransactionDetails/SwapTransactionDetails';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -33,7 +36,18 @@ const Swap = (props: SwapProps) => {
   const dispatch: any = useDispatch();
   const ConnectWallet: any = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
-
+  const [TransactionWaitingopen, setTransactionWaitingOpen] = useState(false);
+  const [TransactionCompletedopen, setTransactionCompletedOpen] = useState(false);
+  const [SwapConfirmModalopen, setSwapConfirmModalOpen] = useState(false);
+  const closeModel = () => {
+    setTransactionWaitingOpen(false);
+  };
+  const closeTransactionCompletedModel = () => {
+    setTransactionCompletedOpen(false);
+  };
+  const closeSwapConfirmModalopenModel = () => {
+    setSwapConfirmModalOpen(false);
+  };
   return (
     <>
       <MainDiv>
@@ -54,17 +68,63 @@ const Swap = (props: SwapProps) => {
           toggleCurrencyModal={null}
         />
         <SwapRouter btnTitle={props.btnTitle} liquiditySources={null} router={null} />
+        <CustomModal
+          Component={<TransactionWaiting swapCurrency={null} receivedCurrency={null} />}
+          Status={TransactionWaitingopen}
+          Close={() => {
+            closeModel();
+          }}
+        />
+        <CustomModal
+          Component={
+            <TransactionCompleted
+              handleClose={() => {
+                closeTransactionCompletedModel();
+              }}
+              transactionUrl={null}
+              watchAssetHandler={null}
+            />
+          }
+          Status={TransactionCompletedopen}
+          Close={() => {
+            closeTransactionCompletedModel();
+          }}
+        />
+        <CustomModal
+          Component={
+            <SwapConfirmModal
+            inputToken={null}
+            outputToken={null}
+            swapAmount={null}
+            expectedOutput={null}
+            minReceived={null}
+            allowedSlippage={null}
+            gasEstimateInUSD={null}
+            priceImpact={null}
+            swapHandler={null}
+            swapTXStatus={null}
+            handleClose={() => {
+              closeSwapConfirmModalopenModel()
+            }}
+          />
+          }
+          Status={SwapConfirmModalopen}
+          Close={() => {
+            closeSwapConfirmModalopenModel();
+          }}
+        />
         <OrderBtn
           onClick={
             ConnectWallet.name !== '' && CoinNetwork.name !== ''
               ? () => {
-                  dispatch(onModalStatus({ name: 'transaction Waiting', Modal: true }));
+                  setTransactionWaitingOpen(true);
                   setTimeout(() => {
-                    dispatch(onModalStatus({ name: 'Transaction Completed', Modal: true }));
+                    setTransactionWaitingOpen(false);
+                    setTransactionCompletedOpen(true);
                   }, 1000);
                 }
               : () => {
-                  dispatch(onModalStatus({ name: 'Swap ConfirmModal', Modal: true }));
+                setSwapConfirmModalOpen(true)
                 }
           }
         >
