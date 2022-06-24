@@ -6,6 +6,8 @@ import Search from '../../assets/icon/Search.png';
 import logoimg from '../../assets/icon/coin3.png';
 import { useDispatch } from 'react-redux';
 import { onModalOpen } from '../../store/Actions';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -101,8 +103,11 @@ const Images = styled('img')({});
 export type SelectedtokenProps = {
   select:string
 }
+
+type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+
 const Selectedtoken = (props:SelectedtokenProps) => {
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const onModal = (modal: any) => {
     dispatch(onModalOpen(modal));
   };
@@ -112,7 +117,7 @@ const Selectedtoken = (props:SelectedtokenProps) => {
         <Token>Select a Token</Token>
         <CrosIcon
           onClick={() => {
-            onModal('Swep');
+            onModal('Swap');
           }}
         >
           <img src={Cros} alt="Cros_icon"/>

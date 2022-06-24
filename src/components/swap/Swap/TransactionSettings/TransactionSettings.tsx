@@ -9,6 +9,8 @@ import TopArrow from '../../../../assets/icon/TopArrow.png';
 import { useDispatch } from 'react-redux';
 import { onModalOpen } from '../../../../store/Actions';
 import { Switch } from '@mui/material';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -218,8 +220,10 @@ const TextTypeinput = styled('input')({
 export type TransactionSettingsProps = {
   isOpen: boolean | null;
 };
+type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+
 const TransactionSettings = (props: TransactionSettingsProps) => {
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const [Slider, setSlider] = React.useState<Boolean>(false);
   const onModal = (article: any) => {
     dispatch(onModalOpen(article));
@@ -231,7 +235,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
         <img
           src={close}
           onClick={() => {
-            onModal('Swep');
+            onModal('Swap');
           }}
           alt="Close"
         />

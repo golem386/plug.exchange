@@ -4,6 +4,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { onModalOpen } from '../../../../store/Actions';
 import menu from '../../../../assets/icon/menu.png';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 const SwapDiv = styled('div')({
   display: 'flex',
@@ -24,8 +26,10 @@ const Swap = styled('span')({
 export type SwapHeaderProps = {
   transactionSettingHandler: () => void | null;
 };
+type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+
 const SwapHeader = (props: SwapHeaderProps) => {
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const onModal = (article: any) => {
     dispatch(onModalOpen(article));
   };

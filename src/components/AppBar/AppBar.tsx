@@ -14,6 +14,8 @@ import Settings from '../Settings/Settings';
 import CurrencySearch from '../CurrencySearch/CurrencySearch';
 import CustomModal from '../Modal/Modal';
 import WalletModal from '../WalletModal/WalletModal';
+import { ThunkDispatch } from "redux-thunk";
+import { AnyAction } from "redux";
 
 const MainComponent = styled('div')({
   display: 'flex',
@@ -119,8 +121,10 @@ const settingData = [
   { name: 'Language' },
   { name: 'Dark Mode' },
 ];
+type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+
 const AppBar = () => {
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const [ErrorStatus, setErrorStatus] = React.useState(false);
   const [Check, setCheck] = React.useState<Boolean>(false);
   const [filterInput, setFilterInput] = React.useState<String>('');
@@ -208,7 +212,7 @@ const AppBar = () => {
         </ControlGrids>
       </MainComponent>
       <CustomModal
-        Component={
+        children={
           <WalletModal
             setCheck={(val) => {
               setCheck(val);
@@ -240,8 +244,9 @@ const AppBar = () => {
             }}
           />
         }
-        Status={open}
-        Close={() => {
+        isOpen={open}
+        modalTitle=""
+        close={() => {
           closeModel();
         }}
       />

@@ -6,7 +6,9 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { onModalOpen } from '../../../../store/Actions';
 import DownArrow from '../../../../assets/icon/DownArrow.png';
-import  SwapArrow  from '../SwapArrow/SwapArrow';
+import SwapArrow from '../SwapArrow/SwapArrow';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 const ReceiveMain = styled('div')({
   backgroundColor: '#F7F7F7',
@@ -71,6 +73,12 @@ const CoinDropIcon = styled('img')({
   marginLeft: 10,
 });
 
+type ReceiveCoin = {
+  name: string | String;
+  image: string | String | any;
+  fullName: string | String;
+};
+type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 export type CurrencyOutputProps = {
   inputOnChangeHandler: () => void | null;
   inputValue: number | null;
@@ -78,8 +86,8 @@ export type CurrencyOutputProps = {
   toggleCurrencyModal: () => void | null;
 };
 const CurrencyOutput = (props: CurrencyOutputProps) => {
-  const dispatch: any = useDispatch();
-  const ReceiveCoin: any = useSelector((state: ArticleState) => state.receiveCoinDetail);
+  const dispatch: AppDispatch = useDispatch();
+  const ReceiveCoin: ReceiveCoin = useSelector((state: ArticleState) => state.receiveCoinDetail);
 
   const onModal = (article: any) => {
     dispatch(onModalOpen(article));

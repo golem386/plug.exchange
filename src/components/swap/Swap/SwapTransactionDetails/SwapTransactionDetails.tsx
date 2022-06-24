@@ -33,9 +33,20 @@ export type SwapTransactionDetailsProps = {
   maxSent: number | null;
   allowedSlippage: number | null;
 };
+
+type ConnectWalletType = {
+  name: String | string;
+  image: String | string;
+  Subname: String | string;
+  Price: String | string;
+};
+type CoinNetworkType = {
+  name: String | string;
+  image: String | string;
+};
 const SwapTransactionDetails = (props: SwapTransactionDetailsProps) => {
-  const ConnectWallet: any = useSelector((state: ArticleState) => state.ConnectWallet);
-  const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
+  const ConnectWallet: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
+  const CoinNetwork: CoinNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
 
   return props.btnTitle === 'Connect Wallet' ? (
     ConnectWallet.name !== '' && CoinNetwork.name !== '' ? (

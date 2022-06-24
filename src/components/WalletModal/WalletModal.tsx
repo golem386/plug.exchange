@@ -18,6 +18,8 @@ import SwapConfirmModal from '../swap/Swap/SwapConfirmModal';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import CustomModal from '../Modal/Modal';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 const styleError = {
   position: 'absolute',
@@ -200,8 +202,10 @@ const nullObj = {
   name: '',
   coin: '',
 };
+type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+
 const WalletModal = (props: WalletModalProps) => {
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const [NetworkData, setNetworkData] = useState(nullObj);
   const [WalletData, setWalletData] = useState(nullObj);
 

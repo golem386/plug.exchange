@@ -71,6 +71,11 @@ const CustomButtonActive = styled(Tab)({
 const CustomTabsActive = styled(Tabs)({
   marginLeft: '32vw',
 });
+type SelectType = {
+  name: String;
+  image: String;
+  fullName: String;
+};
 type TabPanelProps = {
   children?: React.ReactNode;
   index: number;
@@ -102,8 +107,9 @@ const PairLineChart = () => {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-  const CoinDetail: any = useSelector((state: ArticleState) => state.CoinDetail);
-  const receiveCoinDetail: any = useSelector((state: ArticleState) => state.receiveCoinDetail);
+  const CoinDetail: SelectType = useSelector((state: ArticleState) => state.CoinDetail);
+  const receiveCoinDetail: SelectType = useSelector((state: ArticleState) => state.receiveCoinDetail);
+  console.log(CoinDetail)
   return (
     <View>
       <CurrencySwitch>

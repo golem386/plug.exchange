@@ -10,6 +10,8 @@ import DisConnect from '../../assets/icon/DisConnect.png';
 import DownArrow from '../../assets/icon/DownArrow.png';
 import { useSelector } from 'react-redux';
 import UserAssets from './UserAssets';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 const Copy = styled('div')({
   paddingLeft: '10px',
@@ -201,15 +203,18 @@ type DataObject = {
   name: String;
   coin: String;
 };
+
 const nullObj = {
   name: '',
   coin: '',
 };
+type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+
 const WalletDetails = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const [anchorElPrice, setAnchorElPrice] = React.useState<null | HTMLElement>(null);
   const CoinDetail: any = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);

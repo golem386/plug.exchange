@@ -2,6 +2,6 @@
 import AppBar from './AppBar/AppBar';
 import AppFooter from './AppFooter/AppFooter';
 import CurrencyModal from './CurrencyModal/CurrencyModal'
-import ReferralModal from './referralModal/ReferralModal'
+import ReferralModal from './ReferralModal/ReferralModal'
 
 export { AppBar, AppFooter,CurrencyModal,ReferralModal };

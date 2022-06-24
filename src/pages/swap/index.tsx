@@ -8,7 +8,7 @@ import { Grid } from '@mui/material';
 import React, { Component } from 'react';
 import { useSelector } from 'react-redux';
 import { AppBar, AppFooter, CurrencyModal, ReferralModal } from '../../components';
-import { Selectedtoken } from '../../components/SelectedToken';
+import Selectedtoken from '../../components/SelectedToken/SelectedToken';
 import PairLineChart from '../../components/swap/PairLineChart/PairLineChart';
 import QuoteTables from '../../components/swap/QuoteTable/QuoteTables';
 import Swap from '../../components/swap/Swap';
@@ -26,7 +26,7 @@ const Resetmorediv = styled('div')({
   marginTop: '15%',
 });
 const SwapPage = () => {
-  const Modal: any = useSelector((state: ArticleState) => state.modal);
+  const Modal: string = useSelector((state: ArticleState) => state.modal);
   return (
     <>
       <AppBar />
@@ -55,7 +55,6 @@ const SwapPage = () => {
             ) : (
               <Swap btnTitle="Connect Wallet" />
             )}
-            {/* <Selectedtoken /> */}
             {/* <Swap btnTitle='Review Order' /> */}
             <Resetmorediv>
               <ReferralModal />

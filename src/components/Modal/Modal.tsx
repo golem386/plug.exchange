@@ -173,22 +173,21 @@ const Boxs = styled('div')({
   borderRadius: 10,
 });
 
-export type WalletModalProps = {
-  Component:any
-  Status:boolean
-  Close:Function
+export type CustomModalProps = {
+  isOpen: boolean;
+  modalTitle: string;
+  children: any;
+  close: Function;
 };
-const CustomModal = (props: WalletModalProps) => {
+const CustomModal = (props: CustomModalProps) => {
   return (
     <ModalCustom
-      open={props.Status}
+      open={props.isOpen}
       onClose={() => {
-        props.Close(false)
+        props.close(false);
       }}
     >
-      <Boxs>
-        {props.Component}
-      </Boxs>
+      <Boxs>{props.children}</Boxs>
     </ModalCustom>
   );
 };

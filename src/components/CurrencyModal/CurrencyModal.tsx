@@ -1,4 +1,3 @@
-// this file is a CurrencyModal file and Provide a many Outher Currancy list and Choose Any one Currancy token
 import { styled } from '@material-ui/core';
 import { Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Modal } from '@mui/material';
 import React from 'react';
@@ -10,6 +9,8 @@ import { useDispatch } from 'react-redux';
 import { onModalOpen, onReceiveCoin, onSelectCoin } from '../../store/Actions';
 import { useSelector } from 'react-redux';
 import ImportToken from '../ImportToken/ImportToken';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -81,7 +82,16 @@ const ModalCustom = styled(Modal)({
   border: 'none',
   borderRadius: 20,
 });
-
+type SelectType = {
+  name: string;
+  image: string;
+  fullName: string;
+};
+type SelectTypeState = {
+  name: String;
+  image: String;
+  fullName: String;
+};
 export type Currencys = {};
 export type SelecttokenProps = {
   select: String;
@@ -91,31 +101,33 @@ export type SelecttokenProps = {
   actionHandler: () => void | null;
   activeTokenId: string | null;
 };
-
+type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const CurrencyModal = (props: SelecttokenProps) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const onModal = (modal: any) => {
     dispatch(onModalOpen(modal));
   };
-  const onSelectIcon = (coin: any) => {
+  const onSelectIcon = (coin: SelectType) => {
+    console.log('onSelectIcon', coin);
     dispatch(onSelectCoin(coin));
   };
-  const onReceiveIcon = (coin: any) => {
+  const onReceiveIcon = (coin: SelectType) => {
+    console.log('onReceiveIcon', coin);
     dispatch(onReceiveCoin(coin));
   };
-  const CoinDetail: any = useSelector((state: ArticleState) => state.CoinDetail);
-  const receiveCoinDetail: any = useSelector((state: ArticleState) => state.receiveCoinDetail);
+  const CoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.CoinDetail);
+  const receiveCoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.receiveCoinDetail);
   return (
     <MainDiv>
       <Flex>
         <Token>Select a Token</Token>
         <CrosIcon
           onClick={() => {
-            onModal('Swep');
+            onModal('Swap');
           }}
         >
           <img src={Cros} alt="Cros" />
@@ -156,7 +168,7 @@ const CurrencyModal = (props: SelecttokenProps) => {
             <ListItemMain
               disablePadding
               onClick={() => {
-                onModal('Swep');
+                onModal('Swap');
                 props.select === 'PayToken'
                   ? onSelectIcon({
                       name: val.type,

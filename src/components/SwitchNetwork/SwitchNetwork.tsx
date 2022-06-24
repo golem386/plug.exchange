@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import { Button, Menu, MenuItem } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 import DownIconWhite from '../../assets/icon/DownIconWhite.png';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
 

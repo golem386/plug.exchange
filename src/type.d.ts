@@ -1,5 +1,5 @@
 interface IArticle {
-  modal: String;
+  modal: string;
 }
 interface ICoin {
   name: String;

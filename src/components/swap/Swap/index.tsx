@@ -4,6 +4,8 @@ import { Button, Modal } from '@mui/material';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 import CustomModal from '../../Modal/Modal';
 import CurrencyInput from './CurrencyInput/CurrencyInput';
 import CurrencyOutput from './CurrencyOutput/CurrencyOutput';
@@ -29,13 +31,25 @@ const OrderBtn = styled(Button)({
   marginTop: '10%',
   textTransform: 'initial',
 });
+
+type WalletType = {
+  name: String;
+  image: String;
+  Subname: String;
+  Price: String;
+};
+type ConnectNetworkType = {
+  name: String;
+  image: String;
+};
 export type SwapProps = {
   btnTitle: String;
 };
+type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const Swap = (props: SwapProps) => {
-  const dispatch: any = useDispatch();
-  const ConnectWallet: any = useSelector((state: ArticleState) => state.ConnectWallet);
-  const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
+  const dispatch: AppDispatch = useDispatch();
+  const ConnectWallet: WalletType = useSelector((state: ArticleState) => state.ConnectWallet);
+  const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
   const [TransactionWaitingopen, setTransactionWaitingOpen] = useState(false);
   const [TransactionCompletedopen, setTransactionCompletedOpen] = useState(false);
   const [SwapConfirmModalopen, setSwapConfirmModalOpen] = useState(false);
@@ -68,14 +82,16 @@ const Swap = (props: SwapProps) => {
         />
         <SwapRouter btnTitle={props.btnTitle} liquiditySources={null} router={null} />
         <CustomModal
-          Component={<TransactionWaiting swapCurrency={null} receivedCurrency={null} />}
-          Status={TransactionWaitingopen}
-          Close={() => {
+          modalTitle=""
+          children={<TransactionWaiting swapCurrency={null} receivedCurrency={null} />}
+          isOpen={TransactionWaitingopen}
+          close={() => {
             closeModel();
           }}
         />
         <CustomModal
-          Component={
+          modalTitle=""
+          children={
             <TransactionCompleted
               handleClose={() => {
                 closeTransactionCompletedModel();
@@ -84,31 +100,32 @@ const Swap = (props: SwapProps) => {
               watchAssetHandler={null}
             />
           }
-          Status={TransactionCompletedopen}
-          Close={() => {
+          isOpen={TransactionCompletedopen}
+          close={() => {
             closeTransactionCompletedModel();
           }}
         />
         <CustomModal
-          Component={
+          children={
             <SwapConfirmModal
-            inputToken={null}
-            outputToken={null}
-            swapAmount={null}
-            expectedOutput={null}
-            minReceived={null}
-            allowedSlippage={null}
-            gasEstimateInUSD={null}
-            priceImpact={null}
-            swapHandler={null}
-            swapTXStatus={null}
-            handleClose={() => {
-              closeSwapConfirmModalopenModel()
-            }}
-          />
+              inputToken={null}
+              outputToken={null}
+              swapAmount={null}
+              expectedOutput={null}
+              minReceived={null}
+              allowedSlippage={null}
+              gasEstimateInUSD={null}
+              priceImpact={null}
+              swapHandler={null}
+              swapTXStatus={null}
+              handleClose={() => {
+                closeSwapConfirmModalopenModel();
+              }}
+            />
           }
-          Status={SwapConfirmModalopen}
-          Close={() => {
+          modalTitle=""
+          isOpen={SwapConfirmModalopen}
+          close={() => {
             closeSwapConfirmModalopenModel();
           }}
         />
@@ -123,7 +140,7 @@ const Swap = (props: SwapProps) => {
                   }, 1000);
                 }
               : () => {
-                setSwapConfirmModalOpen(true)
+                  setSwapConfirmModalOpen(true);
                 }
           }
         >
