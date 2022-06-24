@@ -53,13 +53,12 @@ const Swap = (props: SwapProps) => {
       <MainDiv>
         <SwapHeader transactionSettingHandler={null} />
         <CurrencyInput
-          ETH="Max 0 ETH"
           userInputTokenBalance={null}
           showMaxButton={null}
           inputValue={null}
           inputOnChangeHandler={null}
           toggleCurrencyModal={null}
-          selectedCurrency={null}
+          selectedCurrency="Max 0 ETH"
         />
         <CurrencyOutput
           inputOnChangeHandler={null}

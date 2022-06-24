@@ -40,10 +40,11 @@ const SettingButton = styled(Button)({
   opacity: '0.65',
   height: 60,
 });
-type Setting = {};
-
+type Setting = {
+  name:string
+}
 type SettingsProps = {
-  settings: Setting[] | null;
+  settings: Setting[];
 };
 const Settings = (props: SettingsProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -82,23 +83,23 @@ const Settings = (props: SettingsProps) => {
       >
         <CustomMenuItem>
           <ImageIconDropDown src={About} alt="About" />
-          <DropDownTitleIcon>About</DropDownTitleIcon>
+          <DropDownTitleIcon>{props.settings[0].name}</DropDownTitleIcon>
         </CustomMenuItem>
         <CustomMenuItem>
           <ImageIconDropDown src={Question} alt="icon" />
-          <DropDownTitleIcon>Help Center</DropDownTitleIcon>
+          <DropDownTitleIcon>{props.settings[1].name}</DropDownTitleIcon>
         </CustomMenuItem>
         <CustomMenuItem>
           <ImageIconDropDown src={request} alt="Request" />
-          <DropDownTitleIcon>Request Features</DropDownTitleIcon>
+          <DropDownTitleIcon>{props.settings[2].name}</DropDownTitleIcon>
         </CustomMenuItem>
         <CustomMenuItem>
           <ImageIconDropDown src={Language} alt="icon" />
-          <DropDownTitleIcon>Language</DropDownTitleIcon>
+          <DropDownTitleIcon>{props.settings[3].name}</DropDownTitleIcon>
         </CustomMenuItem>
         <CustomMenuItem>
           <ImageIconDropDown src={Dark} alt="Dark" />
-          <DropDownTitleIcon>Dark Mode</DropDownTitleIcon>
+          <DropDownTitleIcon>{props.settings[4].name}</DropDownTitleIcon>
         </CustomMenuItem>
       </CustomMenu>
     </div>

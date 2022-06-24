@@ -79,7 +79,6 @@ const CoinDropIcon = styled('img')({
 });
 
 export type CurrencyInputProps = {
-  ETH: string;
   userInputTokenBalance: number | null;
   showMaxButton: boolean | null;
   inputValue: number | null;
@@ -98,7 +97,7 @@ const CurrencyInput = (props: CurrencyInputProps) => {
     <>
       <SwapDiv>
         <Pay>You Pay</Pay>
-        <Max>{props.ETH}</Max>
+        <Max>{props.selectedCurrency}</Max>
       </SwapDiv>
       <MainViewInputToken>
         <TextInput placeholder="0" />

@@ -118,7 +118,6 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
         <Image src={Cros} onClick={() =>{props.handleClose(false)}} />
       </MainDiv>
       <CurrencyInput
-        ETH=""
         userInputTokenBalance={null}
         showMaxButton={null}
         inputValue={null}

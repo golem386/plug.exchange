@@ -112,6 +112,13 @@ const nullObj = {
   name: '',
   coin: '',
 };
+const settingData = [
+  { name: 'About' },
+  { name: 'Help Center' },
+  { name: 'Request Features' },
+  { name: 'Language' },
+  { name: 'Dark Mode' },
+];
 const AppBar = () => {
   const dispatch: any = useDispatch();
   const [ErrorStatus, setErrorStatus] = React.useState(false);
@@ -196,7 +203,7 @@ const AppBar = () => {
               </CustomButtonActive>
             )}
             {CoinDetail.name === '' && CoinNetwork.name === '' ? '' : <WalletDetails />}
-            <Settings settings={null} />
+            <Settings settings={settingData} />
           </CustomGrid>
         </ControlGrids>
       </MainComponent>
