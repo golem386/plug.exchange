@@ -14,8 +14,9 @@ import Settings from '../Settings/Settings';
 import CurrencySearch from '../CurrencySearch/CurrencySearch';
 import CustomModal from '../Modal/Modal';
 import WalletModal from '../WalletModal/WalletModal';
-import { ThunkDispatch } from "redux-thunk";
-import { AnyAction } from "redux";
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+import Notification from '../swap/Swap/SwapConfirmModal/Notification/Notification';
 
 const MainComponent = styled('div')({
   display: 'flex',
@@ -94,6 +95,10 @@ const ControlGrids = styled(Grid)({
 });
 const LogoGrid = styled(Grid)({
   marginRight: 0,
+});
+const Notificationdiv = styled('div')({
+  display:'flex',
+  justifyContent:'end',
 });
 
 type DataObject = {
@@ -245,11 +250,14 @@ const AppBar = () => {
           />
         }
         isOpen={open}
-        modalTitle=""
+        modalTitle="WalletModal"
         close={() => {
           closeModel();
         }}
       />
+      <Notificationdiv>
+        <Notification />
+      </Notificationdiv>
     </>
   );
 };

@@ -18,3 +18,14 @@ export function onSelectCoin(Coin: ICoin) {
       dispatch(action);
     };
   }
+
+  export function handleClick(Alert: Alert) {
+    const action: AlertAction = {
+      type: actionTypes.ALERT,
+      Alert,
+    };
+    return (dispatch: DispatchType) => {
+      dispatch(action);
+    };
+  }
+  

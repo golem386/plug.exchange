@@ -6,7 +6,15 @@ interface ICoin {
   image: String;
 }
 
+interface Alert {
+  open: Boolean;
+  vertical: String;
+  horizontal: String;
+  type:String
+}
+
 type ArticleState = {
+  Alert:Alert,
   modal: any;
   CoinDetail: {
     name: String;
@@ -38,9 +46,16 @@ type CoinAction = {
   type: string;
   Coin: ICoin;
 };
+
+type AlertAction = {
+  type: string;
+  Alert: Alert;
+};
 type StatusAction = {
   type: string;
   Status: StatusPayload;
 };
 
-type DispatchType = (args: ArticleAction | CoinAction) => ArticleAction | CoinAction | StatusAction;
+type DispatchType = (
+  args: ArticleAction | CoinAction | AlertAction,
+) => ArticleAction | CoinAction | StatusAction | AlertAction;

@@ -25,6 +25,12 @@ const initialState: ArticleState = {
     name: '',
     image: '',
   },
+  Alert: {
+    open: false,
+    vertical: '',
+    horizontal: '',
+    type:''
+  },
 };
 
 const reducer = (state: ArticleState = initialState, action: any): ArticleState => {
@@ -53,6 +59,11 @@ const reducer = (state: ArticleState = initialState, action: any): ArticleState 
       return {
         ...state,
         ConnectNetwork: action.Coin,
+      };
+    case actionTypes.ALERT:
+      return {
+        ...state,
+        Alert: action.Alert,
       };
   }
   return state;

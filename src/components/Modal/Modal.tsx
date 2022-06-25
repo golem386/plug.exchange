@@ -172,7 +172,26 @@ const Boxs = styled('div')({
   height: 'auto',
   borderRadius: 10,
 });
-
+const BoxsToken = styled('div')({
+  backgroundColor: 'white',
+  paddingBottom: 30,
+  paddingRight: 20,
+  paddingLeft: 20,
+  paddingTop: 10,
+  width: '450px',
+  height: '90%',
+  borderRadius: 10,
+});
+const BoxsModal = styled('div')({
+  backgroundColor: 'white',
+  paddingBottom: 30,
+  paddingRight: 20,
+  paddingLeft: 20,
+  paddingTop: 10,
+  width: '60%',
+  height: '90%',
+  borderRadius: 10,
+});
 export type CustomModalProps = {
   isOpen: boolean;
   modalTitle: string;
@@ -187,7 +206,9 @@ const CustomModal = (props: CustomModalProps) => {
         props.close(false);
       }}
     >
-      <Boxs>{props.children}</Boxs>
+      {
+        props.modalTitle === 'Transaction History' ? <BoxsModal>{props.children}</BoxsModal> : props.modalTitle === 'WalletModal' ? <BoxsToken>{props.children}</BoxsToken> : <Boxs>{props.children}</Boxs>
+      }
     </ModalCustom>
   );
 };

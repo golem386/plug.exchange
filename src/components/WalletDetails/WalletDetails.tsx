@@ -12,6 +12,13 @@ import { useSelector } from 'react-redux';
 import UserAssets from './UserAssets';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import Cros from '../../assets/icon/Cros.png';
+import SwapIcon from '../../assets/icon/SwapIcon.png';
+import Time from '../../assets/icon/Time.png';
+import Left from '../../assets/icon/Left.png';
+import Right from '../../assets/icon/Right.png';
+import SwapTransactionHistory from '../SwapTransactionHistory/SwapTransactionHistory';
+import CustomModal from '../Modal/Modal';
 
 const Copy = styled('div')({
   paddingLeft: '10px',
@@ -213,7 +220,9 @@ type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const WalletDetails = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
   const dispatch: AppDispatch = useDispatch();
   const [anchorElPrice, setAnchorElPrice] = React.useState<null | HTMLElement>(null);
   const CoinDetail: any = useSelector((state: ArticleState) => state.ConnectWallet);
@@ -300,54 +309,20 @@ const WalletDetails = () => {
             <HistoryTitle>{CoinNetwork.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
           </MainDiv>
         </HistoryDiv>
-        {/* <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Boxes>
-            <Header>
-              <HeaderText>Transaction History</HeaderText>
-              <Image src={Cros} />
-            </Header>
-            <Body>
-              <Main>
-                <Status>
-                  <Maindiv>
-                    <StatusImage src={SwapIcon} />
-                    <Div>
-                      <StatusText>Swap</StatusText>
-                      <br />
-                      <TextPink>
-                        0x37...0420{' '}
-                        <TimeText>
-                          <TimeImage src={Time} /> 9:16 PM
-                        </TimeText>
-                      </TextPink>
-                    </Div>
-                  </Maindiv>
-                </Status>
-                <Share>
-                  <p>dfdfdf</p>
-                </Share>
-                <Eth>
-                  <p>dfdfdf</p>
-                </Eth>
-              </Main>
-            </Body>
-            <Footer>
-              <Count>
-                <Item>Items Per Page</Item>
-              </Count>
-              <Count>
-                <Item>2-10 of 17</Item>
-                <ImageIcon src={Left} />
-                <ImageIcon src={Right} />
-              </Count>
-            </Footer>
-          </Boxes>
-        </Modal> */}
+        <CustomModal
+          children={
+            <SwapTransactionHistory
+              close={() => {
+                handleClose();
+              }}
+            />
+          }
+          isOpen={open}
+          modalTitle="Transaction History"
+          close={() => {
+            handleClose();
+          }}
+        />
       </CustomMenu>
     </div>
   );

@@ -6,11 +6,14 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
+import { handleClick } from '../../../store/Actions';
 import CustomModal from '../../Modal/Modal';
 import CurrencyInput from './CurrencyInput/CurrencyInput';
 import CurrencyOutput from './CurrencyOutput/CurrencyOutput';
 import SwapConfirmModal from './SwapConfirmModal';
+import HighSlippage from './SwapConfirmModal/HighSlippage/HighSlippage';
 import TransactionCompleted from './SwapConfirmModal/TransactionCompleted/TransactionCompleted';
+import TransactionFailed from './SwapConfirmModal/TransactionFailed/TransactionFailed';
 import TransactionWaiting from './SwapConfirmModal/TransactionWaiting/TransactionWaiting';
 import SwapHeader from './SwapHeader/SwapHeader';
 import SwapRouter from './SwapRouter/SwapRouter';
@@ -52,7 +55,9 @@ const Swap = (props: SwapProps) => {
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
   const [TransactionWaitingopen, setTransactionWaitingOpen] = useState(false);
   const [TransactionCompletedopen, setTransactionCompletedOpen] = useState(false);
+  const [TransactionFaildopen, setTransactionFaildopen] = useState(false);
   const [SwapConfirmModalopen, setSwapConfirmModalOpen] = useState(false);
+  const [HighSlippageModalopen, setHighSlippageModalOpen] = useState(false);
   const closeModel = () => {
     setTransactionWaitingOpen(false);
   };
@@ -61,6 +66,12 @@ const Swap = (props: SwapProps) => {
   };
   const closeSwapConfirmModalopenModel = () => {
     setSwapConfirmModalOpen(false);
+  };
+  const closeTransactionFaildModel = () => {
+    setTransactionFaildopen(false);
+  };
+  const closeHighSlippageModel = () => {
+    setHighSlippageModalOpen(false);
   };
   return (
     <>
@@ -129,6 +140,39 @@ const Swap = (props: SwapProps) => {
             closeSwapConfirmModalopenModel();
           }}
         />
+        <CustomModal
+          children={
+            <TransactionFailed
+              handleClose={() => {
+                closeTransactionFaildModel();
+              }}
+              transactionUrl={null}
+              watchAssetHandler={null}
+            />
+          }
+          modalTitle=""
+          isOpen={TransactionFaildopen}
+          close={() => {
+            closeTransactionFaildModel();
+          }}
+        />
+        <CustomModal
+          children={
+            <HighSlippage
+              handleClose={() => {
+                closeHighSlippageModel();
+              }}
+              transactionUrl={null}
+              watchAssetHandler={null}
+            />
+          }
+          modalTitle=""
+          isOpen={HighSlippageModalopen}
+          close={() => {
+            closeHighSlippageModel();
+          }}
+        />
+
         <OrderBtn
           onClick={
             ConnectWallet.name !== '' && CoinNetwork.name !== ''
@@ -141,6 +185,12 @@ const Swap = (props: SwapProps) => {
                 }
               : () => {
                   setSwapConfirmModalOpen(true);
+                  setTransactionFaildopen(true);
+                  setHighSlippageModalOpen(true);
+                  dispatch(handleClick({ type: 'Success', open: true, vertical: 'top', horizontal: 'right' }));
+                  setTimeout(() => {
+                    dispatch(handleClick({ type: 'Error', open: true, vertical: 'top', horizontal: 'right' }));
+                  }, 4000);
                 }
           }
         >
