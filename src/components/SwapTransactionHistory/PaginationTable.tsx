@@ -1,10 +1,17 @@
-// this file is a WalletDetails file and provide a History
+import React, { Component, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { Box, FormControl, Menu, Modal, NativeSelect, Tab, Tabs } from '@mui/material';
-import React, { useEffect } from 'react';
 import Cros from '../../assets/icon/Cros.png';
-import { HistoryDATA, HistorySwapDATA } from '../../contexts/HistoryDATA';
-import PaginationTable from './PaginationTable';
+import SwapIcon from '../../assets/icon/SwapIcon.png';
+import Time from '../../assets/icon/Time.png';
+import Left from '../../assets/icon/Left.png';
+import Right from '../../assets/icon/Right.png';
+import LeftIcon from '../../assets/icon/LeftIcon.png';
+import coin from '../../assets/icon/coin.png';
+import coin3 from '../../assets/icon/coin3.png';
+import Pending from '../../assets/icon/Pending.png';
+import Faild from '../../assets/icon/Faild.png';
+import Approve from '../../assets/icon/Approve.png';
 
 const Copy = styled('div')({
   paddingLeft: '10px',
@@ -215,9 +222,6 @@ const Share = styled('div')({
 });
 const Eth = styled('div')({});
 
-type SwapTransactionHistoryType = {
-  close: Function;
-};
 const CurrencySwitch = styled('div')({
   fontFamily: 'Inter',
   fontSize: 'calc(0.75em + 1vw)',
@@ -287,50 +291,143 @@ const CustomButtonActive = styled('button')({
   marginTop: 5,
   marginBottom: 5,
 });
+type PaginationTableProps = {
+  data : any
+}
+const PaginationTable = (props:PaginationTableProps) => {
+  const [page, setPage] = React.useState([]);
+  const [start, setStart] = React.useState(0);
+  const [end, setEnd] = React.useState(10);
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [count, setCount] = React.useState('10');
+  const a = parseInt(count);
+  useEffect(() => {
+    const range = [];
+    const num = Math.ceil(props.data.length / a);
+    let i = 1;
+    for (let i = 1; i <= num; i++) {
+      range.push(i);
+    }
+    setPage(range);
+  }, [count, start, end]);
 
-const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {
-  const [value, setValue] = React.useState('All');
+  const NextPage = () => {
+    if (page.length > currentPage) {
+      setStart(a * currentPage);
+      setCurrentPage(currentPage + 1);
+      setEnd(end + a);
+    }
+  };
 
+  const PriviousPage = () => {
+    if (currentPage > 1) {
+      setStart(start - a);
+      setEnd(end - a);
+      setCurrentPage(currentPage - 1);
+    }
+  };
   return (
     <>
-      <Header>
-        <HeaderText>Transaction History</HeaderText>
-        <Image
-          src={Cros}
-          onClick={() => {
-            props.close();
-          }}
-        />
-      </Header>
-      {value === 'All' ? (
-        <CustomButtonActive>All</CustomButtonActive>
-      ) : (
-        <CustomButton
-          onClick={() => {
-            setValue('All');
-          }}
-        >
-          All
-        </CustomButton>
-      )}
-      {value === 'Swaps' ? (
-        <CustomButtonActive>Swaps</CustomButtonActive>
-      ) : (
-        <CustomButton
-          onClick={() => {
-            setValue('Swaps');
-          }}
-        >
-          Swaps
-        </CustomButton>
-      )}
-      {value === 'All' ? (
-        <PaginationTable data={HistoryDATA} />
-      ) : (
-        <PaginationTable data={HistorySwapDATA}/>
-      )}
+      <Body>
+        {props.data.map((val, i) => {
+          return start <= i && i + 1 <= a * currentPage ? (
+            <>
+              <Span>{val.Date}</Span>
+              {val.Transaction.map((data, ind) => {
+                return (
+                  <Main>
+                    <Status>
+                      <Maindiv>
+                        {data.Status === 'Swap' ? (
+                          <StatusImage src={SwapIcon} />
+                        ) : data.Status === 'Pending' ? (
+                          <StatusImage src={Pending} />
+                        ) : data.Status === 'Approve' ? (
+                          <StatusImage src={Approve} />
+                        ) : data.Status === 'Failed' ? (
+                          <StatusImage src={Faild} />
+                        ) : null}
+
+                        <Div>
+                          <StatusText>{data.Name}</StatusText>
+                          <br />
+                          <TextPink>
+                            {data.Id}
+                            <TimeText>
+                              <TimeImage src={Time} /> {data.Time}
+                            </TimeText>
+                          </TextPink>
+                        </Div>
+                      </Maindiv>
+                    </Status>
+                    <Share>
+                      <Span>
+                        <CoinImg src={data.PayImg} />
+                        {data.PayToken}
+                      </Span>
+                      {data.ReceiveImg !== '' && data.ReceiveToken !== '' ? (
+                        <>
+                          <Img src={LeftIcon} height={15} width={16} />
+                          <Span>
+                            <CoinImg src={data.ReceiveImg} />
+                            {data.ReceiveToken}
+                          </Span>
+                        </>
+                      ) : null}
+                    </Share>
+                    <Eth>
+                      <Span>{data.ETH}</Span>
+                    </Eth>
+                  </Main>
+                );
+              })}
+            </>
+          ) : null;
+        })}
+        ;
+      </Body>
+      <Footer>
+        <Count>
+          <Item>Items Per Page</Item>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <NativeSelect
+                onChange={(e: any) => {
+                  setCount(e.target.value);
+                }}
+                value={count}
+                inputProps={{
+                  name: 'Page',
+                  id: 'uncontrolled-native',
+                }}
+              >
+                <option value={10}>10</option>
+                <option value={20}>20</option>
+                <option value={30}>30</option>
+              </NativeSelect>
+            </FormControl>
+          </Box>
+        </Count>
+        <Count>
+          <Item>
+            {currentPage}-{count} of {page.length}
+          </Item>
+          <ImageIcon
+            src={Left}
+            onClick={() => {
+              PriviousPage();
+            }}
+          />
+          <ImageIcon
+            src={Right}
+            onClick={() => {
+              NextPage();
+            }}
+          />
+        </Count>
+      </Footer>
     </>
   );
 };
 
-export default SwapTransactionHistory;
+export default PaginationTable;
