@@ -48,6 +48,7 @@ const BtnIcon = styled('img')({
 const CloseIcon = styled('img')({
   height: '15px',
   width: '15px',
+  cursor:'pointer'
 });
 const ImagDiv = styled('div')({
   display: 'flex',

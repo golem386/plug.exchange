@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import React, { Component } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import TransactionWaiting from '../swap/Swap/SwapConfirmModal/TransactionWaiting/TransactionWaiting';
+import TransactionWaiting from '../swap/Swap/SwapConfirmModal/TransactionWaiting';
 import Cros from '../../assets/icon/Cros.png';
 import select from '../../assets/icon/select.png';
 import Coin from '../../assets/icon/coin.png';
-import TransactionCompleted from '../swap/Swap/SwapConfirmModal/TransactionCompleted/TransactionCompleted';
+import TransactionCompleted from '../swap/Swap/SwapConfirmModal/TransactionCompleted';
 import SwapConfirmModal from '../swap/Swap/SwapConfirmModal';
 import {
   ConnectNetWorkOne,
@@ -16,7 +16,7 @@ import {
   ConnectWalletTow,
 } from '../../contexts/ConnectWalletDATA';
 import { Box, Button, FormControlLabel, Modal, Radio } from '@mui/material';
-import WalletModal from '../WalletModal/WalletModal';
+import WalletModal from '../WalletModal';
 
 const styleError = {
   position: 'absolute',

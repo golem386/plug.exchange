@@ -8,11 +8,11 @@ import { Grid } from '@mui/material';
 import React, { Component } from 'react';
 import { useSelector } from 'react-redux';
 import { AppBar, AppFooter, CurrencyModal, ReferralModal } from '../../components';
-import Selectedtoken from '../../components/SelectedToken/SelectedToken';
-import PairLineChart from '../../components/swap/PairLineChart/PairLineChart';
-import QuoteTables from '../../components/swap/QuoteTable/QuoteTables';
+import Selectedtoken from '../../components/SelectedToken';
+import PairLineChart from '../../components/swap/PairLineChart';
+import QuoteTables from '../../components/swap/QuoteTable';
 import Swap from '../../components/swap/Swap';
-import TransactionSettings from '../../components/swap/Swap/TransactionSettings/TransactionSettings';
+import TransactionSettings from '../../components/swap/Swap/TransactionSettings';
 
 const MainDiv = styled('div')({
   marginLeft: '5%',

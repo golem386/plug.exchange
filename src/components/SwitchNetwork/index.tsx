@@ -9,7 +9,7 @@ import DownIconWhite from '../../assets/icon/DownIconWhite.png';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
 
 const CustomButtonActiveCoin = styled(Button)({
-  borderRadius: 20,
+  borderRadius: 16,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   padding: '0px 15px',
   fontSize: '16px',

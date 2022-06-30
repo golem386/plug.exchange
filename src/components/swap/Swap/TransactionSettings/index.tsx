@@ -66,6 +66,23 @@ const CustomButtonActive = styled(Button)({
   height: '52px',
   width: '47%',
 });
+const CustomButtonDisebal = styled(Button)({
+  borderRadius: '16px',
+  background: 'Transaction',
+  padding: '10px 24px',
+  fontSize: '14px',
+  fontWeight: '600',
+  color: 'black',
+  fontStyle: 'Inter',
+  textTransform: 'lowercase',
+  marginLeft: 15,
+  marginRight: 5,
+  height: '52px',
+  width: '47%',
+  borderWidth:1,
+  borderColor:'black',
+  borderStyle:'solid'
+});
 const CustomButtonActiveNumber = styled(Button)({
   borderRadius: '16px',
   background: '#f7f7f7',
@@ -137,6 +154,7 @@ const DownArrowIcon = styled('img')({
   width: '12.73px',
   marginLeft: 10,
   marginRight: 10,
+  cursor:'pointer'
 });
 const Settings = styled('p')({
   fontWeight: '600',
@@ -217,6 +235,10 @@ const TextTypeinput = styled('input')({
   },
 });
 
+const CloseImage = styled('img')({
+  cursor:'pointer'
+});
+
 export type TransactionSettingsProps = {
   isOpen: boolean | null;
 };
@@ -232,7 +254,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
     <MainDiv>
       <SwapDiv>
         <Swap>Transaction Settings</Swap>
-        <img
+        <CloseImage
           src={close}
           onClick={() => {
             onModal('Swap');
@@ -245,7 +267,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
         <QuestionIcon src={Question} alt="QuestionIcon" />
       </Slippage>
       <FlexView>
-        <CustomButtonActive>Auto</CustomButtonActive>
+        <CustomButtonDisebal>Auto</CustomButtonDisebal>
         <CustomButtonActiveNumber>0.50 %</CustomButtonActiveNumber>
       </FlexView>
       <Slippage>

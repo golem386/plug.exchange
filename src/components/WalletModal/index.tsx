@@ -12,12 +12,12 @@ import { styled } from '@mui/system';
 import Cros from '../../assets/icon/Cros.png';
 import select from '../../assets/icon/select.png';
 import Coin from '../../assets/icon/coin.png';
-import TransactionWaiting from '../swap/Swap/SwapConfirmModal/TransactionWaiting/TransactionWaiting';
-import TransactionCompleted from '../swap/Swap/SwapConfirmModal/TransactionCompleted/TransactionCompleted';
+import TransactionWaiting from '../swap/Swap/SwapConfirmModal/TransactionWaiting';
+import TransactionCompleted from '../swap/Swap/SwapConfirmModal/TransactionCompleted';
 import SwapConfirmModal from '../swap/Swap/SwapConfirmModal';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import CustomModal from '../Modal/Modal';
+import CustomModal from '../Modal';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 

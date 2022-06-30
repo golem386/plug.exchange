@@ -9,14 +9,14 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { connetNetwork, connetWallet } from '../../store/Actions';
 import WalletDetails from '../WalletDetails/WalletDetails';
-import SwitchNetwork from '../SwitchNetwork/SwitchNetwork';
-import Settings from '../Settings/Settings';
-import CurrencySearch from '../CurrencySearch/CurrencySearch';
-import CustomModal from '../Modal/Modal';
-import WalletModal from '../WalletModal/WalletModal';
+import SwitchNetwork from '../SwitchNetwork';
+import Settings from '../Settings';
+import CurrencySearch from '../CurrencySearch';
+import CustomModal from '../Modal';
+import WalletModal from '../WalletModal';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import Notification from '../swap/Swap/SwapConfirmModal/Notification/Notification';
+import Notification from '../swap/Swap/SwapConfirmModal/Notification';
 
 const MainComponent = styled('div')({
   display: 'flex',
@@ -82,7 +82,21 @@ const CustomButtonActive = styled(Button)({
 const Imgs = styled('img')({
   marginTop: '15%',
 });
-
+const CustomButtonActiveCoin = styled(Button)({
+  borderRadius: 16,
+  background: 'red',
+  padding: '0px 15px',
+  fontSize: '16px',
+  fontWeight: '600',
+  color: '#FFFFFF',
+  fontStyle: 'Inter',
+  textTransform: 'initial',
+  marginLeft: 5,
+  marginRight: 5,
+  '&:hover': {
+    backgroundColor: 'red',
+  },
+});
 const CustomGrid = styled(Grid)({
   display: 'flex',
   justifyContent: 'space-evenly',
@@ -97,8 +111,8 @@ const LogoGrid = styled(Grid)({
   marginRight: 0,
 });
 const Notificationdiv = styled('div')({
-  display:'flex',
-  justifyContent:'end',
+  display: 'flex',
+  justifyContent: 'end',
 });
 
 type DataObject = {
@@ -162,10 +176,10 @@ const AppBar = () => {
   };
 
   const Network = () => {
-    if (WalletData.name !== '' && NetworkData.name !== '') {
-      connetWalletData(WalletData);
-      connetNetworkData(NetworkData);
-    }
+    // if (WalletData.name !== '' && NetworkData.name !== '') {
+    connetWalletData(WalletData);
+    connetNetworkData(NetworkData);
+    // }
   };
 
   const SelectData = () => {
@@ -211,7 +225,13 @@ const AppBar = () => {
                 Connect Wallet
               </CustomButtonActive>
             )}
-            {CoinDetail.name === '' && CoinNetwork.name === '' ? '' : <WalletDetails />}
+            {CoinDetail.name === '' && CoinNetwork.name !== '' ? (
+              <CustomButtonActiveCoin>Wrong Network</CustomButtonActiveCoin>
+            ) : CoinDetail.name === '' && CoinNetwork.name === '' ? (
+              ''
+            ) : (
+              <WalletDetails />
+            )}
             <Settings settings={settingData} />
           </CustomGrid>
         </ControlGrids>

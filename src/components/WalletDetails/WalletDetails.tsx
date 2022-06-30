@@ -17,8 +17,8 @@ import SwapIcon from '../../assets/icon/SwapIcon.png';
 import Time from '../../assets/icon/Time.png';
 import Left from '../../assets/icon/Left.png';
 import Right from '../../assets/icon/Right.png';
-import SwapTransactionHistory from '../SwapTransactionHistory/SwapTransactionHistory';
-import CustomModal from '../Modal/Modal';
+import SwapTransactionHistory from '../SwapTransactionHistory';
+import CustomModal from '../Modal';
 
 const Copy = styled('div')({
   paddingLeft: '10px',

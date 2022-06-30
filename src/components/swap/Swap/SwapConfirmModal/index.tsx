@@ -1,10 +1,11 @@
 // this is a SwapConfirmmpdel File and Provide a SwapConfirmation Modal
 import styled from '@emotion/styled';
+import { Button } from '@mui/material';
 import React, { Component } from 'react';
 import Cros from '../../../../assets/icon/Cros.png';
 import ShortVartical from '../../../../assets/icon/ShortVartical.png';
-import  CurrencyInput  from '../CurrencyInput/CurrencyInput';
-import  CurrencyOutput  from '../CurrencyOutput/CurrencyOutput';
+import CurrencyInput from '../CurrencyInput';
+import CurrencyOutput from '../CurrencyOutput';
 
 const MainDiv = styled('div')({
   display: 'flex',
@@ -16,6 +17,7 @@ const MainDiv = styled('div')({
 const Image = styled('img')({
   height: 15,
   width: 15,
+  cursor:'pointer'
 });
 const Title = styled('p')({
   fontFamily: 'Inter',
@@ -38,14 +40,14 @@ const ShortView = styled('div')({
   display: 'flex',
   alignItems: 'center',
   marginLeft: '5%',
-  marginTop: 10,
+  marginTop: 5,
 });
 const DIv = styled('div')({
   backgroundColor: '#F7F7F7',
   borderRadius: 24,
   marginLeft: 15,
   marginRight: 15,
-  marginTop: 15,
+  marginTop: 5,
   marginBottom: 15,
   padding: 10,
 });
@@ -90,6 +92,16 @@ const Max = styled('span')({
   fontFamily: 'Inter',
 });
 
+const OrderBtn = styled(Button)({
+  width: '100%',
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  color: 'white',
+  borderRadius: '12px',
+  marginBottom: '2%',
+  marginTop: '1%',
+  textTransform: 'initial',
+});
+
 type Currency = {};
 type ENUM = {};
 type SWAP = {};
@@ -115,7 +127,12 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
     <>
       <MainDiv>
         <Title>Swap Confirmation</Title>
-        <Image src={Cros} onClick={() =>{props.handleClose(false)}} />
+        <Image
+          src={Cros}
+          onClick={() => {
+            props.handleClose(false);
+          }}
+        />
       </MainDiv>
       <CurrencyInput
         userInputTokenBalance={null}
@@ -161,6 +178,7 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
           <Price>~$0.02</Price>
         </Main>
       </DIv>
+      <OrderBtn>Swap</OrderBtn>
     </>
   );
 };

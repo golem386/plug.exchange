@@ -8,7 +8,7 @@ import { list } from '../../contexts/SelectTokenDATA';
 import { useDispatch } from 'react-redux';
 import { onModalOpen, onReceiveCoin, onSelectCoin } from '../../store/Actions';
 import { useSelector } from 'react-redux';
-import ImportToken from '../ImportToken/ImportToken';
+import ImportToken from '../ImportToken';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 

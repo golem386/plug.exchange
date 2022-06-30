@@ -1,4 +1,4 @@
-// this is a CurrencyInput file and Provide a Currency Input value and input Design
+// this is a CurrencyOutput file and Provide a Currency Output value and input Design
 import styled from '@emotion/styled';
 import { FormControl } from '@mui/material';
 import React from 'react';
@@ -6,34 +6,27 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { onModalOpen } from '../../../../store/Actions';
 import DownArrow from '../../../../assets/icon/DownArrow.png';
-import { AnyAction } from 'redux';
+import SwapArrow from '../SwapArrow';
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
-const SwapDiv = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  paddingLeft: 15,
-  paddingRight: 15,
-  cursor: 'pointer',
-  paddingTop: 15,
-});
-const Pay = styled('span')({
-  fontSize: '16px',
-  fontWeight: '500',
-  color: 'black',
-  fontFamily: 'Inter',
-});
-const Max = styled('span')({
-  fontSize: '16px',
-  fontWeight: '500',
-  color: '#BB36FF',
-  fontFamily: 'Inter',
-});
-const MainViewInputToken = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
+const ReceiveMain = styled('div')({
   backgroundColor: '#F7F7F7',
+  marginTop: '10%',
+  position: 'relative',
+  paddingBottom: '3%',
+  paddingTop: '10px',
+});
+const YouReceive = styled('span')({
+  padding: 20,
+  fontFamily: 'inter',
+  fontWeight: '500',
+  fontSize: 16,
+});
+const MainViewInput = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  backgroundColor: 'white',
   marginLeft: 15,
   marginRight: 15,
   borderRadius: 16,
@@ -55,13 +48,14 @@ const TextInput = styled('input')({
     outline: 'none',
   },
 });
-const SelectMain = styled('div')({
+const SelectMainDarkCoin = styled('div')({
   borderRadius: '100px',
   height: '36px',
   boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
-  backgroundColor: 'white',
+  backgroundColor: '#F7F7F7',
   display: 'flex',
   alignItems: 'center',
+  cursor:'pointer'
 });
 const CoinImgTag = styled('img')({
   height: '36px',
@@ -80,49 +74,45 @@ const CoinDropIcon = styled('img')({
   marginLeft: 10,
 });
 
-export type CurrencyInputProps = {
-  userInputTokenBalance: number | null;
-  showMaxButton: boolean | null;
-  inputValue: number | null;
-  inputOnChangeHandler: () => void | null;
-  toggleCurrencyModal: () => void | null;
-  selectedCurrency: string | boolean | null;
-};
-type CoinDetailType = {
-  name: String;
-  image: String | string | any;
-  fullName: String;
+type ReceiveCoin = {
+  name: string | String;
+  image: string | String | any;
+  fullName: string | String;
 };
 type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
-const CurrencyInput = (props: CurrencyInputProps) => {
+export type CurrencyOutputProps = {
+  inputOnChangeHandler: () => void | null;
+  inputValue: number | null;
+  selectedCurrency: string | number | null;
+  toggleCurrencyModal: () => void | null;
+};
+const CurrencyOutput = (props: CurrencyOutputProps) => {
   const dispatch: AppDispatch = useDispatch();
-  const CoinDetail: CoinDetailType = useSelector((state: ArticleState) => state.CoinDetail);
+  const ReceiveCoin: ReceiveCoin = useSelector((state: ArticleState) => state.receiveCoinDetail);
 
   const onModal = (article: any) => {
     dispatch(onModalOpen(article));
   };
   return (
-    <>
-      <SwapDiv>
-        <Pay>You Pay</Pay>
-        <Max>{props.selectedCurrency}</Max>
-      </SwapDiv>
-      <MainViewInputToken>
+    <ReceiveMain>
+      <SwapArrow switchCurrencyHandler={null} />
+      <YouReceive>You Receive</YouReceive>
+      <MainViewInput>
         <TextInput placeholder="0" />
         <FormControl sx={{ m: 1, minWidth: 120 }}>
-          <SelectMain
+          <SelectMainDarkCoin
             onClick={() => {
-              onModal('SelectToken');
+              onModal('ReceiveToken');
             }}
           >
-            <CoinImgTag src={CoinDetail.image} alt="Coin" />
-            <CoinTitle>{CoinDetail.name}</CoinTitle>
+            <CoinImgTag src={ReceiveCoin.image} alt="Icon" />
+            <CoinTitle>{ReceiveCoin.name}</CoinTitle>
             <CoinDropIcon src={DownArrow} alt="DownArrow" />
-          </SelectMain>
+          </SelectMainDarkCoin>
         </FormControl>
-      </MainViewInputToken>
-    </>
+      </MainViewInput>
+    </ReceiveMain>
   );
 };
 
-export default CurrencyInput;
+export default CurrencyOutput;

@@ -7,17 +7,17 @@ import { useDispatch } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { handleClick } from '../../../store/Actions';
-import CustomModal from '../../Modal/Modal';
-import CurrencyInput from './CurrencyInput/CurrencyInput';
-import CurrencyOutput from './CurrencyOutput/CurrencyOutput';
+import CustomModal from '../../Modal';
+import CurrencyInput from './CurrencyInput';
+import CurrencyOutput from './CurrencyOutput';
 import SwapConfirmModal from './SwapConfirmModal';
-import HighSlippage from './SwapConfirmModal/HighSlippage/HighSlippage';
-import TransactionCompleted from './SwapConfirmModal/TransactionCompleted/TransactionCompleted';
-import TransactionFailed from './SwapConfirmModal/TransactionFailed/TransactionFailed';
-import TransactionWaiting from './SwapConfirmModal/TransactionWaiting/TransactionWaiting';
-import SwapHeader from './SwapHeader/SwapHeader';
-import SwapRouter from './SwapRouter/SwapRouter';
-import SwapTransactionDetails from './SwapTransactionDetails/SwapTransactionDetails';
+import HighSlippage from './SwapConfirmModal/HighSlippage';
+import TransactionCompleted from './SwapConfirmModal/TransactionCompleted';
+import TransactionFailed from './SwapConfirmModal/TransactionFailed';
+import TransactionWaiting from './SwapConfirmModal/TransactionWaiting';
+import SwapHeader from './SwapHeader';
+import SwapRouter from './SwapRouter';
+import SwapTransactionDetails from './SwapTransactionDetails';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -28,6 +28,16 @@ const OrderBtn = styled(Button)({
   margin: 15,
   width: '90%',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  color: 'white',
+  borderRadius: '12px',
+  marginBottom: '10%',
+  marginTop: '10%',
+  textTransform: 'initial',
+});
+const WrongBtn = styled(Button)({
+  margin: 15,
+  width: '90%',
+  background: 'red',
   color: 'white',
   borderRadius: '12px',
   marginBottom: '10%',
@@ -172,30 +182,33 @@ const Swap = (props: SwapProps) => {
             closeHighSlippageModel();
           }}
         />
-
-        <OrderBtn
-          onClick={
-            ConnectWallet.name !== '' && CoinNetwork.name !== ''
-              ? () => {
-                  setTransactionWaitingOpen(true);
-                  setTimeout(() => {
-                    setTransactionWaitingOpen(false);
-                    setTransactionCompletedOpen(true);
-                  }, 1000);
-                }
-              : () => {
-                  setSwapConfirmModalOpen(true);
-                  setTransactionFaildopen(true);
-                  setHighSlippageModalOpen(true);
-                  dispatch(handleClick({ type: 'Success', open: true, vertical: 'top', horizontal: 'right' }));
-                  setTimeout(() => {
-                    dispatch(handleClick({ type: 'Error', open: true, vertical: 'top', horizontal: 'right' }));
-                  }, 4000);
-                }
-          }
-        >
-          {ConnectWallet.name !== '' && CoinNetwork.name !== '' ? 'Swap' : props.btnTitle}
-        </OrderBtn>
+        {ConnectWallet.name === '' && CoinNetwork.name !== '' ? (
+          <WrongBtn>Wrong Network</WrongBtn>
+        ) : (
+          <OrderBtn
+            onClick={
+              ConnectWallet.name !== '' && CoinNetwork.name !== ''
+                ? () => {
+                    setTransactionWaitingOpen(true);
+                    setTimeout(() => {
+                      setTransactionWaitingOpen(false);
+                      setTransactionCompletedOpen(true);
+                    }, 1000);
+                  }
+                : () => {
+                    setSwapConfirmModalOpen(true);
+                    setTransactionFaildopen(true);
+                    setHighSlippageModalOpen(true);
+                    dispatch(handleClick({ type: 'Success', open: true, vertical: 'top', horizontal: 'right' }));
+                    setTimeout(() => {
+                      dispatch(handleClick({ type: 'Error', open: true, vertical: 'top', horizontal: 'right' }));
+                    }, 4000);
+                  }
+            }
+          >
+            {ConnectWallet.name !== '' && CoinNetwork.name !== '' ? 'Swap' : props.btnTitle}
+          </OrderBtn>
+        )}
       </MainDiv>
       {props.btnTitle === 'Connect Wallet' ? (
         ConnectWallet.name !== '' && CoinNetwork.name !== '' ? (
