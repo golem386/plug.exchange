@@ -178,7 +178,7 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
           <Price>~$0.02</Price>
         </Main>
       </DIv>
-      <OrderBtn>Swap</OrderBtn>
+      <OrderBtn>Confirm Swap</OrderBtn>
     </>
   );
 };
