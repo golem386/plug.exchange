@@ -55,11 +55,9 @@ const ImageIconDropDown = styled('img')({
   paddingRight: '20px',
 });
 
-export type SwitchNetworkProps = {
-  connetNetworkData: Function;
-};
 
-const SwitchNetwork = (props: SwitchNetworkProps) => {
+
+const SwitchNetwork = () => {
   const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const openmenu = Boolean(anchorEl);
@@ -99,11 +97,7 @@ const SwitchNetwork = (props: SwitchNetworkProps) => {
       >
         {DropDownData.map((val, i) => {
           return (
-            <CustomMenuItem
-              onClick={() => {
-                props.connetNetworkData(val);
-              }}
-            >
+            <CustomMenuItem>
               <ImageIconDropDown src={val.coin} alt="Icon" />
               <DropDownTitleIcon>{val.name}</DropDownTitleIcon>
             </CustomMenuItem>

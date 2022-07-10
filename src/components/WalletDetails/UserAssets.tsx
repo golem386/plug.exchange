@@ -57,7 +57,8 @@ const DropPrice = styled('span')({
 });
 
 export type UserAssetsProps = {
-  connetWalletData: Function;
+  // connetWalletData: Function;
+  account:String
 };
 
 const UserAssets = (props: UserAssetsProps) => {
@@ -71,11 +72,7 @@ const UserAssets = (props: UserAssetsProps) => {
       </NetWorth>
       {DropDownDataWallet.map((val, i) => {
         return (
-          <DropMain
-            onClick={() => {
-              props.connetWalletData(val);
-            }}
-          >
+          <DropMain>
             <DIV>
               <ImageIconDropDown src={val.coin} alt="Icon"/>
               <DropTitle>{val.Subname}</DropTitle>

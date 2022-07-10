@@ -206,9 +206,7 @@ const CustomModal = (props: CustomModalProps) => {
         props.close(false);
       }}
     >
-      {
-        props.modalTitle === 'Transaction History' ? <BoxsModal>{props.children}</BoxsModal> : props.modalTitle === 'WalletModal' ? <BoxsToken>{props.children}</BoxsToken> : <Boxs>{props.children}</Boxs>
-      }
+      {props.children}
     </ModalCustom>
   );
 };

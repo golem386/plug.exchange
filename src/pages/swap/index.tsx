@@ -7,10 +7,12 @@ import styled from '@emotion/styled';
 import { Grid } from '@mui/material';
 import React, { Component } from 'react';
 import { useSelector } from 'react-redux';
-import { AppBar, AppFooter, CurrencyModal, ReferralModal } from '../../components';
-import Selectedtoken from '../../components/SelectedToken';
+import AppBar from '../../components/AppBar';
+import AppFooter from '../../components/AppFooter';
+import CurrencyModal from '../../components/CurrencyModal';
 import PairLineChart from '../../components/swap/PairLineChart';
 import QuoteTables from '../../components/swap/QuoteTable';
+import ReferralModal from '../../components/swap/Referral';
 import Swap from '../../components/swap/Swap';
 import TransactionSettings from '../../components/swap/Swap/TransactionSettings';
 
@@ -51,7 +53,14 @@ const SwapPage = () => {
                 activeTokenId={null}
               />
             ) : Modal === 'ReceiveToken' ? (
-              <Selectedtoken select="ReceiveToken" />
+              <CurrencyModal
+                select="ReceiveToken"
+                activeList={null}
+                currencySearchHandler={null}
+                isOpen={null}
+                actionHandler={null}
+                activeTokenId={null}
+              />
             ) : (
               <Swap btnTitle="Connect Wallet" />
             )}

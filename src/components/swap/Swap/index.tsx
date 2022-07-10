@@ -34,6 +34,16 @@ const OrderBtn = styled(Button)({
   marginTop: '10%',
   textTransform: 'initial',
 });
+const Boxs = styled('div')({
+  backgroundColor: 'white',
+  paddingBottom: 30,
+  paddingRight: 20,
+  paddingLeft: 20,
+  paddingTop: 10,
+  width: '450px',
+  height: 'auto',
+  borderRadius: 10,
+});
 const WrongBtn = styled(Button)({
   margin: 15,
   width: '90%',
@@ -104,7 +114,7 @@ const Swap = (props: SwapProps) => {
         <SwapRouter btnTitle={props.btnTitle} liquiditySources={null} router={null} />
         <CustomModal
           modalTitle=""
-          children={<TransactionWaiting swapCurrency={null} receivedCurrency={null} />}
+          children={<Boxs><TransactionWaiting swapCurrency={null} receivedCurrency={null} /></Boxs>}
           isOpen={TransactionWaitingopen}
           close={() => {
             closeModel();
@@ -113,13 +123,15 @@ const Swap = (props: SwapProps) => {
         <CustomModal
           modalTitle=""
           children={
-            <TransactionCompleted
-              handleClose={() => {
-                closeTransactionCompletedModel();
-              }}
-              transactionUrl={null}
-              watchAssetHandler={null}
-            />
+            <Boxs>
+              <TransactionCompleted
+                handleClose={() => {
+                  closeTransactionCompletedModel();
+                }}
+                transactionUrl={null}
+                watchAssetHandler={null}
+              />
+            </Boxs>
           }
           isOpen={TransactionCompletedopen}
           close={() => {
@@ -128,21 +140,23 @@ const Swap = (props: SwapProps) => {
         />
         <CustomModal
           children={
-            <SwapConfirmModal
-              inputToken={null}
-              outputToken={null}
-              swapAmount={null}
-              expectedOutput={null}
-              minReceived={null}
-              allowedSlippage={null}
-              gasEstimateInUSD={null}
-              priceImpact={null}
-              swapHandler={null}
-              swapTXStatus={null}
-              handleClose={() => {
-                closeSwapConfirmModalopenModel();
-              }}
-            />
+            <Boxs>
+              <SwapConfirmModal
+                inputToken={null}
+                outputToken={null}
+                swapAmount={null}
+                expectedOutput={null}
+                minReceived={null}
+                allowedSlippage={null}
+                gasEstimateInUSD={null}
+                priceImpact={null}
+                swapHandler={null}
+                swapTXStatus={null}
+                handleClose={() => {
+                  closeSwapConfirmModalopenModel();
+                }}
+              />
+            </Boxs>
           }
           modalTitle=""
           isOpen={SwapConfirmModalopen}
@@ -152,13 +166,15 @@ const Swap = (props: SwapProps) => {
         />
         <CustomModal
           children={
-            <TransactionFailed
-              handleClose={() => {
-                closeTransactionFaildModel();
-              }}
-              transactionUrl={null}
-              watchAssetHandler={null}
-            />
+            <Boxs>
+              <TransactionFailed
+                handleClose={() => {
+                  closeTransactionFaildModel();
+                }}
+                transactionUrl={null}
+                watchAssetHandler={null}
+              />
+            </Boxs>
           }
           modalTitle=""
           isOpen={TransactionFaildopen}
@@ -168,13 +184,15 @@ const Swap = (props: SwapProps) => {
         />
         <CustomModal
           children={
-            <HighSlippage
-              handleClose={() => {
-                closeHighSlippageModel();
-              }}
-              transactionUrl={null}
-              watchAssetHandler={null}
-            />
+            <Boxs>
+              <HighSlippage
+                handleClose={() => {
+                  closeHighSlippageModel();
+                }}
+                transactionUrl={null}
+                watchAssetHandler={null}
+              />
+            </Boxs>
           }
           modalTitle=""
           isOpen={HighSlippageModalopen}
@@ -189,21 +207,21 @@ const Swap = (props: SwapProps) => {
             onClick={
               ConnectWallet.name !== '' && CoinNetwork.name !== ''
                 ? () => {
-                    setTransactionWaitingOpen(true);
-                    setTimeout(() => {
-                      setTransactionWaitingOpen(false);
-                      setTransactionCompletedOpen(true);
-                    }, 1000);
-                  }
+                  setTransactionWaitingOpen(true);
+                  setTimeout(() => {
+                    setTransactionWaitingOpen(false);
+                    setTransactionCompletedOpen(true);
+                  }, 1000);
+                }
                 : () => {
-                    setSwapConfirmModalOpen(true);
-                    setTransactionFaildopen(true);
-                    setHighSlippageModalOpen(true);
-                    dispatch(handleClick({ type: 'Success', open: true, vertical: 'top', horizontal: 'right' }));
-                    setTimeout(() => {
-                      dispatch(handleClick({ type: 'Error', open: true, vertical: 'top', horizontal: 'right' }));
-                    }, 4000);
-                  }
+                  setSwapConfirmModalOpen(true);
+                  setTransactionFaildopen(true);
+                  setHighSlippageModalOpen(true);
+                  dispatch(handleClick({ type: 'Success', open: true, vertical: 'top', horizontal: 'right' }));
+                  setTimeout(() => {
+                    dispatch(handleClick({ type: 'Error', open: true, vertical: 'top', horizontal: 'right' }));
+                  }, 4000);
+                }
             }
           >
             {ConnectWallet.name !== '' && CoinNetwork.name !== '' ? 'Swap' : props.btnTitle}

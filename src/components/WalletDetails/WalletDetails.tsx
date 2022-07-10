@@ -211,6 +211,17 @@ type DataObject = {
   coin: String;
 };
 
+const BoxsModal = styled('div')({
+  backgroundColor: 'white',
+  paddingBottom: 30,
+  paddingRight: 20,
+  paddingLeft: 20,
+  paddingTop: 10,
+  width: '60%',
+  height: '90%',
+  borderRadius: 10,
+});
+
 const nullObj = {
   name: '',
   coin: '',
@@ -286,11 +297,7 @@ const WalletDetails = () => {
           <p>0x37...0420</p>
         </Copy>
 
-        <UserAssets
-          connetWalletData={(val: any) => {
-            connetWalletData(val);
-          }}
-        />
+        <UserAssets account="" />
         <HistoryDiv>
           <MainDiv
             onClick={() => {
@@ -311,11 +318,13 @@ const WalletDetails = () => {
         </HistoryDiv>
         <CustomModal
           children={
-            <SwapTransactionHistory
-              close={() => {
-                handleClose();
-              }}
-            />
+            <BoxsModal>
+              <SwapTransactionHistory
+                close={() => {
+                  handleClose();
+                }}
+              />
+            </BoxsModal>
           }
           isOpen={open}
           modalTitle="Transaction History"

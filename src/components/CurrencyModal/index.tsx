@@ -11,11 +11,14 @@ import { useSelector } from 'react-redux';
 import ImportToken from '../ImportToken';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import logoimg from '../../assets/icon/coin3.png';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   width: '100%',
+  height:'50%',
+  overflow:'auto'
 });
 const Token = styled('p')({
   fontSize: '24px',
@@ -82,6 +85,34 @@ const ModalCustom = styled(Modal)({
   border: 'none',
   borderRadius: 20,
 });
+
+const Images = styled('img')({});
+
+const TitleItem = styled('p')({
+  fontSize: '16px',
+  fontFamily: 'Inter',
+  fontWeight: 600,
+  color: '#000000',
+  opacity: 0.65,
+});
+
+const TextItem = styled('p')({
+  fontSize: '16px',
+  fontFamily: 'Inter',
+  fontWeight: 600,
+  color: '#000000',
+  opacity: 0.65,
+  marginRight: 10,
+});
+
+const TitleItemBlack = styled('p')({
+  fontSize: '16px',
+  fontFamily: 'Inter',
+  fontWeight: 600,
+  color: '#000000',
+  marginLeft: 10,
+});
+
 type SelectType = {
   name: string;
   image: string;
@@ -140,9 +171,9 @@ const CurrencyModal = (props: SelecttokenProps) => {
           onClick={
             props.select === 'PayToken'
               ? () => {
-                  handleOpen();
-                }
-              : () => {}
+                handleOpen();
+              }
+              : () => { }
           }
           alt="img"
           loading="lazy"
@@ -162,53 +193,70 @@ const CurrencyModal = (props: SelecttokenProps) => {
           />
         </ModalCustom>
       </InputIcon>
-      <List>
-        {list.map((val, i) => {
-          return (
-            <ListItemMain
-              disablePadding
-              onClick={() => {
-                onModal('Swap');
-                props.select === 'PayToken'
-                  ? onSelectIcon({
+      {
+        props.select === "ReceiveToken" ? <List>
+          <ListItemMain disablePadding>
+            <ListMain>
+              <ListItemIcon>
+                <img src={logoimg} alt="icon" />
+              </ListItemIcon>
+
+              <ListItemTextStyle>
+                Tether <Type>(USDT)</Type>
+              </ListItemTextStyle>
+
+              <Count>0</Count>
+            </ListMain>
+          </ListItemMain>
+        </List> : <List>
+          {list.map((val, i) => {
+            return (
+              <ListItemMain
+                disablePadding
+                onClick={() => {
+                  onModal('Swap');
+                  props.select === 'PayToken'
+                    ? onSelectIcon({
                       name: val.type,
                       image: val.icon,
                       fullName: val.name,
                     })
-                  : onReceiveIcon({
+                    : onReceiveIcon({
                       name: val.type,
                       image: val.icon,
                       fullName: val.name,
                     });
-              }}
-            >
-              <ListMain>
-                {/*  */}
-                <ListItemIcon>
-                  <img src={val.icon} alt="icon" />
-                </ListItemIcon>
+                }}
+              >
+                <ListMain>
+                  {/*  */}
+                  <ListItemIcon>
+                    <img src={val.icon} alt="icon" />
+                  </ListItemIcon>
 
-                <ListItemTextStyle>
-                  {val.name} <Type>({val.type})</Type>
-                  {props.select === 'PayToken' ? (
-                    CoinDetail.name === val.type ? (
+                  <ListItemTextStyle>
+                    {val.name} <Type>({val.type})</Type>
+                    {props.select === 'PayToken' ? (
+                      CoinDetail.name === val.type ? (
+                        <img src={right} alt="right" />
+                      ) : (
+                        ''
+                      )
+                    ) : receiveCoinDetail.name === val.type ? (
                       <img src={right} alt="right" />
                     ) : (
                       ''
-                    )
-                  ) : receiveCoinDetail.name === val.type ? (
-                    <img src={right} alt="right" />
-                  ) : (
-                    ''
-                  )}
-                </ListItemTextStyle>
+                    )}
+                  </ListItemTextStyle>
 
-                <Count>{val.count}</Count>
-              </ListMain>
-            </ListItemMain>
-          );
-        })}
-      </List>
+                  <Count>{val.count}</Count>
+                </ListMain>
+              </ListItemMain>
+            );
+          })}
+        </List>
+      }
+
     </MainDiv>
   );
 };

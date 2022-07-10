@@ -115,6 +115,17 @@ const Notificationdiv = styled('div')({
   justifyContent: 'end',
 });
 
+const BoxsToken = styled('div')({
+  backgroundColor: 'white',
+  paddingBottom: 30,
+  paddingRight: 20,
+  paddingLeft: 20,
+  paddingTop: 10,
+  width: '450px',
+  height: '90%',
+  borderRadius: 10,
+});
+
 type DataObject = {
   name: String;
   coin: String;
@@ -208,11 +219,7 @@ const AppBar = () => {
           <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 5 : 7}>
             <CustomButton>Buy Crypto</CustomButton>
             {CoinNetwork.name !== '' ? (
-              <SwitchNetwork
-                connetNetworkData={(val: any) => {
-                  connetNetworkData(val);
-                }}
-              />
+              <SwitchNetwork/>
             ) : (
               <CustomButtonActive
                 onClick={() => {
@@ -238,36 +245,38 @@ const AppBar = () => {
       </MainComponent>
       <CustomModal
         children={
-          <WalletModal
-            setCheck={(val) => {
-              setCheck(val);
-            }}
-            SelectData={() => {
-              SelectData();
-            }}
-            Network={() => {
-              Network();
-            }}
-            Check={Check}
-            WalletData={WalletData}
-            ErrorStatus={ErrorStatus}
-            handleCloseError={() => {
-              handleCloseError();
-            }}
-            handleOpenError={() => {
-              handleOpenError();
-            }}
-            connetNetworkFunction={(val: any) => {
-              connetNetworkFunction(val);
-            }}
-            connetWalletFunction={(val: any) => {
-              connetWalletFunction(val);
-            }}
-            NetworkData={NetworkData}
-            onClose={() => {
-              closeModel();
-            }}
-          />
+          <BoxsToken>
+            <WalletModal
+              setCheck={(val) => {
+                setCheck(val);
+              }}
+              SelectData={() => {
+                SelectData();
+              }}
+              Network={() => {
+                Network();
+              }}
+              Check={Check}
+              WalletData={WalletData}
+              ErrorStatus={ErrorStatus}
+              handleCloseError={() => {
+                handleCloseError();
+              }}
+              handleOpenError={() => {
+                handleOpenError();
+              }}
+              connetNetworkFunction={(val: any) => {
+                connetNetworkFunction(val);
+              }}
+              connetWalletFunction={(val: any) => {
+                connetWalletFunction(val);
+              }}
+              NetworkData={NetworkData}
+              onClose={() => {
+                closeModel();
+              }}
+            />
+          </BoxsToken>
         }
         isOpen={open}
         modalTitle="WalletModal"

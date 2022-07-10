@@ -1,7 +1,7 @@
 // this file is a RestartModal and Provide a Paragraph 
 import { Button, styled } from '@mui/material';
 import React from 'react';
-import ShereLogo from '../../assets/icon/ShereLogo.png';
+import ShereLogo from '../../../assets/icon/ShereLogo.png';
 
 const MainDiv = styled('div')({
   display: 'flex',
