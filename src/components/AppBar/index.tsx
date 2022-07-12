@@ -7,13 +7,12 @@ import Logo from '../../assets/logo.png';
 import Search from '../../assets/icon/Search.png';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { connetNetwork, connetWallet } from '../../store/Actions';
+import { connetNetwork, connetWallet, OpenModal } from '../../store/Actions';
 import WalletDetails from '../WalletDetails/WalletDetails';
 import SwitchNetwork from '../SwitchNetwork';
 import Settings from '../Settings';
 import CurrencySearch from '../CurrencySearch';
 import Modal from '../Modal';
-import WalletModal from '../WalletModal';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import Notification from '../swap/Swap/SwapConfirmModal/Notification';
@@ -114,16 +113,10 @@ const Notificationdiv = styled('div')({
   display: 'flex',
   justifyContent: 'end',
 });
-
-const BoxsToken = styled('div')({
-  backgroundColor: 'white',
-  paddingBottom: 30,
-  paddingRight: 20,
-  paddingLeft: 20,
-  paddingTop: 10,
-  width: '450px',
-  height: '90%',
-  borderRadius: 10,
+const SearchIcon = styled('img')({
+  opacity:0.5,
+  marginLeft:5,
+  marginRight:10
 });
 
 type DataObject = {
@@ -154,17 +147,10 @@ const settingData = [
 type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 
 const AppBar = () => {
-  const [Check, setCheck] = React.useState<Boolean>(false);
+  const dispatch: AppDispatch = useDispatch();
   const [filterInput, setFilterInput] = React.useState<String>('');
-  const [open, setOpen] = React.useState(false);
   const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
-  const openModal = () => {
-    setOpen(true);
-  };
-  const closeModel = () => {
-    setOpen(false);
-  };
   return (
     <>
       <MainComponent>
@@ -172,9 +158,9 @@ const AppBar = () => {
           <LogoGrid item sm={1}>
             <Imgs src={Logo} height="38px" width="80px" alt="logo" />
           </LogoGrid>
-          <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 6 : 4}>
+          <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 6.5 : 3.6}>
             <InputIcon>
-              <img src={Search} alt="Search" />
+              <SearchIcon src={Search} alt="Search" />
               <TextInputActive
                 placeholder="Search by Token Name or Address"
                 onChange={(e) => {
@@ -184,15 +170,14 @@ const AppBar = () => {
             </InputIcon>
             {filterInput !== '' ? <CurrencySearch searchValue={null} /> : null}
           </Grid>
-          <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 5 : 7}>
+          <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 4.5 : 7.4}>
             <CustomButton>Buy Crypto</CustomButton>
             {CoinNetwork.name !== '' ? (
               <SwitchNetwork />
             ) : (
               <CustomButtonActive
                 onClick={() => {
-                  setCheck(false);
-                  openModal();
+                  dispatch(OpenModal())
                 }}
               >
                 Connect Wallet
@@ -209,22 +194,7 @@ const AppBar = () => {
           </CustomGrid>
         </ControlGrids>
       </MainComponent>
-      <Modal
-        isOpen={open}
-        modalTitle="WalletModal"
-        close={() => {
-          closeModel();
-        }}
-      >
-        <BoxsToken>
-          <WalletModal
-            Check={Check}
-            onClose={() => {
-              closeModel();
-            }}
-          />
-        </BoxsToken>
-      </Modal>
+      
       <Notificationdiv>
         <Notification />
       </Notificationdiv>

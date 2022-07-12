@@ -18,8 +18,9 @@ const Header = styled('div')({
 
 const HeaderText = styled('span')({
   fontWeight: 600,
-  fontSize: 20,
+  fontSize: 24,
   fontFamily: 'Inter',
+  color: 'black'
 });
 
 const Image = styled('img')({
@@ -48,6 +49,8 @@ const CustomButton = styled('button')({
   paddingRight: 15,
   marginTop: 5,
   marginBottom: 5,
+  width: "80px",
+  height: "36px",
 });
 const CustomButtonActive = styled('button')({
   borderRadius: '50px',
@@ -56,7 +59,6 @@ const CustomButtonActive = styled('button')({
   fontWeight: '600',
   color: 'white!important',
   fontStyle: 'normal',
-  opacity: '0.65',
   textTransform: 'initial',
   marginLeft: 25,
   marginRight: 5,
@@ -67,16 +69,14 @@ const CustomButtonActive = styled('button')({
   paddingRight: 15,
   marginTop: 5,
   marginBottom: 5,
+  width: "80px",
+  height: "36px"
 });
 
 const BoxsModal = styled('div')({
   backgroundColor: 'white',
-  paddingBottom: 30,
-  paddingRight: 20,
-  paddingLeft: 20,
-  paddingTop: 10,
   width: '60%',
-  height: '90%',
+  height: '98%',
   borderRadius: 10,
 });
 

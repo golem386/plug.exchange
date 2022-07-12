@@ -1,5 +1,7 @@
 export const ADD_ARTICLE = 'ADD_ARTICLE';
 export const OPEN_MODAL = 'OPEN_MODAL';
+export const OPEN_MODALS = 'OPEN_MODALS';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const SELECT_TOKEN = 'SELECT_TOKEN';
 export const RECEIVE_TOKEN = 'RECEIVE_TOKEN';
 export const CONNECT_WALLET = 'CONNECT_WALLET';

@@ -35,7 +35,17 @@ const SwapPage = () => {
       <MainDiv>
         <Grid container spacing={5}>
           <Grid item sm={8}>
-            <PairLineChart />
+            <PairLineChart
+              inputCurrency={null}
+              outputCurrency={null}
+              switchCurrencyHandler={null}
+              currencyPriceInUSD={null}
+              currencyPriceChangeInUSD={null}
+              currencyPriceChangePercentage={null}
+              pairOhlcData={null}
+              currentInterval={null}
+              intervalHandler={null}
+            />
             <Quotadiv>
               <QuoteTables quotes={null} allowedSlippage={null} lastRefresh={null} userSelectedGasPrice={null} />
             </Quotadiv>

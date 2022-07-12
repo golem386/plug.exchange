@@ -124,6 +124,9 @@ const Footer = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-between',
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
+  height: '72px',
+  paddingLeft:15,
+  paddingRight:15
 });
 const Count = styled('div')({
   display: 'flex',
@@ -132,11 +135,11 @@ const Count = styled('div')({
   paddingLeft: 10,
   paddingRight: 10,
 });
-const Item = styled('span')({
+const Item = styled('p')({
   fontWeight: 500,
   fontSize: 16,
-  fontFamily: 'Intel',
-  color: '#b3b3b3',
+  fontFamily: 'Inter !important',
+  color: '#918f92',
   marginRight: 10,
 });
 const ImageIcon = styled('img')({
@@ -149,13 +152,18 @@ const ImageIcon = styled('img')({
 });
 const Body = styled('div')({
   overflow: 'auto',
-  height: '80%',
+  height: '75%',
   paddingLeft: 20,
   paddingRight: 20,
 });
 const Main = styled('div')({
   display: 'flex',
   justifyContent: 'space-between',
+  alignItems: 'center',
+  marginBottom: '7px',
+});
+const Main2 = styled('div')({
+  display: 'flex',
   alignItems: 'center',
   marginBottom: '7px',
 });
@@ -174,6 +182,7 @@ const StatusText = styled('span')({
   fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 16,
+  color: 'black'
 });
 const TextPink = styled('span')({
   fontFamily: 'Inter',
@@ -185,13 +194,14 @@ const TimeText = styled('span')({
   fontFamily: 'Inter',
   fontWeight: 500,
   fontSize: 14,
-  color: '#e8e8e8',
+  color: '#999999',
   marginLeft: 5,
 });
 const TimeImage = styled('img')({
-  height: 12,
-  width: 12,
-  opacity: 0.2,
+  height: 15,
+  width: 15,
+  opacity: 0.3,
+  marginTop: 7
 });
 const Name = styled('p')({
   fontFamily: 'Inter',
@@ -202,25 +212,52 @@ const Span = styled('span')({
   fontFamily: 'Inter',
   fontWaight: 600,
   fontSize: '16px',
-  color: 'black',
-  opacity: 0.65,
+  color: '#999999',
+  alignItems: 'center',
+  display: 'flex',
+  marginTop: 15,
+  marginBottom: 15
+});
+const Span2 = styled('span')({
+  fontFamily: 'Inter',
+  fontWaight: 600,
+  fontSize: '16px',
+  color: '#595959',
   alignItems: 'center',
   display: 'flex',
 });
+
 const Img = styled('img')({
-  opacity: 0.65,
-  marginRight: 5,
-  marginLeft: 5,
+  opacity: 0.4,
+  marginRight: 10,
+  marginLeft: 10,
 });
 const CoinImg = styled('img')({
   marginRight: 5,
 });
-const Status = styled('div')({});
+const Status = styled('div')({
+  height: 62,
+  display: 'flex',
+  alignItems: 'center'
+});
 const Share = styled('div')({
   display: 'flex',
   alignItems: 'center',
 });
-const Eth = styled('div')({});
+const Share2 = styled('div')({
+  marginLeft: '7%'
+});
+const Eth = styled('div')({
+  marginLeft: '31%'
+});
+
+const NativeSelects = styled(NativeSelect)({
+  width:'65px',
+  backgroundColor:'#e8e5e7',
+  paddingLeft:10,
+  borderRadius:'100px'
+});
+
 
 const CurrencySwitch = styled('div')({
   fontFamily: 'Inter',
@@ -292,9 +329,9 @@ const CustomButtonActive = styled('button')({
   marginBottom: 5,
 });
 type PaginationTableProps = {
-  data : any
+  data: any
 }
-const PaginationTable = (props:PaginationTableProps) => {
+const PaginationTable = (props: PaginationTableProps) => {
   const [page, setPage] = React.useState([]);
   const [start, setStart] = React.useState(0);
   const [end, setEnd] = React.useState(10);
@@ -335,7 +372,7 @@ const PaginationTable = (props:PaginationTableProps) => {
               <Span>{val.Date}</Span>
               {val.Transaction.map((data, ind) => {
                 return (
-                  <Main>
+                  data.ReceiveToken !== '' ? <Main>
                     <Status>
                       <Maindiv>
                         {data.Status === 'Swap' ? (
@@ -361,24 +398,68 @@ const PaginationTable = (props:PaginationTableProps) => {
                       </Maindiv>
                     </Status>
                     <Share>
-                      <Span>
+                      <Span2>
                         <CoinImg src={data.PayImg} />
                         {data.PayToken}
-                      </Span>
+                      </Span2>
                       {data.ReceiveImg !== '' && data.ReceiveToken !== '' ? (
                         <>
                           <Img src={LeftIcon} height={15} width={16} />
-                          <Span>
+                          <Span2>
                             <CoinImg src={data.ReceiveImg} />
                             {data.ReceiveToken}
-                          </Span>
+                          </Span2>
                         </>
                       ) : null}
                     </Share>
+                    <div>
+                      <Span2>{data.ETH}</Span2>
+                    </div>
+                  </Main> : <Main2>
+                    <Status>
+                      <Maindiv>
+                        {data.Status === 'Swap' ? (
+                          <StatusImage src={SwapIcon} />
+                        ) : data.Status === 'Pending' ? (
+                          <StatusImage src={Pending} />
+                        ) : data.Status === 'Approve' ? (
+                          <StatusImage src={Approve} />
+                        ) : data.Status === 'Failed' ? (
+                          <StatusImage src={Faild} />
+                        ) : null}
+
+                        <Div>
+                          <StatusText>{data.Name}</StatusText>
+                          <br />
+                          <TextPink>
+                            {data.Id}
+                            <TimeText>
+                              <TimeImage src={Time} /> {data.Time}
+                            </TimeText>
+                          </TextPink>
+                        </Div>
+                      </Maindiv>
+                    </Status>
+                    <Share2>
+                      <Span2>
+                        <CoinImg src={data.PayImg} />
+                        {data.PayToken}
+                      </Span2>
+                      {data.ReceiveImg !== '' && data.ReceiveToken !== '' ? (
+                        <>
+                          <Img src={LeftIcon} height={15} width={16} />
+                          <Span2>
+                            <CoinImg src={data.ReceiveImg} />
+                            {data.ReceiveToken}
+                          </Span2>
+                        </>
+                      ) : null}
+                    </Share2>
                     <Eth>
-                      <Span>{data.ETH}</Span>
+                      <Span2>{data.ETH}</Span2>
                     </Eth>
-                  </Main>
+                  </Main2>
+
                 );
               })}
             </>
@@ -391,7 +472,7 @@ const PaginationTable = (props:PaginationTableProps) => {
           <Item>Items Per Page</Item>
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
-              <NativeSelect
+              <NativeSelects
                 onChange={(e: any) => {
                   setCount(e.target.value);
                 }}
@@ -404,7 +485,7 @@ const PaginationTable = (props:PaginationTableProps) => {
                 <option value={10}>10</option>
                 <option value={20}>20</option>
                 <option value={30}>30</option>
-              </NativeSelect>
+              </NativeSelects>
             </FormControl>
           </Box>
         </Count>

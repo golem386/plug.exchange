@@ -28,4 +28,24 @@ export function onSelectCoin(Coin: ICoin) {
       dispatch(action);
     };
   }
+
+  export function OpenModal() {
+    const action: any = {
+      type: actionTypes.OPEN_MODALS,
+      Data: true
+    };
+    return (dispatch: DispatchType) => {
+      dispatch(action);
+    };
+  }
+
+  export function closeModal() {
+    const action: any = {
+      type: actionTypes.CLOSE_MODAL,
+      Data: false
+    };
+    return (dispatch: DispatchType) => {
+      dispatch(action);
+    };
+  }
   

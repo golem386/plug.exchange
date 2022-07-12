@@ -5,6 +5,7 @@ import Coin from '../../assets/icon/coin.png';
 
 const initialState: ArticleState = {
   modal: 'abdc',
+  Modal:false,
   CoinDetail: {
     name: 'ETH',
     image: Eth,
@@ -29,7 +30,7 @@ const initialState: ArticleState = {
     open: false,
     vertical: '',
     horizontal: '',
-    type:''
+    type: ''
   },
 };
 
@@ -64,6 +65,16 @@ const reducer = (state: ArticleState = initialState, action: any): ArticleState 
       return {
         ...state,
         Alert: action.Alert,
+      };
+    case actionTypes.OPEN_MODALS:
+      return {
+        ...state,
+        Modal: action.Data,
+      };
+    case actionTypes.CLOSE_MODAL:
+      return {
+        ...state,
+        Modal: action.Data,
       };
   }
   return state;

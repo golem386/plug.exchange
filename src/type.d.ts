@@ -10,12 +10,13 @@ interface Alert {
   open: Boolean;
   vertical: String;
   horizontal: String;
-  type:String
+  type: String
 }
 
 type ArticleState = {
-  Alert:Alert,
+  Alert: Alert,
   modal: any;
+  Modal: boolean;
   CoinDetail: {
     name: String;
     image: String;
@@ -51,6 +52,10 @@ type AlertAction = {
   type: string;
   Alert: Alert;
 };
+type ModalStatus = {
+  type: string;
+  Data: boolean;
+}
 type StatusAction = {
   type: string;
   Status: StatusPayload;
@@ -58,4 +63,4 @@ type StatusAction = {
 
 type DispatchType = (
   args: ArticleAction | CoinAction | AlertAction,
-) => ArticleAction | CoinAction | StatusAction | AlertAction;
+) => ArticleAction | CoinAction | StatusAction | AlertAction | ModalStatus;

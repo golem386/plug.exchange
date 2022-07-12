@@ -15,10 +15,10 @@ const CurrencySwitch = styled('div')({
 });
 const TextSpan = styled('span')({
   fontFamily: 'Inter',
-  fontWeight:'600',
+  fontWeight: '600',
   fontSize: 'calc(0.55em + 1vw)',
   paddingLeft: 5,
-  color:'#999999'
+  color: '#999999'
 });
 const ShortIcon = styled('img')({
   height: '25px',
@@ -30,7 +30,7 @@ const CurrencyPriceUSD = styled('span')({
   fontFamily: 'Inter',
   fontSize: '44px',
   fontWeight: '600',
-  color:'black'
+  color: 'black'
 });
 const CurrencyPriceChange = styled('span')({
   color: '#DC7FB6',
@@ -69,9 +69,9 @@ const CustomButtonActive = styled(Tab)({
 
 const CustomTabsActive = styled(Tabs)({
   marginLeft: '35vw',
-  backgroundColor:'#f7f7f7',
-  borderRadius:"100px",
-  width:'37%'
+  backgroundColor: '#f7f7f7',
+  borderRadius: "100px",
+  width: '37%'
 });
 type SelectType = {
   name: String;
@@ -103,8 +103,20 @@ function a11yProps(i: number) {
     'aria-controls': `simple-tabpanel-${i}`,
   };
 }
-
-const PairLineChart = () => {
+type Token = {}
+type OHLC = {}
+type PairLineChartProps = {
+  inputCurrency: Token | null
+  outputCurrency: Token | null
+  switchCurrencyHandler: () => void | null
+  currencyPriceInUSD: string | null
+  currencyPriceChangeInUSD: string | null
+  currencyPriceChangePercentage: string | null
+  pairOhlcData: OHLC[] | null
+  currentInterval: number | null
+  intervalHandler: () => void | null
+}
+const PairLineChart = (props:PairLineChartProps) => {
   const [value, setValue] = React.useState(0);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
