@@ -17,12 +17,19 @@ const Expected = styled('div')({
   alignItems: 'center',
   display: 'flex',
 });
-const ItemText = styled('div')({
+const ItemText = styled('span')({
   padding: 10,
   fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '500',
-  color: '#000000',
+  color: '#555555',
+});
+const ItemText2 = styled('span')({
+  padding: 10,
+  fontFamily: 'Inter',
+  fontSize: '16px',
+  fontWeight: '500',
+  color: '#010101',
 });
 
 export type SwapTransactionDetailsProps = {
@@ -53,16 +60,16 @@ const SwapTransactionDetails = (props: SwapTransactionDetailsProps) => {
       <DetailView>
         <Expected>
           <ItemText>Expected Output</ItemText>
-          <ItemText>1.46 USDT</ItemText>
+          <ItemText2>1.46 USDT</ItemText2>
         </Expected>
         <Expected>
           <ItemText>Price Impact</ItemText>
-          <ItemText>-0.01%</ItemText>
+          <ItemText2>-0.01%</ItemText2>
         </Expected>
         <hr />
         <Expected>
           <ItemText>Minimum received after slippage (0.50%)</ItemText>
-          <ItemText>1.46 USDT</ItemText>
+          <ItemText2>1.46 USDT</ItemText2>
         </Expected>
       </DetailView>
     ) : null

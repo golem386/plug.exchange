@@ -12,7 +12,7 @@ import WalletDetails from '../WalletDetails/WalletDetails';
 import SwitchNetwork from '../SwitchNetwork';
 import Settings from '../Settings';
 import CurrencySearch from '../CurrencySearch';
-import CustomModal from '../Modal';
+import Modal from '../Modal';
 import WalletModal from '../WalletModal';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -154,12 +154,8 @@ const settingData = [
 type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 
 const AppBar = () => {
-  const dispatch: AppDispatch = useDispatch();
-  const [ErrorStatus, setErrorStatus] = React.useState(false);
   const [Check, setCheck] = React.useState<Boolean>(false);
   const [filterInput, setFilterInput] = React.useState<String>('');
-  const [WalletData, setWallet] = React.useState<DataObject>(nullObj);
-  const [NetworkData, setNetwork] = React.useState<DataObject>(nullObj);
   const [open, setOpen] = React.useState(false);
   const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
@@ -168,34 +164,6 @@ const AppBar = () => {
   };
   const closeModel = () => {
     setOpen(false);
-  };
-
-  const handleOpenError = () => setErrorStatus(true);
-  const handleCloseError = () => setErrorStatus(false);
-
-  const connetWalletData = (coin: any) => {
-    dispatch(connetWallet(coin));
-  };
-  const connetNetworkData = (coin: any) => {
-    dispatch(connetNetwork(coin));
-  };
-  const connetWalletFunction = (value: DataObject) => {
-    setWallet(value);
-  };
-  const connetNetworkFunction = (value: DataObject) => {
-    setNetwork(value);
-  };
-
-  const Network = () => {
-    // if (WalletData.name !== '' && NetworkData.name !== '') {
-    connetWalletData(WalletData);
-    connetNetworkData(NetworkData);
-    // }
-  };
-
-  const SelectData = () => {
-    Network();
-    closeModel();
   };
   return (
     <>
@@ -219,12 +187,10 @@ const AppBar = () => {
           <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 5 : 7}>
             <CustomButton>Buy Crypto</CustomButton>
             {CoinNetwork.name !== '' ? (
-              <SwitchNetwork/>
+              <SwitchNetwork />
             ) : (
               <CustomButtonActive
                 onClick={() => {
-                  connetWalletFunction(nullObj);
-                  connetNetworkFunction(nullObj);
                   setCheck(false);
                   openModal();
                 }}
@@ -243,47 +209,22 @@ const AppBar = () => {
           </CustomGrid>
         </ControlGrids>
       </MainComponent>
-      <CustomModal
-        children={
-          <BoxsToken>
-            <WalletModal
-              setCheck={(val) => {
-                setCheck(val);
-              }}
-              SelectData={() => {
-                SelectData();
-              }}
-              Network={() => {
-                Network();
-              }}
-              Check={Check}
-              WalletData={WalletData}
-              ErrorStatus={ErrorStatus}
-              handleCloseError={() => {
-                handleCloseError();
-              }}
-              handleOpenError={() => {
-                handleOpenError();
-              }}
-              connetNetworkFunction={(val: any) => {
-                connetNetworkFunction(val);
-              }}
-              connetWalletFunction={(val: any) => {
-                connetWalletFunction(val);
-              }}
-              NetworkData={NetworkData}
-              onClose={() => {
-                closeModel();
-              }}
-            />
-          </BoxsToken>
-        }
+      <Modal
         isOpen={open}
         modalTitle="WalletModal"
         close={() => {
           closeModel();
         }}
-      />
+      >
+        <BoxsToken>
+          <WalletModal
+            Check={Check}
+            onClose={() => {
+              closeModel();
+            }}
+          />
+        </BoxsToken>
+      </Modal>
       <Notificationdiv>
         <Notification />
       </Notificationdiv>

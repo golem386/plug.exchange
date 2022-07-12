@@ -15,9 +15,10 @@ const CurrencySwitch = styled('div')({
 });
 const TextSpan = styled('span')({
   fontFamily: 'Inter',
-  fontSize: 'calc(0.75em + 1vw)',
-  opacity: '0.3',
+  fontWeight:'600',
+  fontSize: 'calc(0.55em + 1vw)',
   paddingLeft: 5,
+  color:'#999999'
 });
 const ShortIcon = styled('img')({
   height: '25px',
@@ -29,6 +30,7 @@ const CurrencyPriceUSD = styled('span')({
   fontFamily: 'Inter',
   fontSize: '44px',
   fontWeight: '600',
+  color:'black'
 });
 const CurrencyPriceChange = styled('span')({
   color: '#DC7FB6',
@@ -45,12 +47,10 @@ const CustomButton = styled(Tab)({
   borderRadius: '100px',
   padding: '7px 20px',
   fontSize: '16px',
-  fontWeight: '600',
+  fontWeight: '500',
   fontStyle: 'normal',
   opacity: '0.65',
   textTransform: 'lowercase',
-  marginLeft: 5,
-  marginRight: 5,
   fontFamily: 'Inter',
 });
 const CustomButtonActive = styled(Tab)({
@@ -58,10 +58,9 @@ const CustomButtonActive = styled(Tab)({
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   padding: '7px 20px',
   fontSize: '16px',
-  fontWeight: '600',
+  fontWeight: '500',
   color: 'white!important',
   fontStyle: 'normal',
-  opacity: '0.65',
   textTransform: 'lowercase',
   marginLeft: 5,
   marginRight: 5,
@@ -69,7 +68,10 @@ const CustomButtonActive = styled(Tab)({
 });
 
 const CustomTabsActive = styled(Tabs)({
-  marginLeft: '32vw',
+  marginLeft: '35vw',
+  backgroundColor:'#f7f7f7',
+  borderRadius:"100px",
+  width:'37%'
 });
 type SelectType = {
   name: String;

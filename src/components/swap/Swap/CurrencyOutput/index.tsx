@@ -22,6 +22,7 @@ const YouReceive = styled('span')({
   fontFamily: 'inter',
   fontWeight: '500',
   fontSize: 16,
+  color:'#565656'
 });
 const MainViewInput = styled('div')({
   display: 'flex',
@@ -31,7 +32,7 @@ const MainViewInput = styled('div')({
   marginRight: 15,
   borderRadius: 16,
   paddingLeft: 10,
-  height: 70,
+  height: 52,
   marginTop: 10,
 });
 const TextInput = styled('input')({
@@ -65,7 +66,7 @@ const CoinTitle = styled('p')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
-  color: 'black',
+  color: '#565656',
   marginLeft: 10,
 });
 const CoinDropIcon = styled('img')({

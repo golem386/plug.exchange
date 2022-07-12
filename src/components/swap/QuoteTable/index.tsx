@@ -32,8 +32,9 @@ const FirseDiv = styled('div')({
   borderBottomColor: '#e0e0e0',
 });
 const Title = styled('p')({
-  color: 'black',
+  color: 'rgba(0, 0, 0, 0.4)',
   fontFamily: 'Inter',
+  fontWeight:'600'
 });
 const ImageSpan = styled('span')({
   color: 'black',
@@ -61,13 +62,17 @@ const DangerTitle = styled('p')({
 const RefresBtn = styled(Button)({
   backgroundColor: 'white',
   boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
-  color: 'black',
+  color: '#595959',
   borderRadius: 100,
   fontWeight: '500',
   fontSize: '16px',
   paddingLeft: '3%',
   paddingRight: '3%',
   fontFamily: 'Inter',
+  textTransform:'inherit',
+  '&:hover':{
+    backgroundColor:'white'
+  }
 });
 const ListDiv = styled('div')({
   borderStyle: 'solid',
@@ -88,6 +93,9 @@ const ImageIcon = styled('img')({
 });
 const ShereIcon = styled('img')({
   paddingLeft: 10,
+  height:'18px',
+  width:'18px',
+  opacity:'0.4'
 });
 const Text = styled('p')({
   textAlign: 'center',
@@ -111,7 +119,8 @@ const ChangeText = styled('span')({
 });
 const ShortImage = styled('img')({
   paddingLeft: 3,
-  height: 12,
+  height: 18,
+  width:19
 });
 const ShowMore = styled('p')({
   textAlign: 'center',
@@ -125,6 +134,11 @@ const DownArrowImg = styled('img')({
   height: 11,
   paddingLeft: 10,
 });
+const TableTitle = styled('p')({
+  fontFamily: 'Inter',
+  fontWeight: 600,
+  fontSize: "16px",
+});
 const DownArrowImgTop = styled('img')({
   height: 11,
   paddingLeft: 10,
@@ -136,10 +150,10 @@ const MainTitle = styled('p')({
 type Quotes = {}
 
 type QuoteTableProps = {
-    allowedSlippage: number | null;
-    lastRefresh: number | null;
-    userSelectedGasPrice: number | null;
-    quotes: Quotes[] | null;
+  allowedSlippage: number | null;
+  lastRefresh: number | null;
+  userSelectedGasPrice: number | null;
+  quotes: Quotes[] | null;
 };
 const QuoteTables = (props: QuoteTableProps) => {
   const [loardData, setLoardData] = useState<any>(1);
@@ -180,7 +194,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                     <ListDiv>
                       <HeaderDiv>
                         <ImageIcon src={val.icon} alt="icon" />
-                        <p>{val.name}</p>
+                        <TableTitle>{val.name}</TableTitle>
                         <ShereIcon src={shere} alt="icon" />
                       </HeaderDiv>
                       <Grid container spacing={0}>

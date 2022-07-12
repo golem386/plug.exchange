@@ -17,9 +17,9 @@ import TransactionCompleted from '../swap/Swap/SwapConfirmModal/TransactionCompl
 import SwapConfirmModal from '../swap/Swap/SwapConfirmModal';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import CustomModal from '../Modal';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import { connetNetwork, connetWallet } from '../../store/Actions';
 
 const styleError = {
   position: 'absolute',
@@ -177,17 +177,7 @@ const Boxs = styled('div')({
 });
 
 export type WalletModalProps = {
-  NetworkData: any;
-  connetNetworkFunction: Function;
-  handleOpenError: Function;
-  handleCloseError: Function;
-  ErrorStatus: boolean;
-  connetWalletFunction: Function;
-  WalletData: any;
   Check: Boolean;
-  Network: Function;
-  setCheck: any;
-  SelectData: Function;
   onClose: Function;
 };
 type ConnectNetworkType = {
@@ -202,18 +192,57 @@ const nullObj = {
   name: '',
   coin: '',
 };
+type ConnectWalletType = {
+  name: String;
+  image: String;
+  Subname: String;
+  Price: String;
+};
+
 type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 
 const WalletModal = (props: WalletModalProps) => {
   const dispatch: AppDispatch = useDispatch();
-  const [NetworkData, setNetworkData] = useState(nullObj);
-  const [WalletData, setWalletData] = useState(nullObj);
+  const [ErrorStatus, setErrorStatus] = React.useState(false);
+  const [Check, setCheck] = React.useState<Boolean>(false);
+  const [WalletData, setWallet] = React.useState<DataObject>(nullObj);
+  const [NetworkData, setNetwork] = React.useState<DataObject>(nullObj);
+  const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
+  const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
+
+
+  const handleOpenError = () => setErrorStatus(true);
+  const handleCloseError = () => setErrorStatus(false);
+
+  const connetWalletData = (coin: any) => {
+    dispatch(connetWallet(coin));
+  };
+  const connetNetworkData = (coin: any) => {
+    dispatch(connetNetwork(coin));
+  };
+  const connetWalletFunction = (value: DataObject) => {
+    setWallet(value);
+  };
+  const connetNetworkFunction = (value: DataObject) => {
+    setNetwork(value);
+  };
+
+  const Network = () => {
+    // if (WalletData.name !== '' && NetworkData.name !== '') {
+    connetWalletData(WalletData);
+    connetNetworkData(NetworkData);
+    // }
+  };
+
+  const SelectData = () => {
+    Network();
+    props.onClose();
+  };
 
   useEffect(() => {
-    console.log(props.NetworkData)
-    setNetworkData(props.NetworkData);
-    setWalletData(props.WalletData);
-  }, [props.NetworkData, props.WalletData]);
+    setNetwork(NetworkData);
+    setWallet(WalletData);
+  }, [NetworkData, WalletData]);
   return (
     <>
       <TitleView>
@@ -238,7 +267,7 @@ const WalletModal = (props: WalletModalProps) => {
             ) : (
               <ViewMain
                 onClick={() => {
-                  props.connetNetworkFunction(val);
+                  connetNetworkFunction(val);
                 }}
               >
                 <ImageIcon src={val.coin} alt="Coin" />
@@ -258,7 +287,7 @@ const WalletModal = (props: WalletModalProps) => {
             ) : (
               <ViewMain
                 onClick={() => {
-                  props.connetNetworkFunction(val);
+                  connetNetworkFunction(val);
                 }}
               >
                 <ImageIcon src={val.coin} alt="Coin" />
@@ -271,16 +300,16 @@ const WalletModal = (props: WalletModalProps) => {
           <ViewMain>
             <TitleIcon
               onClick={() => {
-                props.handleOpenError(true);
+                handleOpenError();
               }}
             >
               Error Modal
             </TitleIcon>
           </ViewMain>
           <ModalCustom
-            open={props.ErrorStatus}
+            open={ErrorStatus}
             onClose={() => {
-              props.handleCloseError(false);
+              handleCloseError();
             }}
           >
             <Box sx={styleError}>
@@ -289,7 +318,7 @@ const WalletModal = (props: WalletModalProps) => {
                 <img
                   src={Cros}
                   onClick={() => {
-                    props.handleCloseError(false);
+                    handleCloseError();
                   }}
                   alt="Cros"
                 />
@@ -302,7 +331,7 @@ const WalletModal = (props: WalletModalProps) => {
               <Warning>You select wrong network please select anothor network</Warning>
               <br />
               <br />
-              <ConnectButton variant="text" onClick={() => {}}>
+              <ConnectButton variant="text" onClick={() => { }}>
                 Ok
               </ConnectButton>
             </Box>
@@ -320,7 +349,7 @@ const WalletModal = (props: WalletModalProps) => {
             ) : (
               <ViewMain
                 onClick={() => {
-                  props.connetWalletFunction(val);
+                  connetWalletFunction(val);
                 }}
               >
                 <ImageIcon src={val.coin} alt="Coin" />
@@ -340,7 +369,7 @@ const WalletModal = (props: WalletModalProps) => {
             ) : (
               <ViewMain
                 onClick={() => {
-                  props.connetWalletFunction(val);
+                  connetWalletFunction(val);
                 }}
               >
                 <ImageIcon src={val.coin} alt="Coin" />
@@ -360,7 +389,7 @@ const WalletModal = (props: WalletModalProps) => {
             ) : (
               <ViewMain
                 onClick={() => {
-                  props.connetWalletFunction(val);
+                  connetWalletFunction(val);
                 }}
               >
                 <ImageIcon src={val.coin} alt="Coin" />
@@ -371,17 +400,17 @@ const WalletModal = (props: WalletModalProps) => {
         </ViewMainView>
       </Over>
       <TitleControl>
-        <FormControlLabel control={<Radio onClick={props.setCheck} checked={props.Check ? true : false} />} label="" />
+        <FormControlLabel control={<Radio onClick={() => { setCheck(!Check) }} checked={Check ? true : false} />} label="" />
         <Condition>
           I accept the <ConditionPink>Terms of Services</ConditionPink>
           <ConditionPink>Privacy Policy</ConditionPink>
         </Condition>
       </TitleControl>
-      {props.Check ? (
+      {Check ? (
         <ConnectButton
           variant="text"
           onClick={() => {
-            props.SelectData();
+            SelectData();
           }}
         >
           Connect Wallet

@@ -1,13 +1,13 @@
 // this is a swap index file and Provide a Swap modal layout
 import styled from '@emotion/styled';
-import { Button, Modal } from '@mui/material';
+import { Button } from '@mui/material';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { handleClick } from '../../../store/Actions';
-import CustomModal from '../../Modal';
+import Modal from '../../Modal';
 import CurrencyInput from './CurrencyInput';
 import CurrencyOutput from './CurrencyOutput';
 import SwapConfirmModal from './SwapConfirmModal';
@@ -112,7 +112,7 @@ const Swap = (props: SwapProps) => {
           toggleCurrencyModal={null}
         />
         <SwapRouter btnTitle={props.btnTitle} liquiditySources={null} router={null} />
-        <CustomModal
+        <Modal
           modalTitle=""
           children={<Boxs><TransactionWaiting swapCurrency={null} receivedCurrency={null} /></Boxs>}
           isOpen={TransactionWaitingopen}
@@ -120,86 +120,82 @@ const Swap = (props: SwapProps) => {
             closeModel();
           }}
         />
-        <CustomModal
+        <Modal
           modalTitle=""
-          children={
-            <Boxs>
-              <TransactionCompleted
-                handleClose={() => {
-                  closeTransactionCompletedModel();
-                }}
-                transactionUrl={null}
-                watchAssetHandler={null}
-              />
-            </Boxs>
-          }
           isOpen={TransactionCompletedopen}
           close={() => {
             closeTransactionCompletedModel();
           }}
-        />
-        <CustomModal
-          children={
-            <Boxs>
-              <SwapConfirmModal
-                inputToken={null}
-                outputToken={null}
-                swapAmount={null}
-                expectedOutput={null}
-                minReceived={null}
-                allowedSlippage={null}
-                gasEstimateInUSD={null}
-                priceImpact={null}
-                swapHandler={null}
-                swapTXStatus={null}
-                handleClose={() => {
-                  closeSwapConfirmModalopenModel();
-                }}
-              />
-            </Boxs>
-          }
+        >
+          <Boxs>
+            <TransactionCompleted
+              handleClose={() => {
+                closeTransactionCompletedModel();
+              }}
+              transactionUrl={null}
+              watchAssetHandler={null}
+            />
+          </Boxs>
+        </Modal>
+        <Modal
           modalTitle=""
           isOpen={SwapConfirmModalopen}
           close={() => {
             closeSwapConfirmModalopenModel();
           }}
-        />
-        <CustomModal
-          children={
-            <Boxs>
-              <TransactionFailed
-                handleClose={() => {
-                  closeTransactionFaildModel();
-                }}
-                transactionUrl={null}
-                watchAssetHandler={null}
-              />
-            </Boxs>
-          }
+        >
+          <Boxs>
+            <SwapConfirmModal
+              inputToken={null}
+              outputToken={null}
+              swapAmount={null}
+              expectedOutput={null}
+              minReceived={null}
+              allowedSlippage={null}
+              gasEstimateInUSD={null}
+              priceImpact={null}
+              swapHandler={null}
+              swapTXStatus={null}
+              handleClose={() => {
+                closeSwapConfirmModalopenModel();
+              }}
+            />
+          </Boxs>
+        </Modal>
+        <Modal
           modalTitle=""
           isOpen={TransactionFaildopen}
           close={() => {
             closeTransactionFaildModel();
           }}
-        />
-        <CustomModal
-          children={
-            <Boxs>
-              <HighSlippage
-                handleClose={() => {
-                  closeHighSlippageModel();
-                }}
-                transactionUrl={null}
-                watchAssetHandler={null}
-              />
-            </Boxs>
-          }
+        >
+          <Boxs>
+            <TransactionFailed
+              handleClose={() => {
+                closeTransactionFaildModel();
+              }}
+              transactionUrl={null}
+              watchAssetHandler={null}
+            />
+          </Boxs>
+        </Modal>
+        <Modal
           modalTitle=""
           isOpen={HighSlippageModalopen}
           close={() => {
             closeHighSlippageModel();
           }}
-        />
+        >
+          <Boxs>
+            <HighSlippage
+              handleClose={() => {
+                closeHighSlippageModel();
+              }}
+              transactionUrl={null}
+              watchAssetHandler={null}
+            />
+          </Boxs>
+        </Modal>
         {ConnectWallet.name === '' && CoinNetwork.name !== '' ? (
           <WrongBtn>Wrong Network</WrongBtn>
         ) : (

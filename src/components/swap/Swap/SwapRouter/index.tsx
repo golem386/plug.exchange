@@ -42,9 +42,9 @@ const MainContent = styled('div')({
 });
 const UsdtList = styled('div')({
   borderRadius: '16px',
-  backgroundColor: '#F7F7F7',
+  backgroundColor: 'rgba(0, 0, 0, 0.03)',
   borderWidth: '2px',
-  borderColor: '#ededed',
+  borderColor: 'rgba(0, 0, 0, 0.1)',
   borderStyle: 'solid',
   margin: 10,
   height: '92px',
@@ -60,7 +60,7 @@ const Title = styled('p')({
   fontWeight: 600,
 });
 const TitleDisebal = styled('p')({
-  color: '#a3a3a3',
+  color: '#949494',
   fontFamily: 'Inter',
   fontSize: '20px',
   fontWeight: 600,
@@ -93,7 +93,7 @@ const AmountDisebal = styled('p')({
   fontFamily: 'Inter',
   fontSize: '20px',
   fontWeight: '600',
-  color: '#a3a3a3',
+  color: '#949494',
 });
 const Div = styled('div')({
   display: 'flex',
@@ -103,7 +103,7 @@ const Span = styled('span')({
   fontWeight: '500',
   fontFamily: 'Inter',
   fontSize: '14px',
-  color: '#000000',
+  color: '#949494',
   opacity: '0.4',
 });
 const AutoRoute = styled('div')({
@@ -115,14 +115,15 @@ const AutoRoute = styled('div')({
 });
 
 const Icon = styled('img')({
-  width: '20.5px',
-  height: '18px',
+  width: '14px',
+  height: '14px',
   marginLeft: 5,
   marginRight: 5,
   cursor: 'pointer',
+  opacity:'0.5'
 });
 const IconHr = styled('img')({
-  width: '20.5px',
+  width: '14px',
   height: '2px',
   marginLeft: 5,
   marginRight: 5,
@@ -131,8 +132,8 @@ const IconHr = styled('img')({
 });
 
 const QusetionIcon = styled('img')({
-  width: '20.5px',
-  height: '18px',
+  width: '20px',
+  height: '20px',
   marginLeft: 5,
   marginRight: 5,
   opacity: '0.4',
@@ -169,11 +170,11 @@ const CViewImgThree = styled('img')({
 });
 const CustomButtonActiveCoin = styled(Button)({
   borderRadius: '100px',
-  background: '#F7F7F7',
+  backgroundColor: '#f2f2f2',
   padding: '3px 10px',
   fontSize: '14px',
   fontWeight: '600',
-  color: '#000000',
+  color: '#555555',
   fontStyle: 'Inter',
   textTransform: 'lowercase',
   marginLeft: 5,

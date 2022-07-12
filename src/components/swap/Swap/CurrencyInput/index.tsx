@@ -23,6 +23,7 @@ const Pay = styled('span')({
   fontWeight: '500',
   color: 'black',
   fontFamily: 'Inter',
+  opacity: 0.65
 });
 const Max = styled('span')({
   fontSize: '16px',
@@ -33,12 +34,12 @@ const Max = styled('span')({
 const MainViewInputToken = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  backgroundColor: '#F7F7F7',
+  backgroundColor: '#f7f7f7',
   marginLeft: 15,
   marginRight: 15,
   borderRadius: 16,
   paddingLeft: 10,
-  height: 70,
+  height: 52,
   marginTop: 10,
 });
 const TextInput = styled('input')({
@@ -72,7 +73,7 @@ const CoinTitle = styled('p')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
-  color: 'black',
+  color: '#595959',
   marginLeft: 10,
 });
 const CoinDropIcon = styled('img')({

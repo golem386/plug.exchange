@@ -1,6 +1,6 @@
 // this file is a WalletDetails file and provide a History
 import styled from '@emotion/styled';
-import { Menu, Modal } from '@mui/material';
+import { Menu } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { connetNetwork, connetWallet } from '../../store/Actions';
@@ -18,7 +18,7 @@ import Time from '../../assets/icon/Time.png';
 import Left from '../../assets/icon/Left.png';
 import Right from '../../assets/icon/Right.png';
 import SwapTransactionHistory from '../SwapTransactionHistory';
-import CustomModal from '../Modal';
+import Modal from '../Modal';
 
 const Copy = styled('div')({
   paddingLeft: '10px',
@@ -211,16 +211,7 @@ type DataObject = {
   coin: String;
 };
 
-const BoxsModal = styled('div')({
-  backgroundColor: 'white',
-  paddingBottom: 30,
-  paddingRight: 20,
-  paddingLeft: 20,
-  paddingTop: 10,
-  width: '60%',
-  height: '90%',
-  borderRadius: 10,
-});
+
 
 const nullObj = {
   name: '',
@@ -316,22 +307,12 @@ const WalletDetails = () => {
             <HistoryTitle>{CoinNetwork.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
           </MainDiv>
         </HistoryDiv>
-        <CustomModal
-          children={
-            <BoxsModal>
-              <SwapTransactionHistory
-                close={() => {
-                  handleClose();
-                }}
-              />
-            </BoxsModal>
-          }
-          isOpen={open}
-          modalTitle="Transaction History"
-          close={() => {
-            handleClose();
-          }}
-        />
+            <SwapTransactionHistory
+              close={() => {
+                handleClose();
+              }}
+              isOpen={open}
+            />
       </CustomMenu>
     </div>
   );

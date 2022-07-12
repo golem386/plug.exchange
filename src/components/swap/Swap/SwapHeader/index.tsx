@@ -42,6 +42,8 @@ const SwapHeader = (props: SwapHeaderProps) => {
           onModal('Transaction');
         }}
         alt="Menu"
+        height={20}
+        width={20}
       />
     </SwapDiv>
   );
