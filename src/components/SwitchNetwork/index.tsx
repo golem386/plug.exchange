@@ -17,8 +17,10 @@ const CustomButtonActiveCoin = styled(Button)({
   color: '#FFFFFF',
   fontStyle: 'Inter',
   textTransform: 'initial',
-  marginLeft: 5,
-  marginRight: 5,
+  marginLeft: '1%',
+  marginRight: '1%',
+  height: 52,
+  width:'100%',
 });
 const ImageIcon = styled('img')({
   height: 35,
@@ -70,10 +72,6 @@ const SwitchNetwork = () => {
   return (
     <div>
       <CustomButtonActiveCoin
-        id="demo-positioned-button"
-        aria-controls={openmenu ? 'demo-positioned-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={openmenu ? 'true' : undefined}
         onClick={handleClick}
       >
         <ImageIcon src={CoinNetwork.coin} alt="Icon" />

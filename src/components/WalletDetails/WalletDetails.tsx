@@ -59,30 +59,33 @@ const MainDiv = styled('div')({
   display: 'flex',
   cursor: 'pointer',
 });
-const CoinPrice = styled('div')({
+const CoinPrice = styled('span')({
   display: 'flex',
   alignItems: 'center',
+  justifyContent:'space-evenly',
   backgroundColor: '#fafafa',
-  padding: '0px 20px',
+  padding: '0px 10px',
   fontSize: '16px',
   fontWeight: '600',
   color: 'black',
   fontStyle: 'Inter',
   textTransform: 'initial',
-  marginLeft: 5,
-  marginRight: 5,
+  marginRight: '3%',
   borderRadius: 16,
-  height: 60,
+  border:'none',
+  height: 52,
+  width:'100%',
 });
 const Into = styled('p')({
   backgroundColor: 'white',
-  padding: '10px 20px',
+  padding: '7px 20px',
   borderRadius: 16,
   marginLeft: 15,
   boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
   fontWeight: 500,
   fontSize: 14,
   fontFamily: 'Inter',
+  marginBottom:'6%'
 });
 const ImageIconDropDown = styled('img')({
   height: '30px',
@@ -256,10 +259,6 @@ const WalletDetails = () => {
   return (
     <div>
       <CoinPrice
-        id="demo-positioned-button2"
-        aria-controls={openmenuPrice ? 'demo-positioned-menu2' : undefined}
-        aria-haspopup="true"
-        aria-expanded={openmenuPrice ? 'true' : undefined}
         onClick={handleClickPrice}
       >
         <ImageIconDropDown src={CoinDetail.coin} alt="Coin" />
@@ -268,8 +267,6 @@ const WalletDetails = () => {
         <CoinDropIcon src={DownArrow} alt="DownArrow" />
       </CoinPrice>
       <CustomMenu
-        id="demo-positioned-menu2"
-        aria-labelledby="demo-positioned-button2"
         anchorEl={anchorElPrice}
         open={openmenuPrice}
         onClose={handleClosemenuPrice}

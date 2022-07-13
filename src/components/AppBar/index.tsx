@@ -24,12 +24,14 @@ const MainComponent = styled('div')({
   justifyContent: 'space-around',
 });
 const InputIcon = styled('div')({
-  width: '100%',
+  width: '93%',
   display: 'flex',
   alignItems: 'center',
   backgroundColor: '#F7F7F7',
   borderRadius: '16px',
   paddingLeft: '2%',
+  height:52,
+  marginLeft:5
 });
 
 const TextInputActive = styled('input')({
@@ -37,7 +39,6 @@ const TextInputActive = styled('input')({
   display: 'flex',
   backgroundColor: '#F7F7F7',
   borderRadius: '16px',
-  padding: '3px',
   borderBottom: 0,
   border: 'none',
   height: 52,
@@ -53,33 +54,43 @@ const TextInputActive = styled('input')({
 const CustomButton = styled(Button)({
   borderRadius: 16,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
-  padding: '10px 24px',
   fontSize: '16px',
   fontWeight: '600',
   color: '#000000',
   fontStyle: 'Inter',
   opacity: '0.65',
   textTransform: 'initial',
-  marginLeft: 5,
-  marginRight: 5,
-  height: 60,
+  height: 52,
+  width:"30%",
+});
+const CustomButton2 = styled(Button)({
+  borderRadius: 16,
+  backgroundColor: 'rgba(0, 0, 0, 0.03)',
+  fontSize: '16px',
+  fontWeight: '600',
+  color: '#000000',
+  fontStyle: 'Inter',
+  opacity: '0.65',
+  textTransform: 'initial',
+  height: 52,
+  width:"18%",
 });
 
 const CustomButtonActive = styled(Button)({
   borderRadius: 16,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  padding: '10px 24px',
   fontSize: '16px',
   fontWeight: '600',
   color: '#FFFFFF',
   fontStyle: 'Inter',
   textTransform: 'initial',
-  marginLeft: 5,
-  marginRight: 5,
-  height: 60,
+  height: 52,
+  width:"36%",
 });
 const Imgs = styled('img')({
-  marginTop: '15%',
+  width:'86%',
+  height:43,
+  marginTop:5,
 });
 const CustomButtonActiveCoin = styled(Button)({
   borderRadius: 16,
@@ -92,6 +103,8 @@ const CustomButtonActiveCoin = styled(Button)({
   textTransform: 'initial',
   marginLeft: 5,
   marginRight: 5,
+  height: 52,
+  width:"38%",
   '&:hover': {
     backgroundColor: 'red',
   },
@@ -116,7 +129,9 @@ const Notificationdiv = styled('div')({
 const SearchIcon = styled('img')({
   opacity:0.5,
   marginLeft:5,
-  marginRight:10
+  marginRight:5,
+  height:18,
+  width:18
 });
 
 type DataObject = {
@@ -154,11 +169,11 @@ const AppBar = () => {
   return (
     <>
       <MainComponent>
-        <ControlGrids container spacing={5}>
+        <ControlGrids container>
           <LogoGrid item sm={1}>
-            <Imgs src={Logo} height="38px" width="80px" alt="logo" />
+            <Imgs src={Logo} alt="logo" />
           </LogoGrid>
-          <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 6.5 : 3.6}>
+          <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}>
             <InputIcon>
               <SearchIcon src={Search} alt="Search" />
               <TextInputActive
@@ -170,8 +185,8 @@ const AppBar = () => {
             </InputIcon>
             {filterInput !== '' ? <CurrencySearch searchValue={null} /> : null}
           </Grid>
-          <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 4.5 : 7.4}>
-            <CustomButton>Buy Crypto</CustomButton>
+          <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 4.2 : 6.5}>
+          {CoinNetwork.name !== '' ? <CustomButton2>Buy Crypto</CustomButton2> :<CustomButton>Buy Crypto</CustomButton>}
             {CoinNetwork.name !== '' ? (
               <SwitchNetwork />
             ) : (

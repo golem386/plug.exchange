@@ -7,7 +7,9 @@ const NotResult = styled('div')({
   padding: 30,
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   borderRadius: '24px',
-  // position:'absolute',
+  position:'absolute',
+  zIndex:10,
+  backgroundColor:'white',
   // width:'52%',
 });
 const List = styled('span')({

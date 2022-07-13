@@ -8,6 +8,7 @@ import Question from '../../assets/icon/Question.svg';
 import request from '../../assets/icon/Request.svg';
 import Language from '../../assets/icon/Language.svg';
 import Dark from '../../assets/icon/Dark.svg';
+import { useSelector } from 'react-redux';
 
 const DropDownTitleIcon = styled('span')({
   fontFamily: 'Inter',
@@ -32,23 +33,54 @@ const ImageIconDropDown = styled('img')({
   opacity: 0.6,
 });
 
-const SettingButton = styled(Button)({
+const SettingButton = styled('button')({
   borderRadius: 100,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
   padding: '20px 0px',
   color: '#000000',
   opacity: '0.65',
-  height: 60,
+  height: 52,
+  width:52,
+  border:'none',
+  display:'flex',
+  alignItems:'center',
+  justifyContent:'center',
+});
+const SettingButton2 = styled('button')({
+  borderRadius: 100,
+  backgroundColor: 'rgba(0, 0, 0, 0.03)',
+  padding: '20px 0px',
+  color: '#000000',
+  opacity: '0.65',
+  height: 52,
+  width:52,
+  border:'none',
+  display:'flex',
+  alignItems:'center',
+  justifyContent:'center',
+  marginLeft:'30%'
 });
 type Setting = {
   name:string
 }
+type ConnectWalletType = {
+  name: String;
+  image: String;
+  Subname: String;
+  Price: String;
+};
+type ConnectNetworkType = {
+  name: String;
+  image: String;
+};
 type SettingsProps = {
   settings: Setting[];
 };
 const Settings = (props: SettingsProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const openmenu = Boolean(anchorEl);
+  const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
+  const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -57,18 +89,18 @@ const Settings = (props: SettingsProps) => {
   };
   return (
     <div>
-      <SettingButton
-        id="demo-positioned-button"
-        aria-controls={openmenu ? 'demo-positioned-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={openmenu ? 'true' : undefined}
+      {
+        CoinDetail.name !== "" ? <SettingButton2
+        onClick={handleClick}
+      >
+        <img src={setting} alt="Setting" />
+      </SettingButton2> : <SettingButton
         onClick={handleClick}
       >
         <img src={setting} alt="Setting" />
       </SettingButton>
+      }
       <CustomMenu
-        id="demo-positioned-menu"
-        aria-labelledby="demo-positioned-button"
         anchorEl={anchorEl}
         open={openmenu}
         onClose={handleClosemenu}

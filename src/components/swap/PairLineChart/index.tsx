@@ -8,10 +8,11 @@ import { Box, Tab, Tabs } from '@mui/material';
 import * as echarts from 'echarts';
 // import { TabPanelProps } from '../../..';
 
-const CurrencySwitch = styled('div')({
+const CurrencySwitch = styled('p')({
   fontFamily: 'Inter',
-  fontSize: 'calc(0.75em + 1vw)',
-  display: 'flex',
+  fontSize: '24px',
+  fontWeight:'600',
+  display: 'flex'
 });
 const TextSpan = styled('span')({
   fontFamily: 'Inter',
