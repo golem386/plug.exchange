@@ -22,8 +22,8 @@ const SwapDiv = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  paddingLeft: 15,
-  paddingRight: 15,
+  paddingLeft: '5%',
+  paddingRight: '5%',
 });
 const Swap = styled('p')({
   fontSize: '24px',
@@ -34,7 +34,8 @@ const Swap = styled('p')({
 const Slippage = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  marginLeft: 20,
+  marginLeft: '5%',
+  opacity:'0.65'
 });
 const SlippageText = styled('p')({
   fontSize: '16px',
@@ -47,10 +48,11 @@ const QuestionIcon = styled('img')({
   width: 20,
   marginLeft: 5,
   marginBottom: 5,
+  opacity:'0.65'
 });
 const FlexView = styled('div')({
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'center'
 });
 const CustomButtonActive = styled(Button)({
   borderRadius: '16px',
@@ -69,14 +71,14 @@ const CustomButtonActive = styled(Button)({
 const CustomButtonDisebal = styled(Button)({
   borderRadius: '16px',
   background: 'Transaction',
-  padding: '10px 24px',
+  padding: '7px 24px',
   fontSize: '14px',
   fontWeight: '600',
   color: 'black',
   fontStyle: 'Inter',
-  textTransform: 'lowercase',
-  marginLeft: 15,
-  marginRight: 5,
+  textTransform: 'initial',
+  marginLeft: '5%',
+  marginRight: '2.5%',
   height: '52px',
   width: '47%',
   borderWidth:1,
@@ -86,34 +88,36 @@ const CustomButtonDisebal = styled(Button)({
 const CustomButtonActiveNumber = styled(Button)({
   borderRadius: '16px',
   background: '#f7f7f7',
-  padding: '10px 24px',
+  padding: '7px 24px',
   color: '#b3b3b3',
   fontStyle: 'Inter',
   textTransform: 'initial',
-  marginRight: 15,
+  marginRight: '5%',
   height: '52px',
   width: '47%',
   fontSize: 24,
   fontFamily: 'Inter',
   fontWeight: 500,
+  marginLeft:'2.5%'
 });
 const MainInput = styled('div')({
   backgroundColor: '#f7f7f7',
   paddingRight: 10,
-  marginLeft: 15,
-  marginRight: 15,
+  marginLeft:'5%',
+  marginRight:'5%',
   borderRadius: '16px',
+  height: '52px',
 });
 const TextInput = styled('input')({
-  width: '100%',
+  width: '80%',
   height: '52px',
-  padding: 7,
+  paddingLeft:'5%',
   backgroundColor: 'transparent',
   borderBottom: 0,
   border: 'none',
   fontFamily: 'Inter',
-  fontWeight: 600,
-  fontSize: '16px',
+  fontWeight: 500,
+  fontSize: '24px',
   '&:focus-visible': {
     border: 'none',
     outline: 'none',
@@ -123,28 +127,29 @@ const FlexViewJustyfy = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  marginLeft:'5%',
+  marginRight:'5%'
 });
 const PriseText = styled('p')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
-  marginLeft: 15,
 });
 const TimeText = styled('p')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '14px',
   color: '#cccccc',
-  marginRight: 15,
   display: 'flex',
   alignItems: 'center',
 });
 const TimeTextPink = styled('p')({
   fontFamily: 'Inter',
-  fontWeight: '600',
-  fontSize: '14px',
-  color: '#BB36FF',
-  marginRight: 15,
+  fontWeight: '500',
+  fontSize: '16px',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
   display: 'flex',
   alignItems: 'center',
 });
@@ -153,14 +158,13 @@ const DownArrowIcon = styled('img')({
   height: '7.78px',
   width: '12.73px',
   marginLeft: 10,
-  marginRight: 10,
   cursor:'pointer'
 });
 const Settings = styled('p')({
   fontWeight: '600',
   fontSize: '16px',
   fontFamily: 'Inter',
-  marginLeft: 15,
+  marginLeft: '5%',
 });
 const FlexVIew = styled('div')({
   display: 'flex',
@@ -170,7 +174,8 @@ const FlexRow = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  margin: 15,
+  marginLeft:'5%',
+  marginRight:'5%'
 });
 const AutoRout = styled('span')({
   fontFamily: 'Inter',
@@ -181,10 +186,11 @@ const AutoRout = styled('span')({
 });
 const MainRow = styled('div')({});
 const MainDivs = styled('div')({
-  margin: 10,
   display: 'flex',
-  justifyContent: 'space-around',
+  justifyContent: 'space-between',
   alignItems: 'center',
+  marginLeft:'5%',
+  marginRight:'5%'
 });
 const DivForms = styled('div')({
   display: 'flex',
@@ -212,8 +218,8 @@ const GWEI = styled('p')({
 });
 const Span = styled('span')({
   fontFamily: 'Inter',
-  fontWeight: '600',
-  fontSize: '14px',
+  fontWeight: '500',
+  fontSize: '16px',
   color: '#b3b3b3',
 });
 
@@ -276,7 +282,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
       </Slippage>
       <MainInput>
         <FlexView>
-          <TextInput />
+          <TextInput placeholder='0'/>
           <Span>Minutes</Span>
         </FlexView>
       </MainInput>

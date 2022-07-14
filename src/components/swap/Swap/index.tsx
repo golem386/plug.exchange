@@ -23,14 +23,15 @@ const MainDiv = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   width: '100%',
+  // height:'490px'
 });
 const OrderBtn = styled(Button)({
   margin: 15,
-  width: '90%',
+  width: '93%',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   color: 'white',
   borderRadius: '12px',
-  marginBottom: '10%',
+  marginBottom: '6%',
   marginTop: '10%',
   textTransform: 'initial',
 });

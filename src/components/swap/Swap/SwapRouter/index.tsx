@@ -13,7 +13,9 @@ import Coin6 from '../../../../assets/icon/coin3.png';
 import hr from '../../../../assets/icon/hr.png';
 
 const ETH = styled('p')({
-  color: '#BB36FF',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
   fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
@@ -27,13 +29,13 @@ const ImgVarticalShort = styled('img')({
 const ImgDownArrow = styled('img')({
   height: '7.78px',
   width: '12.73px',
-  marginRight: '5%',
+  marginRight: '7%',
   cursor: 'pointer',
 });
 const ShortView = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  marginLeft: '5%',
+  marginLeft: '7%',
 });
 const MainContent = styled('div')({
   display: 'flex',
@@ -47,7 +49,10 @@ const UsdtList = styled('div')({
   borderColor: 'rgba(0, 0, 0, 0.1)',
   borderStyle: 'solid',
   margin: 10,
+  marginLeft:'5%',
+  marginRight:'5%',
   height: '92px',
+  cursor:'pointer',
   '&:hover': {
     backgroundColor: '#ededed',
     borderColor: '#BB36FF',
@@ -82,7 +87,9 @@ const CustomButtonActive = styled(Button)({
 const MainTitleView = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-around',
+  justifyContent: 'space-between',
+  marginLeft:'5%',
+  marginRight:'5%'
 });
 const Amount = styled('p')({
   fontFamily: 'Inter',
@@ -98,6 +105,11 @@ const AmountDisebal = styled('p')({
 const Div = styled('div')({
   display: 'flex',
   alignItems: 'center',
+});
+const Div2 = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  marginLeft:'5%'
 });
 const Span = styled('span')({
   fontWeight: '500',
@@ -118,15 +130,23 @@ const Icon = styled('img')({
   width: '14px',
   height: '14px',
   marginLeft: 5,
+  marginRight: '5%',
+  cursor: 'pointer',
+  opacity: '0.5'
+});
+const Icon2 = styled('img')({
+  width: '14px',
+  height: '14px',
+  marginLeft: 5,
   marginRight: 5,
   cursor: 'pointer',
-  opacity:'0.5'
+  opacity: '0.5'
 });
 const IconHr = styled('img')({
   width: '14px',
   height: '2px',
   marginLeft: 5,
-  marginRight: 5,
+  marginRight: '5%',
   cursor: 'pointer',
   padding: 5,
 });
@@ -142,12 +162,16 @@ const AutoText = styled('p')({
   fontSize: '16px',
   fontWeight: '600',
   fontFamily: 'Inter',
-  color: '#BB36FF',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
 });
 const Route = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  marginRight:'5%',
+  marginLeft:'5%'
 });
 const CoinImg = styled('img')({
   height: '24px',
@@ -252,11 +276,11 @@ const SwapRouter = (props: SwapRouterProps) => {
             </MainTitleView>
           </UsdtList>
           <AutoRoute>
-            <Div>
-              <Icon src={trans} alt="Image" />
+            <Div2>
+              <Icon2 src={trans} alt="Image" />
               <AutoText>Auto Router</AutoText>
               <QusetionIcon src={Question} alt="image" />
-            </Div>
+            </Div2>
             {AddEntey === true ? (
               <IconHr
                 onClick={() => {

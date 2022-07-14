@@ -14,6 +14,7 @@ const DropDownTitleIcon = styled('span')({
   fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '600',
+  color:'blak'
 });
 const CustomMenu = styled(Menu)({
   marginTop: '5%',
@@ -22,8 +23,12 @@ const CustomMenuItem = styled(MenuItem)({
   paddingTop: 10,
   paddingBottom: 10,
   paddingRight: '50px',
+  opacity: 0.65,
   '&:hover': {
-    color: '#DC7FB6',
+    background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+    color: "transparent",
+    backgroundClip: "text",
+    opacity: 1,
   },
 });
 const ImageIconDropDown = styled('img')({
@@ -40,11 +45,11 @@ const SettingButton = styled('button')({
   color: '#000000',
   opacity: '0.65',
   height: 52,
-  width:52,
-  border:'none',
-  display:'flex',
-  alignItems:'center',
-  justifyContent:'center',
+  width: 52,
+  border: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 const SettingButton2 = styled('button')({
   borderRadius: 100,
@@ -53,15 +58,15 @@ const SettingButton2 = styled('button')({
   color: '#000000',
   opacity: '0.65',
   height: 52,
-  width:52,
-  border:'none',
-  display:'flex',
-  alignItems:'center',
-  justifyContent:'center',
-  marginLeft:'30%'
+  width: 52,
+  border: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginLeft: '30%'
 });
 type Setting = {
-  name:string
+  name: string
 }
 type ConnectWalletType = {
   name: String;
@@ -91,14 +96,14 @@ const Settings = (props: SettingsProps) => {
     <div>
       {
         CoinDetail.name !== "" ? <SettingButton2
-        onClick={handleClick}
-      >
-        <img src={setting} alt="Setting" />
-      </SettingButton2> : <SettingButton
-        onClick={handleClick}
-      >
-        <img src={setting} alt="Setting" />
-      </SettingButton>
+          onClick={handleClick}
+        >
+          <img src={setting} alt="Setting" />
+        </SettingButton2> : <SettingButton
+          onClick={handleClick}
+        >
+          <img src={setting} alt="Setting" />
+        </SettingButton>
       }
       <CustomMenu
         anchorEl={anchorEl}

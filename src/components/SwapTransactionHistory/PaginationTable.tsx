@@ -125,8 +125,8 @@ const Footer = styled('div')({
   justifyContent: 'space-between',
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
   height: '72px',
-  paddingLeft:15,
-  paddingRight:15
+  paddingLeft: '4%',
+  paddingRight: '4%'
 });
 const Count = styled('div')({
   display: 'flex',
@@ -149,12 +149,19 @@ const ImageIcon = styled('img')({
   padding: 15,
   borderRadius: 100,
   margin: 3,
+  marginLeft:15
 });
 const Body = styled('div')({
-  overflow: 'auto',
-  height: '75%',
-  paddingLeft: 20,
-  paddingRight: 20,
+  overflow: 'hidden',
+  '&:hover': {
+    overflowY: 'auto',
+  },
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
+  height: '71%',
+  paddingLeft: '5%',
+  paddingRight: '5%',
 });
 const Main = styled('div')({
   display: 'flex',
@@ -210,8 +217,8 @@ const Name = styled('p')({
 });
 const Span = styled('span')({
   fontFamily: 'Inter',
-  fontWaight: 600,
-  fontSize: '16px',
+  fontWaight: 500,
+  fontSize: '14px',
   color: '#999999',
   alignItems: 'center',
   display: 'flex',
@@ -221,6 +228,14 @@ const Span = styled('span')({
 const Span2 = styled('span')({
   fontFamily: 'Inter',
   fontWaight: 600,
+  fontSize: '16px',
+  color: '#595959',
+  alignItems: 'center',
+  display: 'flex',
+});
+const Span3 = styled('span')({
+  fontFamily: 'Inter',
+  fontWaight: 500,
   fontSize: '16px',
   color: '#595959',
   alignItems: 'center',
@@ -245,17 +260,17 @@ const Share = styled('div')({
   alignItems: 'center',
 });
 const Share2 = styled('div')({
-  marginLeft: '7%'
+  marginLeft: '16%'
 });
 const Eth = styled('div')({
-  marginLeft: '31%'
+  marginLeft: '36%'
 });
 
 const NativeSelects = styled(NativeSelect)({
-  width:'65px',
-  backgroundColor:'#e8e5e7',
-  paddingLeft:10,
-  borderRadius:'100px'
+  width: '65px',
+  backgroundColor: '#e8e5e7',
+  paddingLeft: 10,
+  borderRadius: '100px'
 });
 
 
@@ -413,7 +428,7 @@ const PaginationTable = (props: PaginationTableProps) => {
                       ) : null}
                     </Share>
                     <div>
-                      <Span2>{data.ETH}</Span2>
+                      <Span3>{data.ETH}</Span3>
                     </div>
                   </Main> : <Main2>
                     <Status>

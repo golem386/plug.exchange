@@ -19,8 +19,8 @@ const style = {
   paddingRight: 4,
   paddingBottom: 6,
   paddingTop: 0,
-  height: '80%',
-  borderRadius: 2,
+  height: '85%',
+  borderRadius: 5,
   overFlow: 'auto',
 };
 const TitleView = styled('div')({
@@ -30,7 +30,7 @@ const TitleView = styled('div')({
 });
 const Title = styled('p')({
   fontFamily: 'Inter',
-  fontSize: '20px',
+  fontSize: '24px',
   fontWeight: 600,
 });
 const UserId = styled('div')({
@@ -57,7 +57,7 @@ const TokenCode = styled('span')({
 });
 const TokenCodeKey = styled('span')({
   fontFamily: 'Inter',
-  fontWeight: 600,
+  fontWeight: 500,
   fontSize: 16,
   color: '#dbdbdb',
 });
@@ -71,14 +71,14 @@ const Warning = styled('div')({
   paddingBottom: 30,
 });
 const Info = styled('img')({
-  height: 25,
-  width: 25,
+  height: 24,
+  width: 24,
   marginRight: 10,
 });
 const WarningText = styled('span')({
   fontFamily: 'Inter',
   fontSize: 18,
-  fontWeight: 900,
+  fontWeight: 600,
   color: 'red',
 });
 const Red = styled('div')({
@@ -90,14 +90,14 @@ const Pre = styled('span')({
   fontFamily: 'Inter',
   fontSize: 14,
   fontWeight: 500,
-  color: 'black',
+  color: '#565656',
   lineHeight: 1.5,
 });
 const Parmition = styled('span')({
   fontFamily: 'Inter',
   fontSize: 16,
-  fontWeight: 900,
-  color: 'black',
+  fontWeight: 500,
+  color: '#565656',
 });
 const ParmitionDiv = styled('div')({
   display: 'flex',
@@ -115,6 +115,7 @@ const ConnectButton = styled(Button)({
   fontSize: '16px',
   fontWeight: 600,
   textTransform: 'initial',
+  height:'52px'
 });
 const ConnectButtonDisabal = styled(Button)({
   width: '100%',
@@ -127,6 +128,7 @@ const ConnectButtonDisabal = styled(Button)({
   fontWeight: 600,
   textTransform: 'initial',
   opacity: 0.3,
+  height:'52px'
 });
 
 type Token = {};

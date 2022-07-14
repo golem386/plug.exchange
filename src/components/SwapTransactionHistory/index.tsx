@@ -11,9 +11,9 @@ const Header = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  paddingLeft: 20,
-  paddingRight: 20,
-  paddingTop: 10,
+  paddingLeft: '5%',
+  paddingRight: '5%',
+  paddingTop: '2%',
 });
 
 const HeaderText = styled('span')({
@@ -36,7 +36,7 @@ type SwapTransactionHistoryType = {
 const CustomButton = styled('button')({
   borderRadius: '50px',
   fontSize: '16px',
-  fontWeight: '600',
+  fontWeight: '500',
   fontStyle: 'normal',
   opacity: '0.65',
   textTransform: 'initial',
@@ -56,7 +56,7 @@ const CustomButtonActive = styled('button')({
   borderRadius: '50px',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   fontSize: '16px',
-  fontWeight: '600',
+  fontWeight: '500',
   color: 'white!important',
   fontStyle: 'normal',
   textTransform: 'initial',
@@ -73,9 +73,15 @@ const CustomButtonActive = styled('button')({
   height: "36px"
 });
 
+
+const TabsBtn = styled('div')({
+  paddingLeft:'3%',
+  paddingTop:'1%',
+  paddingBottom:'1%'
+});
 const BoxsModal = styled('div')({
   backgroundColor: 'white',
-  width: '60%',
+  width: '80%',
   height: '98%',
   borderRadius: 10,
 });
@@ -101,28 +107,31 @@ const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {
             }}
           />
         </Header>
-        {value === 'All' ? (
-          <CustomButtonActive>All</CustomButtonActive>
-        ) : (
-          <CustomButton
-            onClick={() => {
-              setValue('All');
-            }}
-          >
-            All
-          </CustomButton>
-        )}
-        {value === 'Swaps' ? (
-          <CustomButtonActive>Swaps</CustomButtonActive>
-        ) : (
-          <CustomButton
-            onClick={() => {
-              setValue('Swaps');
-            }}
-          >
-            Swaps
-          </CustomButton>
-        )}
+        <TabsBtn>
+          {value === 'All' ? (
+            <CustomButtonActive>All</CustomButtonActive>
+          ) : (
+            <CustomButton
+              onClick={() => {
+                setValue('All');
+              }}
+            >
+              All
+            </CustomButton>
+          )}
+          {value === 'Swaps' ? (
+            <CustomButtonActive>Swaps</CustomButtonActive>
+          ) : (
+            <CustomButton
+              onClick={() => {
+                setValue('Swaps');
+              }}
+            >
+              Swaps
+            </CustomButton>
+          )}
+        </TabsBtn>
+
         {value === 'All' ? (
           <PaginationTable data={HistoryDATA} />
         ) : (

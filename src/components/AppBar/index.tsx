@@ -62,6 +62,7 @@ const CustomButton = styled(Button)({
   textTransform: 'initial',
   height: 52,
   width:"30%",
+  border:'1px solid rgba(0, 0, 0, 0.1)'
 });
 const CustomButton2 = styled(Button)({
   borderRadius: 16,
@@ -74,6 +75,7 @@ const CustomButton2 = styled(Button)({
   textTransform: 'initial',
   height: 52,
   width:"18%",
+  border:'1px solid rgba(0, 0, 0, 0.1)'
 });
 
 const CustomButtonActive = styled(Button)({

@@ -1,6 +1,6 @@
 // this is a PairLineChart file and Create a PairLineChart Design
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ShortVartical from '../../../assets/icon/ShortVartical.png';
 import ReactEcharts from 'echarts-for-react';
@@ -34,7 +34,9 @@ const CurrencyPriceUSD = styled('span')({
   color: 'black'
 });
 const CurrencyPriceChange = styled('span')({
-  color: '#DC7FB6',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
   fontSize: '16px',
   fontWeight: '600',
   marginLeft: '1.5%',
@@ -43,36 +45,49 @@ const CurrencyPriceChange = styled('span')({
 const View = styled('div')({});
 const PairData = styled('div')({
   width: '100%',
+  marginTop:'10%',
 });
 const CustomButton = styled(Tab)({
   borderRadius: '100px',
-  padding: '7px 20px',
   fontSize: '16px',
   fontWeight: '500',
   fontStyle: 'normal',
   opacity: '0.65',
   textTransform: 'lowercase',
   fontFamily: 'Inter',
+  height:'36px',
+  width:'65px',
+  // marginLeft: 5,
+  // marginRight: 5,
+  // borderRadius: '100px',
+  // background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  // fontSize: '16px',
+  // fontWeight: '500',
+  // color: 'white!important',
+  // fontStyle: 'normal',
+  // textTransform: 'lowercase',
+  // fontFamily: 'Inter',
+  // height:'36px',
+  // width:'65px'
 });
 const CustomButtonActive = styled(Tab)({
   borderRadius: '100px',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  padding: '7px 20px',
   fontSize: '16px',
   fontWeight: '500',
   color: 'white!important',
   fontStyle: 'normal',
   textTransform: 'lowercase',
-  marginLeft: 5,
-  marginRight: 5,
   fontFamily: 'Inter',
+  height:'36px',
+  width:'65px'
 });
 
 const CustomTabsActive = styled(Tabs)({
-  marginLeft: '35vw',
+  marginLeft: '55%',
   backgroundColor: '#f7f7f7',
   borderRadius: "100px",
-  width: '37%'
+  width:'273px'
 });
 type SelectType = {
   name: String;
@@ -125,6 +140,7 @@ const PairLineChart = (props:PairLineChartProps) => {
   const CoinDetail: SelectType = useSelector((state: ArticleState) => state.CoinDetail);
   const receiveCoinDetail: SelectType = useSelector((state: ArticleState) => state.receiveCoinDetail);
   console.log(CoinDetail)
+
   return (
     <View>
       <CurrencySwitch>
@@ -148,14 +164,14 @@ const PairLineChart = (props:PairLineChartProps) => {
                   right: '0%',
                   bottom: '0%',
                   top: 0,
-                  containLabel: true,
+                  containLabel: false,
                 },
                 xAxis: [
                   {
                     type: 'category',
                     boundaryGap: false,
                     show: false,
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','mon'],
                   },
                 ],
                 yAxis: [
@@ -194,7 +210,7 @@ const PairLineChart = (props:PairLineChartProps) => {
                     emphasis: {
                       focus: 'series',
                     },
-                    data: [140, 232, 101, 264, 90, 340, 250],
+                    data: [140, 232, 101, 264, 90, 340, 250,100],
                   },
                 ],
               }}
@@ -216,7 +232,7 @@ const PairLineChart = (props:PairLineChartProps) => {
                     type: 'category',
                     boundaryGap: false,
                     show: false,
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','mon'],
                   },
                 ],
                 yAxis: [
@@ -255,7 +271,7 @@ const PairLineChart = (props:PairLineChartProps) => {
                     emphasis: {
                       focus: 'series',
                     },
-                    data: [140, 232, 101, 264, 90, 340, 250],
+                    data: [140, 232, 101, 264, 90, 340, 250,270],
                   },
                 ],
               }}
@@ -277,7 +293,7 @@ const PairLineChart = (props:PairLineChartProps) => {
                     type: 'category',
                     boundaryGap: false,
                     show: false,
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','mon'],
                   },
                 ],
                 yAxis: [
@@ -316,7 +332,7 @@ const PairLineChart = (props:PairLineChartProps) => {
                     emphasis: {
                       focus: 'series',
                     },
-                    data: [140, 232, 101, 264, 90, 340, 250],
+                    data: [140, 232, 101, 264, 90, 340, 250,500],
                   },
                 ],
               }}

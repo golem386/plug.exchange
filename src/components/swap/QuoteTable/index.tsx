@@ -30,18 +30,21 @@ const FirseDiv = styled('div')({
   borderBottomWidth: '1px',
   borderBottomStyle: 'solid',
   borderBottomColor: '#e0e0e0',
+  width:'96%'
 });
 const Title = styled('p')({
   color: 'rgba(0, 0, 0, 0.4)',
   fontFamily: 'Inter',
-  fontWeight:'600'
+  fontWeight: '600'
 });
 const ImageSpan = styled('span')({
   color: 'black',
   paddingLeft: 5,
 });
 const MainSpan = styled('span')({
-  color: '#DC7FB6',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
   fontFamily: 'Inter',
 });
 const SecondDiv = styled('div')({
@@ -66,12 +69,12 @@ const RefresBtn = styled(Button)({
   borderRadius: 100,
   fontWeight: '500',
   fontSize: '16px',
-  paddingLeft: '3%',
-  paddingRight: '3%',
+  width: '93px',
+  height: '36px',
   fontFamily: 'Inter',
-  textTransform:'inherit',
-  '&:hover':{
-    backgroundColor:'white'
+  textTransform: 'inherit',
+  '&:hover': {
+    backgroundColor: 'white'
   }
 });
 const ListDiv = styled('div')({
@@ -79,6 +82,7 @@ const ListDiv = styled('div')({
   borderWidth: 1,
   borderColor: '#f0f0f0',
   padding: 10,
+  width:'97%',
   '&:hover': {
     backgroundColor: '#f2f2f2',
   },
@@ -93,9 +97,9 @@ const ImageIcon = styled('img')({
 });
 const ShereIcon = styled('img')({
   paddingLeft: 10,
-  height:'18px',
-  width:'18px',
-  opacity:'0.4'
+  height: '18px',
+  width: '18px',
+  opacity: '0.4'
 });
 const Text = styled('p')({
   textAlign: 'center',
@@ -114,17 +118,21 @@ const ChangeText = styled('span')({
   textAlign: 'center',
   fontSize: '16px',
   fontWeight: '600',
-  color: '#DC7FB6',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
   fontFamily: 'Inter',
 });
 const ShortImage = styled('img')({
   paddingLeft: 3,
   height: 18,
-  width:19
+  width: 19
 });
 const ShowMore = styled('p')({
   textAlign: 'center',
-  color: '#DC7FB6',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
   fontSize: '16px',
   fontWeight: '600',
   fontFamily: 'Inter',

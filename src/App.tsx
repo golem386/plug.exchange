@@ -19,12 +19,17 @@ const MyComponent = styled('div')({
 const BoxsToken = styled('div')({
   backgroundColor: 'white',
   paddingBottom: 30,
-  paddingRight: 20,
-  paddingLeft: 20,
   paddingTop: 10,
-  width: '450px',
+  width: '585px',
   height: '90%',
   borderRadius: 10,
+  overflow:'hidden',
+  '&:hover': {
+    overflowY: 'auto',
+  },
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
 });
 type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 function App() {

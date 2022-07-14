@@ -16,7 +16,7 @@ const UpDownImage = styled('img')({
   boxShadow: 'drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.1))',
   position: 'absolute',
   top: -20,
-  left: '40%',
+  left: '45%',
   cursor: 'pointer',
 });
 type CoinDetail = {

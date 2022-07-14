@@ -22,7 +22,7 @@ const ItemText = styled('span')({
   fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '500',
-  color: '#555555',
+  color: 'black',
 });
 const ItemText2 = styled('span')({
   padding: 10,

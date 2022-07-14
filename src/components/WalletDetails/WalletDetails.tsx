@@ -19,19 +19,27 @@ import Left from '../../assets/icon/Left.png';
 import Right from '../../assets/icon/Right.png';
 import SwapTransactionHistory from '../SwapTransactionHistory';
 import Modal from '../Modal';
+import { color } from 'echarts';
 
 const Copy = styled('div')({
   paddingLeft: '10px',
   alignItems: 'center',
   display: 'flex',
+  opacity:'0.65',
   '&:hover': {
     backgroundColor: '#f7f7f7',
   },
 });
+const Id = styled('p')({
+  fontFamily:'Inter',
+  fontSize:'16px',
+  fontWeight:'600'
+});
+
 const DropPrice = styled('span')({
   fontSize: '14px',
   fontFamily: 'Inter',
-  fontWeight: '600',
+  fontWeight: '500',
   color: '#d4d4d4',
   marginLeft: 10,
 });
@@ -44,6 +52,8 @@ const FileCopy = styled('img')({
 const HistoryDiv = styled('div')({
   backgroundColor: '#f7f7f7',
   paddingLeft: 15,
+  paddingTop:10,
+  paddingBottom:10
 });
 const HistoryTitle = styled('span')({
   fontSize: '16px',
@@ -82,10 +92,11 @@ const Into = styled('p')({
   borderRadius: 16,
   marginLeft: 15,
   boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
-  fontWeight: 500,
-  fontSize: 14,
+  fontWeight: 600,
+  fontSize: 16,
   fontFamily: 'Inter',
-  marginBottom:'6%'
+  marginBottom:'6%',
+  color:'#565656'
 });
 const ImageIconDropDown = styled('img')({
   height: '30px',
@@ -202,8 +213,9 @@ const TimeImage = styled('img')({
 });
 const Name = styled('p')({
   fontFamily: 'Inter',
-  fontWeight: 800,
-  fontSize: 14,
+  fontWeight: 600,
+  fontSize: 16,
+  color:'#565656'
 });
 
 const Status = styled('div')({});
@@ -282,7 +294,7 @@ const WalletDetails = () => {
         <DropPrice>Connected with MetaMask</DropPrice>
         <Copy>
           <FileCopy src={filecopy} alt="Copy" />
-          <p>0x37...0420</p>
+          <Id>0x37...0420</Id>
         </Copy>
 
         <UserAssets account="" />

@@ -25,7 +25,9 @@ const Title = styled('p')({
   fontSize: 24,
 });
 const ETH = styled('span')({
-  color: '#BB36FF',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
   fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,

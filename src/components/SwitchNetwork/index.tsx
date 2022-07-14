@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import DownIconWhite from '../../assets/icon/DownIconWhite.png';
+import right from '../../assets/icon/right.png';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
 
 const CustomButtonActiveCoin = styled(Button)({
@@ -20,7 +21,7 @@ const CustomButtonActiveCoin = styled(Button)({
   marginLeft: '1%',
   marginRight: '1%',
   height: 52,
-  width:'100%',
+  width: '100%',
 });
 const ImageIcon = styled('img')({
   height: 35,
@@ -34,10 +35,16 @@ const TitleIcon = styled('p')({
 });
 const DropDownTitleIcon = styled('span')({
   fontFamily: 'Inter',
-  fontSize: '15px',
-  fontWeight: '500',
+  fontSize: '16px',
+  fontWeight: '600',
+  opacity:0.65
 });
-
+const DropDownTitleIcon2 = styled('span')({
+  fontFamily: 'Inter',
+  fontSize: '14px',
+  fontWeight: '500',
+  opacity: 0.4
+});
 const CoinDropIcon = styled('img')({
   height: '5.19px',
   width: '8.49px',
@@ -47,14 +54,38 @@ const CustomMenu = styled(Menu)({
   marginTop: '5%',
 });
 const CustomMenuItem = styled(MenuItem)({
-  paddingTop: 3,
-  paddingBottom: 3,
-  paddingRight: '30px',
+  paddingTop: 7,
+  paddingBottom: 7,
+  paddingRight: '35px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between'
+});
+const CustomMenuItem3 = styled(MenuItem)({
+  paddingTop: 7,
+  paddingBottom: 7,
+  paddingRight: '35px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  '&:hover':{
+    backgroundColor:'white'
+  }
+});
+
+const CustomMenuItem2 = styled('div')({
+  paddingRight: '70px',
+  display: 'flex',
+  alignItems: 'center',
 });
 const ImageIconDropDown = styled('img')({
-  height: '30px',
-  width: '30px',
-  paddingRight: '20px',
+  height: '36px',
+  width: '36px',
+  paddingRight: '10px',
+});
+const Right = styled('img')({
+  height: '8px',
+  width: '11px',
 });
 
 
@@ -93,11 +124,17 @@ const SwitchNetwork = () => {
           horizontal: 'left',
         }}
       >
+        <CustomMenuItem3>
+          <DropDownTitleIcon2>Select a Network</DropDownTitleIcon2>
+        </CustomMenuItem3>
         {DropDownData.map((val, i) => {
           return (
             <CustomMenuItem>
-              <ImageIconDropDown src={val.coin} alt="Icon" />
-              <DropDownTitleIcon>{val.name}</DropDownTitleIcon>
+              <CustomMenuItem2>
+                <ImageIconDropDown src={val.coin} alt="Icon" />
+                <DropDownTitleIcon>{val.name}</DropDownTitleIcon>
+              </CustomMenuItem2>
+              <Right src={right} />
             </CustomMenuItem>
           );
         })}

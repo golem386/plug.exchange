@@ -76,7 +76,9 @@ const ConditionPink = styled('p')({
   fontFamily: 'Inter',
   fontSize: '15px',
   fontWeight: '600',
-  color: '#BB36FF',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
   marginRight: 5,
   marginLeft: 5,
 });
@@ -86,7 +88,6 @@ const Condition = styled('p')({
   fontWeight: '600',
   display: 'flex',
   alignItems: 'center',
-  opacity:0.60
 });
 export type TransactionFailedProps = {
   handleClose: () => void;

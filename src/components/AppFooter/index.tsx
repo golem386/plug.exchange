@@ -20,6 +20,14 @@ const CustomButtom = styled(Button)({
   padding: '20px 0px',
   color: '#000000',
   opacity: '0.65',
+  '&:hover': {
+    borderRadius: 100,
+    margin: 10,
+    background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+    padding: '20px 0px',
+    color: '#000000',
+    opacity: '1',
+  }
 });
 const NameButton = styled(Button)({
   margin: 10,
@@ -34,7 +42,6 @@ const CustomButtomActive = styled(Button)({
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   padding: '20px 0px',
   color: '#000000',
-  opacity: '0.65',
 });
 const AppFooter = () => {
   return (
@@ -46,9 +53,9 @@ const AppFooter = () => {
         <CustomButtom>
           <img src={social} alt="social" />
         </CustomButtom>
-        <CustomButtomActive>
+        <CustomButtom>
           <img src={twiter} alt="twiter" />
-        </CustomButtomActive>
+        </CustomButtom>
         <CustomButtom>
           <img src={discord} alt="discord" />
         </CustomButtom>

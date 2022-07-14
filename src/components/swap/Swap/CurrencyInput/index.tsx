@@ -13,10 +13,10 @@ const SwapDiv = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  paddingLeft: 15,
-  paddingRight: 15,
+  paddingLeft: '5%',
+  paddingRight: '5%',
   cursor: 'pointer',
-  paddingTop: 15,
+  paddingTop: '5%',
 });
 const Pay = styled('span')({
   fontSize: '16px',
@@ -28,15 +28,17 @@ const Pay = styled('span')({
 const Max = styled('span')({
   fontSize: '16px',
   fontWeight: '500',
-  color: '#BB36FF',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
   fontFamily: 'Inter',
 });
 const MainViewInputToken = styled('div')({
   display: 'flex',
   alignItems: 'center',
   backgroundColor: '#f7f7f7',
-  marginLeft: 15,
-  marginRight: 15,
+  marginLeft: '5%',
+  marginRight: '5%',
   borderRadius: 16,
   paddingLeft: 10,
   height: 52,
@@ -48,8 +50,8 @@ const TextInput = styled('input')({
   border: 'none',
   height: '52px',
   fontFamily: 'Inter',
-  fontWeight: 600,
-  fontSize: '16px',
+  fontWeight: 500,
+  fontSize: '24px',
   backgroundColor: 'transparent',
   '&:focus-visible': {
     border: 'none',

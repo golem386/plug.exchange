@@ -11,10 +11,10 @@ const SwapDiv = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  paddingLeft: 15,
-  paddingRight: 15,
+  paddingLeft: '5%',
+  paddingRight: '5%',
   cursor: 'pointer',
-  paddingTop: 15,
+  paddingTop: '5%',
 });
 
 const Swap = styled('span')({

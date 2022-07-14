@@ -17,8 +17,8 @@ import Swap from '../../components/swap/Swap';
 import TransactionSettings from '../../components/swap/Swap/TransactionSettings';
 
 const MainDiv = styled('div')({
-  marginLeft: '5%',
-  marginRight: '5%',
+  marginLeft: '3%',
+  marginRight: '3%',
   marginTop: '4%',
 });
 const Quotadiv = styled('div')({
@@ -34,7 +34,7 @@ const SwapPage = () => {
       <AppBar />
       <MainDiv>
         <Grid container spacing={5}>
-          <Grid item sm={8}>
+          <Grid item sm={7}>
             <PairLineChart
               inputCurrency={null}
               outputCurrency={null}
@@ -50,7 +50,7 @@ const SwapPage = () => {
               <QuoteTables quotes={null} allowedSlippage={null} lastRefresh={null} userSelectedGasPrice={null} />
             </Quotadiv>
           </Grid>
-          <Grid item sm={4}>
+          <Grid item sm={5}>
             {Modal === 'Transaction' ? (
               <TransactionSettings isOpen={null} />
             ) : Modal === 'SelectToken' ? (
