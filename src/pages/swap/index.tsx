@@ -4,7 +4,7 @@
 // export { SwapPage };
 
 import styled from '@emotion/styled';
-import { Grid } from '@mui/material';
+import { Grid, useMediaQuery } from '@mui/material';
 import React, { Component } from 'react';
 import { useSelector } from 'react-redux';
 import AppBar from '../../components/AppBar';
@@ -27,7 +27,9 @@ const Quotadiv = styled('div')({
 const Resetmorediv = styled('div')({
   marginTop: '15%',
 });
+
 const SwapPage = () => {
+  const matches = useMediaQuery('(min-width:660px)');
   const Modal: string = useSelector((state: ArticleState) => state.modal);
   return (
     <>

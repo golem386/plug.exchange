@@ -1,6 +1,6 @@
 // this is a TransactionSettings file and Provide a TransactionSettings modal
 import styled from '@emotion/styled';
-import { Button, FormControlLabel, Radio } from '@mui/material';
+import { Button, FormControlLabel, Radio, useMediaQuery } from '@mui/material';
 import React from 'react';
 import close from '../../../../assets/icon/Cros.png';
 import Question from '../../../../assets/icon/Question.svg';
@@ -35,7 +35,7 @@ const Slippage = styled('div')({
   display: 'flex',
   alignItems: 'center',
   marginLeft: '5%',
-  opacity:'0.65'
+  opacity: '0.65'
 });
 const SlippageText = styled('p')({
   fontSize: '16px',
@@ -48,7 +48,7 @@ const QuestionIcon = styled('img')({
   width: 20,
   marginLeft: 5,
   marginBottom: 5,
-  opacity:'0.65'
+  opacity: '0.65'
 });
 const FlexView = styled('div')({
   display: 'flex',
@@ -81,9 +81,9 @@ const CustomButtonDisebal = styled(Button)({
   marginRight: '2.5%',
   height: '52px',
   width: '47%',
-  borderWidth:1,
-  borderColor:'black',
-  borderStyle:'solid'
+  borderWidth: 1,
+  borderColor: 'black',
+  borderStyle: 'solid'
 });
 const CustomButtonActiveNumber = styled(Button)({
   borderRadius: '16px',
@@ -98,20 +98,20 @@ const CustomButtonActiveNumber = styled(Button)({
   fontSize: 24,
   fontFamily: 'Inter',
   fontWeight: 500,
-  marginLeft:'2.5%'
+  marginLeft: '2.5%'
 });
 const MainInput = styled('div')({
   backgroundColor: '#f7f7f7',
   paddingRight: 10,
-  marginLeft:'5%',
-  marginRight:'5%',
+  marginLeft: '5%',
+  marginRight: '5%',
   borderRadius: '16px',
   height: '52px',
 });
 const TextInput = styled('input')({
   width: '80%',
   height: '52px',
-  paddingLeft:'5%',
+  paddingLeft: '5%',
   backgroundColor: 'transparent',
   borderBottom: 0,
   border: 'none',
@@ -127,13 +127,18 @@ const FlexViewJustyfy = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginLeft:'5%',
-  marginRight:'5%'
+  marginLeft: '5%',
+  marginRight: '5%'
 });
 const PriseText = styled('p')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
+});
+const PriseText2 = styled('p')({
+  fontFamily: 'Inter',
+  fontWeight: '600',
+  fontSize: '14px',
 });
 const TimeText = styled('p')({
   fontFamily: 'Inter',
@@ -153,12 +158,21 @@ const TimeTextPink = styled('p')({
   display: 'flex',
   alignItems: 'center',
 });
-
+const TimeTextPink2 = styled('p')({
+  fontFamily: 'Inter',
+  fontWeight: '500',
+  fontSize: '14px',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
+  display: 'flex',
+  alignItems: 'center',
+});
 const DownArrowIcon = styled('img')({
   height: '7.78px',
   width: '12.73px',
   marginLeft: 10,
-  cursor:'pointer'
+  cursor: 'pointer'
 });
 const Settings = styled('p')({
   fontWeight: '600',
@@ -174,8 +188,8 @@ const FlexRow = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginLeft:'5%',
-  marginRight:'5%'
+  marginLeft: '5%',
+  marginRight: '5%'
 });
 const AutoRout = styled('span')({
   fontFamily: 'Inter',
@@ -189,8 +203,8 @@ const MainDivs = styled('div')({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  marginLeft:'5%',
-  marginRight:'5%'
+  marginLeft: '5%',
+  marginRight: '5%'
 });
 const DivForms = styled('div')({
   display: 'flex',
@@ -222,7 +236,12 @@ const Span = styled('span')({
   fontSize: '16px',
   color: '#b3b3b3',
 });
-
+const Span2 = styled('span')({
+  fontFamily: 'Inter',
+  fontWeight: '500',
+  fontSize: '14px',
+  color: '#b3b3b3',
+});
 const TextTypeinput = styled('input')({
   backgroundColor: '#f7f7f7',
   border: 'none',
@@ -242,7 +261,7 @@ const TextTypeinput = styled('input')({
 });
 
 const CloseImage = styled('img')({
-  cursor:'pointer'
+  cursor: 'pointer'
 });
 
 export type TransactionSettingsProps = {
@@ -253,6 +272,7 @@ type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const TransactionSettings = (props: TransactionSettingsProps) => {
   const dispatch: AppDispatch = useDispatch();
   const [Slider, setSlider] = React.useState<Boolean>(false);
+  const matches = useMediaQuery('(min-width:660px)');
   const onModal = (article: any) => {
     dispatch(onModalOpen(article));
   };
@@ -282,16 +302,22 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
       </Slippage>
       <MainInput>
         <FlexView>
-          <TextInput placeholder='0'/>
+          <TextInput placeholder='0' />
           <Span>Minutes</Span>
         </FlexView>
       </MainInput>
       <hr />
       <FlexViewJustyfy>
-        <PriseText>Gas Price</PriseText>
+        {
+          matches ? <PriseText>Gas Price</PriseText> : <PriseText2>Gas Price</PriseText2>
+        }
+
         {Slider === false ? (
           <TimeText>
-            <Span>Instant (102.73 - 140.28 GWEI)</Span>
+            {
+              matches ? <Span>Instant (102.73 - 140.28 GWEI)</Span> : <Span2>Instant (102.73 - 140.28 GWEI)</Span2>
+            }
+
             <DownArrowIcon
               src={DownArrow}
               onClick={() => {
@@ -301,7 +327,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
             />
           </TimeText>
         ) : (
-          <TimeTextPink>
+          matches ? <TimeTextPink>
             Instant (102.73 - 140.28 GWEI)
             <DownArrowIcon
               onClick={() => {
@@ -310,7 +336,16 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
               src={TopArrow}
               alt="TopArrow"
             />
-          </TimeTextPink>
+          </TimeTextPink> : <TimeTextPink2>
+            Instant (102.73 - 140.28 GWEI)
+            <DownArrowIcon
+              onClick={() => {
+                setSlider(!Slider);
+              }}
+              src={TopArrow}
+              alt="TopArrow"
+            />
+          </TimeTextPink2>
         )}
       </FlexViewJustyfy>
       {Slider ? (

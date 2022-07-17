@@ -1,5 +1,5 @@
 import { styled } from '@material-ui/core';
-import { Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Modal } from '@mui/material';
+import { Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Modal, useMediaQuery } from '@mui/material';
 import React from 'react';
 import Cros from '../../assets/icon/Cros.png';
 import Search from '../../assets/icon/Search.png';
@@ -17,7 +17,6 @@ const MainDiv = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   width: '100%',
-  height:'50%',
   overflow:'auto'
 });
 const Token = styled('p')({
@@ -152,8 +151,9 @@ const CurrencyModal = (props: SelecttokenProps) => {
   };
   const CoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.CoinDetail);
   const receiveCoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.receiveCoinDetail);
+  const matches = useMediaQuery('(min-width:660px)');
   return (
-    <MainDiv>
+    <MainDiv style={{height:matches ? '50%' : '82%'}}>
       <Flex>
         <Token>Select a Token</Token>
         <CrosIcon

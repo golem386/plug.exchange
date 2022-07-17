@@ -1,6 +1,7 @@
 // this file is a UserAssets and Provide a List 
 import styled from '@emotion/styled';
 import { Margin } from '@mui/icons-material';
+import { useMediaQuery } from '@mui/material';
 import React from 'react';
 import { DropDownDataWallet } from '../../contexts/ConnectWalletDATA';
 
@@ -8,9 +9,9 @@ const NetWorth = styled('div')({
   backgroundColor: '#f7f7f7',
   paddingLeft: '10px',
   padding: '5px',
-  paddingTop:'5%',
-  paddingBottom:'5%',
-  marginTop:5,
+  paddingTop: '5%',
+  paddingBottom: '5%',
+  marginTop: 5,
 });
 const NetWorthTitle = styled('span')({
   fontSize: '14px',
@@ -30,8 +31,22 @@ const DropMain = styled('div')({
   alignItems: 'center',
   paddingLeft: 10,
   paddingRight: 15,
-  paddingTop:5,
-  paddingBottom:5,
+  paddingTop: 5,
+  paddingBottom: 5,
+  justifyContent: 'space-between',
+  cursor: 'pointer',
+  '&:hover': {
+    backgroundColor: '#f7f7f7',
+  },
+});
+const DropMain2 = styled('div')({
+  width: '94%',
+  display: 'flex',
+  alignItems: 'center',
+  paddingLeft: 10,
+  paddingRight: 15,
+  paddingTop: 5,
+  paddingBottom: 5,
   justifyContent: 'space-between',
   cursor: 'pointer',
   '&:hover': {
@@ -64,10 +79,11 @@ const DropPrice = styled('span')({
 
 export type UserAssetsProps = {
   // connetWalletData: Function;
-  account:String
+  account: String
 };
 
 const UserAssets = (props: UserAssetsProps) => {
+  const matches = useMediaQuery('(min-width:660px)');
   return (
     <>
       <NetWorth>
@@ -78,13 +94,20 @@ const UserAssets = (props: UserAssetsProps) => {
       </NetWorth>
       {DropDownDataWallet.map((val, i) => {
         return (
-          <DropMain>
+          matches ? <DropMain>
             <DIV>
-              <ImageIconDropDown src={val.coin} alt="Icon"/>
+              <ImageIconDropDown src={val.coin} alt="Icon" />
               <DropTitle>{val.Subname}</DropTitle>
             </DIV>
             <DropPrice>{val.Price}</DropPrice>
-          </DropMain>
+          </DropMain> : <DropMain2>
+            <DIV>
+              <ImageIconDropDown src={val.coin} alt="Icon" />
+              <DropTitle>{val.Subname}</DropTitle>
+            </DIV>
+            <DropPrice>{val.Price}</DropPrice>
+          </DropMain2>
+
         );
       })}
     </>

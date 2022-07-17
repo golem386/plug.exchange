@@ -72,7 +72,7 @@ const TitleControl = styled('div')({
   alignItems: 'center',
   marginLeft: '2%',
 });
-const ConditionPink = styled('p')({
+const ConditionPink = styled('span')({
   fontFamily: 'Inter',
   fontSize: '15px',
   fontWeight: '600',
@@ -80,7 +80,6 @@ const ConditionPink = styled('p')({
   color: "transparent",
   backgroundClip: "text",
   marginRight: 5,
-  marginLeft: 5,
 });
 const Condition = styled('p')({
   fontFamily: 'Inter',
@@ -88,6 +87,8 @@ const Condition = styled('p')({
   fontWeight: '600',
   display: 'flex',
   alignItems: 'center',
+  flexWrap: 'wrap',
+  
 });
 export type TransactionFailedProps = {
   handleClose: () => void;
@@ -118,7 +119,7 @@ const HighSlippage = (props: TransactionFailedProps) => {
           label=""
         />
         <Condition>
-          I accept the <ConditionPink>Terms of Services</ConditionPink>&<ConditionPink>Privacy Policy</ConditionPink>
+          I accept the &nbsp; <ConditionPink>Terms of Services</ConditionPink>&<ConditionPink>Privacy Policy</ConditionPink>
         </Condition>
       </TitleControl>
       {Check ? <ButtonsActive onClick={props.handleClose}>Close</ButtonsActive> : <Buttons>Close</Buttons>}

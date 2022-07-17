@@ -1,6 +1,6 @@
 // this is a QuoteTable file and Provide a table List and Data
 import styled from '@emotion/styled';
-import { Button, Grid, List } from '@mui/material';
+import { Button, Grid, List, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import DownArrow from '../../../assets/icon/DownArrow.png';
 import shere from '../../../assets/icon/Shere.png';
@@ -30,7 +30,7 @@ const FirseDiv = styled('div')({
   borderBottomWidth: '1px',
   borderBottomStyle: 'solid',
   borderBottomColor: '#e0e0e0',
-  width:'96%'
+  width: '96%'
 });
 const Title = styled('p')({
   color: 'rgba(0, 0, 0, 0.4)',
@@ -82,7 +82,7 @@ const ListDiv = styled('div')({
   borderWidth: 1,
   borderColor: '#f0f0f0',
   padding: 10,
-  width:'97%',
+  width: '97%',
   '&:hover': {
     backgroundColor: '#f2f2f2',
   },
@@ -164,160 +164,165 @@ type QuoteTableProps = {
   quotes: Quotes[] | null;
 };
 const QuoteTables = (props: QuoteTableProps) => {
+  const matches = useMediaQuery('(min-width:660px)');
   const [loardData, setLoardData] = useState<any>(1);
   const [blur, setBlur] = useState<Boolean>(true);
   return (
     <>
-      {blur ? (
-        <QuoteTable>
-          <FirseDiv>
-            <Title>
-              Max Price Slippage:{' '}
-              <MainSpan>
-                1%
-                <ImageSpan>
-                  <img src={DownArrow} alt="DownArrow" />
-                </ImageSpan>
-              </MainSpan>
-            </Title>
-            <Title>
-              Gas Price:{' '}
-              <MainSpan>
-                206 GWEI
-                <ImageSpan>
-                  <img src={DownArrow} alt="DownArrow" />
-                </ImageSpan>
-              </MainSpan>
-            </Title>
-          </FirseDiv>
-          <SecondDiv>
-            <DangerTitle>Data updated 18m ago. Please refresh:</DangerTitle>
-            <RefresBtn>Refresh</RefresBtn>
-          </SecondDiv>
-          <List aria-label="main mailbox folders">
-            {data.map((val, i) => {
-              return (
-                <>
-                  {loardData > i ? (
-                    <ListDiv>
-                      <HeaderDiv>
-                        <ImageIcon src={val.icon} alt="icon" />
-                        <TableTitle>{val.name}</TableTitle>
-                        <ShereIcon src={shere} alt="icon" />
-                      </HeaderDiv>
-                      <Grid container spacing={0}>
-                        <Grid item xs={4}>
-                          <Text>{val.get}</Text>
-                          <TextDown>
-                            {val.proce} <ChangeText>{val.pr}</ChangeText>
-                          </TextDown>
-                        </Grid>
-                        <Grid item xs={4}>
-                          <Text>
-                            {val.shortname} <ShortImage src={short} alt="icon" />
-                          </Text>
-                          <TextDown>{val.shortPrice}</TextDown>
-                        </Grid>
-                        <Grid item xs={4}>
-                          <Text>{val.gasfee}</Text>
-                          <TextDown>{val.gesprice}</TextDown>
-                        </Grid>
-                      </Grid>
-                    </ListDiv>
-                  ) : (
-                    ''
-                  )}
-                </>
-              );
-            })}
-          </List>
-        </QuoteTable>
-      ) : (
-        <CardCustom>
-          <FirseDiv>
-            <Title>
-              Max Price Slippage:{' '}
-              <MainSpan>
-                1%
-                <ImageSpan>
-                  <img src={DownArrow} alt="DownArrow" />
-                </ImageSpan>
-              </MainSpan>
-            </Title>
-            <Title>
-              Gas Price:{' '}
-              <MainSpan>
-                206 GWEI
-                <ImageSpan>
-                  <img src={DownArrow} alt="DownArrow" />
-                </ImageSpan>
-              </MainSpan>
-            </Title>
-          </FirseDiv>
-          <SecondDiv>
-            <DangerTitle>Data updated 18m ago. Please refresh:</DangerTitle>
-            <RefresBtn>Refresh</RefresBtn>
-          </SecondDiv>
-          <List aria-label="main mailbox folders">
-            {data.map((val, i) => {
-              return (
-                <>
-                  {loardData > i ? (
-                    <ListDiv>
-                      <HeaderDiv>
-                        <ImageIcon src={val.icon} alt="icon" />
-                        <MainTitle>{val.name}</MainTitle>
-                        <ShereIcon src={shere} alt="shere" />
-                      </HeaderDiv>
-                      <Grid container spacing={0}>
-                        <Grid item xs={4}>
-                          <Text>{val.get}</Text>
-                          <TextDown>
-                            {val.proce} <ChangeText>{val.pr}</ChangeText>
-                          </TextDown>
-                        </Grid>
-                        <Grid item xs={4}>
-                          <Text>
-                            {val.shortname} <ShortImage src={short} alt="Short-Icon" />
-                          </Text>
-                          <TextDown>{val.shortPrice}</TextDown>
-                        </Grid>
-                        <Grid item xs={4}>
-                          <Text>{val.gasfee}</Text>
-                          <TextDown>{val.gesprice}</TextDown>
-                        </Grid>
-                      </Grid>
-                    </ListDiv>
-                  ) : (
-                    ''
-                  )}
-                </>
-              );
-            })}
-          </List>
-        </CardCustom>
-      )}
-      {data.length === loardData || data.length + 1 === loardData ? (
-        <ShowMore
-          onClick={() => {
-            setLoardData(1);
-            setBlur(true);
-          }}
-        >
-          Hide Details
-          <DownArrowImgTop src={HideDetail} alt="Hide" />
-        </ShowMore>
-      ) : (
-        <ShowMore
-          onClick={() => {
-            setLoardData(data.length > loardData ? loardData + 2 : loardData);
-            setBlur(false);
-          }}
-        >
-          Show More Details
-          <DownArrowImg src={ShowMoreIcon} alt="Show" />
-        </ShowMore>
-      )}
+      {
+        matches ? <>
+          {blur ? (
+            <QuoteTable>
+              <FirseDiv>
+                <Title>
+                  Max Price Slippage:{' '}
+                  <MainSpan>
+                    1%
+                    <ImageSpan>
+                      <img src={DownArrow} alt="DownArrow" />
+                    </ImageSpan>
+                  </MainSpan>
+                </Title>
+                <Title>
+                  Gas Price:{' '}
+                  <MainSpan>
+                    206 GWEI
+                    <ImageSpan>
+                      <img src={DownArrow} alt="DownArrow" />
+                    </ImageSpan>
+                  </MainSpan>
+                </Title>
+              </FirseDiv>
+              <SecondDiv>
+                <DangerTitle>Data updated 18m ago. Please refresh:</DangerTitle>
+                <RefresBtn>Refresh</RefresBtn>
+              </SecondDiv>
+              <List aria-label="main mailbox folders">
+                {data.map((val, i) => {
+                  return (
+                    <>
+                      {loardData > i ? (
+                        <ListDiv>
+                          <HeaderDiv>
+                            <ImageIcon src={val.icon} alt="icon" />
+                            <TableTitle>{val.name}</TableTitle>
+                            <ShereIcon src={shere} alt="icon" />
+                          </HeaderDiv>
+                          <Grid container spacing={0}>
+                            <Grid item xs={4}>
+                              <Text>{val.get}</Text>
+                              <TextDown>
+                                {val.proce} <ChangeText>{val.pr}</ChangeText>
+                              </TextDown>
+                            </Grid>
+                            <Grid item xs={4}>
+                              <Text>
+                                {val.shortname} <ShortImage src={short} alt="icon" />
+                              </Text>
+                              <TextDown>{val.shortPrice}</TextDown>
+                            </Grid>
+                            <Grid item xs={4}>
+                              <Text>{val.gasfee}</Text>
+                              <TextDown>{val.gesprice}</TextDown>
+                            </Grid>
+                          </Grid>
+                        </ListDiv>
+                      ) : (
+                        ''
+                      )}
+                    </>
+                  );
+                })}
+              </List>
+            </QuoteTable>
+          ) : (
+            <CardCustom>
+              <FirseDiv>
+                <Title>
+                  Max Price Slippage:{' '}
+                  <MainSpan>
+                    1%
+                    <ImageSpan>
+                      <img src={DownArrow} alt="DownArrow" />
+                    </ImageSpan>
+                  </MainSpan>
+                </Title>
+                <Title>
+                  Gas Price:{' '}
+                  <MainSpan>
+                    206 GWEI
+                    <ImageSpan>
+                      <img src={DownArrow} alt="DownArrow" />
+                    </ImageSpan>
+                  </MainSpan>
+                </Title>
+              </FirseDiv>
+              <SecondDiv>
+                <DangerTitle>Data updated 18m ago. Please refresh:</DangerTitle>
+                <RefresBtn>Refresh</RefresBtn>
+              </SecondDiv>
+              <List aria-label="main mailbox folders">
+                {data.map((val, i) => {
+                  return (
+                    <>
+                      {loardData > i ? (
+                        <ListDiv>
+                          <HeaderDiv>
+                            <ImageIcon src={val.icon} alt="icon" />
+                            <MainTitle>{val.name}</MainTitle>
+                            <ShereIcon src={shere} alt="shere" />
+                          </HeaderDiv>
+                          <Grid container spacing={0}>
+                            <Grid item xs={4}>
+                              <Text>{val.get}</Text>
+                              <TextDown>
+                                {val.proce} <ChangeText>{val.pr}</ChangeText>
+                              </TextDown>
+                            </Grid>
+                            <Grid item xs={4}>
+                              <Text>
+                                {val.shortname} <ShortImage src={short} alt="Short-Icon" />
+                              </Text>
+                              <TextDown>{val.shortPrice}</TextDown>
+                            </Grid>
+                            <Grid item xs={4}>
+                              <Text>{val.gasfee}</Text>
+                              <TextDown>{val.gesprice}</TextDown>
+                            </Grid>
+                          </Grid>
+                        </ListDiv>
+                      ) : (
+                        ''
+                      )}
+                    </>
+                  );
+                })}
+              </List>
+            </CardCustom>
+          )}
+          {data.length === loardData || data.length + 1 === loardData ? (
+            <ShowMore
+              onClick={() => {
+                setLoardData(1);
+                setBlur(true);
+              }}
+            >
+              Hide Details
+              <DownArrowImgTop src={HideDetail} alt="Hide" />
+            </ShowMore>
+          ) : (
+            <ShowMore
+              onClick={() => {
+                setLoardData(data.length > loardData ? loardData + 2 : loardData);
+                setBlur(false);
+              }}
+            >
+              Show More Details
+              <DownArrowImg src={ShowMoreIcon} alt="Show" />
+            </ShowMore>
+          )}
+        </> : null
+      }
     </>
   );
 };

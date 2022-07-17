@@ -2,12 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import {
   ConnectNetWorkOne,
-  ConnectNetWorkTow,
-  ConnectWalletOne,
-  ConnectWalletThree,
-  ConnectWalletTow,
+  ConnectWalletOne
 } from '../../contexts/ConnectWalletDATA';
-import { Box, Button, FormControlLabel, Modal, Radio } from '@mui/material';
+import { Box, Button, FormControlLabel, Modal, Radio, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/system';
 import Cros from '../../assets/icon/Cros.png';
 import select from '../../assets/icon/select.png';
@@ -57,6 +54,7 @@ const Title3 = styled('span')({
 const ViewMainView = styled('div')({
   display: 'flex',
   alignItems: 'center',
+  flexWrap: 'wrap',
   marginLeft: '3%',
 });
 const ViewMain = styled('div')({
@@ -72,7 +70,6 @@ const ViewMain = styled('div')({
   paddingRight: '3%',
   marginLeft: 15,
   padding: '12px, 18px, 12px, 16px'
-
 });
 const ViewMainActive = styled('div')({
   position: 'relative',
@@ -94,8 +91,8 @@ const TitleControl = styled('div')({
   display: 'flex',
   alignItems: 'center',
   marginLeft: '5%',
-  marginTop:'2%',
-  marginBottom:'3%'
+  marginTop: '2%',
+  marginBottom: '3%'
 });
 const Condition = styled('p')({
   fontFamily: 'Inter',
@@ -103,8 +100,9 @@ const Condition = styled('p')({
   fontWeight: '600',
   display: 'flex',
   alignItems: 'center',
+  flexWrap: 'wrap',
 });
-const ConditionPink = styled('p')({
+const ConditionPink = styled('span')({
   fontFamily: 'Inter',
   fontSize: '15px',
   fontWeight: '600',
@@ -124,7 +122,7 @@ const ConnectButton = styled(Button)({
   fontSize: '16px',
   fontWeight: '600',
   textTransform: 'initial',
-  marginLeft:'4%',
+  marginLeft: '4%',
 });
 const ConnectButton2 = styled(Button)({
   width: '100%',
@@ -148,7 +146,7 @@ const ConnectButtonDisable = styled(Button)({
   fontWeight: '600',
   textTransform: 'initial',
   opacity: 0.3,
-  marginLeft:'4%',
+  marginLeft: '4%',
 });
 const SelectImg = styled('img')({
   position: 'absolute',
@@ -201,7 +199,12 @@ const ImageIcon = styled('img')({
   width: 35,
   marginRight: 10,
 });
-const Over = styled('div')({});
+const Over = styled('div')({
+
+});
+const Over2 = styled('div')({
+
+});
 const ButtonGroup = styled('div')({
   marginTop: '3%'
 });
@@ -262,7 +265,7 @@ const WalletModal = (props: WalletModalProps) => {
   const [NetworkData, setNetwork] = React.useState<DataObject>(nullObj);
   const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
-
+  const matches = useMediaQuery('(min-width:660px)');
 
   const handleOpenError = () => setErrorStatus(true);
   const handleCloseError = () => setErrorStatus(false);
@@ -308,33 +311,80 @@ const WalletModal = (props: WalletModalProps) => {
           alt="Image"
         />
       </TitleView>
-      <Over>
-        <Main>
-          <Title>Choose Network</Title>
-          <ButtonGroup>
-            <ViewMainView>
-              {ConnectNetWorkOne.map((val, i) => {
-                return NetworkData.name === val.name ? (
-                  <ViewMainActive>
-                    <SelectImg src={select} alt="Select_Icon" />
-                    <ImageIcon src={val.coin} alt="Coin" />
-                    <TitleIcon>{val.name}</TitleIcon>
-                  </ViewMainActive>
-                ) : (
-                  <ViewMain
+      {
+        matches ? <Over>
+          <Main>
+            <Title>Choose Network</Title>
+            <ButtonGroup>
+              <ViewMainView>
+                {ConnectNetWorkOne.map((val, i) => {
+                  return NetworkData.name === val.name ? (
+                    <ViewMainActive>
+                      <SelectImg src={select} alt="Select_Icon" />
+                      <ImageIcon src={val.coin} alt="Coin" />
+                      <TitleIcon>{val.name}</TitleIcon>
+                    </ViewMainActive>
+                  ) : (
+                    <ViewMain
+                      onClick={() => {
+                        connetNetworkFunction(val);
+                      }}
+                    >
+                      <ImageIcon src={val.coin} alt="Coin" />
+                      <TitleIcon>{val.name}</TitleIcon>
+                    </ViewMain>
+                  );
+                })}
+              </ViewMainView>
+              <ViewMainView>
+                <ViewMain>
+                  <TitleIcon
                     onClick={() => {
-                      connetNetworkFunction(val);
+                      handleOpenError();
                     }}
                   >
-                    <ImageIcon src={val.coin} alt="Coin" />
-                    <TitleIcon>{val.name}</TitleIcon>
-                  </ViewMain>
-                );
-              })}
-            </ViewMainView>
+                    Error Modal
+                  </TitleIcon>
+                </ViewMain>
+                <ModalCustom
+                  open={ErrorStatus}
+                  onClose={() => {
+                    handleCloseError();
+                  }}
+                >
+                  <Box sx={styleError}>
+                    <TitleView2>
+                      <Title3>Wrong Network</Title3>
+                      <img
+                        src={Cros}
+                        onClick={() => {
+                          handleCloseError();
+                        }}
+                        alt="Cros"
+                      />
+                    </TitleView2>
+                    <MainDiv>
+                      <ImageIcon src={Coin} alt="Coin" />
+                      <Span>Arbitrum</Span>
+                    </MainDiv>
+                    <br />
+                    <Warning>You select wrong network please select anothor network</Warning>
+                    <br />
+                    <br />
+                    <ConnectButton2 variant="text" onClick={() => { }}>
+                      Ok
+                    </ConnectButton2>
+                  </Box>
+                </ModalCustom>
+              </ViewMainView>
+            </ButtonGroup>
+          </Main>
+
+          <Title>Choose Wallet</Title>
+          <ButtonGroup>
             <ViewMainView>
-              {ConnectNetWorkTow.map((val, i) => {
-                return NetworkData.name === val.name ? (
+              {ConnectWalletOne.map((val, i) => {
+                return WalletData.name === val.name ? (
                   <ViewMainActive>
                     <SelectImg src={select} alt="Select" />
                     <ImageIcon src={val.coin} alt="Coin" />
@@ -343,7 +393,7 @@ const WalletModal = (props: WalletModalProps) => {
                 ) : (
                   <ViewMain
                     onClick={() => {
-                      connetNetworkFunction(val);
+                      connetWalletFunction(val);
                     }}
                   >
                     <ImageIcon src={val.coin} alt="Coin" />
@@ -352,7 +402,32 @@ const WalletModal = (props: WalletModalProps) => {
                 );
               })}
             </ViewMainView>
-            <ViewMainView>
+          </ButtonGroup>
+        </Over> : <Over2>
+          <Main>
+            <Title>Choose Network</Title>
+            <ButtonGroup>
+              <ViewMainView>
+                {ConnectNetWorkOne.map((val, i) => {
+                  return NetworkData.name === val.name ? (
+                    <ViewMainActive>
+                      <SelectImg src={select} alt="Select_Icon" />
+                      <ImageIcon src={val.coin} alt="Coin" />
+                      <TitleIcon>{val.name}</TitleIcon>
+                    </ViewMainActive>
+                  ) : (
+                    <ViewMain
+                      onClick={() => {
+                        connetNetworkFunction(val);
+                      }}
+                    >
+                      <ImageIcon src={val.coin} alt="Coin" />
+                      <TitleIcon>{val.name}</TitleIcon>
+                    </ViewMain>
+                  );
+                })}
+              </ViewMainView>
+              {/* <ViewMainView>
               <ViewMain>
                 <TitleIcon
                   onClick={() => {
@@ -392,78 +467,40 @@ const WalletModal = (props: WalletModalProps) => {
                   </ConnectButton2>
                 </Box>
               </ModalCustom>
+            </ViewMainView> */}
+            </ButtonGroup>
+          </Main>
+
+          <Title>Choose Wallet</Title>
+          <ButtonGroup>
+            <ViewMainView>
+              {ConnectWalletOne.map((val, i) => {
+                return WalletData.name === val.name ? (
+                  <ViewMainActive>
+                    <SelectImg src={select} alt="Select" />
+                    <ImageIcon src={val.coin} alt="Coin" />
+                    <TitleIcon>{val.name}</TitleIcon>
+                  </ViewMainActive>
+                ) : (
+                  <ViewMain
+                    onClick={() => {
+                      connetWalletFunction(val);
+                    }}
+                  >
+                    <ImageIcon src={val.coin} alt="Coin" />
+                    <TitleIcon>{val.name}</TitleIcon>
+                  </ViewMain>
+                );
+              })}
             </ViewMainView>
           </ButtonGroup>
-        </Main>
+        </Over2>
+      }
 
-        <Title>Choose Wallet</Title>
-        <ButtonGroup>
-          <ViewMainView>
-            {ConnectWalletOne.map((val, i) => {
-              return WalletData.name === val.name ? (
-                <ViewMainActive>
-                  <SelectImg src={select} alt="Select" />
-                  <ImageIcon src={val.coin} alt="Coin" />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMainActive>
-              ) : (
-                <ViewMain
-                  onClick={() => {
-                    connetWalletFunction(val);
-                  }}
-                >
-                  <ImageIcon src={val.coin} alt="Coin" />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMain>
-              );
-            })}
-          </ViewMainView>
-          <ViewMainView>
-            {ConnectWalletTow.map((val, i) => {
-              return WalletData.name === val.name ? (
-                <ViewMainActive>
-                  <SelectImg src={select} alt="Select" />
-                  <ImageIcon src={val.coin} alt="Coin" />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMainActive>
-              ) : (
-                <ViewMain
-                  onClick={() => {
-                    connetWalletFunction(val);
-                  }}
-                >
-                  <ImageIcon src={val.coin} alt="Coin" />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMain>
-              );
-            })}
-          </ViewMainView>
-          <ViewMainView>
-            {ConnectWalletThree.map((val, i) => {
-              return WalletData.name === val.name ? (
-                <ViewMainActive>
-                  <SelectImg src={select} alt="Select" />
-                  <ImageIcon src={val.coin} alt="Coin" />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMainActive>
-              ) : (
-                <ViewMain
-                  onClick={() => {
-                    connetWalletFunction(val);
-                  }}
-                >
-                  <ImageIcon src={val.coin} alt="Coin" />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMain>
-              );
-            })}
-          </ViewMainView>
-        </ButtonGroup>
-      </Over>
       <TitleControl>
         <FormControlLabel control={<Radio onClick={() => { setCheck(!Check) }} checked={Check ? true : false} />} label="" />
         <Condition>
-          I accept the <ConditionPink>Terms of Services</ConditionPink>
+          I accept the <ConditionPink>Terms of Services</ConditionPink>&
           <ConditionPink>Privacy Policy</ConditionPink>
         </Condition>
       </TitleControl>

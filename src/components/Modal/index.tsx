@@ -10,10 +10,7 @@ import TransactionCompleted from '../swap/Swap/SwapConfirmModal/TransactionCompl
 import SwapConfirmModal from '../swap/Swap/SwapConfirmModal';
 import {
   ConnectNetWorkOne,
-  ConnectNetWorkTow,
-  ConnectWalletOne,
-  ConnectWalletThree,
-  ConnectWalletTow,
+  ConnectWalletOne
 } from '../../contexts/ConnectWalletDATA';
 import { Box, Button, FormControlLabel, Modal, Radio } from '@mui/material';
 import WalletModal from '../WalletModal';

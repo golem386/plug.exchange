@@ -82,9 +82,6 @@ export const ConnectNetWorkOne = [
     name: 'Binance',
     coin: binance,
   },
-];
-
-export const ConnectNetWorkTow = [
   {
     name: 'Polygon',
     coin: Coin4,
@@ -118,9 +115,6 @@ export const ConnectWalletOne = [
     Subname: '32.20 BNB',
     Price: '$59.26',
   },
-];
-
-export const ConnectWalletTow = [
   {
     name: 'Wallet Connect',
     coin: wallet,
@@ -139,9 +133,6 @@ export const ConnectWalletTow = [
     Subname: '1745.1485 BNB',
     Price: '$652.0045',
   },
-];
-
-export const ConnectWalletThree = [
   {
     name: 'Arkane',
     coin: arkane,
@@ -155,3 +146,4 @@ export const ConnectWalletThree = [
     Price: '$56.02600',
   },
 ];
+

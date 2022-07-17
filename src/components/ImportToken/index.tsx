@@ -1,6 +1,6 @@
 // this file is a ImportToken file and Provide a Token id
 import styled from '@emotion/styled';
-import { Button, FormControlLabel, Radio } from '@mui/material';
+import { Button, FormControlLabel, Radio, useMediaQuery } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import Cros from '../../assets/icon/Cros.png';
@@ -20,6 +20,22 @@ const style = {
   paddingBottom: 6,
   paddingTop: 0,
   height: '85%',
+  borderRadius: 5,
+  overFlow: 'auto',
+};
+const style2 = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '82%',
+  bgcolor: 'white',
+  boxShadow: 24,
+  paddingLeft: 4,
+  paddingRight: 4,
+  paddingBottom: 6,
+  paddingTop: 0,
+  height: '70%',
   borderRadius: 5,
   overFlow: 'auto',
 };
@@ -59,6 +75,12 @@ const TokenCodeKey = styled('span')({
   fontFamily: 'Inter',
   fontWeight: 500,
   fontSize: 16,
+  color: '#dbdbdb',
+});
+const TokenCodeKey2 = styled('span')({
+  fontFamily: 'Inter',
+  fontWeight: 500,
+  fontSize: 14,
   color: '#dbdbdb',
 });
 const Warning = styled('div')({
@@ -115,7 +137,7 @@ const ConnectButton = styled(Button)({
   fontSize: '16px',
   fontWeight: 600,
   textTransform: 'initial',
-  height:'52px'
+  height: '52px'
 });
 const ConnectButtonDisabal = styled(Button)({
   width: '100%',
@@ -128,7 +150,7 @@ const ConnectButtonDisabal = styled(Button)({
   fontWeight: 600,
   textTransform: 'initial',
   opacity: 0.3,
-  height:'52px'
+  height: '52px'
 });
 
 type Token = {};
@@ -140,9 +162,10 @@ export type ImportTokenProps = {
 
 const ImportToken = (props: ImportTokenProps) => {
   const [Check, setCheck] = React.useState<Boolean>(false);
+  const matches = useMediaQuery('(min-width:660px)');
   return (
-    <Box sx={style}>
-      <TitleView>
+    matches ? <Box sx={style}>
+      < TitleView >
         <Title>Import a Token</Title>
         <img
           src={Cros}
@@ -151,7 +174,7 @@ const ImportToken = (props: ImportTokenProps) => {
           }}
           alt="image"
         />
-      </TitleView>
+      </TitleView >
       <UserId>
         <TokenImg src={coin} alt="coin" />
         <TokenName>
@@ -186,14 +209,69 @@ const ImportToken = (props: ImportTokenProps) => {
         />
         <Parmition>I understand and want to proceed.</Parmition>
       </ParmitionDiv>
+      {
+        Check ? (
+          <ConnectButton variant="text" onClick={() => { }}>
+            Import Token
+          </ConnectButton>
+        ) : (
+          <ConnectButtonDisabal variant="text">Import Token</ConnectButtonDisabal>
+        )
+      }
+    </Box > : <Box sx={style2}>
+      <TitleView>
+        <Title>Import a Token</Title>
+        <img
+          src={Cros}
+          onClick={() => {
+            props.handleClose();
+          }}
+          alt="image"
+        />
+      </TitleView>
+      <UserId>
+        <TokenImg src={coin} alt="coin" />
+        <TokenName>
+          Tether <TokenCode>(USDT)</TokenCode>
+        </TokenName>
+      </UserId>
+      <TokenCodeKey2>0x1ce0c2827e2ef14d5c4f29a091d735a204794041</TokenCodeKey2>
+      <Warning>
+        <Red>
+          <Info src={info} />
+          <WarningText>Trade at your own risk!</WarningText>
+        </Red>
+        <Pre>
+          &nbsp;&nbsp;&nbsp;Anyone can create a token, including creating fake versions of existing tokens that claim to
+          represent proects.
+        </Pre>
+        <br />
+        <br />
+        <Pre>&nbsp;&nbsp;&nbsp;If you purchase this token, you may not be able to sell it back.</Pre>
+      </Warning>
+      <ParmitionDiv>
+        <FormControlLabel
+          control={
+            <Radio
+              onClick={(e: any) => {
+                setCheck(!Check);
+              }}
+              checked={Check ? true : false}
+            />
+          }
+          label=""
+        />
+        <Parmition>I understand and want to proceed.</Parmition>
+      </ParmitionDiv>
       {Check ? (
-        <ConnectButton variant="text" onClick={() => {}}>
+        <ConnectButton variant="text" onClick={() => { }}>
           Import Token
         </ConnectButton>
       ) : (
         <ConnectButtonDisabal variant="text">Import Token</ConnectButtonDisabal>
       )}
     </Box>
+
   );
 };
 

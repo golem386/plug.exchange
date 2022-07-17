@@ -16,6 +16,8 @@ interface Alert {
 type ArticleState = {
   Alert: Alert,
   modal: any;
+  Search:any;
+  Menu:any;
   Modal: boolean;
   CoinDetail: {
     name: String;

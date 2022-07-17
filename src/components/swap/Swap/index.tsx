@@ -1,6 +1,6 @@
 // this is a swap index file and Provide a Swap modal layout
 import styled from '@emotion/styled';
-import { Button } from '@mui/material';
+import { Button, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -18,6 +18,7 @@ import TransactionWaiting from './SwapConfirmModal/TransactionWaiting';
 import SwapHeader from './SwapHeader';
 import SwapRouter from './SwapRouter';
 import SwapTransactionDetails from './SwapTransactionDetails';
+import WhiteQue from '../../../assets/icon/WhiteQue.png'
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -32,9 +33,37 @@ const OrderBtn = styled(Button)({
   color: 'white',
   borderRadius: '12px',
   marginBottom: '6%',
-  marginTop: '10%',
+  marginTop: '5%',
   textTransform: 'initial',
 });
+const OrderBtnDisebal = styled(Button)({
+  margin: 15,
+  width: '93%',
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  color: 'white',
+  borderRadius: '12px',
+  marginBottom: '6%',
+  marginTop: '5%',
+  textTransform: 'initial',
+  opacity: 0.4
+});
+
+const ParmitionBtn = styled(Button)({
+  marginLeft: 15,
+  marginRight: 15,
+  marginTop: 15,
+  width: '93%',
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  color: 'white',
+  borderRadius: '12px',
+  textTransform: 'initial',
+  display: 'flex',
+  alignItems: 'center',
+  fontFamily: 'Inter',
+  fontWeight: '600',
+  fontSize: '16px'
+});
+
 const Boxs = styled('div')({
   backgroundColor: 'white',
   paddingBottom: 30,
@@ -55,6 +84,11 @@ const WrongBtn = styled(Button)({
   marginTop: '10%',
   textTransform: 'initial',
 });
+const Img = styled('img')({
+  height: 20,
+  width: 20,
+  marginLeft: 20
+});
 
 type WalletType = {
   name: String;
@@ -72,6 +106,7 @@ export type SwapProps = {
 type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const Swap = (props: SwapProps) => {
   const dispatch: AppDispatch = useDispatch();
+  const matches = useMediaQuery('(min-width:660px)');
   const ConnectWallet: WalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
   const [TransactionWaitingopen, setTransactionWaitingOpen] = useState(false);
@@ -79,6 +114,8 @@ const Swap = (props: SwapProps) => {
   const [TransactionFaildopen, setTransactionFaildopen] = useState(false);
   const [SwapConfirmModalopen, setSwapConfirmModalOpen] = useState(false);
   const [HighSlippageModalopen, setHighSlippageModalOpen] = useState(false);
+  const [Parmition, SetParmition] = useState(false);
+
   const closeModel = () => {
     setTransactionWaitingOpen(false);
   };
@@ -197,10 +234,19 @@ const Swap = (props: SwapProps) => {
             />
           </Boxs>
         </Modal>
+        {
+          matches ? !Parmition ? <ParmitionBtn onClick={() => { SetParmition(true) }}>
+            Allow the Plug protocol to use your ETH.
+            <Img src={WhiteQue} />
+          </ParmitionBtn> : null : !Parmition ? <ParmitionBtn onClick={() => { SetParmition(true) }}>
+            Allow the Plug protocol to <br /> use your ETH.
+            <Img src={WhiteQue} />
+          </ParmitionBtn> : null
+        }
         {ConnectWallet.name === '' && CoinNetwork.name !== '' ? (
           <WrongBtn>Wrong Network</WrongBtn>
         ) : (
-          <OrderBtn
+          Parmition ? <OrderBtn
             onClick={
               ConnectWallet.name !== '' && CoinNetwork.name !== ''
                 ? () => {
@@ -222,7 +268,7 @@ const Swap = (props: SwapProps) => {
             }
           >
             {ConnectWallet.name !== '' && CoinNetwork.name !== '' ? 'Swap' : props.btnTitle}
-          </OrderBtn>
+          </OrderBtn> : <OrderBtnDisebal>Swap</OrderBtnDisebal>
         )}
       </MainDiv>
       {props.btnTitle === 'Connect Wallet' ? (

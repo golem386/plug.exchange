@@ -5,7 +5,7 @@ import discord from '../../assets/icon/discord.png';
 import social from '../../assets/icon/social.png';
 import teligram from '../../assets/icon/teligram.png';
 import twiter from '../../assets/icon/twiter.png';
-import { Button } from '@mui/material';
+import { Button, useMediaQuery } from '@mui/material';
 
 const MainComponent = styled('div')({
   display: 'flex',
@@ -43,29 +43,57 @@ const CustomButtomActive = styled(Button)({
   padding: '20px 0px',
   color: '#000000',
 });
+const BtnGroup = styled('div')({
+ backgroundColor:"transparent",
+ height:100,
+ display:'flex',
+ alignItems:'center',
+ justifyContent:'space-around',
+ boxShadow:'0px -9px 20px 0px #bdbdbd',
+ width:'100%'
+});
+const ActiveBtn = styled('button')({
+  background:"linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  height:36,
+  paddingLeft:'10%',
+  paddingRight:'10%',
+  border:'none',
+  borderRadius:'100px',
+  fontFamily:'Inter',
+  fontWeight:'500',
+  fontSize:'16px',
+  color:'white'
+ });
+
 const AppFooter = () => {
+  const matches = useMediaQuery('(min-width:660px)');
   return (
-    <MainComponent>
-      <div>
-        <CustomButtom>
-          <img src={teligram} alt="teligram" />
-        </CustomButtom>
-        <CustomButtom>
-          <img src={social} alt="social" />
-        </CustomButtom>
-        <CustomButtom>
-          <img src={twiter} alt="twiter" />
-        </CustomButtom>
-        <CustomButtom>
-          <img src={discord} alt="discord" />
-        </CustomButtom>
-      </div>
-      <div>
-        <NameButton>FAQs</NameButton>
-        <NameButton>Docs</NameButton>
-        <NameButton>Careers</NameButton>
-      </div>
-    </MainComponent>
+    <>
+      {
+        matches ? <MainComponent>
+          <div>
+            <CustomButtom>
+              <img src={teligram} alt="teligram" />
+            </CustomButtom>
+            <CustomButtom>
+              <img src={social} alt="social" />
+            </CustomButtom>
+            <CustomButtom>
+              <img src={twiter} alt="twiter" />
+            </CustomButtom>
+            <CustomButtom>
+              <img src={discord} alt="discord" />
+            </CustomButtom>
+          </div>
+          <div>
+            <NameButton>FAQs</NameButton>
+            <NameButton>Docs</NameButton>
+            <NameButton>Careers</NameButton>
+          </div>
+        </MainComponent> : null
+      }
+    </>
+
   );
 };
 

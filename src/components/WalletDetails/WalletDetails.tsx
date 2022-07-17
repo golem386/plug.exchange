@@ -1,6 +1,6 @@
 // this file is a WalletDetails file and provide a History
 import styled from '@emotion/styled';
-import { Menu } from '@mui/material';
+import { Menu, useMediaQuery } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { connetNetwork, connetWallet } from '../../store/Actions';
@@ -25,15 +25,15 @@ const Copy = styled('div')({
   paddingLeft: '10px',
   alignItems: 'center',
   display: 'flex',
-  opacity:'0.65',
+  opacity: '0.65',
   '&:hover': {
     backgroundColor: '#f7f7f7',
   },
 });
 const Id = styled('p')({
-  fontFamily:'Inter',
-  fontSize:'16px',
-  fontWeight:'600'
+  fontFamily: 'Inter',
+  fontSize: '16px',
+  fontWeight: '600'
 });
 
 const DropPrice = styled('span')({
@@ -52,8 +52,8 @@ const FileCopy = styled('img')({
 const HistoryDiv = styled('div')({
   backgroundColor: '#f7f7f7',
   paddingLeft: 15,
-  paddingTop:10,
-  paddingBottom:10
+  paddingTop: 10,
+  paddingBottom: 10
 });
 const HistoryTitle = styled('span')({
   fontSize: '16px',
@@ -72,7 +72,7 @@ const MainDiv = styled('div')({
 const CoinPrice = styled('span')({
   display: 'flex',
   alignItems: 'center',
-  justifyContent:'space-evenly',
+  justifyContent: 'space-evenly',
   backgroundColor: '#fafafa',
   padding: '0px 10px',
   fontSize: '16px',
@@ -82,9 +82,9 @@ const CoinPrice = styled('span')({
   textTransform: 'initial',
   marginRight: '3%',
   borderRadius: 16,
-  border:'none',
+  border: 'none',
   height: 52,
-  width:'100%',
+  width: '100%',
 });
 const Into = styled('p')({
   backgroundColor: 'white',
@@ -95,8 +95,8 @@ const Into = styled('p')({
   fontWeight: 600,
   fontSize: 16,
   fontFamily: 'Inter',
-  marginBottom:'6%',
-  color:'#565656'
+  marginBottom: '6%',
+  color: '#565656'
 });
 const ImageIconDropDown = styled('img')({
   height: '30px',
@@ -105,6 +105,27 @@ const ImageIconDropDown = styled('img')({
 });
 const CustomMenu = styled(Menu)({
   marginTop: '5%',
+});
+const CustomMenu2 = styled('div')({
+  position: 'fixed',
+  top: '15%',
+  left: 5,
+  borderRadius: 20,
+  backgroundColor: 'white',
+  width: '95%',
+  padding:5
+});
+const OverLay = styled(Menu)({
+  position: 'fixed',
+  width: '100%',
+  height: '100%',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'rgba(0,0,0,0.5)',
+  zIndex: 2,
+  cursor: "pointer",
 });
 const CoinDropIcon = styled('img')({
   height: '5.19px',
@@ -215,9 +236,31 @@ const Name = styled('p')({
   fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 16,
-  color:'#565656'
+  color: '#565656'
 });
-
+const Btn = styled('button')({
+  background: "#f7f7f7",
+  height: 36,
+  width: 150,
+  paddingLeft: '10%',
+  paddingRight: '7%',
+  paddingTop: '5%',
+  paddingBottom: '5%',
+  border: 'none',
+  borderRadius: '100px',
+  fontFamily: 'Inter',
+  fontWeight: '500',
+  fontSize: '16px',
+  color: 'black',
+  display: 'flex',
+  alignItems: 'center',
+  textTransform: 'initial'
+});
+const Img = styled('img')({
+  height: '20px',
+  width: '20px',
+  marginRight: 10
+});
 const Status = styled('div')({});
 const Share = styled('div')({});
 const Eth = styled('div')({});
@@ -235,6 +278,7 @@ const nullObj = {
 type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 
 const WalletDetails = () => {
+  const matches = useMediaQuery('(min-width:660px)');
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -270,59 +314,107 @@ const WalletDetails = () => {
   };
   return (
     <div>
-      <CoinPrice
-        onClick={handleClickPrice}
-      >
-        <ImageIconDropDown src={CoinDetail.coin} alt="Coin" />
-        <Name>{CoinDetail.Subname}</Name>
-        <Into>{CoinDetail.Price}</Into>
-        <CoinDropIcon src={DownArrow} alt="DownArrow" />
-      </CoinPrice>
-      <CustomMenu
-        anchorEl={anchorElPrice}
-        open={openmenuPrice}
-        onClose={handleClosemenuPrice}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-      >
-        <DropPrice>Connected with MetaMask</DropPrice>
-        <Copy>
-          <FileCopy src={filecopy} alt="Copy" />
-          <Id>0x37...0420</Id>
-        </Copy>
+      {
+        matches ? <CoinPrice
+          onClick={handleClickPrice}
+        >
+          <ImageIconDropDown src={CoinDetail.coin} alt="Coin" />
+          <Name>{CoinDetail.Subname}</Name>
+          <Into>{CoinDetail.Price}</Into>
+          <CoinDropIcon src={DownArrow} alt="DownArrow" />
+        </CoinPrice> :
+          <Btn onClick={handleClickPrice}>
+            <Img src={CoinDetail.coin} />
+            {CoinDetail.Subname}
+          </Btn>
+      }
 
-        <UserAssets account="" />
-        <HistoryDiv>
-          <MainDiv
-            onClick={() => {
-              handleOpen();
+      {
+        matches ? <CustomMenu
+          anchorEl={anchorElPrice}
+          open={openmenuPrice}
+          onClose={handleClosemenuPrice}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+          }}
+        >
+          <DropPrice>Connected with MetaMask</DropPrice>
+          <Copy>
+            <FileCopy src={filecopy} alt="Copy" />
+            <Id>0x37...0420</Id>
+          </Copy>
+
+          <UserAssets account="" />
+          <HistoryDiv>
+            <MainDiv
+              onClick={() => {
+                handleOpen();
+              }}
+            >
+              <img src={History} alt="History" />
+              <HistoryTitle>History</HistoryTitle>
+            </MainDiv>
+            <MainDiv
+              onClick={() => {
+                DisConnectWallet();
+              }}
+            >
+              <img src={DisConnect} alt="Disconnect" />
+              <HistoryTitle>{CoinNetwork.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
+            </MainDiv>
+          </HistoryDiv>
+          <SwapTransactionHistory
+            close={() => {
+              handleClose();
             }}
-          >
-            <img src={History} alt="History" />
-            <HistoryTitle>History</HistoryTitle>
-          </MainDiv>
-          <MainDiv
-            onClick={() => {
-              DisConnectWallet();
-            }}
-          >
-            <img src={DisConnect} alt="Disconnect" />
-            <HistoryTitle>{CoinNetwork.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
-          </MainDiv>
-        </HistoryDiv>
+            isOpen={open}
+          />
+        </CustomMenu> : <OverLay
+          anchorEl={anchorElPrice}
+          open={openmenuPrice}
+          onClose={handleClosemenuPrice}
+        >
+          <CustomMenu2>
+            <DropPrice>Connected with MetaMask</DropPrice>
+            <Copy>
+              <FileCopy src={filecopy} alt="Copy" />
+              <Id>0x37...0420</Id>
+            </Copy>
+
+            <UserAssets account="" />
+            <HistoryDiv>
+              <MainDiv
+                onClick={() => {
+                  handleOpen();
+                }}
+              >
+                <img src={History} alt="History" />
+                <HistoryTitle>History</HistoryTitle>
+              </MainDiv>
+              <MainDiv
+                onClick={() => {
+                  DisConnectWallet();
+                }}
+              >
+                <img src={DisConnect} alt="Disconnect" />
+                <HistoryTitle>{CoinNetwork.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
+              </MainDiv>
+            </HistoryDiv>
             <SwapTransactionHistory
               close={() => {
                 handleClose();
               }}
               isOpen={open}
             />
-      </CustomMenu>
+          </CustomMenu2>
+        </OverLay>
+      }
+
     </div>
   );
 };

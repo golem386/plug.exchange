@@ -1,6 +1,6 @@
 // this file is a WalletDetails file and provide a History
 import styled from '@emotion/styled';
-import { Box, FormControl, Menu, NativeSelect, Tab, Tabs } from '@mui/material';
+import { Box, FormControl, Menu, NativeSelect, Tab, Tabs, useMediaQuery } from '@mui/material';
 import React, { useEffect } from 'react';
 import Cros from '../../assets/icon/Cros.png';
 import { HistoryDATA, HistorySwapDATA } from '../../contexts/HistoryDATA';
@@ -75,9 +75,9 @@ const CustomButtonActive = styled('button')({
 
 
 const TabsBtn = styled('div')({
-  paddingLeft:'3%',
-  paddingTop:'1%',
-  paddingBottom:'1%'
+  paddingLeft: '3%',
+  paddingTop: '1%',
+  paddingBottom: '1%'
 });
 const BoxsModal = styled('div')({
   backgroundColor: 'white',
@@ -86,9 +86,16 @@ const BoxsModal = styled('div')({
   borderRadius: 10,
 });
 
+const BoxsModal2 = styled('div')({
+  backgroundColor: 'white',
+  width: '100%',
+  height: '98%',
+  borderRadius: 10,
+});
+
 const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {
   const [value, setValue] = React.useState('All');
-
+  const matches = useMediaQuery('(min-width:660px)');
   return (
     <Modal
       isOpen={props.isOpen}
@@ -97,47 +104,90 @@ const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {
         props.close();
       }}
     >
-      <BoxsModal>
-        <Header>
-          <HeaderText>Transaction History</HeaderText>
-          <Image
-            src={Cros}
-            onClick={() => {
-              props.close();
-            }}
-          />
-        </Header>
-        <TabsBtn>
-          {value === 'All' ? (
-            <CustomButtonActive>All</CustomButtonActive>
-          ) : (
-            <CustomButton
+      {
+        matches ? <BoxsModal>
+          <Header>
+            <HeaderText>Transaction History</HeaderText>
+            <Image
+              src={Cros}
               onClick={() => {
-                setValue('All');
+                props.close();
               }}
-            >
-              All
-            </CustomButton>
-          )}
-          {value === 'Swaps' ? (
-            <CustomButtonActive>Swaps</CustomButtonActive>
-          ) : (
-            <CustomButton
-              onClick={() => {
-                setValue('Swaps');
-              }}
-            >
-              Swaps
-            </CustomButton>
-          )}
-        </TabsBtn>
+            />
+          </Header>
+          <TabsBtn>
+            {value === 'All' ? (
+              <CustomButtonActive>All</CustomButtonActive>
+            ) : (
+              <CustomButton
+                onClick={() => {
+                  setValue('All');
+                }}
+              >
+                All
+              </CustomButton>
+            )}
+            {value === 'Swaps' ? (
+              <CustomButtonActive>Swaps</CustomButtonActive>
+            ) : (
+              <CustomButton
+                onClick={() => {
+                  setValue('Swaps');
+                }}
+              >
+                Swaps
+              </CustomButton>
+            )}
+          </TabsBtn>
 
-        {value === 'All' ? (
-          <PaginationTable data={HistoryDATA} />
-        ) : (
-          <PaginationTable data={HistorySwapDATA} />
-        )}
-      </BoxsModal>
+          {value === 'All' ? (
+            <PaginationTable data={HistoryDATA} />
+          ) : (
+            <PaginationTable data={HistorySwapDATA} />
+          )}
+        </BoxsModal> : <BoxsModal2>
+          <Header>
+            <HeaderText>Transaction History</HeaderText>
+            <Image
+              src={Cros}
+              onClick={() => {
+                props.close();
+              }}
+            />
+          </Header>
+          <TabsBtn>
+            {value === 'All' ? (
+              <CustomButtonActive>All</CustomButtonActive>
+            ) : (
+              <CustomButton
+                onClick={() => {
+                  setValue('All');
+                }}
+              >
+                All
+              </CustomButton>
+            )}
+            {value === 'Swaps' ? (
+              <CustomButtonActive>Swaps</CustomButtonActive>
+            ) : (
+              <CustomButton
+                onClick={() => {
+                  setValue('Swaps');
+                }}
+              >
+                Swaps
+              </CustomButton>
+            )}
+          </TabsBtn>
+
+          {value === 'All' ? (
+            <PaginationTable data={HistoryDATA} />
+          ) : (
+            <PaginationTable data={HistorySwapDATA} />
+          )}
+        </BoxsModal2>
+      }
+
     </Modal>
   );
 };

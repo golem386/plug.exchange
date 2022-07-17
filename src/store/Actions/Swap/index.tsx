@@ -49,3 +49,22 @@ export function onSelectCoin(Coin: ICoin) {
     };
   }
   
+  export function Search(val:any) {
+    const action: any = {
+      type: actionTypes.SEARCH,
+      Data: val
+    };
+    return (dispatch: DispatchType) => {
+      dispatch(action);
+    };
+  }
+
+  export function Menu(val:any) {
+    const action: any = {
+      type: actionTypes.MENU,
+      Data: val
+    };
+    return (dispatch: DispatchType) => {
+      dispatch(action);
+    };
+  }
