@@ -21,7 +21,9 @@ import discord from '../../assets/icon/discord.png';
 import social from '../../assets/icon/social.png';
 import teligram from '../../assets/icon/teligram.png';
 import twiter from '../../assets/icon/twiter.png';
-
+import Chain from '../../assets/icon/Chain.png'
+import DownIconWhite from '../../assets/icon/DownIconWhite.png'
+import { useNavigate } from 'react-router-dom';
 
 const MainComponent = styled('div')({
   display: 'flex',
@@ -67,7 +69,7 @@ const CustomButton = styled(Button)({
   opacity: '0.65',
   textTransform: 'initial',
   height: 52,
-  width: "30%",
+  width: "137px",
   border: '1px solid rgba(0, 0, 0, 0.1)'
 });
 const CustomButton2 = styled(Button)({
@@ -80,8 +82,33 @@ const CustomButton2 = styled(Button)({
   opacity: '0.65',
   textTransform: 'initial',
   height: 52,
-  width: "18%",
+  width: "137px",
   border: '1px solid rgba(0, 0, 0, 0.1)'
+});
+const CustomButton4 = styled(Button)({
+  borderRadius: 16,
+  backgroundColor: 'rgba(0, 0, 0, 0.03)',
+  fontSize: '16px',
+  fontWeight: '600',
+  color: '#000000',
+  fontStyle: 'Inter',
+  opacity: '0.65',
+  textTransform: 'initial',
+  height: 52,
+  width: "92px",
+  border: '1px solid rgba(0, 0, 0, 0.1)'
+});
+const SwapCustomButton = styled(Button)({
+  borderRadius: 16,
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  fontSize: '16px',
+  fontWeight: '600',
+  color: 'white',
+  fontStyle: 'Inter',
+  textTransform: 'initial',
+  height: 52,
+  width: "92px",
+  border: 'none'
 });
 const CustomButton3 = styled(Button)({
   borderRadius: 16,
@@ -96,7 +123,7 @@ const CustomButton3 = styled(Button)({
   width: "80%",
   border: '1px solid rgba(0, 0, 0, 0.1)',
   marginLeft: '10%',
-  marginTop:'5%'
+  marginTop: '5%'
 });
 
 const CustomButtonActive = styled(Button)({
@@ -108,13 +135,32 @@ const CustomButtonActive = styled(Button)({
   fontStyle: 'Inter',
   textTransform: 'initial',
   height: 52,
-  width: "36%",
+  width: "169px",
+});
+const CustomButtonActive1 = styled(Button)({
+  borderRadius: 16,
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  fontSize: '16px',
+  fontWeight: '600',
+  color: '#FFFFFF',
+  fontStyle: 'Inter',
+  textTransform: 'initial',
+  height: 52,
+  width: "191px",
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-around'
 });
 const Imgs = styled('img')({
   width: '86%',
   height: 43,
   marginTop: 5,
 });
+const DownImg = styled('img')({
+  width: '8.49px',
+  height: '5.19px',
+});
+
 const CustomButtonActiveCoin = styled(Button)({
   borderRadius: 16,
   background: 'red',
@@ -137,6 +183,11 @@ const CustomGrid = styled(Grid)({
   justifyContent: 'space-evenly',
   // alignItems: 'center',
 });
+const Img = styled('img')({
+  height: '36px',
+  width: '36px'
+});
+
 const DivFlex = styled('div')({
   display: 'flex',
   justifyContent: 'space-between',
@@ -291,6 +342,7 @@ type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const AppBar = () => {
   const dispatch: AppDispatch = useDispatch();
   const matches = useMediaQuery('(min-width:660px)');
+  const Navigate = useNavigate()
   const [filterInput, setFilterInput] = React.useState<String>('');
   const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
@@ -305,8 +357,8 @@ const AppBar = () => {
               <LogoGrid item sm={1}>
                 <Imgs src={Logo} alt="logo" />
               </LogoGrid>
-              <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}>
-                <InputIcon>
+              {/* <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}> */}
+              {/* <InputIcon>
                   <SearchIcon src={SearchIconImg} alt="Search" />
                   <TextInputActive
                     placeholder="Search by Token Name or Address"
@@ -314,13 +366,26 @@ const AppBar = () => {
                       setFilterInput(e.target.value);
                     }}
                   />
-                </InputIcon>
-                {filterInput !== '' ? <CurrencySearch searchValue={null} /> : null}
-              </Grid>
-              <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 4.2 : 6.5}>
+                </InputIcon> */}
+              {/* {filterInput !== '' ? <CurrencySearch searchValue={null} /> : null} */}
+              {/* </Grid> */}
+              {/* <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 4.2 : 6.5}> */}
+              <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 6.5 : 8}>
+                {
+                  window.location.pathname === '/' ? <SwapCustomButton onClick={() => { Navigate('/') }}>Swap</SwapCustomButton> : <CustomButton4 onClick={() => { Navigate('/') }}>Swap</CustomButton4>
+                }
+
+
+
+                {window.location.pathname === '/Crosschain' ? <CustomButtonActive1 onClick={() => { Navigate('/Crosschain') }}>
+                  <Img src={Chain} />
+                  Crosschain
+                  <DownImg src={DownIconWhite} />
+                </CustomButtonActive1> : <CustomButton2 onClick={() => { Navigate('/Crosschain') }}>Crosschain</CustomButton2>}
                 {CoinNetwork.name !== '' ? <CustomButton2>Buy Crypto</CustomButton2> : <CustomButton>Buy Crypto</CustomButton>}
                 {CoinNetwork.name !== '' ? (
-                  <SwitchNetwork />
+                  null
+                  // <SwitchNetwork />
                 ) : (
                   <CustomButtonActive
                     onClick={() => {

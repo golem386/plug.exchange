@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { styled } from '@mui/system';
 import { store } from './store/Store';
-import SwapPage from './pages/swap';
+import SwapPage from './pages';
 import Modal from './components/Modal';
 import WalletModal from './components/WalletModal';
 import { useSelector } from 'react-redux';
@@ -19,6 +19,9 @@ import mSetting from './assets/icon/mSetting.png'
 import SwitchNetwork from './components/SwitchNetwork';
 import WalletDetails from './components/WalletDetails/WalletDetails';
 import Settings from './components/Settings';
+import { BrowserRouter } from 'react-router-dom';
+import AppBar from './components/AppBar';
+import AppFooter from './components/AppFooter';
 
 const MyComponent = styled('div')({
   backgroundColor: '#FFFFFF',
@@ -182,7 +185,6 @@ function App() {
           }}>Connect Wallet</ActiveBtn>
         </BtnGroup>
       }
-
     </>
   );
 }
