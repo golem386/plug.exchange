@@ -12,7 +12,8 @@ const CurrencySwitch = styled('p')({
   fontFamily: 'Inter',
   fontSize: 'calc(0.55em + 1vw)',
   fontWeight: '600',
-  display: 'flex'
+  display: 'flex',
+  marginTop:'12%'
 });
 const TextSpan = styled('span')({
   fontFamily: 'Inter',

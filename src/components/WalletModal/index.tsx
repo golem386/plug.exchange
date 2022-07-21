@@ -203,13 +203,17 @@ const Over = styled('div')({
 
 });
 const Over2 = styled('div')({
-
 });
 const ButtonGroup = styled('div')({
   marginTop: '3%'
 });
 const Main = styled('div')({
   backgroundColor: '#f7f7f7',
+  paddingTop: '3%',
+  paddingBottom: '3%',
+  marginBottom: '5%'
+});
+const Main2 = styled('div')({
   paddingTop: '3%',
   paddingBottom: '3%',
   marginBottom: '5%'
@@ -404,7 +408,7 @@ const WalletModal = (props: WalletModalProps) => {
             </ViewMainView>
           </ButtonGroup>
         </Over> : <Over2>
-          <Main>
+          <Main2>
             <Title>Choose Network</Title>
             <ButtonGroup>
               <ViewMainView>
@@ -469,7 +473,7 @@ const WalletModal = (props: WalletModalProps) => {
               </ModalCustom>
             </ViewMainView> */}
             </ButtonGroup>
-          </Main>
+          </Main2>
 
           <Title>Choose Wallet</Title>
           <ButtonGroup>

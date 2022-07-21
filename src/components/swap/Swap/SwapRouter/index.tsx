@@ -135,12 +135,11 @@ const Icon = styled('img')({
   opacity: '0.5'
 });
 const Icon2 = styled('img')({
-  width: '14px',
-  height: '14px',
+  width: '20.5px',
+  height: '18px',
   marginLeft: 5,
   marginRight: 5,
   cursor: 'pointer',
-  opacity: '0.5'
 });
 const IconHr = styled('img')({
   width: '14px',

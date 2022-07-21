@@ -17,7 +17,7 @@ const MainDiv = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   width: '100%',
-  overflow:'auto'
+  overflow: 'auto',
 });
 const Token = styled('p')({
   fontSize: '24px',
@@ -68,11 +68,15 @@ const ListMain = styled(ListItemButton)({
 });
 const ListItemTextStyle = styled(ListItemText)({
   fontFamily: 'Inter',
+  fontWeight: 600,
+  fontSize: '16px!important'
 });
 const Type = styled('span')({
   opacity: 0.5,
   marginRight: 10,
   fontFamily: 'Inter',
+  fontWeight: 600,
+  fontSize: 16
 });
 const ListItemMain = styled(ListItem)({
   height: 53,
@@ -111,6 +115,7 @@ const TitleItemBlack = styled('p')({
   color: '#000000',
   marginLeft: 10,
 });
+
 
 type SelectType = {
   name: string;
@@ -153,7 +158,7 @@ const CurrencyModal = (props: SelecttokenProps) => {
   const receiveCoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.receiveCoinDetail);
   const matches = useMediaQuery('(min-width:660px)');
   return (
-    <MainDiv style={{height:matches ? '50%' : '82%'}}>
+    <MainDiv style={{ height: matches ? '50%' : '540px' }}>
       <Flex>
         <Token>Select a Token</Token>
         <CrosIcon

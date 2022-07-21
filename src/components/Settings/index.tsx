@@ -29,7 +29,7 @@ const CustomMenu2 = styled('div')({
   width: '95%',
   padding: 5
 });
-const OverLay = styled(Menu)({
+const OverLay = styled('div')({
   position: 'fixed',
   width: '100%',
   height: '100%',
@@ -170,17 +170,8 @@ const Settings = (props: SettingsProps) => {
             <DropDownTitleIcon>{props.settings[4].name}</DropDownTitleIcon>
           </CustomMenuItem>
         </CustomMenu> : <OverLay
-          anchorEl={anchorEl}
-          open={openmenu}
-          onClose={handleClosemenu}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
+          style={{ display: openmenu ? 'block' : 'none' }}
+          onClick={handleClosemenu}
         >
           <CustomMenu2>
             <CustomMenuItem>

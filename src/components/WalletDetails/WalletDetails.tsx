@@ -20,12 +20,14 @@ import Right from '../../assets/icon/Right.png';
 import SwapTransactionHistory from '../SwapTransactionHistory';
 import Modal from '../Modal';
 import { color } from 'echarts';
+import right from '../../assets/icon/right.png'
 
 const Copy = styled('div')({
   paddingLeft: '10px',
   alignItems: 'center',
   display: 'flex',
   opacity: '0.65',
+  cursor: 'copy',
   '&:hover': {
     backgroundColor: '#f7f7f7',
   },
@@ -34,6 +36,14 @@ const Id = styled('p')({
   fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '600'
+});
+const Copied = styled('p')({
+  fontFamily: 'Inter',
+  fontSize: '16px',
+  fontWeight: '600',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
 });
 
 const DropPrice = styled('span')({
@@ -49,6 +59,13 @@ const FileCopy = styled('img')({
   paddingRight: '10px',
   cursor: 'pointer',
 });
+const RightIcon = styled('img')({
+  height: '10px',
+  width: '15px',
+  paddingRight: '10px',
+  cursor: 'pointer',
+});
+
 const HistoryDiv = styled('div')({
   backgroundColor: '#f7f7f7',
   paddingLeft: 15,
@@ -113,9 +130,10 @@ const CustomMenu2 = styled('div')({
   borderRadius: 20,
   backgroundColor: 'white',
   width: '95%',
-  padding:5
+  padding: 5,
+  paddingTop: 20
 });
-const OverLay = styled(Menu)({
+const OverLay = styled('div')({
   position: 'fixed',
   width: '100%',
   height: '100%',
@@ -227,6 +245,7 @@ const TimeText = styled('span')({
   fontSize: 14,
   color: '#e8e8e8',
 });
+
 const TimeImage = styled('img')({
   height: 12,
   width: 12,
@@ -280,6 +299,7 @@ type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const WalletDetails = () => {
   const matches = useMediaQuery('(min-width:660px)');
   const [open, setOpen] = React.useState(false);
+  const [CopyId, setCopy] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
@@ -344,11 +364,15 @@ const WalletDetails = () => {
           }}
         >
           <DropPrice>Connected with MetaMask</DropPrice>
-          <Copy>
-            <FileCopy src={filecopy} alt="Copy" />
-            <Id>0x37...0420</Id>
-          </Copy>
-
+          {
+            !CopyId ? <Copy onClick={() => { setCopy(true) }}>
+              <FileCopy src={filecopy} alt="Copy" />
+              <Id>0x37...0420</Id>
+            </Copy> : <Copy onClick={() => { setCopy(true) }}>
+              <RightIcon src={right} alt="Copy" />
+              <Copied>Copied!</Copied>
+            </Copy>
+          }
           <UserAssets account="" />
           <HistoryDiv>
             <MainDiv
@@ -375,17 +399,20 @@ const WalletDetails = () => {
             isOpen={open}
           />
         </CustomMenu> : <OverLay
-          anchorEl={anchorElPrice}
-          open={openmenuPrice}
-          onClose={handleClosemenuPrice}
+          style={{ display: openmenuPrice ? 'block' : 'none' }}
+          onClick={handleClosemenuPrice}
         >
           <CustomMenu2>
             <DropPrice>Connected with MetaMask</DropPrice>
-            <Copy>
-              <FileCopy src={filecopy} alt="Copy" />
-              <Id>0x37...0420</Id>
-            </Copy>
-
+            {
+              !CopyId ? <Copy onClick={() => { setCopy(true) }}>
+                <FileCopy src={filecopy} alt="Copy" />
+                <Id>0x37...0420</Id>
+              </Copy> : <Copy onClick={() => { setCopy(true) }}>
+                <RightIcon src={right} alt="Copy" />
+                <Copied>Copied!</Copied>
+              </Copy>
+            }
             <UserAssets account="" />
             <HistoryDiv>
               <MainDiv

@@ -7,7 +7,7 @@ import AppBar from '../components/AppBar';
 import AppFooter from '../components/AppFooter';
 import Crosschain from './Crosschain/Crosschain';
 import NotFound from './NotFound/NotFound';
-import Swap from './swap/Swap';
+import Swap from './swap';
 
 const SwapPage = () => {
   return (

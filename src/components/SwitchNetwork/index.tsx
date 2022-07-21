@@ -82,7 +82,7 @@ const CustomMenu2 = styled("div")({
   borderRadius: 20,
   backgroundColor: 'white',
 });
-const OverLay = styled(Menu)({
+const OverLay = styled('div')({
   position: 'fixed',
   width: '100%',
   height: '100%',
@@ -93,6 +93,7 @@ const OverLay = styled(Menu)({
   backgroundColor: 'rgba(0,0,0,0.5)',
   zIndex: 2,
   cursor: "pointer",
+  paddingLeft:'6%'
 });
 const CustomMenuItem = styled(MenuItem)({
   paddingTop: 7,
@@ -169,19 +170,9 @@ const SwitchNetwork = () => {
       }
       {
         matches ? <CustomMenu
-          id="demo-positioned-menu"
-          aria-labelledby="demo-positioned-button"
           anchorEl={anchorEl}
           open={openmenu}
           onClose={handleClosemenu}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
         >
           <CustomMenuItem3>
             <DropDownTitleIcon2>Select a Network</DropDownTitleIcon2>
@@ -200,9 +191,8 @@ const SwitchNetwork = () => {
             );
           })}
         </CustomMenu> : <OverLay
-          anchorEl={anchorEl}
-          open={openmenu}
-          onClose={handleClosemenu}
+          style={{ display: openmenu ? 'block' : 'none' }}
+          onClick={handleClosemenu}
         >
           <CustomMenu2>
             <CustomMenuItem3>

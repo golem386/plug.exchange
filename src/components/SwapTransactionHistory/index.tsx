@@ -90,7 +90,6 @@ const BoxsModal2 = styled('div')({
   backgroundColor: 'white',
   width: '100%',
   height: '98%',
-  borderRadius: 10,
 });
 
 const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {

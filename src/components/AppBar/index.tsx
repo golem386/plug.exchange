@@ -152,7 +152,7 @@ const CustomButtonActive1 = styled(Button)({
   justifyContent: 'space-around'
 });
 const Imgs = styled('img')({
-  width: '86%',
+  width: '90px',
   height: 43,
   marginTop: 5,
 });
@@ -260,7 +260,7 @@ const MainComponent2 = styled('div')({
   borderRadius: 16,
   position: 'fixed',
   top: '25%',
-  width: '93%'
+  width: '93%',
 });
 const CustomButtom = styled(Button)({
   borderRadius: 100,

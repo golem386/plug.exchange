@@ -51,6 +51,21 @@ const BoxsToken = styled('div')({
     display: 'none',
   },
 });
+const BoxsToken2 = styled('div')({
+  backgroundColor: 'white',
+  paddingBottom: 30,
+  paddingTop: 10,
+  width: '585px',
+  height: '90%',
+  borderRadius: 0,
+  overflow: 'hidden',
+  '&:hover': {
+    overflowY: 'auto',
+  },
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
+});
 const BtnGroup = styled('div')({
   backgroundColor: "transparent",
   display: 'flex',
@@ -162,14 +177,14 @@ function App() {
               dispatch(closeModal())
             }}
           >
-            <BoxsToken>
+            <BoxsToken2>
               <WalletModal
                 Check={ModalData}
                 onClose={() => {
                   dispatch(closeModal())
                 }}
               />
-            </BoxsToken>
+            </BoxsToken2>
           </Modal>
         </MyComponent2>
       }

@@ -16,7 +16,7 @@ const ShereImage = styled(Button)({
   borderRadius: 16,
 });
 const PreText = styled('p')({
-  marginLeft: 5,
+  marginLeft: 10,
   fontFamily: 'inter',
   fontWeight: '500',
   fontSize: 16,

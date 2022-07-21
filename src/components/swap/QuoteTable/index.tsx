@@ -67,7 +67,7 @@ const RefresBtn = styled(Button)({
   boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
   color: '#595959',
   borderRadius: 100,
-  fontWeight: '500',
+  fontWeight: '600',
   fontSize: '16px',
   width: '93px',
   height: '36px',
@@ -153,6 +153,8 @@ const DownArrowImgTop = styled('img')({
 });
 const MainTitle = styled('p')({
   fontFamily: 'Inter',
+  fontWeight:'600',
+  fontSize:'16px'
 });
 
 type Quotes = {}

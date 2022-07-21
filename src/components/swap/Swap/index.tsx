@@ -23,36 +23,39 @@ import WhiteQue from '../../../assets/icon/WhiteQue.png'
 const MainDiv = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
-  width: '100%',
+  width: '97%', 
+  marginTop:'12%'
   // height:'490px'
 });
 const OrderBtn = styled(Button)({
   margin: 15,
-  width: '93%',
+  width: '86%',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   color: 'white',
   borderRadius: '12px',
   marginBottom: '6%',
   marginTop: '5%',
+  marginLeft:'7%',
   textTransform: 'initial',
 });
 const OrderBtnDisebal = styled(Button)({
   margin: 15,
-  width: '93%',
+  width: '86%',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   color: 'white',
   borderRadius: '12px',
   marginBottom: '6%',
   marginTop: '5%',
+  marginLeft:'7%',
   textTransform: 'initial',
   opacity: 0.4
 });
 
 const ParmitionBtn = styled(Button)({
-  marginLeft: 15,
+  marginLeft: '7%',
   marginRight: 15,
   marginTop: 15,
-  width: '93%',
+  width: '86%',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   color: 'white',
   borderRadius: '12px',
@@ -61,7 +64,7 @@ const ParmitionBtn = styled(Button)({
   alignItems: 'center',
   fontFamily: 'Inter',
   fontWeight: '600',
-  fontSize: '16px'
+  fontSize: '16px',
 });
 
 const Boxs = styled('div')({
