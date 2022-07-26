@@ -1,7 +1,5 @@
 // this is a SwapTransactionDetails file and Provide a SwapTransactionDetails list
 import styled from '@emotion/styled';
-import { useMediaQuery } from '@mui/material';
-import React from 'react';
 import { useSelector } from 'react-redux';
 
 
@@ -19,12 +17,6 @@ const DetailView = styled('div')({
     padding: 10,
     borderRadius: 25,
   }
-});
-const DetailView2 = styled('div')({
-  backgroundColor: '#F7F7F7',
-  width: '95%',
-  padding: 10,
-  borderRadius: 25,
 });
 
 const Expected = styled('div')({

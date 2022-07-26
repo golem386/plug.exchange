@@ -1,8 +1,6 @@
 // this file is a UserAssets and Provide a List 
 import styled from '@emotion/styled';
-import { Margin } from '@mui/icons-material';
 import { useMediaQuery } from '@mui/material';
-import React from 'react';
 import { DropDownDataWallet } from '../../contexts/ConnectWalletDATA';
 
 const NetWorth = styled('div')({
@@ -79,12 +77,10 @@ const DropPrice = styled('span')({
 });
 
 export type UserAssetsProps = {
-  // connetWalletData: Function;
   account: String
 };
 
 const UserAssets = (props: UserAssetsProps) => {
-  const matches = useMediaQuery('(min-width:660px)');
   return (
     <>
       <NetWorth>

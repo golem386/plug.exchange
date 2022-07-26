@@ -1,9 +1,6 @@
 import styled from '@emotion/styled';
 import { Grid, useMediaQuery } from '@mui/material';
-import React, { Component } from 'react';
 import { useSelector } from 'react-redux';
-import AppBar from '../../components/AppBar';
-import AppFooter from '../../components/AppFooter';
 import CurrencyModal from '../../components/CurrencyModal';
 import PairLineChart from '../../components/swap/PairLineChart';
 import QuoteTables from '../../components/swap/QuoteTable';
@@ -26,7 +23,7 @@ const Resetmorediv = styled('div')({
 
 const Swap = () => {
     const matches = useMediaQuery('(min-width:660px)');
-    const Modal: string = useSelector((state: ArticleState) => state.modal);
+    const Modal: string | boolean = useSelector((state: ArticleState) => state.modal);
     return (
         <>
             <MainDiv>
@@ -71,7 +68,6 @@ const Swap = () => {
                         ) : (
                             <SwapMain btnTitle="Connect Wallet" />
                         )}
-                        {/* <Swap btnTitle='Review Order' /> */}
                         <Resetmorediv>
                             <ReferralModal />
                         </Resetmorediv>

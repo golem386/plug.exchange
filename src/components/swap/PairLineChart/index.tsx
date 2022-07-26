@@ -1,12 +1,11 @@
 // this is a PairLineChart file and Create a PairLineChart Design
 import styled from '@emotion/styled';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import ShortVartical from '../../../assets/icon/ShortVartical.png';
 import ReactEcharts from 'echarts-for-react';
-import { Box, Tab, Tabs, useMediaQuery } from '@mui/material';
+import { Box, Tab, Tabs } from '@mui/material';
 import * as echarts from 'echarts';
-// import { TabPanelProps } from '../../..';
 
 const CurrencySwitch = styled('p')({
   fontFamily: 'Inter',
@@ -63,18 +62,6 @@ const CustomButton = styled(Tab)({
   fontFamily: 'Inter',
   height: '36px',
   width: '65px',
-  // marginLeft: 5,
-  // marginRight: 5,
-  // borderRadius: '100px',
-  // background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  // fontSize: '16px',
-  // fontWeight: '500',
-  // color: 'white!important',
-  // fontStyle: 'normal',
-  // textTransform: 'lowercase',
-  // fontFamily: 'Inter',
-  // height:'36px',
-  // width:'65px'
 });
 const CustomButtonActive = styled(Tab)({
   borderRadius: '100px',
@@ -151,8 +138,6 @@ const PairLineChart = (props: PairLineChartProps) => {
   };
   const CoinDetail: SelectType = useSelector((state: ArticleState) => state.CoinDetail);
   const receiveCoinDetail: SelectType = useSelector((state: ArticleState) => state.receiveCoinDetail);
-  console.log(CoinDetail)
-
   return (
     <View>
       <>

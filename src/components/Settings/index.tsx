@@ -1,6 +1,6 @@
 // this file Provide Setting menu
 import styled from '@emotion/styled';
-import { Button, Menu, MenuItem, useMediaQuery } from '@mui/material';
+import {MenuItem, useMediaQuery } from '@mui/material';
 import React from 'react';
 import setting from '../../assets/icon/setting.png';
 import About from '../../assets/icon/About.svg';
@@ -8,7 +8,6 @@ import Question from '../../assets/icon/Question.svg';
 import request from '../../assets/icon/Request.svg';
 import Language from '../../assets/icon/Language.svg';
 import Dark from '../../assets/icon/Dark.svg';
-import { useSelector } from 'react-redux';
 import mSetting from '../../assets/icon/mSetting.png'
 
 const DropDownTitleIcon = styled('span')({
@@ -119,16 +118,6 @@ const NavImg = styled('img')({
 type Setting = {
   name: string
 }
-type ConnectWalletType = {
-  name: String;
-  image: String;
-  Subname: String;
-  Price: String;
-};
-type ConnectNetworkType = {
-  name: String;
-  image: String;
-};
 type SettingsProps = {
   settings: Setting[];
 };
@@ -136,8 +125,6 @@ const Settings = (props: SettingsProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const openmenu = Boolean(anchorEl);
   const matches = useMediaQuery('(min-width:660px)');
-  const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
-  const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };

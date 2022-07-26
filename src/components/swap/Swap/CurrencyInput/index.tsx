@@ -1,7 +1,6 @@
 // this is a CurrencyInput file and Provide a Currency Input value and input Design
 import styled from '@emotion/styled';
 import { FormControl } from '@mui/material';
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { onModalOpen } from '../../../../store/Actions';
@@ -102,7 +101,7 @@ const CurrencyInput = (props: CurrencyInputProps) => {
   const dispatch: AppDispatch = useDispatch();
   const CoinDetail: CoinDetailType = useSelector((state: ArticleState) => state.CoinDetail);
 
-  const onModal = (article: any) => {
+  const onModal = (article: boolean | string) => {
     dispatch(onModalOpen(article));
   };
   return (

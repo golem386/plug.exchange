@@ -1,7 +1,6 @@
 // this file is a WalletDetails file and provide a History
 import styled from '@emotion/styled';
-import { Box, FormControl, Menu, NativeSelect, Tab, Tabs, useMediaQuery } from '@mui/material';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Cros from '../../assets/icon/Cros.png';
 import { HistoryDATA, HistorySwapDATA } from '../../contexts/HistoryDATA';
 import Modal from '../Modal';
@@ -93,7 +92,6 @@ const BoxsModal = styled('div')({
 
 const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {
   const [value, setValue] = React.useState('All');
-  const matches = useMediaQuery('(min-width:660px)');
   return (
     <Modal
       isOpen={props.isOpen}

@@ -1,10 +1,8 @@
 // this is a SwitchNetwork File and Switch Network
 import styled from '@emotion/styled';
-import { Button, Menu, MenuItem, useMediaQuery } from '@mui/material';
+import { Button, MenuItem } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AnyAction } from 'redux';
-import { ThunkDispatch } from 'redux-thunk';
 import DownIconWhite from '../../assets/icon/DownIconWhite.png';
 import right from '../../assets/icon/right.png';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
@@ -123,14 +121,6 @@ const CustomMenuItem = styled(MenuItem)({
   alignItems: 'center',
   justifyContent: 'space-between'
 });
-const CustomMenuItem4 = styled(MenuItem)({
-  paddingTop: 7,
-  paddingBottom: 7,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  width: '340px'
-});
 const CustomMenuItem3 = styled(MenuItem)({
   paddingTop: 7,
   paddingBottom: 7,
@@ -163,7 +153,6 @@ const Right = styled('img')({
 const SwitchNetwork = () => {
   const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const matches = useMediaQuery('(min-width:660px)');
   const openmenu = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);

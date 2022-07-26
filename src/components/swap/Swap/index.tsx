@@ -25,7 +25,6 @@ const MainDiv = styled('div')({
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   width: '97%',
   marginTop: '12%'
-  // height:'490px'
 });
 const OrderBtn = styled(Button)({
   margin: 15,

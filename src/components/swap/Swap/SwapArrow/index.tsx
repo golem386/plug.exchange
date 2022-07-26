@@ -1,11 +1,9 @@
 // this is a SwapArrow file and Provide a Short Arrow Change Data
 import styled from '@emotion/styled';
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { onReceiveCoin, onSelectCoin } from '../../../../store/Actions';
 import UpDown from '../../../../assets/icon/UpDown.png';
-import { type } from 'os';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
@@ -32,10 +30,10 @@ const SwapArrow = (props: SwapArrowProps) => {
   const dispatch: AppDispatch = useDispatch();
   const CoinDetail: CoinDetail = useSelector((state: ArticleState) => state.CoinDetail);
   const ReceiveCoin: CoinDetail = useSelector((state: ArticleState) => state.receiveCoinDetail);
-  const onSelectIcon = (coin: any) => {
+  const onSelectIcon = (coin: CoinDetail) => {
     dispatch(onSelectCoin(coin));
   };
-  const onReceiveIcon = (coin: any) => {
+  const onReceiveIcon = (coin: CoinDetail) => {
     dispatch(onReceiveCoin(coin));
   };
   const onChangeToken = () => {

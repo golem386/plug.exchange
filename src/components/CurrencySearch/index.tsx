@@ -1,7 +1,5 @@
 // this file is a CurrencySearch Modal and Provide outher Currency suggestion Search time
 import styled from '@emotion/styled';
-import { useMediaQuery } from '@mui/material';
-import React, { Component } from 'react';
 import coin from '../../assets/icon/coin.png';
 
 const NotResult = styled('div')({
@@ -18,14 +16,6 @@ const NotResult = styled('div')({
     zIndex: 10,
   }
 });
-const NotResult2 = styled('div')({
-  padding: 30,
-  borderRadius: '24px',
-  position: 'absolute',
-  zIndex: 10,
-  // width:'52%',
-});
-
 const List = styled('span')({
   display: 'flex',
   alignItems: 'center',
@@ -62,7 +52,6 @@ export type CurrencySearchProps = {
 };
 
 const CurrencySearch = (props: CurrencySearchProps) => {
-  const matches = useMediaQuery('(min-width:660px)');
   return (
       <NotResult>
         <TokenHeading>Tokens</TokenHeading>

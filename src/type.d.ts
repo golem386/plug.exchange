@@ -1,5 +1,5 @@
 interface IArticle {
-  modal: string;
+  modal: string | boolean;
 }
 interface ICoin {
   name: String;
@@ -10,14 +10,14 @@ interface Alert {
   open: Boolean;
   vertical: String;
   horizontal: String;
-  type: String
+  type: String;
 }
 
 type ArticleState = {
-  Alert: Alert,
-  modal: any;
-  Search:any;
-  Menu:any;
+  Alert: Alert;
+  modal: string | boolean;
+  Search: boolean;
+  Menu: boolean | string;
   Modal: boolean;
   CoinDetail: {
     name: String;
@@ -43,7 +43,7 @@ type ArticleState = {
 
 type ArticleAction = {
   type: string;
-  modal: IArticle;
+  modal: string | boolean;
 };
 type CoinAction = {
   type: string;
@@ -57,12 +57,14 @@ type AlertAction = {
 type ModalStatus = {
   type: string;
   Data: boolean;
-}
+};
 type StatusAction = {
   type: string;
   Status: StatusPayload;
 };
 
+type OpenModel = { type: String; Data: Boolean };
+
 type DispatchType = (
-  args: ArticleAction | CoinAction | AlertAction,
-) => ArticleAction | CoinAction | StatusAction | AlertAction | ModalStatus;
+  args: ArticleAction | CoinAction | AlertAction | OpenModel,
+) => ArticleAction | CoinAction | StatusAction | AlertAction | ModalStatus | OpenModel;

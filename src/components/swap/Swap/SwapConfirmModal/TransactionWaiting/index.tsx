@@ -1,7 +1,7 @@
 // this is a TransactionWaiting file and Provide a TransactionWaiting modal
 import styled from '@emotion/styled';
 import { CircularProgress } from '@mui/material';
-import React, { Component } from 'react';
+import Loader from '../../../../../assets/icon/Loader.png'
 
 const Title = styled('p')({
   fontFamily: 'Inter',
@@ -17,10 +17,13 @@ const SubTitle = styled('p')({
   color: 'black',
   textAlign: 'center',
 });
-const CircularProgressIcon = styled(CircularProgress)({
+
+const CircularProgressIcon = styled('img')({
   margin: 'auto',
   display: 'block',
-  marginTop: 50,
+  marginTop: 20,
+  height: 70,
+  width: 70,
 });
 const Main = styled('div')({
   marginTop: 10,
@@ -33,7 +36,8 @@ export type TransactionWaitingProps = {
 const TransactionWaiting = (props: TransactionWaitingProps) => {
   return (
     <Main>
-      <CircularProgressIcon color="secondary" />
+      {/* <CircularProgressIcon color="secondary" /> */}
+      <CircularProgressIcon src={Loader} />
       <Title>Waiting for Confirmation</Title>
       <SubTitle>Swapping 0.000249 ETH for 1.46 USDT</SubTitle>
       <br />

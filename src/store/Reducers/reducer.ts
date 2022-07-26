@@ -1,7 +1,6 @@
 import * as actionTypes from '../actionTypes';
 import Eth from '../../assets/icon/Eth.png';
 import Coin2 from '../../assets/icon/coin2.png';
-import Coin from '../../assets/icon/coin.png';
 
 const initialState: ArticleState = {
   modal: 'abdc',

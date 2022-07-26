@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
-import React, { Component, useState } from 'react';
+import React, {useState } from 'react';
 import HighSlippageIcon from '../../../../../assets/icon/HighSlippage.png';
 import Cros from '../../../../../assets/icon/Cros.png';
 import { Button, FormControlLabel, Radio } from '@mui/material';
-import { SafetyCheck } from '@mui/icons-material';
 
 const Title = styled('span')({
   fontFamily: 'Inter',
@@ -47,13 +46,6 @@ const ButtonsActive = styled(Button)({
   textTransform: 'initial',
   display: 'block',
   margin: 'auto',
-});
-
-const BtnIcon = styled('img')({
-  height: '32px',
-  width: '32px',
-  marginLeft: 3,
-  marginRight: 3,
 });
 const CloseIcon = styled('img')({
   height: '15px',

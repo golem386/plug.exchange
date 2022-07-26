@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Button, Grid } from '@mui/material';
-import React, { Component } from 'react'
 import { useNavigate } from 'react-router-dom';
 import NotFoundImg from '../../assets/icon/NotFound.png'
 
@@ -9,7 +8,6 @@ const Div = styled('div')({
     marginTop: '6%',
     marginBottom: '6%'
 });
-
 const Img = styled('img')({
     width: '483px'
 });

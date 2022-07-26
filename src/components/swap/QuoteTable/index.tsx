@@ -1,6 +1,6 @@
 // this is a QuoteTable file and Provide a table List and Data
 import styled from '@emotion/styled';
-import { Button, Grid, List, useMediaQuery } from '@mui/material';
+import { Button, Grid, List } from '@mui/material';
 import React, { useState } from 'react';
 import DownArrow from '../../../assets/icon/DownArrow.png';
 import shere from '../../../assets/icon/Shere.png';
@@ -8,7 +8,6 @@ import short from '../../../assets/icon/short.png';
 import ShowMoreIcon from '../../../assets/icon/ShowMore.png';
 import HideDetail from '../../../assets/icon/HideDetail.png';
 import { data } from '../../../contexts/QuoteTableDATA';
-import { type } from 'os';
 
 const QuoteTable = styled('div')({
   borderRadius: 24,
@@ -174,7 +173,7 @@ type QuoteTableProps = {
   quotes: Quotes[] | null;
 };
 const QuoteTables = (props: QuoteTableProps) => {
-  const [loardData, setLoardData] = useState<any>(1);
+  const [loardData, setLoardData] = useState<number>(1);
   const [blur, setBlur] = useState<Boolean>(true);
   return (
     <View>

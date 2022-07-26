@@ -88,35 +88,6 @@ const ModalCustom = styled(Modal)({
   border: 'none',
   borderRadius: 20,
 });
-
-const Images = styled('img')({});
-
-const TitleItem = styled('p')({
-  fontSize: '16px',
-  fontFamily: 'Inter',
-  fontWeight: 600,
-  color: '#000000',
-  opacity: 0.65,
-});
-
-const TextItem = styled('p')({
-  fontSize: '16px',
-  fontFamily: 'Inter',
-  fontWeight: 600,
-  color: '#000000',
-  opacity: 0.65,
-  marginRight: 10,
-});
-
-const TitleItemBlack = styled('p')({
-  fontSize: '16px',
-  fontFamily: 'Inter',
-  fontWeight: 600,
-  color: '#000000',
-  marginLeft: 10,
-});
-
-
 type SelectType = {
   name: string;
   image: string;
@@ -129,7 +100,7 @@ type SelectTypeState = {
 };
 export type Currencys = {};
 export type SelecttokenProps = {
-  select: String;
+  select: String; // Model Pay and Receive Token Design Change
   activeList: Currencys[] | null;
   currencySearchHandler: () => void | null;
   isOpen: boolean | null;
@@ -143,15 +114,13 @@ const CurrencyModal = (props: SelecttokenProps) => {
   const handleClose = () => setOpen(false);
 
   const dispatch: AppDispatch = useDispatch();
-  const onModal = (modal: any) => {
+  const onModal = (modal: string | boolean) => {
     dispatch(onModalOpen(modal));
   };
   const onSelectIcon = (coin: SelectType) => {
-    console.log('onSelectIcon', coin);
     dispatch(onSelectCoin(coin));
   };
   const onReceiveIcon = (coin: SelectType) => {
-    console.log('onReceiveIcon', coin);
     dispatch(onReceiveCoin(coin));
   };
   const CoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.CoinDetail);

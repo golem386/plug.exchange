@@ -1,18 +1,14 @@
 // this file is WalletModal and Provide a Network and Wallet List
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   ConnectNetWorkOne,
   ConnectWalletOne
 } from '../../contexts/ConnectWalletDATA';
-import { Box, Button, FormControlLabel, Modal, Radio, useMediaQuery } from '@mui/material';
+import { Box, Button, FormControlLabel, Modal, Radio } from '@mui/material';
 import { styled } from '@mui/system';
 import Cros from '../../assets/icon/Cros.png';
 import select from '../../assets/icon/select.png';
 import Coin from '../../assets/icon/coin.png';
-import TransactionWaiting from '../swap/Swap/SwapConfirmModal/TransactionWaiting';
-import TransactionCompleted from '../swap/Swap/SwapConfirmModal/TransactionCompleted';
-import SwapConfirmModal from '../swap/Swap/SwapConfirmModal';
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -88,7 +84,6 @@ const ViewMainBtn = styled('div')({
     display:'none'
   }
 });
-
 const ViewMainActive = styled('div')({
   position: 'relative',
   borderWidth: '1.5px',
@@ -220,8 +215,6 @@ const ImageIcon = styled('img')({
 const Over = styled('div')({
 
 });
-const Over2 = styled('div')({
-});
 const ButtonGroup = styled('div')({
   marginTop: '3%'
 });
@@ -237,32 +230,14 @@ const Main = styled('div')({
   }
 
 });
-
 const Title2 = styled('span')({
   fontFamily: 'Inter',
   fontSize: '24px',
   fontWeight: '600',
   marginLeft: '5%'
 });
-
-const Boxs = styled('div')({
-  backgroundColor: 'white',
-  paddingBottom: 30,
-  paddingRight: 20,
-  paddingLeft: 20,
-  paddingTop: 10,
-  width: '450px',
-  height: 'auto',
-  borderRadius: 10,
-});
-
-export type WalletModalProps = {
-  Check: Boolean;
-  onClose: Function;
-};
-type ConnectNetworkType = {
-  name: String;
-  image: String;
+type WalletModalProps = {
+  onClose: Function; //This is a Close Button Click and Modal Close
 };
 type DataObject = {
   name: String;
@@ -272,25 +247,14 @@ const nullObj = {
   name: '',
   coin: '',
 };
-type ConnectWalletType = {
-  name: String;
-  image: String;
-  Subname: String;
-  Price: String;
-};
 
 type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
-
 const WalletModal = (props: WalletModalProps) => {
   const dispatch: AppDispatch = useDispatch();
   const [ErrorStatus, setErrorStatus] = React.useState(false);
   const [Check, setCheck] = React.useState<Boolean>(false);
   const [WalletData, setWallet] = React.useState<DataObject>(nullObj);
   const [NetworkData, setNetwork] = React.useState<DataObject>(nullObj);
-  const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
-  const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
-  const matches = useMediaQuery('(min-width:660px)');
-
   const handleOpenError = () => setErrorStatus(true);
   const handleCloseError = () => setErrorStatus(false);
 

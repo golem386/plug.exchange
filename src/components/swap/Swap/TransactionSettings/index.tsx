@@ -1,6 +1,6 @@
 // this is a TransactionSettings file and Provide a TransactionSettings modal
 import styled from '@emotion/styled';
-import { Button, FormControlLabel, Radio, useMediaQuery } from '@mui/material';
+import { Button, FormControlLabel, Radio } from '@mui/material';
 import React from 'react';
 import close from '../../../../assets/icon/Cros.png';
 import Question from '../../../../assets/icon/Question.svg';
@@ -53,20 +53,6 @@ const QuestionIcon = styled('img')({
 const FlexView = styled('div')({
   display: 'flex',
   alignItems: 'center'
-});
-const CustomButtonActive = styled(Button)({
-  borderRadius: '16px',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  padding: '10px 24px',
-  fontSize: '14px',
-  fontWeight: '600',
-  color: '#FFFFFF',
-  fontStyle: 'Inter',
-  textTransform: 'lowercase',
-  marginLeft: 15,
-  marginRight: 5,
-  height: '52px',
-  width: '47%',
 });
 const CustomButtonDisebal = styled(Button)({
   borderRadius: '16px',
@@ -242,12 +228,6 @@ const Span = styled('span')({
     color: '#b3b3b3',
   }
 });
-const Span2 = styled('span')({
-  fontFamily: 'Inter',
-  fontWeight: '500',
-  fontSize: '14px',
-  color: '#b3b3b3',
-});
 const TextTypeinput = styled('input')({
   backgroundColor: '#f7f7f7',
   border: 'none',
@@ -278,7 +258,7 @@ type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const TransactionSettings = (props: TransactionSettingsProps) => {
   const dispatch: AppDispatch = useDispatch();
   const [Slider, setSlider] = React.useState<Boolean>(false);
-  const onModal = (article: any) => {
+  const onModal = (article: string | boolean) => {
     dispatch(onModalOpen(article));
   };
   return (

@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import React, { Component } from 'react'
 import menu from '../../assets/icon/menu.png'
 import Coin3 from '../../assets/icon/coin3.png'
 import DownArrow from '../../assets/icon/DownArrow.png'
@@ -274,20 +273,9 @@ const Amount = styled('p')({
     fontSize: '20px',
     fontWeight: '600',
 });
-const AmountDisebal = styled('p')({
-    fontFamily: 'Inter',
-    fontSize: '20px',
-    fontWeight: '600',
-    color: '#949494',
-});
 const Div = styled('div')({
     display: 'flex',
     alignItems: 'center',
-});
-const Div2 = styled('div')({
-    display: 'flex',
-    alignItems: 'center',
-    marginLeft: '5%'
 });
 const Span = styled('span')({
     fontWeight: '500',
@@ -295,22 +283,6 @@ const Span = styled('span')({
     fontSize: '14px',
     color: '#949494',
     opacity: '0.4',
-});
-const AutoRoute = styled('div')({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingLeft: 15,
-    paddingRight: 15,
-});
-
-const Icon = styled('img')({
-    width: '14px',
-    height: '14px',
-    marginLeft: 5,
-    marginRight: '5%',
-    cursor: 'pointer',
-    opacity: '0.5'
 });
 const ShowMore = styled('p')({
     textAlign: 'center',

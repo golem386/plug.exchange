@@ -156,7 +156,7 @@ const ConnectButtonDisabal = styled(Button)({
 type Token = {};
 
 export type ImportTokenProps = {
-  handleClose: Function;
+  handleClose: Function; // Model Close Event
   importedToken: Token[] | null;
 };
 
@@ -199,7 +199,7 @@ const ImportToken = (props: ImportTokenProps) => {
         <FormControlLabel
           control={
             <Radio
-              onClick={(e: any) => {
+              onClick={() => {
                 setCheck(!Check);
               }}
               checked={Check ? true : false}

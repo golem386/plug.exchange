@@ -30,7 +30,7 @@ export function onSelectCoin(Coin: ICoin) {
   }
 
   export function OpenModal() {
-    const action: any = {
+    const action: OpenModel = {
       type: actionTypes.OPEN_MODALS,
       Data: true
     };
@@ -40,7 +40,7 @@ export function onSelectCoin(Coin: ICoin) {
   }
 
   export function closeModal() {
-    const action: any = {
+    const action: OpenModel = {
       type: actionTypes.CLOSE_MODAL,
       Data: false
     };
@@ -49,8 +49,8 @@ export function onSelectCoin(Coin: ICoin) {
     };
   }
   
-  export function Search(val:any) {
-    const action: any = {
+  export function Search(val:boolean) {
+    const action: OpenModel = {
       type: actionTypes.SEARCH,
       Data: val
     };
@@ -59,8 +59,8 @@ export function onSelectCoin(Coin: ICoin) {
     };
   }
 
-  export function Menu(val:any) {
-    const action: any = {
+  export function Menu(val:boolean) {
+    const action: OpenModel = {
       type: actionTypes.MENU,
       Data: val
     };
