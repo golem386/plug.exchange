@@ -70,7 +70,6 @@ type CoinNetworkType = {
 const SwapTransactionDetails = (props: SwapTransactionDetailsProps) => {
   const ConnectWallet: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: CoinNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
-  const matches = useMediaQuery('(min-width:660px)');
   return props.btnTitle === 'Connect Wallet' ? (
     ConnectWallet.name !== '' && CoinNetwork.name !== '' ?
       <DetailView>

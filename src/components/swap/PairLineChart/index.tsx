@@ -13,7 +13,7 @@ const CurrencySwitch = styled('p')({
   fontSize: 'calc(0.55em + 1vw)',
   fontWeight: '600',
   display: 'flex',
-  marginTop:'12%'
+  marginTop: '12%'
 });
 const TextSpan = styled('span')({
   fontFamily: 'Inter',
@@ -43,7 +43,12 @@ const CurrencyPriceChange = styled('span')({
   marginLeft: '1.5%',
   fontFamily: 'Inter',
 });
-const View = styled('div')({});
+const View = styled('div')({
+  display: 'block',
+  "@media (max-width: 660px)": {
+    display: 'none'
+  }
+});
 const PairData = styled('div')({
   width: '100%',
   marginTop: '10%',
@@ -88,13 +93,13 @@ const CustomTabsActive = styled(Tabs)({
   marginLeft: '55%',
   backgroundColor: '#f7f7f7',
   borderRadius: "100px",
-  width: '273px'
-});
-const CustomTabsActive2 = styled(Tabs)({
-  marginLeft: '20%',
-  backgroundColor: '#f7f7f7',
-  borderRadius: "100px",
-  width: '273px'
+  width: '273px',
+  "@media (max-width: 660px)": {
+    marginLeft: '20%',
+    backgroundColor: '#f7f7f7',
+    borderRadius: "100px",
+    width: '273px'
+  }
 });
 type SelectType = {
   name: String;
@@ -144,263 +149,236 @@ const PairLineChart = (props: PairLineChartProps) => {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-  const matches = useMediaQuery('(min-width:660px)');
   const CoinDetail: SelectType = useSelector((state: ArticleState) => state.CoinDetail);
   const receiveCoinDetail: SelectType = useSelector((state: ArticleState) => state.receiveCoinDetail);
   console.log(CoinDetail)
 
   return (
     <View>
-      {
-        matches ? <>
-          <CurrencySwitch>
-            {CoinDetail.fullName}
-            <TextSpan>({CoinDetail.name})</TextSpan>
-            <ShortIcon src={ShortVartical} alt="ShortIcon" />
-            {receiveCoinDetail.fullName}
-            <TextSpan>({receiveCoinDetail.name})</TextSpan>
-          </CurrencySwitch>
-          <CurrencyPriceUSD>$3,744.19</CurrencyPriceUSD>
-          <br />
-          <CurrencyPriceChange>$16.93333 (+0.41%)</CurrencyPriceChange>
-          <PairData>
-            <Box sx={{ width: matches ? '100%' : '100%' }}>
-              <TabPanel value={value} index={0}>
-                <ReactEcharts
-                  option={{
-                    color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
-                    grid: {
-                      left: '0%',
-                      right: '0%',
-                      bottom: '0%',
-                      top: 0,
-                      containLabel: false,
+      <>
+        <CurrencySwitch>
+          {CoinDetail.fullName}
+          <TextSpan>({CoinDetail.name})</TextSpan>
+          <ShortIcon src={ShortVartical} alt="ShortIcon" />
+          {receiveCoinDetail.fullName}
+          <TextSpan>({receiveCoinDetail.name})</TextSpan>
+        </CurrencySwitch>
+        <CurrencyPriceUSD>$3,744.19</CurrencyPriceUSD>
+        <br />
+        <CurrencyPriceChange>$16.93333 (+0.41%)</CurrencyPriceChange>
+        <PairData>
+          <Box sx={{ width: '100%' }}>
+            <TabPanel value={value} index={0}>
+              <ReactEcharts
+                option={{
+                  color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+                  grid: {
+                    left: '0%',
+                    right: '0%',
+                    bottom: '0%',
+                    top: 0,
+                    containLabel: false,
+                  },
+                  xAxis: [
+                    {
+                      type: 'category',
+                      boundaryGap: false,
+                      show: false,
+                      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'mon'],
                     },
-                    xAxis: [
-                      {
-                        type: 'category',
-                        boundaryGap: false,
-                        show: false,
-                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'mon'],
-                      },
-                    ],
-                    yAxis: [
-                      {
-                        type: 'value',
-                        show: false,
-                      },
-                    ],
-                    series: [
-                      {
-                        name: 'Line 1',
-                        type: 'line',
-                        stack: 'Total',
-                        smooth: true,
-                        lineStyle: {
-                          width: 2,
-                          color: '#BB36FF',
-                          shadowBlur: 15,
-                          shadowOffsetX: 7,
-                        },
-                        showSymbol: false,
-                        symbolSize: 0,
-                        areaStyle: {
-                          opacity: 0.8,
-                          color: new echarts.graphic.LinearGradient(0, 0, 2, 1, [
-                            {
-                              offset: 0,
-                              color: 'rgba(93, 95, 239, 0.05)',
-                            },
-                            {
-                              offset: 1,
-                              color: 'rgba(93, 95, 239, 0)',
-                            },
-                          ]),
-                        },
-                        emphasis: {
-                          focus: 'series',
-                        },
-                        data: [140, 232, 101, 264, 90, 340, 250, 100],
-                      },
-                    ],
-                  }}
-                />
-              </TabPanel>
-              <TabPanel value={value} index={1}>
-                <ReactEcharts
-                  option={{
-                    color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
-                    grid: {
-                      left: '0%',
-                      right: '0%',
-                      bottom: '0%',
-                      top: 0,
-                      containLabel: true,
+                  ],
+                  yAxis: [
+                    {
+                      type: 'value',
+                      show: false,
                     },
-                    xAxis: [
-                      {
-                        type: 'category',
-                        boundaryGap: false,
-                        show: false,
-                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'mon'],
+                  ],
+                  series: [
+                    {
+                      name: 'Line 1',
+                      type: 'line',
+                      stack: 'Total',
+                      smooth: true,
+                      lineStyle: {
+                        width: 2,
+                        color: '#BB36FF',
+                        shadowBlur: 15,
+                        shadowOffsetX: 7,
                       },
-                    ],
-                    yAxis: [
-                      {
-                        type: 'value',
-                        show: false,
+                      showSymbol: false,
+                      symbolSize: 0,
+                      areaStyle: {
+                        opacity: 0.8,
+                        color: new echarts.graphic.LinearGradient(0, 0, 2, 1, [
+                          {
+                            offset: 0,
+                            color: 'rgba(93, 95, 239, 0.05)',
+                          },
+                          {
+                            offset: 1,
+                            color: 'rgba(93, 95, 239, 0)',
+                          },
+                        ]),
                       },
-                    ],
-                    series: [
-                      {
-                        name: 'Line 1',
-                        type: 'line',
-                        stack: 'Total',
-                        smooth: true,
-                        lineStyle: {
-                          width: 2,
-                          color: '#BB36FF',
-                          shadowBlur: 15,
-                          shadowOffsetX: 7,
-                        },
-                        showSymbol: false,
-                        symbolSize: 0,
-                        areaStyle: {
-                          opacity: 0.8,
-                          color: new echarts.graphic.LinearGradient(0, 0, 2, 1, [
-                            {
-                              offset: 0,
-                              color: 'rgba(93, 95, 239, 0.05)',
-                            },
-                            {
-                              offset: 1,
-                              color: 'rgba(93, 95, 239, 0)',
-                            },
-                          ]),
-                        },
-                        emphasis: {
-                          focus: 'series',
-                        },
-                        data: [140, 232, 101, 264, 90, 340, 250, 270],
+                      emphasis: {
+                        focus: 'series',
                       },
-                    ],
-                  }}
-                />
-              </TabPanel>
-              <TabPanel value={value} index={2}>
-                <ReactEcharts
-                  option={{
-                    color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
-                    grid: {
-                      left: '0%',
-                      right: '0%',
-                      bottom: '0%',
-                      top: 0,
-                      containLabel: true,
+                      data: [140, 232, 101, 264, 90, 340, 250, 100],
                     },
-                    xAxis: [
-                      {
-                        type: 'category',
-                        boundaryGap: false,
-                        show: false,
-                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'mon'],
+                  ],
+                }}
+              />
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <ReactEcharts
+                option={{
+                  color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+                  grid: {
+                    left: '0%',
+                    right: '0%',
+                    bottom: '0%',
+                    top: 0,
+                    containLabel: true,
+                  },
+                  xAxis: [
+                    {
+                      type: 'category',
+                      boundaryGap: false,
+                      show: false,
+                      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'mon'],
+                    },
+                  ],
+                  yAxis: [
+                    {
+                      type: 'value',
+                      show: false,
+                    },
+                  ],
+                  series: [
+                    {
+                      name: 'Line 1',
+                      type: 'line',
+                      stack: 'Total',
+                      smooth: true,
+                      lineStyle: {
+                        width: 2,
+                        color: '#BB36FF',
+                        shadowBlur: 15,
+                        shadowOffsetX: 7,
                       },
-                    ],
-                    yAxis: [
-                      {
-                        type: 'value',
-                        show: false,
+                      showSymbol: false,
+                      symbolSize: 0,
+                      areaStyle: {
+                        opacity: 0.8,
+                        color: new echarts.graphic.LinearGradient(0, 0, 2, 1, [
+                          {
+                            offset: 0,
+                            color: 'rgba(93, 95, 239, 0.05)',
+                          },
+                          {
+                            offset: 1,
+                            color: 'rgba(93, 95, 239, 0)',
+                          },
+                        ]),
                       },
-                    ],
-                    series: [
-                      {
-                        name: 'Line 1',
-                        type: 'line',
-                        stack: 'Total',
-                        smooth: true,
-                        lineStyle: {
-                          width: 2,
-                          color: '#BB36FF',
-                          shadowBlur: 15,
-                          shadowOffsetX: 7,
-                        },
-                        showSymbol: false,
-                        symbolSize: 0,
-                        areaStyle: {
-                          opacity: 0.8,
-                          color: new echarts.graphic.LinearGradient(0, 0, 2, 1, [
-                            {
-                              offset: 0,
-                              color: 'rgba(93, 95, 239, 0.05)',
-                            },
-                            {
-                              offset: 1,
-                              color: 'rgba(93, 95, 239, 0)',
-                            },
-                          ]),
-                        },
-                        emphasis: {
-                          focus: 'series',
-                        },
-                        data: [140, 232, 101, 264, 90, 340, 250, 500],
+                      emphasis: {
+                        focus: 'series',
                       },
-                    ],
-                  }}
-                />
-              </TabPanel>
-              <Box sx={{ borderBottom: 0, borderColor: 'divider' }}>
-                {
-                  matches ? <CustomTabsActive
-                    TabIndicatorProps={{
-                      style: { display: 'none' },
-                    }}
-                    value={value}
-                    onChange={handleChange}
-                  >
-                    {value === 0 ? (
-                      <CustomButtonActive label="24H" {...a11yProps(0)} />
-                    ) : (
-                      <CustomButton label="24H" {...a11yProps(0)} />
-                    )}
-                    {value === 1 ? (
-                      <CustomButtonActive label="1W" {...a11yProps(1)} />
-                    ) : (
-                      <CustomButton label="1W" {...a11yProps(1)} />
-                    )}
-                    {value === 2 ? (
-                      <CustomButtonActive label="1M" {...a11yProps(2)} />
-                    ) : (
-                      <CustomButton label="1M" {...a11yProps(2)} />
-                    )}
-                  </CustomTabsActive> : <CustomTabsActive2
-                    TabIndicatorProps={{
-                      style: { display: 'none' },
-                    }}
-                    value={value}
-                    onChange={handleChange}
-                  >
-                    {value === 0 ? (
-                      <CustomButtonActive label="24H" {...a11yProps(0)} />
-                    ) : (
-                      <CustomButton label="24H" {...a11yProps(0)} />
-                    )}
-                    {value === 1 ? (
-                      <CustomButtonActive label="1W" {...a11yProps(1)} />
-                    ) : (
-                      <CustomButton label="1W" {...a11yProps(1)} />
-                    )}
-                    {value === 2 ? (
-                      <CustomButtonActive label="1M" {...a11yProps(2)} />
-                    ) : (
-                      <CustomButton label="1M" {...a11yProps(2)} />
-                    )}
-                  </CustomTabsActive2>
-                }
-              </Box>
+                      data: [140, 232, 101, 264, 90, 340, 250, 270],
+                    },
+                  ],
+                }}
+              />
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+              <ReactEcharts
+                option={{
+                  color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+                  grid: {
+                    left: '0%',
+                    right: '0%',
+                    bottom: '0%',
+                    top: 0,
+                    containLabel: true,
+                  },
+                  xAxis: [
+                    {
+                      type: 'category',
+                      boundaryGap: false,
+                      show: false,
+                      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'mon'],
+                    },
+                  ],
+                  yAxis: [
+                    {
+                      type: 'value',
+                      show: false,
+                    },
+                  ],
+                  series: [
+                    {
+                      name: 'Line 1',
+                      type: 'line',
+                      stack: 'Total',
+                      smooth: true,
+                      lineStyle: {
+                        width: 2,
+                        color: '#BB36FF',
+                        shadowBlur: 15,
+                        shadowOffsetX: 7,
+                      },
+                      showSymbol: false,
+                      symbolSize: 0,
+                      areaStyle: {
+                        opacity: 0.8,
+                        color: new echarts.graphic.LinearGradient(0, 0, 2, 1, [
+                          {
+                            offset: 0,
+                            color: 'rgba(93, 95, 239, 0.05)',
+                          },
+                          {
+                            offset: 1,
+                            color: 'rgba(93, 95, 239, 0)',
+                          },
+                        ]),
+                      },
+                      emphasis: {
+                        focus: 'series',
+                      },
+                      data: [140, 232, 101, 264, 90, 340, 250, 500],
+                    },
+                  ],
+                }}
+              />
+            </TabPanel>
+            <Box sx={{ borderBottom: 0, borderColor: 'divider' }}>
+              <CustomTabsActive
+                TabIndicatorProps={{
+                  style: { display: 'none' },
+                }}
+                value={value}
+                onChange={handleChange}
+              >
+                {value === 0 ? (
+                  <CustomButtonActive label="24H" {...a11yProps(0)} />
+                ) : (
+                  <CustomButton label="24H" {...a11yProps(0)} />
+                )}
+                {value === 1 ? (
+                  <CustomButtonActive label="1W" {...a11yProps(1)} />
+                ) : (
+                  <CustomButton label="1W" {...a11yProps(1)} />
+                )}
+                {value === 2 ? (
+                  <CustomButtonActive label="1M" {...a11yProps(2)} />
+                ) : (
+                  <CustomButton label="1M" {...a11yProps(2)} />
+                )}
+              </CustomTabsActive>
             </Box>
-          </PairData>
-        </> : null
-      }
+          </Box>
+        </PairData>
+      </>
     </View>
   );
 };

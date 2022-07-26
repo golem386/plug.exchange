@@ -390,12 +390,12 @@ const WalletDetails = () => {
         onClick={handleClickPrice}
       >
         <ImageIconDropDown src={CoinDetail.coin} alt="Coin" />
+        <Name>{CoinDetail.Subname}</Name>
         {
-          matches ? <>
-            <Name>{CoinDetail.Subname}</Name>
-            <Into>{CoinDetail.Price}</Into>
-            <CoinDropIcon src={DownArrow} alt="DownArrow" /></> : <Name>{CoinDetail.Subname}</Name>
+          matches ? <><Into>{CoinDetail.Price}</Into>
+            <CoinDropIcon src={DownArrow} alt="DownArrow" /></> : null
         }
+
 
       </CoinPrice>
       <OverLay

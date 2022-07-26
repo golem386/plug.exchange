@@ -278,7 +278,6 @@ type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const TransactionSettings = (props: TransactionSettingsProps) => {
   const dispatch: AppDispatch = useDispatch();
   const [Slider, setSlider] = React.useState<Boolean>(false);
-  const matches = useMediaQuery('(min-width:660px)');
   const onModal = (article: any) => {
     dispatch(onModalOpen(article));
   };

@@ -38,21 +38,22 @@ const DropMain = styled('div')({
   '&:hover': {
     backgroundColor: '#f7f7f7',
   },
+  "@media (max-width: 660px)": {
+    width: '94%',
+    display: 'flex',
+    alignItems: 'center',
+    paddingLeft: 10,
+    paddingRight: 15,
+    paddingTop: 5,
+    paddingBottom: 5,
+    justifyContent: 'space-between',
+    cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: '#f7f7f7',
+    },
+  }
 });
-const DropMain2 = styled('div')({
-  width: '94%',
-  display: 'flex',
-  alignItems: 'center',
-  paddingLeft: 10,
-  paddingRight: 15,
-  paddingTop: 5,
-  paddingBottom: 5,
-  justifyContent: 'space-between',
-  cursor: 'pointer',
-  '&:hover': {
-    backgroundColor: '#f7f7f7',
-  },
-});
+
 const DIV = styled('div')({
   alignItems: 'center',
   display: 'flex',
@@ -94,20 +95,13 @@ const UserAssets = (props: UserAssetsProps) => {
       </NetWorth>
       {DropDownDataWallet.map((val, i) => {
         return (
-          matches ? <DropMain>
+          <DropMain>
             <DIV>
               <ImageIconDropDown src={val.coin} alt="Icon" />
               <DropTitle>{val.Subname}</DropTitle>
             </DIV>
             <DropPrice>{val.Price}</DropPrice>
-          </DropMain> : <DropMain2>
-            <DIV>
-              <ImageIconDropDown src={val.coin} alt="Icon" />
-              <DropTitle>{val.Subname}</DropTitle>
-            </DIV>
-            <DropPrice>{val.Price}</DropPrice>
-          </DropMain2>
-
+          </DropMain>
         );
       })}
     </>

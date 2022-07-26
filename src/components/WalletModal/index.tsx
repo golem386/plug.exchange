@@ -71,6 +71,24 @@ const ViewMain = styled('div')({
   marginLeft: 15,
   padding: '12px, 18px, 12px, 16px'
 });
+const ViewMainBtn = styled('div')({
+  borderWidth: '1.5px',
+  borderStyle: 'solid',
+  borderColor: '#e0e0e0',
+  display: 'flex',
+  alignItems: 'center',
+  borderRadius: 10,
+  justifyContent: 'center',
+  margin: 5,
+  paddingLeft: '3%',
+  paddingRight: '3%',
+  marginLeft: 15,
+  padding: '12px, 18px, 12px, 16px',
+  "@media (max-width: 660px)": {
+    display:'none'
+  }
+});
+
 const ViewMainActive = styled('div')({
   position: 'relative',
   borderWidth: '1.5px',
@@ -341,9 +359,8 @@ const WalletModal = (props: WalletModalProps) => {
                 );
               })}
             </ViewMainView>
-            {
-              matches ? <ViewMainView>
-                <ViewMain>
+            <ViewMainView>
+                <ViewMainBtn>
                   <TitleIcon
                     onClick={() => {
                       handleOpenError();
@@ -351,7 +368,7 @@ const WalletModal = (props: WalletModalProps) => {
                   >
                     Error Modal
                   </TitleIcon>
-                </ViewMain>
+                </ViewMainBtn>
                 <ModalCustom
                   open={ErrorStatus}
                   onClose={() => {
@@ -382,9 +399,7 @@ const WalletModal = (props: WalletModalProps) => {
                     </ConnectButton2>
                   </Box>
                 </ModalCustom>
-              </ViewMainView> : null
-            }
-
+              </ViewMainView> 
           </ButtonGroup>
         </Main>
 

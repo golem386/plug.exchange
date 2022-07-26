@@ -23,8 +23,8 @@ import WhiteQue from '../../../assets/icon/WhiteQue.png'
 const MainDiv = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
-  width: '97%', 
-  marginTop:'12%'
+  width: '97%',
+  marginTop: '12%'
   // height:'490px'
 });
 const OrderBtn = styled(Button)({
@@ -35,7 +35,7 @@ const OrderBtn = styled(Button)({
   borderRadius: '12px',
   marginBottom: '6%',
   marginTop: '5%',
-  marginLeft:'7%',
+  marginLeft: '7%',
   textTransform: 'initial',
 });
 const OrderBtnDisebal = styled(Button)({
@@ -46,7 +46,7 @@ const OrderBtnDisebal = styled(Button)({
   borderRadius: '12px',
   marginBottom: '6%',
   marginTop: '5%',
-  marginLeft:'7%',
+  marginLeft: '7%',
   textTransform: 'initial',
   opacity: 0.4
 });
@@ -237,15 +237,10 @@ const Swap = (props: SwapProps) => {
             />
           </Boxs>
         </Modal>
-        {
-          matches ? !Parmition ? <ParmitionBtn onClick={() => { SetParmition(true) }}>
-            Allow the Plug protocol to use your ETH.
-            <Img src={WhiteQue} />
-          </ParmitionBtn> : null : !Parmition ? <ParmitionBtn onClick={() => { SetParmition(true) }}>
-            Allow the Plug protocol to <br /> use your ETH.
-            <Img src={WhiteQue} />
-          </ParmitionBtn> : null
-        }
+        {!Parmition ? <ParmitionBtn onClick={() => { SetParmition(true) }}>
+          Allow the Plug protocol {matches ? null : <br />}  to use your ETH.
+          <Img src={WhiteQue} />
+        </ParmitionBtn> : null}
         {ConnectWallet.name === '' && CoinNetwork.name !== '' ? (
           <WrongBtn>Wrong Network</WrongBtn>
         ) : (
