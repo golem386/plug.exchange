@@ -76,12 +76,12 @@ const TokenCodeKey = styled('span')({
   fontWeight: 500,
   fontSize: 16,
   color: '#dbdbdb',
-});
-const TokenCodeKey2 = styled('span')({
-  fontFamily: 'Inter',
-  fontWeight: 500,
-  fontSize: 14,
-  color: '#dbdbdb',
+  "@media (max-width: 660px)": {
+    fontFamily: 'Inter',
+    fontWeight: 500,
+    fontSize: 14,
+    color: '#dbdbdb',
+  }
 });
 const Warning = styled('div')({
   backgroundColor: '#f0f0f0',
@@ -164,8 +164,8 @@ const ImportToken = (props: ImportTokenProps) => {
   const [Check, setCheck] = React.useState<Boolean>(false);
   const matches = useMediaQuery('(min-width:660px)');
   return (
-    matches ? <Box sx={style}>
-      < TitleView >
+    <Box sx={matches ? style : style2}>
+      <TitleView >
         <Title>Import a Token</Title>
         <img
           src={Cros}
@@ -174,7 +174,7 @@ const ImportToken = (props: ImportTokenProps) => {
           }}
           alt="image"
         />
-      </TitleView >
+      </TitleView>
       <UserId>
         <TokenImg src={coin} alt="coin" />
         <TokenName>
@@ -218,60 +218,7 @@ const ImportToken = (props: ImportTokenProps) => {
           <ConnectButtonDisabal variant="text">Import Token</ConnectButtonDisabal>
         )
       }
-    </Box > : <Box sx={style2}>
-      <TitleView>
-        <Title>Import a Token</Title>
-        <img
-          src={Cros}
-          onClick={() => {
-            props.handleClose();
-          }}
-          alt="image"
-        />
-      </TitleView>
-      <UserId>
-        <TokenImg src={coin} alt="coin" />
-        <TokenName>
-          Tether <TokenCode>(USDT)</TokenCode>
-        </TokenName>
-      </UserId>
-      <TokenCodeKey2>0x1ce0c2827e2ef14d5c4f29a091d735a204794041</TokenCodeKey2>
-      <Warning>
-        <Red>
-          <Info src={info} />
-          <WarningText>Trade at your own risk!</WarningText>
-        </Red>
-        <Pre>
-          &nbsp;&nbsp;&nbsp;Anyone can create a token, including creating fake versions of existing tokens that claim to
-          represent proects.
-        </Pre>
-        <br />
-        <br />
-        <Pre>&nbsp;&nbsp;&nbsp;If you purchase this token, you may not be able to sell it back.</Pre>
-      </Warning>
-      <ParmitionDiv>
-        <FormControlLabel
-          control={
-            <Radio
-              onClick={(e: any) => {
-                setCheck(!Check);
-              }}
-              checked={Check ? true : false}
-            />
-          }
-          label=""
-        />
-        <Parmition>I understand and want to proceed.</Parmition>
-      </ParmitionDiv>
-      {Check ? (
-        <ConnectButton variant="text" onClick={() => { }}>
-          Import Token
-        </ConnectButton>
-      ) : (
-        <ConnectButtonDisabal variant="text">Import Token</ConnectButtonDisabal>
-      )}
-    </Box>
-
+    </Box >
   );
 };
 

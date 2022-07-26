@@ -70,7 +70,9 @@ const HistoryDiv = styled('div')({
   backgroundColor: '#f7f7f7',
   paddingLeft: 15,
   paddingTop: 10,
-  paddingBottom: 10
+  paddingBottom: 10,
+  borderBottomLeftRadius: 16,
+  borderBottomRightRadius: 16
 });
 const HistoryTitle = styled('span')({
   fontSize: '16px',
@@ -102,6 +104,22 @@ const CoinPrice = styled('span')({
   border: 'none',
   height: 52,
   width: '100%',
+  "@media (max-width: 660px)": {
+    background: "#f7f7f7",
+    height: 36,
+    width: 130,
+    padding: '0px 10px',
+    border: 'none',
+    borderRadius: '100px',
+    fontFamily: 'Inter',
+    fontWeight: '500',
+    fontSize: '16px',
+    color: 'black',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    textTransform: 'initial'
+  }
 });
 const Into = styled('p')({
   backgroundColor: 'white',
@@ -119,9 +137,31 @@ const ImageIconDropDown = styled('img')({
   height: '30px',
   width: '30px',
   paddingRight: '20px',
+  "@media (max-width: 660px)": {
+    height: '20px',
+    width: '20px',
+    marginRight: '0px'
+  }
 });
-const CustomMenu = styled(Menu)({
-  marginTop: '5%',
+const CustomMenu = styled('div')({
+  position: 'absolute',
+  top: '10%',
+  left: '70%',
+  borderRadius: 20,
+  backgroundColor: 'white',
+  boxShadow: '0px 3px 14px 0px #9c9c9c',
+  width: '300px',
+  paddingTop: 20,
+  "@media (max-width: 660px)": {
+    position: 'fixed',
+    top: '15%',
+    left: 5,
+    borderRadius: 20,
+    backgroundColor: 'white',
+    width: '95%',
+    padding: 5,
+    paddingTop: 20
+  }
 });
 const CustomMenu2 = styled('div')({
   position: 'fixed',
@@ -134,16 +174,28 @@ const CustomMenu2 = styled('div')({
   paddingTop: 20
 });
 const OverLay = styled('div')({
-  position: 'fixed',
+  position: 'absolute',
   width: '100%',
   height: '100%',
   top: 0,
   left: 0,
   right: 0,
   bottom: 0,
-  backgroundColor: 'rgba(0,0,0,0.5)',
+  backgroundColor: 'transparent',
   zIndex: 2,
   cursor: "pointer",
+  "@media (max-width: 660px)": {
+    position: 'fixed',
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    zIndex: 2,
+    cursor: "pointer",
+  }
 });
 const CoinDropIcon = styled('img')({
   height: '5.19px',
@@ -334,35 +386,23 @@ const WalletDetails = () => {
   };
   return (
     <div>
-      {
-        matches ? <CoinPrice
-          onClick={handleClickPrice}
-        >
-          <ImageIconDropDown src={CoinDetail.coin} alt="Coin" />
-          <Name>{CoinDetail.Subname}</Name>
-          <Into>{CoinDetail.Price}</Into>
-          <CoinDropIcon src={DownArrow} alt="DownArrow" />
-        </CoinPrice> :
-          <Btn onClick={handleClickPrice}>
-            <Img src={CoinDetail.coin} />
-            {CoinDetail.Subname}
-          </Btn>
-      }
+      <CoinPrice
+        onClick={handleClickPrice}
+      >
+        <ImageIconDropDown src={CoinDetail.coin} alt="Coin" />
+        {
+          matches ? <>
+            <Name>{CoinDetail.Subname}</Name>
+            <Into>{CoinDetail.Price}</Into>
+            <CoinDropIcon src={DownArrow} alt="DownArrow" /></> : <Name>{CoinDetail.Subname}</Name>
+        }
 
-      {
-        matches ? <CustomMenu
-          anchorEl={anchorElPrice}
-          open={openmenuPrice}
-          onClose={handleClosemenuPrice}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-        >
+      </CoinPrice>
+      <OverLay
+        style={{ display: openmenuPrice ? 'block' : 'none' }}
+        onClick={handleClosemenuPrice}
+      >
+        <CustomMenu>
           <DropPrice>Connected with MetaMask</DropPrice>
           {
             !CopyId ? <Copy onClick={() => { setCopy(true) }}>
@@ -398,50 +438,8 @@ const WalletDetails = () => {
             }}
             isOpen={open}
           />
-        </CustomMenu> : <OverLay
-          style={{ display: openmenuPrice ? 'block' : 'none' }}
-          onClick={handleClosemenuPrice}
-        >
-          <CustomMenu2>
-            <DropPrice>Connected with MetaMask</DropPrice>
-            {
-              !CopyId ? <Copy onClick={() => { setCopy(true) }}>
-                <FileCopy src={filecopy} alt="Copy" />
-                <Id>0x37...0420</Id>
-              </Copy> : <Copy onClick={() => { setCopy(true) }}>
-                <RightIcon src={right} alt="Copy" />
-                <Copied>Copied!</Copied>
-              </Copy>
-            }
-            <UserAssets account="" />
-            <HistoryDiv>
-              <MainDiv
-                onClick={() => {
-                  handleOpen();
-                }}
-              >
-                <img src={History} alt="History" />
-                <HistoryTitle>History</HistoryTitle>
-              </MainDiv>
-              <MainDiv
-                onClick={() => {
-                  DisConnectWallet();
-                }}
-              >
-                <img src={DisConnect} alt="Disconnect" />
-                <HistoryTitle>{CoinNetwork.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
-              </MainDiv>
-            </HistoryDiv>
-            <SwapTransactionHistory
-              close={() => {
-                handleClose();
-              }}
-              isOpen={open}
-            />
-          </CustomMenu2>
-        </OverLay>
-      }
-
+        </CustomMenu>
+      </OverLay>
     </div>
   );
 };

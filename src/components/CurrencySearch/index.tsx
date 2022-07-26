@@ -11,7 +11,12 @@ const NotResult = styled('div')({
   position: 'absolute',
   zIndex: 10,
   backgroundColor: 'white',
-  // width:'52%',
+  "@media (max-width: 660px)": {
+    padding: 30,
+    borderRadius: '24px',
+    position: 'absolute',
+    zIndex: 10,
+  }
 });
 const NotResult2 = styled('div')({
   padding: 30,
@@ -59,7 +64,6 @@ export type CurrencySearchProps = {
 const CurrencySearch = (props: CurrencySearchProps) => {
   const matches = useMediaQuery('(min-width:660px)');
   return (
-    matches ?
       <NotResult>
         <TokenHeading>Tokens</TokenHeading>
         <List>
@@ -93,40 +97,7 @@ const CurrencySearch = (props: CurrencySearchProps) => {
         <List>
           <ListTitle>ETH / USDC</ListTitle>
         </List>
-      </NotResult> : <NotResult2>
-        <TokenHeading>Tokens</TokenHeading>
-        <List>
-          <img src={coin} alt="Coin" />
-          <ListTitle>Ethereum (ETH)</ListTitle>
-          <ListSubTitle>Ethereum</ListSubTitle>
-        </List>
-        <List>
-          <img src={coin} alt="coin" />
-          <ListTitle>Wrapped Ethereum (WETH)</ListTitle>
-          <ListSubTitle>Ethereum</ListSubTitle>
-        </List>
-        <List>
-          <img src={coin} alt="coin" />
-          <ListTitle>Ethereum (ETH)</ListTitle>
-          <ListSubTitle>Binance Smart Chain</ListSubTitle>
-        </List>
-        <List>
-          <img src={coin} alt="coin" />
-          <ListTitle>Ethereum (ETH)</ListTitle>
-          <ListSubTitle>Polygon</ListSubTitle>
-        </List>
-        <hr />
-        <TokenHeading>Ethereum Markets</TokenHeading>
-        <List>
-          <ListTitle>ETH / DAI</ListTitle>
-        </List>
-        <List>
-          <ListTitle>ETH / WETH</ListTitle>
-        </List>
-        <List>
-          <ListTitle>ETH / USDC</ListTitle>
-        </List>
-      </NotResult2>
+      </NotResult>
 
   );
 };

@@ -134,11 +134,11 @@ const PriseText = styled('p')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
-});
-const PriseText2 = styled('p')({
-  fontFamily: 'Inter',
-  fontWeight: '600',
-  fontSize: '14px',
+  "@media (max-width: 660px)": {
+    fontFamily: 'Inter',
+    fontWeight: '600',
+    fontSize: '14px',
+  }
 });
 const TimeText = styled('p')({
   fontFamily: 'Inter',
@@ -157,16 +157,16 @@ const TimeTextPink = styled('p')({
   backgroundClip: "text",
   display: 'flex',
   alignItems: 'center',
-});
-const TimeTextPink2 = styled('p')({
-  fontFamily: 'Inter',
-  fontWeight: '500',
-  fontSize: '14px',
-  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
-  color: "transparent",
-  backgroundClip: "text",
-  display: 'flex',
-  alignItems: 'center',
+  "@media (max-width: 660px)": {
+    fontFamily: 'Inter',
+    fontWeight: '500',
+    fontSize: '14px',
+    background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+    color: "transparent",
+    backgroundClip: "text",
+    display: 'flex',
+    alignItems: 'center',
+  }
 });
 const DownArrowIcon = styled('img')({
   height: '7.78px',
@@ -235,6 +235,12 @@ const Span = styled('span')({
   fontWeight: '500',
   fontSize: '16px',
   color: '#b3b3b3',
+  "@media (max-width: 660px)": {
+    fontFamily: 'Inter',
+    fontWeight: '500',
+    fontSize: '14px',
+    color: '#b3b3b3',
+  }
 });
 const Span2 = styled('span')({
   fontFamily: 'Inter',
@@ -308,16 +314,10 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
       </MainInput>
       <hr />
       <FlexViewJustyfy>
-        {
-          matches ? <PriseText>Gas Price</PriseText> : <PriseText2>Gas Price</PriseText2>
-        }
-
+        <PriseText>Gas Price</PriseText>
         {Slider === false ? (
           <TimeText>
-            {
-              matches ? <Span>Instant (102.73 - 140.28 GWEI)</Span> : <Span2>Instant (102.73 - 140.28 GWEI)</Span2>
-            }
-
+            <Span>Instant (102.73 - 140.28 GWEI)</Span>
             <DownArrowIcon
               src={DownArrow}
               onClick={() => {
@@ -327,7 +327,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
             />
           </TimeText>
         ) : (
-          matches ? <TimeTextPink>
+          <TimeTextPink>
             Instant (102.73 - 140.28 GWEI)
             <DownArrowIcon
               onClick={() => {
@@ -336,16 +336,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
               src={TopArrow}
               alt="TopArrow"
             />
-          </TimeTextPink> : <TimeTextPink2>
-            Instant (102.73 - 140.28 GWEI)
-            <DownArrowIcon
-              onClick={() => {
-                setSlider(!Slider);
-              }}
-              src={TopArrow}
-              alt="TopArrow"
-            />
-          </TimeTextPink2>
+          </TimeTextPink>
         )}
       </FlexViewJustyfy>
       {Slider ? (

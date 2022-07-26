@@ -24,6 +24,7 @@ import twiter from '../../assets/icon/twiter.png';
 import Chain from '../../assets/icon/Chain.png'
 import DownIconWhite from '../../assets/icon/DownIconWhite.png'
 import { useNavigate } from 'react-router-dom';
+import AppFooter from '../AppFooter';
 
 const MainComponent = styled('div')({
   display: 'flex',
@@ -412,7 +413,7 @@ const AppBar = () => {
               <Title>Setting</Title>
               <CrosImg src={Cros} onClick={() => { dispatch(Search(false)) }} />
             </DivFlex>
-            <InputIcon>
+            {/* <InputIcon>
               <SearchIcon src={SearchIconImg} alt="Search" />
               <TextInputActive
                 placeholder="Search by Token Name or Address"
@@ -421,7 +422,7 @@ const AppBar = () => {
                 }}
               />
             </InputIcon>
-            {filterInput !== '' ? <CurrencySearch searchValue={null} /> : null}
+            {filterInput !== '' ? <CurrencySearch searchValue={null} /> : null} */}
           </Grid>
         </OverLay>
           {
@@ -438,25 +439,7 @@ const AppBar = () => {
                   />
                 </TitleView>
                 <CustomButton3>Buy Crypto</CustomButton3>
-                <Div>
-                  <CustomButtom>
-                    <img src={teligram} alt="teligram" />
-                  </CustomButtom>
-                  <CustomButtom>
-                    <img src={social} alt="social" />
-                  </CustomButtom>
-                  <CustomButtom>
-                    <img src={twiter} alt="twiter" />
-                  </CustomButtom>
-                  <CustomButtom>
-                    <img src={discord} alt="discord" />
-                  </CustomButtom>
-                </Div>
-                <Div2>
-                  <NameButton>FAQs</NameButton>
-                  <NameButton>Docs</NameButton>
-                  <NameButton>Careers</NameButton>
-                </Div2>
+                <AppFooter />
               </MainComponent2>
             </OverLay2>
           }

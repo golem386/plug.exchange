@@ -8,10 +8,13 @@ import twiter from '../../assets/icon/twiter.png';
 import { Button, useMediaQuery } from '@mui/material';
 
 const MainComponent = styled('div')({
-  display: 'flex',
-  paddingLeft: 10,
-  alignItems: 'center',
-  justifyContent: 'space-between',
+  "@media (min-width: 660px)": {
+    display: 'flex',
+    paddingLeft: 10,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  }
+
 });
 const CustomButtom = styled(Button)({
   borderRadius: 100,
@@ -44,54 +47,67 @@ const CustomButtomActive = styled(Button)({
   color: '#000000',
 });
 const BtnGroup = styled('div')({
- backgroundColor:"transparent",
- height:100,
- display:'flex',
- alignItems:'center',
- justifyContent:'space-around',
- boxShadow:'0px -9px 20px 0px #bdbdbd',
- width:'100%'
+  backgroundColor: "transparent",
+  height: 100,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-around',
+  boxShadow: '0px -9px 20px 0px #bdbdbd',
+  width: '100%'
 });
 const ActiveBtn = styled('button')({
-  background:"linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
-  height:36,
-  paddingLeft:'10%',
-  paddingRight:'10%',
-  border:'none',
-  borderRadius:'100px',
-  fontFamily:'Inter',
-  fontWeight:'500',
-  fontSize:'16px',
-  color:'white'
- });
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  height: 36,
+  paddingLeft: '10%',
+  paddingRight: '10%',
+  border: 'none',
+  borderRadius: '100px',
+  fontFamily: 'Inter',
+  fontWeight: '500',
+  fontSize: '16px',
+  color: 'white'
+});
+const Div = styled('div')({
+  "@media (max-width: 660px)": {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginTop: '7%'
+  }
+});
+const Div2 = styled('div')({
+  "@media (max-width: 660px)": {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  }
+});
 
 const AppFooter = () => {
   const matches = useMediaQuery('(min-width:660px)');
   return (
     <>
-      {
-        matches ? <MainComponent>
-          <div>
-            <CustomButtom>
-              <img src={teligram} alt="teligram" />
-            </CustomButtom>
-            <CustomButtom>
-              <img src={social} alt="social" />
-            </CustomButtom>
-            <CustomButtom>
-              <img src={twiter} alt="twiter" />
-            </CustomButtom>
-            <CustomButtom>
-              <img src={discord} alt="discord" />
-            </CustomButtom>
-          </div>
-          <div>
-            <NameButton>FAQs</NameButton>
-            <NameButton>Docs</NameButton>
-            <NameButton>Careers</NameButton>
-          </div>
-        </MainComponent> : null
-      }
+      <MainComponent>
+        <Div>
+          <CustomButtom>
+            <img src={teligram} alt="teligram" />
+          </CustomButtom>
+          <CustomButtom>
+            <img src={social} alt="social" />
+          </CustomButtom>
+          <CustomButtom>
+            <img src={twiter} alt="twiter" />
+          </CustomButtom>
+          <CustomButtom>
+            <img src={discord} alt="discord" />
+          </CustomButtom>
+        </Div>
+        <Div2>
+          <NameButton>FAQs</NameButton>
+          <NameButton>Docs</NameButton>
+          <NameButton>Careers</NameButton>
+        </Div2>
+      </MainComponent>
     </>
 
   );

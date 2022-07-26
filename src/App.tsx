@@ -27,13 +27,13 @@ const MyComponent = styled('div')({
   backgroundColor: '#FFFFFF',
   height: '100%',
   width: '100%',
-  overflow: 'auto'
-});
-const MyComponent2 = styled('div')({
-  backgroundColor: '#FFFFFF',
-  height: '670px',
-  width: '100%',
-  overflow: 'auto'
+  overflow: 'auto',
+  "@media (max-width: 660px)": {
+    backgroundColor: '#FFFFFF',
+    height: '670px',
+    width: '100%',
+    overflow: 'auto'
+  }
 });
 
 const BoxsToken = styled('div')({
@@ -44,6 +44,15 @@ const BoxsToken = styled('div')({
   height: '90%',
   borderRadius: 10,
   overflow: 'hidden',
+  "@media (max-width: 660px)": {
+    backgroundColor: 'white',
+    paddingBottom: 30,
+    paddingTop: 10,
+    width: '585px',
+    height: '90%',
+    borderRadius: 0,
+    overflow: 'hidden',
+  },
   '&:hover': {
     overflowY: 'auto',
   },
@@ -51,21 +60,7 @@ const BoxsToken = styled('div')({
     display: 'none',
   },
 });
-const BoxsToken2 = styled('div')({
-  backgroundColor: 'white',
-  paddingBottom: 30,
-  paddingTop: 10,
-  width: '585px',
-  height: '90%',
-  borderRadius: 0,
-  overflow: 'hidden',
-  '&:hover': {
-    overflowY: 'auto',
-  },
-  '&::-webkit-scrollbar': {
-    display: 'none',
-  },
-});
+
 const BtnGroup = styled('div')({
   backgroundColor: "transparent",
   display: 'flex',
@@ -144,51 +139,30 @@ function App() {
             <NavImg src={mlogo} />
           </div>
           <DivFlex>
-            <NavImg src={mSearch} onClick={() => { dispatch(Search(true)) }} />
+            {/* <NavImg src={mSearch} onClick={() => { dispatch(Search(true)) }} /> */}
             <Settings settings={settingData} />
           </DivFlex>
         </NavBar>
       }
-      {
-        matches ? <MyComponent>
-          <SwapPage />
-          <Modal
-            isOpen={ModalData}
-            modalTitle="WalletModal"
-            close={() => {
-              dispatch(closeModal())
-            }}
-          >
-            <BoxsToken>
-              <WalletModal
-                Check={ModalData}
-                onClose={() => {
-                  dispatch(closeModal())
-                }}
-              />
-            </BoxsToken>
-          </Modal>
-        </MyComponent> : <MyComponent2>
-          <SwapPage />
-          <Modal
-            isOpen={ModalData}
-            modalTitle="WalletModal"
-            close={() => {
-              dispatch(closeModal())
-            }}
-          >
-            <BoxsToken2>
-              <WalletModal
-                Check={ModalData}
-                onClose={() => {
-                  dispatch(closeModal())
-                }}
-              />
-            </BoxsToken2>
-          </Modal>
-        </MyComponent2>
-      }
-
+      <MyComponent>
+        <SwapPage />
+        <Modal
+          isOpen={ModalData}
+          modalTitle="WalletModal"
+          close={() => {
+            dispatch(closeModal())
+          }}
+        >
+          <BoxsToken>
+            <WalletModal
+              Check={ModalData}
+              onClose={() => {
+                dispatch(closeModal())
+              }}
+            />
+          </BoxsToken>
+        </Modal>
+      </MyComponent>
       {
         matches ? null : CoinDetail.name !== "" ? <BtnGroup>
           {/* <ActiveBtn><Img src={CoinDetail.coin} />{CoinDetail.name !== "" ? CoinDetail.name : ''}</ActiveBtn> */}
