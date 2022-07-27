@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import React, { Component } from 'react';
 import Check from '../../../../../assets/icon/Check.png';
 import Cros from '../../../../../assets/icon/Cros.png';
 import { Button } from '@mui/material';
@@ -39,16 +38,10 @@ const Buttons = styled(Button)({
   display: 'block',
   margin: 'auto',
 });
-const BtnIcon = styled('img')({
-  height: '32px',
-  width: '32px',
-  marginLeft: 3,
-  marginRight: 3,
-});
 const CloseIcon = styled('img')({
   height: '15px',
   width: '15px',
-  cursor:'pointer'
+  cursor: 'pointer',
 });
 const ImagDiv = styled('div')({
   display: 'flex',

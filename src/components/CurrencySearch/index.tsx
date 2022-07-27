@@ -1,7 +1,5 @@
 // this file is a CurrencySearch Modal and Provide outher Currency suggestion Search time
 import styled from '@emotion/styled';
-import { useMediaQuery } from '@mui/material';
-import React, { Component } from 'react';
 import coin from '../../assets/icon/coin.png';
 
 const NotResult = styled('div')({
@@ -11,16 +9,13 @@ const NotResult = styled('div')({
   position: 'absolute',
   zIndex: 10,
   backgroundColor: 'white',
-  // width:'52%',
+  '@media (max-width: 660px)': {
+    padding: 30,
+    borderRadius: '24px',
+    position: 'absolute',
+    zIndex: 10,
+  },
 });
-const NotResult2 = styled('div')({
-  padding: 30,
-  borderRadius: '24px',
-  position: 'absolute',
-  zIndex: 10,
-  // width:'52%',
-});
-
 const List = styled('span')({
   display: 'flex',
   alignItems: 'center',
@@ -57,77 +52,41 @@ export type CurrencySearchProps = {
 };
 
 const CurrencySearch = (props: CurrencySearchProps) => {
-  const matches = useMediaQuery('(min-width:660px)');
   return (
-    matches ?
-      <NotResult>
-        <TokenHeading>Tokens</TokenHeading>
-        <List>
-          <img src={coin} alt="Coin" />
-          <ListTitle>Ethereum (ETH)</ListTitle>
-          <ListSubTitle>Ethereum</ListSubTitle>
-        </List>
-        <List>
-          <img src={coin} alt="coin" />
-          <ListTitle>Wrapped Ethereum (WETH)</ListTitle>
-          <ListSubTitle>Ethereum</ListSubTitle>
-        </List>
-        <List>
-          <img src={coin} alt="coin" />
-          <ListTitle>Ethereum (ETH)</ListTitle>
-          <ListSubTitle>Binance Smart Chain</ListSubTitle>
-        </List>
-        <List>
-          <img src={coin} alt="coin" />
-          <ListTitle>Ethereum (ETH)</ListTitle>
-          <ListSubTitle>Polygon</ListSubTitle>
-        </List>
-        <hr />
-        <TokenHeading>Ethereum Markets</TokenHeading>
-        <List>
-          <ListTitle>ETH / DAI</ListTitle>
-        </List>
-        <List>
-          <ListTitle>ETH / WETH</ListTitle>
-        </List>
-        <List>
-          <ListTitle>ETH / USDC</ListTitle>
-        </List>
-      </NotResult> : <NotResult2>
-        <TokenHeading>Tokens</TokenHeading>
-        <List>
-          <img src={coin} alt="Coin" />
-          <ListTitle>Ethereum (ETH)</ListTitle>
-          <ListSubTitle>Ethereum</ListSubTitle>
-        </List>
-        <List>
-          <img src={coin} alt="coin" />
-          <ListTitle>Wrapped Ethereum (WETH)</ListTitle>
-          <ListSubTitle>Ethereum</ListSubTitle>
-        </List>
-        <List>
-          <img src={coin} alt="coin" />
-          <ListTitle>Ethereum (ETH)</ListTitle>
-          <ListSubTitle>Binance Smart Chain</ListSubTitle>
-        </List>
-        <List>
-          <img src={coin} alt="coin" />
-          <ListTitle>Ethereum (ETH)</ListTitle>
-          <ListSubTitle>Polygon</ListSubTitle>
-        </List>
-        <hr />
-        <TokenHeading>Ethereum Markets</TokenHeading>
-        <List>
-          <ListTitle>ETH / DAI</ListTitle>
-        </List>
-        <List>
-          <ListTitle>ETH / WETH</ListTitle>
-        </List>
-        <List>
-          <ListTitle>ETH / USDC</ListTitle>
-        </List>
-      </NotResult2>
-
+    <NotResult>
+      <TokenHeading>Tokens</TokenHeading>
+      <List>
+        <img src={coin} alt="Coin" />
+        <ListTitle>Ethereum (ETH)</ListTitle>
+        <ListSubTitle>Ethereum</ListSubTitle>
+      </List>
+      <List>
+        <img src={coin} alt="coin" />
+        <ListTitle>Wrapped Ethereum (WETH)</ListTitle>
+        <ListSubTitle>Ethereum</ListSubTitle>
+      </List>
+      <List>
+        <img src={coin} alt="coin" />
+        <ListTitle>Ethereum (ETH)</ListTitle>
+        <ListSubTitle>Binance Smart Chain</ListSubTitle>
+      </List>
+      <List>
+        <img src={coin} alt="coin" />
+        <ListTitle>Ethereum (ETH)</ListTitle>
+        <ListSubTitle>Polygon</ListSubTitle>
+      </List>
+      <hr />
+      <TokenHeading>Ethereum Markets</TokenHeading>
+      <List>
+        <ListTitle>ETH / DAI</ListTitle>
+      </List>
+      <List>
+        <ListTitle>ETH / WETH</ListTitle>
+      </List>
+      <List>
+        <ListTitle>ETH / USDC</ListTitle>
+      </List>
+    </NotResult>
   );
 };
 

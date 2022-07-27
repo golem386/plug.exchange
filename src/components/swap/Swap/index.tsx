@@ -18,14 +18,13 @@ import TransactionWaiting from './SwapConfirmModal/TransactionWaiting';
 import SwapHeader from './SwapHeader';
 import SwapRouter from './SwapRouter';
 import SwapTransactionDetails from './SwapTransactionDetails';
-import WhiteQue from '../../../assets/icon/WhiteQue.png'
+import WhiteQue from '../../../assets/icon/WhiteQue.png';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
-  width: '97%', 
-  marginTop:'12%'
-  // height:'490px'
+  width: '97%',
+  marginTop: '12%',
 });
 const OrderBtn = styled(Button)({
   margin: 15,
@@ -35,7 +34,7 @@ const OrderBtn = styled(Button)({
   borderRadius: '12px',
   marginBottom: '6%',
   marginTop: '5%',
-  marginLeft:'7%',
+  marginLeft: '7%',
   textTransform: 'initial',
 });
 const OrderBtnDisebal = styled(Button)({
@@ -46,9 +45,9 @@ const OrderBtnDisebal = styled(Button)({
   borderRadius: '12px',
   marginBottom: '6%',
   marginTop: '5%',
-  marginLeft:'7%',
+  marginLeft: '7%',
   textTransform: 'initial',
-  opacity: 0.4
+  opacity: 0.4,
 });
 
 const ParmitionBtn = styled(Button)({
@@ -90,7 +89,7 @@ const WrongBtn = styled(Button)({
 const Img = styled('img')({
   height: 20,
   width: 20,
-  marginLeft: 20
+  marginLeft: 20,
 });
 
 type WalletType = {
@@ -155,7 +154,11 @@ const Swap = (props: SwapProps) => {
         <SwapRouter btnTitle={props.btnTitle} liquiditySources={null} router={null} />
         <Modal
           modalTitle=""
-          children={<Boxs><TransactionWaiting swapCurrency={null} receivedCurrency={null} /></Boxs>}
+          children={
+            <Boxs>
+              <TransactionWaiting swapCurrency={null} receivedCurrency={null} />
+            </Boxs>
+          }
           isOpen={TransactionWaitingopen}
           close={() => {
             closeModel();
@@ -237,41 +240,44 @@ const Swap = (props: SwapProps) => {
             />
           </Boxs>
         </Modal>
-        {
-          matches ? !Parmition ? <ParmitionBtn onClick={() => { SetParmition(true) }}>
-            Allow the Plug protocol to use your ETH.
+        {!Parmition ? (
+          <ParmitionBtn
+            onClick={() => {
+              SetParmition(true);
+            }}
+          >
+            Allow the Plug protocol {matches ? null : <br />} to use your ETH.
             <Img src={WhiteQue} />
-          </ParmitionBtn> : null : !Parmition ? <ParmitionBtn onClick={() => { SetParmition(true) }}>
-            Allow the Plug protocol to <br /> use your ETH.
-            <Img src={WhiteQue} />
-          </ParmitionBtn> : null
-        }
+          </ParmitionBtn>
+        ) : null}
         {ConnectWallet.name === '' && CoinNetwork.name !== '' ? (
           <WrongBtn>Wrong Network</WrongBtn>
-        ) : (
-          Parmition ? <OrderBtn
+        ) : Parmition ? (
+          <OrderBtn
             onClick={
               ConnectWallet.name !== '' && CoinNetwork.name !== ''
                 ? () => {
-                  setTransactionWaitingOpen(true);
-                  setTimeout(() => {
-                    setTransactionWaitingOpen(false);
-                    setTransactionCompletedOpen(true);
-                  }, 1000);
-                }
+                    setTransactionWaitingOpen(true);
+                    setTimeout(() => {
+                      setTransactionWaitingOpen(false);
+                      setTransactionCompletedOpen(true);
+                    }, 1000);
+                  }
                 : () => {
-                  setSwapConfirmModalOpen(true);
-                  setTransactionFaildopen(true);
-                  setHighSlippageModalOpen(true);
-                  dispatch(handleClick({ type: 'Success', open: true, vertical: 'top', horizontal: 'right' }));
-                  setTimeout(() => {
-                    dispatch(handleClick({ type: 'Error', open: true, vertical: 'top', horizontal: 'right' }));
-                  }, 4000);
-                }
+                    setSwapConfirmModalOpen(true);
+                    setTransactionFaildopen(true);
+                    setHighSlippageModalOpen(true);
+                    dispatch(handleClick({ type: 'Success', open: true, vertical: 'top', horizontal: 'right' }));
+                    setTimeout(() => {
+                      dispatch(handleClick({ type: 'Error', open: true, vertical: 'top', horizontal: 'right' }));
+                    }, 4000);
+                  }
             }
           >
             {ConnectWallet.name !== '' && CoinNetwork.name !== '' ? 'Swap' : props.btnTitle}
-          </OrderBtn> : <OrderBtnDisebal>Swap</OrderBtnDisebal>
+          </OrderBtn>
+        ) : (
+          <OrderBtnDisebal>Swap</OrderBtnDisebal>
         )}
       </MainDiv>
       {props.btnTitle === 'Connect Wallet' ? (

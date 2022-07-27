@@ -1,7 +1,6 @@
 // this is a SwapConfirmmpdel File and Provide a SwapConfirmation Modal
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
-import React, { Component } from 'react';
 import Cros from '../../../../assets/icon/Cros.png';
 import ShortVartical from '../../../../assets/icon/ShortVartical.png';
 import CurrencyInput from '../CurrencyInput';
@@ -17,7 +16,7 @@ const MainDiv = styled('div')({
 const Image = styled('img')({
   height: 15,
   width: 15,
-  cursor:'pointer'
+  cursor: 'pointer',
 });
 const Title = styled('p')({
   fontFamily: 'Inter',
@@ -25,9 +24,9 @@ const Title = styled('p')({
   fontSize: 24,
 });
 const ETH = styled('span')({
-  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
-  color: "transparent",
-  backgroundClip: "text",
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  color: 'transparent',
+  backgroundClip: 'text',
   fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
@@ -71,27 +70,6 @@ const Price = styled('span')({
   fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
-});
-const SwapDiv = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  paddingLeft: 15,
-  paddingRight: 15,
-  cursor: 'pointer',
-  paddingTop: 15,
-});
-const Pay = styled('span')({
-  fontSize: '16px',
-  fontWeight: '500',
-  color: 'black',
-  fontFamily: 'Inter',
-});
-const Max = styled('span')({
-  fontSize: '16px',
-  fontWeight: '500',
-  color: '#BB36FF',
-  fontFamily: 'Inter',
 });
 
 const OrderBtn = styled(Button)({

@@ -1,13 +1,12 @@
 import * as actionTypes from '../actionTypes';
 import Eth from '../../assets/icon/Eth.png';
 import Coin2 from '../../assets/icon/coin2.png';
-import Coin from '../../assets/icon/coin.png';
 
 const initialState: ArticleState = {
   modal: 'abdc',
   Modal: false,
-  Search:false,
-  Menu:false,
+  Search: false,
+  Menu: false,
   CoinDetail: {
     name: 'ETH',
     image: Eth,
@@ -83,7 +82,7 @@ const reducer = (state: ArticleState = initialState, action: any): ArticleState 
         ...state,
         Search: action.Data,
       };
-      case actionTypes.MENU:
+    case actionTypes.MENU:
       return {
         ...state,
         Menu: action.Data,

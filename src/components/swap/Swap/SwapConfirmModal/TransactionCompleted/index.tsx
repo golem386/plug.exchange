@@ -1,7 +1,6 @@
 // this is a TransactionCompleted file and Provide a modal
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
-import React, { Component } from 'react';
 import Completed from '../../../../../assets/icon/Completed.svg';
 import MataMask from '../../../../../assets/icon/MataMask.svg';
 import Cros from '../../../../../assets/icon/Cros.png';

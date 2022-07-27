@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import HighSlippageIcon from '../../../../../assets/icon/HighSlippage.png';
 import Cros from '../../../../../assets/icon/Cros.png';
 import { Button, FormControlLabel, Radio } from '@mui/material';
-import { SafetyCheck } from '@mui/icons-material';
 
 const Title = styled('span')({
   fontFamily: 'Inter',
@@ -48,17 +47,10 @@ const ButtonsActive = styled(Button)({
   display: 'block',
   margin: 'auto',
 });
-
-const BtnIcon = styled('img')({
-  height: '32px',
-  width: '32px',
-  marginLeft: 3,
-  marginRight: 3,
-});
 const CloseIcon = styled('img')({
   height: '15px',
   width: '15px',
-  cursor:'pointer'
+  cursor: 'pointer',
 });
 const ImagDiv = styled('div')({
   display: 'flex',
@@ -76,9 +68,9 @@ const ConditionPink = styled('span')({
   fontFamily: 'Inter',
   fontSize: '15px',
   fontWeight: '600',
-  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
-  color: "transparent",
-  backgroundClip: "text",
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  color: 'transparent',
+  backgroundClip: 'text',
   marginRight: 5,
 });
 const Condition = styled('p')({
@@ -88,7 +80,6 @@ const Condition = styled('p')({
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
-  
 });
 export type TransactionFailedProps = {
   handleClose: () => void;
@@ -119,7 +110,8 @@ const HighSlippage = (props: TransactionFailedProps) => {
           label=""
         />
         <Condition>
-          I accept the &nbsp; <ConditionPink>Terms of Services</ConditionPink>&<ConditionPink>Privacy Policy</ConditionPink>
+          I accept the &nbsp; <ConditionPink>Terms of Services</ConditionPink>&
+          <ConditionPink>Privacy Policy</ConditionPink>
         </Condition>
       </TitleControl>
       {Check ? <ButtonsActive onClick={props.handleClose}>Close</ButtonsActive> : <Buttons>Close</Buttons>}

@@ -1,15 +1,9 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
-import { Alert } from '@mui/material';
 import styled from '@emotion/styled';
 import success from '../../../../../assets/icon/success.png';
 import Error from '../../../../../assets/icon/Error.png';
 import { useSelector } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
-import { useDispatch } from 'react-redux';
-import { handleClick } from '../../../../../store/Actions';
 
 const AlertNotification = styled('div')({
   width: '100%',
@@ -51,9 +45,7 @@ const Img = styled('img')({
 export interface State extends SnackbarOrigin {
   open: boolean;
 }
-type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const Notification = () => {
-  const dispatch: AppDispatch = useDispatch();
   const [state, setState] = React.useState<State>({
     open: false,
     vertical: 'top',
@@ -62,18 +54,11 @@ const Notification = () => {
   const Alert: any = useSelector((state: ArticleState) => state.Alert);
   const { vertical, horizontal, open } = state;
   React.useEffect(() => {
-    console.log('Alert', Alert);
     setState(Alert);
   }, [Alert]);
-  //   const handleClick = () => {
-  //     setState({ open: true, vertical: 'top', horizontal: 'right' });
-  //   };
-
   const handleClose = () => {
     setState({ ...state, open: false });
   };
-
-  //   type:"Error"
   return (
     <div>
       <Snackbar

@@ -1,7 +1,6 @@
 // this is a CurrencyInput file and Provide a Currency Input value and input Design
 import styled from '@emotion/styled';
 import { FormControl } from '@mui/material';
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { onModalOpen } from '../../../../store/Actions';
@@ -23,14 +22,14 @@ const Pay = styled('span')({
   fontWeight: '500',
   color: 'black',
   fontFamily: 'Inter',
-  opacity: 0.65
+  opacity: 0.65,
 });
 const Max = styled('span')({
   fontSize: '16px',
   fontWeight: '500',
-  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
-  color: "transparent",
-  backgroundClip: "text",
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  color: 'transparent',
+  backgroundClip: 'text',
   fontFamily: 'Inter',
 });
 const MainViewInputToken = styled('div')({
@@ -65,7 +64,7 @@ const SelectMain = styled('div')({
   backgroundColor: 'white',
   display: 'flex',
   alignItems: 'center',
-  cursor:'pointer'
+  cursor: 'pointer',
 });
 const CoinImgTag = styled('img')({
   height: '36px',
@@ -102,7 +101,7 @@ const CurrencyInput = (props: CurrencyInputProps) => {
   const dispatch: AppDispatch = useDispatch();
   const CoinDetail: CoinDetailType = useSelector((state: ArticleState) => state.CoinDetail);
 
-  const onModal = (article: any) => {
+  const onModal = (article: boolean | string) => {
     dispatch(onModalOpen(article));
   };
   return (
