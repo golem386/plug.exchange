@@ -1,9 +1,18 @@
 import { styled } from '@material-ui/core';
-import { Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Modal, useMediaQuery } from '@mui/material';
+import {
+  Button,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Modal,
+  useMediaQuery,
+} from '@mui/material';
 import React from 'react';
 import Cros from '../../assets/icon/Cros.png';
 import Search from '../../assets/icon/Search.png';
-import right from '../../assets/icon/right.png';
+import right from '../../assets/icon/Right.png';
 import { list } from '../../contexts/SelectTokenDATA';
 import { useDispatch } from 'react-redux';
 import { onModalOpen, onReceiveCoin, onSelectCoin } from '../../store/Actions';
@@ -69,14 +78,14 @@ const ListMain = styled(ListItemButton)({
 const ListItemTextStyle = styled(ListItemText)({
   fontFamily: 'Inter',
   fontWeight: 600,
-  fontSize: '16px!important'
+  fontSize: '16px!important',
 });
 const Type = styled('span')({
   opacity: 0.5,
   marginRight: 10,
   fontFamily: 'Inter',
   fontWeight: 600,
-  fontSize: 16
+  fontSize: 16,
 });
 const ListItemMain = styled(ListItem)({
   height: 53,
@@ -115,7 +124,6 @@ const TitleItemBlack = styled('p')({
   color: '#000000',
   marginLeft: 10,
 });
-
 
 type SelectType = {
   name: string;
@@ -176,9 +184,9 @@ const CurrencyModal = (props: SelecttokenProps) => {
           onClick={
             props.select === 'PayToken'
               ? () => {
-                handleOpen();
-              }
-              : () => { }
+                  handleOpen();
+                }
+              : () => {}
           }
           alt="img"
           loading="lazy"
@@ -198,8 +206,8 @@ const CurrencyModal = (props: SelecttokenProps) => {
           />
         </ModalCustom>
       </InputIcon>
-      {
-        props.select === "ReceiveToken" ? <List>
+      {props.select === 'ReceiveToken' ? (
+        <List>
           <ListItemMain disablePadding>
             <ListMain>
               <ListItemIcon>
@@ -213,7 +221,9 @@ const CurrencyModal = (props: SelecttokenProps) => {
               <Count>0</Count>
             </ListMain>
           </ListItemMain>
-        </List> : <List>
+        </List>
+      ) : (
+        <List>
           {list.map((val, i) => {
             return (
               <ListItemMain
@@ -222,15 +232,15 @@ const CurrencyModal = (props: SelecttokenProps) => {
                   onModal('Swap');
                   props.select === 'PayToken'
                     ? onSelectIcon({
-                      name: val.type,
-                      image: val.icon,
-                      fullName: val.name,
-                    })
+                        name: val.type,
+                        image: val.icon,
+                        fullName: val.name,
+                      })
                     : onReceiveIcon({
-                      name: val.type,
-                      image: val.icon,
-                      fullName: val.name,
-                    });
+                        name: val.type,
+                        image: val.icon,
+                        fullName: val.name,
+                      });
                 }}
               >
                 <ListMain>
@@ -260,8 +270,7 @@ const CurrencyModal = (props: SelecttokenProps) => {
             );
           })}
         </List>
-      }
-
+      )}
     </MainDiv>
   );
 };

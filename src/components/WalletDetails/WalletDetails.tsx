@@ -20,7 +20,7 @@ import Right from '../../assets/icon/Right.png';
 import SwapTransactionHistory from '../SwapTransactionHistory';
 import Modal from '../Modal';
 import { color } from 'echarts';
-import right from '../../assets/icon/right.png'
+import right from '../../assets/icon/Right.png';
 
 const Copy = styled('div')({
   paddingLeft: '10px',
@@ -35,15 +35,15 @@ const Copy = styled('div')({
 const Id = styled('p')({
   fontFamily: 'Inter',
   fontSize: '16px',
-  fontWeight: '600'
+  fontWeight: '600',
 });
 const Copied = styled('p')({
   fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '600',
-  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
-  color: "transparent",
-  backgroundClip: "text",
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  color: 'transparent',
+  backgroundClip: 'text',
 });
 
 const DropPrice = styled('span')({
@@ -70,7 +70,7 @@ const HistoryDiv = styled('div')({
   backgroundColor: '#f7f7f7',
   paddingLeft: 15,
   paddingTop: 10,
-  paddingBottom: 10
+  paddingBottom: 10,
 });
 const HistoryTitle = styled('span')({
   fontSize: '16px',
@@ -113,7 +113,7 @@ const Into = styled('p')({
   fontSize: 16,
   fontFamily: 'Inter',
   marginBottom: '6%',
-  color: '#565656'
+  color: '#565656',
 });
 const ImageIconDropDown = styled('img')({
   height: '30px',
@@ -131,7 +131,7 @@ const CustomMenu2 = styled('div')({
   backgroundColor: 'white',
   width: '95%',
   padding: 5,
-  paddingTop: 20
+  paddingTop: 20,
 });
 const OverLay = styled('div')({
   position: 'fixed',
@@ -143,7 +143,7 @@ const OverLay = styled('div')({
   bottom: 0,
   backgroundColor: 'rgba(0,0,0,0.5)',
   zIndex: 2,
-  cursor: "pointer",
+  cursor: 'pointer',
 });
 const CoinDropIcon = styled('img')({
   height: '5.19px',
@@ -255,10 +255,10 @@ const Name = styled('p')({
   fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 16,
-  color: '#565656'
+  color: '#565656',
 });
 const Btn = styled('button')({
-  background: "#f7f7f7",
+  background: '#f7f7f7',
   height: 36,
   width: 150,
   paddingLeft: '10%',
@@ -273,12 +273,12 @@ const Btn = styled('button')({
   color: 'black',
   display: 'flex',
   alignItems: 'center',
-  textTransform: 'initial'
+  textTransform: 'initial',
 });
 const Img = styled('img')({
   height: '20px',
   width: '20px',
-  marginRight: 10
+  marginRight: 10,
 });
 const Status = styled('div')({});
 const Share = styled('div')({});
@@ -287,8 +287,6 @@ type DataObject = {
   name: String;
   coin: String;
 };
-
-
 
 const nullObj = {
   name: '',
@@ -334,23 +332,22 @@ const WalletDetails = () => {
   };
   return (
     <div>
-      {
-        matches ? <CoinPrice
-          onClick={handleClickPrice}
-        >
+      {matches ? (
+        <CoinPrice onClick={handleClickPrice}>
           <ImageIconDropDown src={CoinDetail.coin} alt="Coin" />
           <Name>{CoinDetail.Subname}</Name>
           <Into>{CoinDetail.Price}</Into>
           <CoinDropIcon src={DownArrow} alt="DownArrow" />
-        </CoinPrice> :
-          <Btn onClick={handleClickPrice}>
-            <Img src={CoinDetail.coin} />
-            {CoinDetail.Subname}
-          </Btn>
-      }
+        </CoinPrice>
+      ) : (
+        <Btn onClick={handleClickPrice}>
+          <Img src={CoinDetail.coin} />
+          {CoinDetail.Subname}
+        </Btn>
+      )}
 
-      {
-        matches ? <CustomMenu
+      {matches ? (
+        <CustomMenu
           anchorEl={anchorElPrice}
           open={openmenuPrice}
           onClose={handleClosemenuPrice}
@@ -364,15 +361,25 @@ const WalletDetails = () => {
           }}
         >
           <DropPrice>Connected with MetaMask</DropPrice>
-          {
-            !CopyId ? <Copy onClick={() => { setCopy(true) }}>
+          {!CopyId ? (
+            <Copy
+              onClick={() => {
+                setCopy(true);
+              }}
+            >
               <FileCopy src={filecopy} alt="Copy" />
               <Id>0x37...0420</Id>
-            </Copy> : <Copy onClick={() => { setCopy(true) }}>
+            </Copy>
+          ) : (
+            <Copy
+              onClick={() => {
+                setCopy(true);
+              }}
+            >
               <RightIcon src={right} alt="Copy" />
               <Copied>Copied!</Copied>
             </Copy>
-          }
+          )}
           <UserAssets account="" />
           <HistoryDiv>
             <MainDiv
@@ -398,21 +405,30 @@ const WalletDetails = () => {
             }}
             isOpen={open}
           />
-        </CustomMenu> : <OverLay
-          style={{ display: openmenuPrice ? 'block' : 'none' }}
-          onClick={handleClosemenuPrice}
-        >
+        </CustomMenu>
+      ) : (
+        <OverLay style={{ display: openmenuPrice ? 'block' : 'none' }} onClick={handleClosemenuPrice}>
           <CustomMenu2>
             <DropPrice>Connected with MetaMask</DropPrice>
-            {
-              !CopyId ? <Copy onClick={() => { setCopy(true) }}>
+            {!CopyId ? (
+              <Copy
+                onClick={() => {
+                  setCopy(true);
+                }}
+              >
                 <FileCopy src={filecopy} alt="Copy" />
                 <Id>0x37...0420</Id>
-              </Copy> : <Copy onClick={() => { setCopy(true) }}>
+              </Copy>
+            ) : (
+              <Copy
+                onClick={() => {
+                  setCopy(true);
+                }}
+              >
                 <RightIcon src={right} alt="Copy" />
                 <Copied>Copied!</Copied>
               </Copy>
-            }
+            )}
             <UserAssets account="" />
             <HistoryDiv>
               <MainDiv
@@ -440,8 +456,7 @@ const WalletDetails = () => {
             />
           </CustomMenu2>
         </OverLay>
-      }
-
+      )}
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import DownIconWhite from '../../assets/icon/DownIconWhite.png';
-import right from '../../assets/icon/right.png';
+import right from '../../assets/icon/Right.png';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
 
 const CustomButtonActiveCoin = styled(Button)({
@@ -24,7 +24,7 @@ const CustomButtonActiveCoin = styled(Button)({
   width: '100%',
 });
 const CustomButtonActiveCoin2 = styled(Button)({
-  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   height: 36,
   paddingLeft: '10%',
   paddingRight: '7%',
@@ -38,7 +38,7 @@ const CustomButtonActiveCoin2 = styled(Button)({
   color: 'white',
   display: 'flex',
   alignItems: 'center',
-  textTransform: 'initial'
+  textTransform: 'initial',
 });
 const ImageIcon = styled('img')({
   height: 35,
@@ -48,7 +48,7 @@ const ImageIcon = styled('img')({
 const ImageIcon2 = styled('img')({
   height: '20px',
   width: '20px',
-  marginRight: 10
+  marginRight: 10,
 });
 
 const TitleIcon = styled('p')({
@@ -60,13 +60,13 @@ const DropDownTitleIcon = styled('span')({
   fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '600',
-  opacity: 0.65
+  opacity: 0.65,
 });
 const DropDownTitleIcon2 = styled('span')({
   fontFamily: 'Inter',
   fontSize: '14px',
   fontWeight: '500',
-  opacity: 0.4
+  opacity: 0.4,
 });
 const CoinDropIcon = styled('img')({
   height: '5.19px',
@@ -76,7 +76,7 @@ const CoinDropIcon = styled('img')({
 const CustomMenu = styled(Menu)({
   marginTop: '5%',
 });
-const CustomMenu2 = styled("div")({
+const CustomMenu2 = styled('div')({
   position: 'fixed',
   top: '25%',
   borderRadius: 20,
@@ -92,8 +92,8 @@ const OverLay = styled('div')({
   bottom: 0,
   backgroundColor: 'rgba(0,0,0,0.5)',
   zIndex: 2,
-  cursor: "pointer",
-  paddingLeft:'6%'
+  cursor: 'pointer',
+  paddingLeft: '6%',
 });
 const CustomMenuItem = styled(MenuItem)({
   paddingTop: 7,
@@ -101,7 +101,7 @@ const CustomMenuItem = styled(MenuItem)({
   paddingRight: '35px',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
 });
 const CustomMenuItem4 = styled(MenuItem)({
   paddingTop: 7,
@@ -109,7 +109,7 @@ const CustomMenuItem4 = styled(MenuItem)({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  width: '340px'
+  width: '340px',
 });
 const CustomMenuItem3 = styled(MenuItem)({
   paddingTop: 7,
@@ -119,8 +119,8 @@ const CustomMenuItem3 = styled(MenuItem)({
   alignItems: 'center',
   justifyContent: 'space-between',
   '&:hover': {
-    backgroundColor: 'white'
-  }
+    backgroundColor: 'white',
+  },
 });
 
 const CustomMenuItem2 = styled('div')({
@@ -138,8 +138,6 @@ const Right = styled('img')({
   width: '11px',
 });
 
-
-
 const SwitchNetwork = () => {
   const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -153,27 +151,21 @@ const SwitchNetwork = () => {
   };
   return (
     <div style={{ position: 'relative' }}>
-      {
-        matches ? <CustomButtonActiveCoin
-          onClick={handleClick}
-        >
+      {matches ? (
+        <CustomButtonActiveCoin onClick={handleClick}>
           <ImageIcon src={CoinNetwork.coin} alt="Icon" />
           <TitleIcon>{CoinNetwork.name}</TitleIcon>
           <CoinDropIcon src={DownIconWhite} alt="Download" />
-        </CustomButtonActiveCoin> : <CustomButtonActiveCoin2
-          onClick={handleClick}
-        >
+        </CustomButtonActiveCoin>
+      ) : (
+        <CustomButtonActiveCoin2 onClick={handleClick}>
           <ImageIcon2 src={CoinNetwork.coin} alt="Icon" />
           <TitleIcon>{CoinNetwork.name}</TitleIcon>
           <CoinDropIcon src={DownIconWhite} alt="Download" />
         </CustomButtonActiveCoin2>
-      }
-      {
-        matches ? <CustomMenu
-          anchorEl={anchorEl}
-          open={openmenu}
-          onClose={handleClosemenu}
-        >
+      )}
+      {matches ? (
+        <CustomMenu anchorEl={anchorEl} open={openmenu} onClose={handleClosemenu}>
           <CustomMenuItem3>
             <DropDownTitleIcon2>Select a Network</DropDownTitleIcon2>
           </CustomMenuItem3>
@@ -184,16 +176,13 @@ const SwitchNetwork = () => {
                   <ImageIconDropDown src={val.coin} alt="Icon" />
                   <DropDownTitleIcon>{val.name}</DropDownTitleIcon>
                 </CustomMenuItem2>
-                {
-                  val.name === CoinNetwork.name ? <Right src={right} /> : null
-                }
+                {val.name === CoinNetwork.name ? <Right src={right} /> : null}
               </CustomMenuItem>
             );
           })}
-        </CustomMenu> : <OverLay
-          style={{ display: openmenu ? 'block' : 'none' }}
-          onClick={handleClosemenu}
-        >
+        </CustomMenu>
+      ) : (
+        <OverLay style={{ display: openmenu ? 'block' : 'none' }} onClick={handleClosemenu}>
           <CustomMenu2>
             <CustomMenuItem3>
               <DropDownTitleIcon2>Select a Network</DropDownTitleIcon2>
@@ -205,16 +194,13 @@ const SwitchNetwork = () => {
                     <ImageIconDropDown src={val.coin} alt="Icon" />
                     <DropDownTitleIcon>{val.name}</DropDownTitleIcon>
                   </CustomMenuItem2>
-                  {
-                    val.name === CoinNetwork.name ? <Right src={right} /> : null
-                  }
+                  {val.name === CoinNetwork.name ? <Right src={right} /> : null}
                 </CustomMenuItem4>
               );
             })}
           </CustomMenu2>
         </OverLay>
-      }
-
+      )}
     </div>
   );
 };
