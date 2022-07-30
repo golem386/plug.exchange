@@ -1,13 +1,8 @@
-// this is a TransactionSettings file and Provide a TransactionSettings modal
 import styled from '@emotion/styled';
 import { Button, FormControlLabel, Radio } from '@mui/material';
 import React from 'react';
-import close from '../../../../assets/icon/Cros.png';
-import Question from '../../../../assets/icon/Question.svg';
-import DownArrow from '../../../../assets/icon/DownArrow.png';
-import TopArrow from '../../../../assets/icon/TopArrow.png';
 import { useDispatch } from 'react-redux';
-import { onModalOpen } from '../../../../store/Actions';
+//import { onModalOpen } from '../../../../store/Actions';
 import { Switch } from '@mui/material';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -259,14 +254,14 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
   const dispatch: AppDispatch = useDispatch();
   const [Slider, setSlider] = React.useState<Boolean>(false);
   const onModal = (article: string | boolean) => {
-    dispatch(onModalOpen(article));
+    dispatch(null);
   };
   return (
     <MainDiv>
       <SwapDiv>
         <Swap>Transaction Settings</Swap>
         <CloseImage
-          src={close}
+          src="/images/Cros.png"
           onClick={() => {
             onModal('Swap');
           }}
@@ -275,7 +270,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
       </SwapDiv>
       <Slippage>
         <SlippageText>Slippage Tolerance</SlippageText>
-        <QuestionIcon src={Question} alt="QuestionIcon" />
+        <QuestionIcon src="/images/Question.svg" alt="QuestionIcon" />
       </Slippage>
       <FlexView>
         <CustomButtonDisebal>Auto</CustomButtonDisebal>
@@ -283,7 +278,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
       </FlexView>
       <Slippage>
         <SlippageText>Transaction Deadline</SlippageText>
-        <QuestionIcon src={Question} alt="QuestionIcon" />
+        <QuestionIcon src="/images/Question.svg" alt="QuestionIcon" />
       </Slippage>
       <MainInput>
         <FlexView>
@@ -298,7 +293,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
           <TimeText>
             <Span>Instant (102.73 - 140.28 GWEI)</Span>
             <DownArrowIcon
-              src={DownArrow}
+              src="/images/DownArrow.png"
               onClick={() => {
                 setSlider(!Slider);
               }}
@@ -312,7 +307,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
               onClick={() => {
                 setSlider(!Slider);
               }}
-              src={TopArrow}
+              src="/images/TopArrow.png"
               alt="TopArrow"
             />
           </TimeTextPink>
@@ -357,14 +352,14 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
         <MainRow>
           <FlexVIew>
             <AutoRout>Auto Router API</AutoRout>
-            <QuestionIcon src={Question} alt="Icon" />
+            <QuestionIcon src="/images/DownArrow.png" alt="Icon" />
           </FlexVIew>
           <Switch defaultChecked={true} color="secondary" />
         </MainRow>
         <MainRow>
           <FlexVIew>
             <AutoRout>Auto Router API</AutoRout>
-            <QuestionIcon src={Question} alt="Icon" />
+            <QuestionIcon src="/images/DownArrow.png" alt="Icon" />
           </FlexVIew>
           <Switch color="secondary" />
         </MainRow>
@@ -373,7 +368,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
         <MainRow>
           <FlexVIew>
             <AutoRout>Auto Router API</AutoRout>
-            <QuestionIcon src={Question} alt="Icon" />
+            <QuestionIcon src="/images/DownArrow.png" alt="Icon" />
           </FlexVIew>
           <Switch defaultChecked={true} color="secondary" />
         </MainRow>

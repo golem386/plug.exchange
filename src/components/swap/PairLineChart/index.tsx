@@ -2,7 +2,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import ShortVartical from '../../../assets/icon/ShortVartical.png';
 import ReactEcharts from 'echarts-for-react';
 import { Box, Tab, Tabs } from '@mui/material';
 import * as echarts from 'echarts';
@@ -142,11 +141,11 @@ const PairLineChart = (props: PairLineChartProps) => {
     <View>
       <>
         <CurrencySwitch>
-          {CoinDetail.fullName}
-          <TextSpan>({CoinDetail.name})</TextSpan>
-          <ShortIcon src={ShortVartical} alt="ShortIcon" />
-          {receiveCoinDetail.fullName}
-          <TextSpan>({receiveCoinDetail.name})</TextSpan>
+          {CoinDetail?.fullName}
+          <TextSpan>({CoinDetail?.name})</TextSpan>
+          <ShortIcon src="/images/ShortVartical.png" alt="ShortIcon" />
+          {receiveCoinDetail?.fullName}
+          <TextSpan>({receiveCoinDetail?.name})</TextSpan>
         </CurrencySwitch>
         <CurrencyPriceUSD>$3,744.19</CurrencyPriceUSD>
         <br />

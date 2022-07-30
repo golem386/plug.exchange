@@ -1,15 +1,6 @@
 import React, { ChangeEvent, Component, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { Box, FormControl, Grid, NativeSelect, useMediaQuery } from '@mui/material';
-import SwapIcon from '../../assets/icon/SwapIcon.png';
-import Time from '../../assets/icon/Time.png';
-import Left from '../../assets/icon/Left.png';
-import Right from '../../assets/icon/right.png';
-import LeftIcon from '../../assets/icon/LeftIcon.png';
-import Down from '../../assets/icon/Down.png';
-import Pending from '../../assets/icon/Pending.png';
-import Faild from '../../assets/icon/Faild.png';
-import Approve from '../../assets/icon/Approve.png';
 
 const Footer = styled('div')({
   '@media (min-width: 660px)': {
@@ -250,13 +241,13 @@ const PaginationTable = (props: PaginationTableProps) => {
                       <Status>
                         <Maindiv>
                           {data.Status === 'Swap' ? (
-                            <StatusImage src={SwapIcon} />
+                            <StatusImage src="/images/SwapIcon.png" />
                           ) : data.Status === 'Pending' ? (
-                            <StatusImage src={Pending} />
+                            <StatusImage src="/images/Pending.png" />
                           ) : data.Status === 'Approve' ? (
-                            <StatusImage src={Approve} />
+                            <StatusImage src="/images/Approve.png" />
                           ) : data.Status === 'Failed' ? (
-                            <StatusImage src={Faild} />
+                            <StatusImage src="/images/Faild.png" />
                           ) : null}
 
                           <Div>
@@ -265,7 +256,7 @@ const PaginationTable = (props: PaginationTableProps) => {
                             <TextPink>
                               {data.Id}
                               <TimeText>
-                                <TimeImage src={Time} /> {data.Time}
+                                <TimeImage src="/images/Time.png" /> {data.Time}
                               </TimeText>
                             </TextPink>
                           </Div>
@@ -280,7 +271,7 @@ const PaginationTable = (props: PaginationTableProps) => {
                         </Span2>
                         {data.ReceiveImg !== '' && data.ReceiveToken !== '' ? (
                           <>
-                            <Img src={matches ? LeftIcon : Down} height={15} width={16} />
+                            <Img src={matches ? '/images/LeftIcon.png' : '/images/Down.png'} height={15} width={16} />
                             <Span2>
                               <CoinImg src={data.ReceiveImg} />
                               {data.ReceiveToken}
@@ -328,13 +319,13 @@ const PaginationTable = (props: PaginationTableProps) => {
             {currentPage}-{count} of {page.length}
           </Item>
           <ImageIcon
-            src={Left}
+            src="/images/Left.png"
             onClick={() => {
               PriviousPage();
             }}
           />
           <ImageIcon
-            src={Right}
+            src="/images/right.png"
             onClick={() => {
               NextPage();
             }}

@@ -1,14 +1,6 @@
-// this file Provide Setting menu
 import styled from '@emotion/styled';
 import { MenuItem, useMediaQuery } from '@mui/material';
 import React from 'react';
-import setting from '../../assets/icon/setting.png';
-import About from '../../assets/icon/About.svg';
-import Question from '../../assets/icon/Question.svg';
-import request from '../../assets/icon/Request.svg';
-import Language from '../../assets/icon/Language.svg';
-import Dark from '../../assets/icon/Dark.svg';
-import mSetting from '../../assets/icon/mSetting.png';
 
 const DropDownTitleIcon = styled('span')({
   fontFamily: 'Inter',
@@ -133,28 +125,28 @@ const Settings = (props: SettingsProps) => {
   return (
     <div>
       <SettingButton2 onClick={handleClick}>
-        <NavImg src={matches ? setting : mSetting} onClick={handleClick} />
+        <NavImg src={matches ? '/images/setting.png' : '/images/mSetting.png'} onClick={handleClick} />
       </SettingButton2>
       <OverLay style={{ display: openmenu ? 'block' : 'none' }} onClick={handleClosemenu}>
         <CustomMenu>
           <CustomMenuItem>
-            <ImageIconDropDown src={About} alt="About" />
+            <ImageIconDropDown src="/images/About.svg" alt="About" />
             <DropDownTitleIcon>{props.settings[0].name}</DropDownTitleIcon>
           </CustomMenuItem>
           <CustomMenuItem>
-            <ImageIconDropDown src={Question} alt="icon" />
+            <ImageIconDropDown src="/images/Question.svg" alt="icon" />
             <DropDownTitleIcon>{props.settings[1].name}</DropDownTitleIcon>
           </CustomMenuItem>
           <CustomMenuItem>
-            <ImageIconDropDown src={request} alt="Request" />
+            <ImageIconDropDown src="/images/request.svg" alt="Request" />
             <DropDownTitleIcon>{props.settings[2].name}</DropDownTitleIcon>
           </CustomMenuItem>
           <CustomMenuItem>
-            <ImageIconDropDown src={Language} alt="icon" />
+            <ImageIconDropDown src="/images/Language.svg" alt="icon" />
             <DropDownTitleIcon>{props.settings[3].name}</DropDownTitleIcon>
           </CustomMenuItem>
           <CustomMenuItem>
-            <ImageIconDropDown src={Dark} alt="Dark" />
+            <ImageIconDropDown src="/images/Dark.svg" alt="Dark" />
             <DropDownTitleIcon>{props.settings[4].name}</DropDownTitleIcon>
           </CustomMenuItem>
         </CustomMenu>

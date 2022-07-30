@@ -10,17 +10,13 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import React from 'react';
-import Cros from '../../assets/icon/Cros.png';
-import Search from '../../assets/icon/Search.png';
-import right from '../../assets/icon/right.png';
 import { list } from '../../contexts/SelectTokenDATA';
 import { useDispatch } from 'react-redux';
-import { onModalOpen, onReceiveCoin, onSelectCoin } from '../../store/Actions';
+//import { onModalOpen, onReceiveCoin, onSelectCoin } from '../../store/Actions';
 import { useSelector } from 'react-redux';
 import ImportToken from '../ImportToken';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import logoimg from '../../assets/icon/coin3.png';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -125,13 +121,13 @@ const CurrencyModal = (props: SelecttokenProps) => {
 
   const dispatch: AppDispatch = useDispatch();
   const onModal = (modal: string | boolean) => {
-    dispatch(onModalOpen(modal));
+    dispatch(null);
   };
   const onSelectIcon = (coin: SelectType) => {
-    dispatch(onSelectCoin(coin));
+    dispatch(null);
   };
   const onReceiveIcon = (coin: SelectType) => {
-    dispatch(onReceiveCoin(coin));
+    dispatch(null);
   };
   const CoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.CoinDetail);
   const receiveCoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.receiveCoinDetail);
@@ -145,13 +141,12 @@ const CurrencyModal = (props: SelecttokenProps) => {
             onModal('Swap');
           }}
         >
-          <img src={Cros} alt="Cros" />
+          <img src="/images/Cros.png" alt="Cros" />
         </CrosIcon>
       </Flex>
       <InputIcon>
         <IconImg
-          src={Search}
-          srcSet={Search}
+          src="/images/Search.png"
           onClick={
             props.select === 'PayToken'
               ? () => {
@@ -182,7 +177,7 @@ const CurrencyModal = (props: SelecttokenProps) => {
           <ListItemMain disablePadding>
             <ListMain>
               <ListItemIcon>
-                <img src={logoimg} alt="icon" />
+                <img src="/images/coin3.png" alt="icon" />
               </ListItemIcon>
 
               <ListItemTextStyle>
@@ -224,12 +219,12 @@ const CurrencyModal = (props: SelecttokenProps) => {
                     {val.name} <Type>({val.type})</Type>
                     {props.select === 'PayToken' ? (
                       CoinDetail.name === val.type ? (
-                        <img src={right} alt="right" />
+                        <img src="/images/right.png" alt="right" />
                       ) : (
                         ''
                       )
                     ) : receiveCoinDetail.name === val.type ? (
-                      <img src={right} alt="right" />
+                      <img src="/images/right.png" alt="right" />
                     ) : (
                       ''
                     )}

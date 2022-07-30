@@ -1,11 +1,6 @@
-import ListIcon2 from '../assets/icon/ListIcon2.png';
-import ListIcon3 from '../assets/icon/ListIcon3.png';
-import ListIcon4 from '../assets/icon/ListIcon4.png';
-import coin6 from '../assets/icon/coin6.png';
-
 export const data = [
   {
-    icon: coin6,
+    icon: '/images/coin6.png',
     name: '1inch',
     get: 'You Can Get USDT',
     proce: '556.60',
@@ -16,7 +11,7 @@ export const data = [
     gesprice: '$12.15',
   },
   {
-    icon: ListIcon2,
+    icon: '/images/ListIcon2.png',
     name: 'Matcha',
     get: 'You Can Get USDT',
     proce: '556.60',
@@ -27,7 +22,7 @@ export const data = [
     gesprice: '$12.15',
   },
   {
-    icon: ListIcon3,
+    icon: '/images/ListIcon3.png',
     name: '1inch',
     get: 'You Can Get USDT',
     proce: '556.60',
@@ -38,7 +33,7 @@ export const data = [
     gesprice: '$12.15',
   },
   {
-    icon: ListIcon4,
+    icon: '/images/ListIcon4.png',
     name: '1inch',
     get: 'You Can Get USDT',
     proce: '556.60',

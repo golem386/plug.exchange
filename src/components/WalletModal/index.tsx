@@ -1,15 +1,11 @@
-// this file is WalletModal and Provide a Network and Wallet List
 import React, { useEffect } from 'react';
 import { ConnectNetWorkOne, ConnectWalletOne } from '../../contexts/ConnectWalletDATA';
 import { Box, Button, FormControlLabel, Modal, Radio } from '@mui/material';
 import { styled } from '@mui/system';
-import Cros from '../../assets/icon/Cros.png';
-import select from '../../assets/icon/select.png';
-import Coin from '../../assets/icon/coin.png';
 import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import { connetNetwork, connetWallet } from '../../store/Actions';
+//import { connetNetwork, connetWallet } from '../../store/Actions';
 
 const styleError = {
   position: 'absolute',
@@ -253,10 +249,10 @@ const WalletModal = (props: WalletModalProps) => {
   const handleCloseError = () => setErrorStatus(false);
 
   const connetWalletData = (coin: any) => {
-    dispatch(connetWallet(coin));
+    dispatch(null);
   };
   const connetNetworkData = (coin: any) => {
-    dispatch(connetNetwork(coin));
+    dispatch(null);
   };
   const connetWalletFunction = (value: DataObject) => {
     setWallet(value);
@@ -286,7 +282,7 @@ const WalletModal = (props: WalletModalProps) => {
       <TitleView>
         <Title2>Connect Wallet</Title2>
         <img
-          src={Cros}
+          src="/images/Cros.png"
           onClick={() => {
             props.onClose();
           }}
@@ -301,7 +297,7 @@ const WalletModal = (props: WalletModalProps) => {
               {ConnectNetWorkOne.map((val, i) => {
                 return NetworkData.name === val.name ? (
                   <ViewMainActive>
-                    <SelectImg src={select} alt="Select_Icon" />
+                    <SelectImg src="/images/select.png" alt="Select_Icon" />
                     <ImageIcon src={val.coin} alt="Coin" />
                     <TitleIcon>{val.name}</TitleIcon>
                   </ViewMainActive>
@@ -337,7 +333,7 @@ const WalletModal = (props: WalletModalProps) => {
                   <TitleView2>
                     <Title3>Wrong Network</Title3>
                     <img
-                      src={Cros}
+                      src="/images/Cros.png"
                       onClick={() => {
                         handleCloseError();
                       }}
@@ -345,7 +341,7 @@ const WalletModal = (props: WalletModalProps) => {
                     />
                   </TitleView2>
                   <MainDiv>
-                    <ImageIcon src={Coin} alt="Coin" />
+                    <ImageIcon src="/images/coin.png" alt="Coin" />
                     <Span>Arbitrum</Span>
                   </MainDiv>
                   <br />
@@ -367,7 +363,7 @@ const WalletModal = (props: WalletModalProps) => {
             {ConnectWalletOne.map((val, i) => {
               return WalletData.name === val.name ? (
                 <ViewMainActive>
-                  <SelectImg src={select} alt="Select" />
+                  <SelectImg src="/images/select.png" alt="Select" />
                   <ImageIcon src={val.coin} alt="Coin" />
                   <TitleIcon>{val.name}</TitleIcon>
                 </ViewMainActive>

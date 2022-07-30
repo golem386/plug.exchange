@@ -3,8 +3,7 @@ import styled from '@emotion/styled';
 import { FormControl } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { onModalOpen } from '../../../../store/Actions';
-import DownArrow from '../../../../assets/icon/DownArrow.png';
+//import { onModalOpen } from '../../../../store/Actions';
 import SwapArrow from '../SwapArrow';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -91,7 +90,7 @@ const CurrencyOutput = (props: CurrencyOutputProps) => {
   const ReceiveCoin: ReceiveCoin = useSelector((state: ArticleState) => state.receiveCoinDetail);
 
   const onModal = (article: boolean | string) => {
-    dispatch(onModalOpen(article));
+    dispatch(null);
   };
   return (
     <ReceiveMain>
@@ -105,9 +104,9 @@ const CurrencyOutput = (props: CurrencyOutputProps) => {
               onModal('ReceiveToken');
             }}
           >
-            <CoinImgTag src={ReceiveCoin.image} alt="Icon" />
-            <CoinTitle>{ReceiveCoin.name}</CoinTitle>
-            <CoinDropIcon src={DownArrow} alt="DownArrow" />
+            <CoinImgTag src={ReceiveCoin?.image} alt="Icon" />
+            <CoinTitle>{ReceiveCoin?.name}</CoinTitle>
+            <CoinDropIcon src="/images/DownArrow.png" alt="DownArrow" />
           </SelectMainDarkCoin>
         </FormControl>
       </MainViewInput>

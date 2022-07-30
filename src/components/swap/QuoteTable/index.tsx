@@ -2,11 +2,6 @@
 import styled from '@emotion/styled';
 import { Button, Grid, List } from '@mui/material';
 import React, { useState } from 'react';
-import DownArrow from '../../../assets/icon/DownArrow.png';
-import shere from '../../../assets/icon/Shere.png';
-import short from '../../../assets/icon/short.png';
-import ShowMoreIcon from '../../../assets/icon/ShowMore.png';
-import HideDetail from '../../../assets/icon/HideDetail.png';
 import { data } from '../../../contexts/QuoteTableDATA';
 
 const QuoteTable = styled('div')({
@@ -185,7 +180,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   1%
                   <ImageSpan>
-                    <img src={DownArrow} alt="DownArrow" />
+                    <img src="/images/DownArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
               </Title>
@@ -194,7 +189,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   206 GWEI
                   <ImageSpan>
-                    <img src={DownArrow} alt="DownArrow" />
+                    <img src="/images/DownArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
               </Title>
@@ -212,7 +207,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                         <HeaderDiv>
                           <ImageIcon src={val.icon} alt="icon" />
                           <TableTitle>{val.name}</TableTitle>
-                          <ShereIcon src={shere} alt="icon" />
+                          <ShereIcon src="/images/Shere.png" alt="icon" />
                         </HeaderDiv>
                         <Grid container spacing={0}>
                           <Grid item xs={4}>
@@ -223,7 +218,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                           </Grid>
                           <Grid item xs={4}>
                             <Text>
-                              {val.shortname} <ShortImage src={short} alt="icon" />
+                              {val.shortname} <ShortImage src="/images/short.png" alt="icon" />
                             </Text>
                             <TextDown>{val.shortPrice}</TextDown>
                           </Grid>
@@ -249,7 +244,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   1%
                   <ImageSpan>
-                    <img src={DownArrow} alt="DownArrow" />
+                    <img src="/images/DownArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
               </Title>
@@ -258,7 +253,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   206 GWEI
                   <ImageSpan>
-                    <img src={DownArrow} alt="DownArrow" />
+                    <img src="/images/DownArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
               </Title>
@@ -276,7 +271,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                         <HeaderDiv>
                           <ImageIcon src={val.icon} alt="icon" />
                           <MainTitle>{val.name}</MainTitle>
-                          <ShereIcon src={shere} alt="shere" />
+                          <ShereIcon src="/images/Shere.png" alt="shere" />
                         </HeaderDiv>
                         <Grid container spacing={0}>
                           <Grid item xs={4}>
@@ -287,7 +282,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                           </Grid>
                           <Grid item xs={4}>
                             <Text>
-                              {val.shortname} <ShortImage src={short} alt="Short-Icon" />
+                              {val.shortname} <ShortImage src="/images/short.png" alt="Short-Icon" />
                             </Text>
                             <TextDown>{val.shortPrice}</TextDown>
                           </Grid>
@@ -314,7 +309,7 @@ const QuoteTables = (props: QuoteTableProps) => {
             }}
           >
             Hide Details
-            <DownArrowImgTop src={HideDetail} alt="Hide" />
+            <DownArrowImgTop src="/images/HideDetail.png" alt="Hide" />
           </ShowMore>
         ) : (
           <ShowMore
@@ -324,7 +319,7 @@ const QuoteTables = (props: QuoteTableProps) => {
             }}
           >
             Show More Details
-            <DownArrowImg src={ShowMoreIcon} alt="Show" />
+            <DownArrowImg src="/images/ShowMore.png" alt="Show" />
           </ShowMore>
         )}
       </>

@@ -3,9 +3,6 @@ import styled from '@emotion/styled';
 import { Button, FormControlLabel, Radio, useMediaQuery } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import Cros from '../../assets/icon/Cros.png';
-import coin from '../../assets/icon/coin6.png';
-import info from '../../assets/icon/info.png';
 
 const style = {
   position: 'absolute',
@@ -168,7 +165,7 @@ const ImportToken = (props: ImportTokenProps) => {
       <TitleView>
         <Title>Import a Token</Title>
         <img
-          src={Cros}
+          src="/images/Cros.png"
           onClick={() => {
             props.handleClose();
           }}
@@ -176,7 +173,7 @@ const ImportToken = (props: ImportTokenProps) => {
         />
       </TitleView>
       <UserId>
-        <TokenImg src={coin} alt="coin" />
+        <TokenImg src="/images/coin6.png" alt="coin" />
         <TokenName>
           Tether <TokenCode>(USDT)</TokenCode>
         </TokenName>
@@ -184,7 +181,7 @@ const ImportToken = (props: ImportTokenProps) => {
       <TokenCodeKey>0x1ce0c2827e2ef14d5c4f29a091d735a204794041</TokenCodeKey>
       <Warning>
         <Red>
-          <Info src={info} />
+          <Info src="/images/info.png" />
           <WarningText>Trade at your own risk!</WarningText>
         </Red>
         <Pre>

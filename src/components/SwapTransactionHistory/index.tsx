@@ -1,7 +1,5 @@
-// this file is a WalletDetails file and provide a History
 import styled from '@emotion/styled';
 import React from 'react';
-import Cros from '../../assets/icon/Cros.png';
 import { HistoryDATA, HistorySwapDATA } from '../../contexts/HistoryDATA';
 import Modal from '../Modal';
 import PaginationTable from './PaginationTable';
@@ -103,7 +101,7 @@ const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {
         <Header>
           <HeaderText>Transaction History</HeaderText>
           <Image
-            src={Cros}
+            src="/images/Cros.png"
             onClick={() => {
               props.close();
             }}

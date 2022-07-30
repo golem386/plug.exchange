@@ -1,10 +1,8 @@
-// this is a CurrencyInput file and Provide a Currency Input value and input Design
 import styled from '@emotion/styled';
 import { FormControl } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { onModalOpen } from '../../../../store/Actions';
-import DownArrow from '../../../../assets/icon/DownArrow.png';
+//import { onModalOpen } from '../../../../store/Actions';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
@@ -102,7 +100,7 @@ const CurrencyInput = (props: CurrencyInputProps) => {
   const CoinDetail: CoinDetailType = useSelector((state: ArticleState) => state.CoinDetail);
 
   const onModal = (article: boolean | string) => {
-    dispatch(onModalOpen(article));
+    dispatch(null);
   };
   return (
     <>
@@ -118,9 +116,9 @@ const CurrencyInput = (props: CurrencyInputProps) => {
               onModal('SelectToken');
             }}
           >
-            <CoinImgTag src={CoinDetail.image} alt="Coin" />
-            <CoinTitle>{CoinDetail.name}</CoinTitle>
-            <CoinDropIcon src={DownArrow} alt="DownArrow" />
+            <CoinImgTag src={CoinDetail?.image} alt="Coin" />
+            <CoinTitle>{CoinDetail?.name}</CoinTitle>
+            <CoinDropIcon src="/images/DownArrow.png" alt="DownArrow" />
           </SelectMain>
         </FormControl>
       </MainViewInputToken>

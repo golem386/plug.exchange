@@ -1,6 +1,4 @@
 import styled from '@emotion/styled';
-import Check from '../../../../../assets/icon/Check.png';
-import Cros from '../../../../../assets/icon/Cros.png';
 import { Button } from '@mui/material';
 
 const Title = styled('span')({
@@ -61,9 +59,9 @@ const TransactionFailed = (props: TransactionFailedProps) => {
   return (
     <Main>
       <ImagDiv>
-        <CloseIcon src={Cros} onClick={props.handleClose} alt="Icon" />
+        <CloseIcon src="/images/Cros.png" onClick={props.handleClose} alt="Icon" />
       </ImagDiv>
-      <CompletedIcon src={Check} alt="Image" />
+      <CompletedIcon src="/images/Check.png" alt="Image" />
       <Title>Transaction Failed</Title>
       <SubTitle>
         This transaction will not succeed either due to price movement or fee on transfer. Try increasing your slippage

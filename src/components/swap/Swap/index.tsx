@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-import { handleClick } from '../../../store/Actions';
+//import { handleClick } from '../../../store/Actions';
 import Modal from '../../Modal';
 import CurrencyInput from './CurrencyInput';
 import CurrencyOutput from './CurrencyOutput';
@@ -18,7 +18,6 @@ import TransactionWaiting from './SwapConfirmModal/TransactionWaiting';
 import SwapHeader from './SwapHeader';
 import SwapRouter from './SwapRouter';
 import SwapTransactionDetails from './SwapTransactionDetails';
-import WhiteQue from '../../../assets/icon/WhiteQue.png';
 
 const MainDiv = styled('div')({
   borderRadius: '24px',
@@ -247,15 +246,15 @@ const Swap = (props: SwapProps) => {
             }}
           >
             Allow the Plug protocol {matches ? null : <br />} to use your ETH.
-            <Img src={WhiteQue} />
+            <Img src="/images/WhiteQue.png" />
           </ParmitionBtn>
         ) : null}
-        {ConnectWallet.name === '' && CoinNetwork.name !== '' ? (
+        {ConnectWallet?.name === '' && CoinNetwork?.name !== '' ? (
           <WrongBtn>Wrong Network</WrongBtn>
         ) : Parmition ? (
           <OrderBtn
             onClick={
-              ConnectWallet.name !== '' && CoinNetwork.name !== ''
+              ConnectWallet?.name !== '' && CoinNetwork?.name !== ''
                 ? () => {
                     setTransactionWaitingOpen(true);
                     setTimeout(() => {
@@ -267,21 +266,21 @@ const Swap = (props: SwapProps) => {
                     setSwapConfirmModalOpen(true);
                     setTransactionFaildopen(true);
                     setHighSlippageModalOpen(true);
-                    dispatch(handleClick({ type: 'Success', open: true, vertical: 'top', horizontal: 'right' }));
+                    dispatch(null);
                     setTimeout(() => {
-                      dispatch(handleClick({ type: 'Error', open: true, vertical: 'top', horizontal: 'right' }));
+                      dispatch(null);
                     }, 4000);
                   }
             }
           >
-            {ConnectWallet.name !== '' && CoinNetwork.name !== '' ? 'Swap' : props.btnTitle}
+            {ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? 'Swap' : props.btnTitle}
           </OrderBtn>
         ) : (
           <OrderBtnDisebal>Swap</OrderBtnDisebal>
         )}
       </MainDiv>
       {props.btnTitle === 'Connect Wallet' ? (
-        ConnectWallet.name !== '' && CoinNetwork.name !== '' ? (
+        ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? (
           <SwapTransactionDetails
             btnTitle={props.btnTitle}
             expectedOutput={null}

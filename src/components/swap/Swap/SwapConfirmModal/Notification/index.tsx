@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
 import styled from '@emotion/styled';
-import success from '../../../../../assets/icon/success.png';
-import Error from '../../../../../assets/icon/Error.png';
 import { useSelector } from 'react-redux';
 
 const AlertNotification = styled('div')({
@@ -52,7 +50,7 @@ const Notification = () => {
     horizontal: 'center',
   });
   const Alert: any = useSelector((state: ArticleState) => state.Alert);
-  const { vertical, horizontal, open } = state;
+  //const { vertical, horizontal, open } = state;
   React.useEffect(() => {
     setState(Alert);
   }, [Alert]);
@@ -62,28 +60,28 @@ const Notification = () => {
   return (
     <div>
       <Snackbar
-        anchorOrigin={{ vertical, horizontal }}
-        open={open}
+        anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+        open={false}
         autoHideDuration={6000}
         onClose={handleClose}
-        key={vertical + horizontal}
+        key={1}
       >
         <AlertNotification>
-          {Alert.type === 'Error' ? (
-            <Img height={72} width={72} src={Error} />
+          {Alert?.type === 'Error' ? (
+            <Img height={72} width={72} src="/images/Error.png" />
           ) : (
-            <Img height={72} width={72} src={success} />
+            <Img height={72} width={72} src="/images/success.png" />
           )}
 
           <AlertTitle>
             Swap exactly{' '}
-            {Alert.type === 'Error' ? (
+            {Alert?.type === 'Error' ? (
               <AlertTitleError>10 USDT</AlertTitleError>
             ) : (
               <AlertTitleSuccess>10 USDT</AlertTitleSuccess>
             )}{' '}
             for{' '}
-            {Alert.type === 'Error' ? (
+            {Alert?.type === 'Error' ? (
               <AlertTitleError>6.24578 MATIC.</AlertTitleError>
             ) : (
               <AlertTitleSuccess>6.24578 MATIC.</AlertTitleSuccess>

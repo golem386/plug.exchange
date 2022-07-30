@@ -1,6 +1,4 @@
-// this file is a CurrencySearch Modal and Provide outher Currency suggestion Search time
 import styled from '@emotion/styled';
-import coin from '../../assets/icon/coin.png';
 
 const NotResult = styled('div')({
   padding: 30,
@@ -56,22 +54,22 @@ const CurrencySearch = (props: CurrencySearchProps) => {
     <NotResult>
       <TokenHeading>Tokens</TokenHeading>
       <List>
-        <img src={coin} alt="Coin" />
+        <img src="/images/coin.png" alt="Coin" />
         <ListTitle>Ethereum (ETH)</ListTitle>
         <ListSubTitle>Ethereum</ListSubTitle>
       </List>
       <List>
-        <img src={coin} alt="coin" />
+        <img src="/images/coin.png" alt="coin" />
         <ListTitle>Wrapped Ethereum (WETH)</ListTitle>
         <ListSubTitle>Ethereum</ListSubTitle>
       </List>
       <List>
-        <img src={coin} alt="coin" />
+        <img src="/images/coin.png" alt="coin" />
         <ListTitle>Ethereum (ETH)</ListTitle>
         <ListSubTitle>Binance Smart Chain</ListSubTitle>
       </List>
       <List>
-        <img src={coin} alt="coin" />
+        <img src="/images/coin.png" alt="coin" />
         <ListTitle>Ethereum (ETH)</ListTitle>
         <ListSubTitle>Polygon</ListSubTitle>
       </List>

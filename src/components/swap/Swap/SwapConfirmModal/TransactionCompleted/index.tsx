@@ -1,9 +1,5 @@
-// this is a TransactionCompleted file and Provide a modal
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
-import Completed from '../../../../../assets/icon/Completed.svg';
-import MataMask from '../../../../../assets/icon/MataMask.svg';
-import Cros from '../../../../../assets/icon/Cros.png';
 
 const Title = styled('span')({
   fontFamily: 'Inter',
@@ -66,14 +62,14 @@ const TransactionCompleted = (props: TransactionCompletedProps) => {
   return (
     <Main>
       <ImagDiv>
-        <CloseIcon src={Cros} onClick={props.handleClose} alt="Icon" />
+        <CloseIcon src="/images/Cros.png" onClick={props.handleClose} alt="Icon" />
       </ImagDiv>
-      <CompletedIcon src={Completed} alt="Image" />
+      <CompletedIcon src="/images/Completed.png" alt="Image" />
       <Title>Transaction Submitted</Title>
       <SubTitle>View on Explorer</SubTitle>
       <Buttons>
         Add USDT to
-        <BtnIcon src={MataMask} alt="MataMask" />
+        <BtnIcon src="/images/MataMask.png" alt="MataMask" />
         MetaMask
       </Buttons>
     </Main>

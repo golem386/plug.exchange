@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
-import { Button, Grid } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import NotFoundImg from '../../assets/icon/NotFound.png';
+import { Grid } from '@mui/material';
+import Link from 'next/link';
 
 const Div = styled('div')({
   marginLeft: '5%',
@@ -30,7 +29,7 @@ const Pre = styled('span')({
   fontWeight: '400',
   fontSize: '18px',
 });
-const CustomButtonActive = styled(Button)({
+const CustomButtonActive = styled(Link)({
   borderRadius: 16,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   fontSize: '16px',
@@ -44,25 +43,18 @@ const CustomButtonActive = styled(Button)({
 });
 
 const NotFound = () => {
-  const Navigation = useNavigate();
   return (
     <Div>
       <Grid container spacing={0}>
         <Grid item xs={6}>
-          <Img src={NotFoundImg} />
+          <Img src="/NotFound.png" />
         </Grid>
         <Grid item xs={6}>
           <Form>
             <Error>404</Error>
             <br />
             <Pre>The page you’re looking for couldn’t be found.</Pre>
-            <CustomButtonActive
-              onClick={() => {
-                Navigation('/');
-              }}
-            >
-              Go Back
-            </CustomButtonActive>
+            <CustomButtonActive href="/">Go Back</CustomButtonActive>
           </Form>
         </Grid>
       </Grid>

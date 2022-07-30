@@ -1,6 +1,6 @@
 {
-  "name": "plug",
-  "version": "0.1.0",
+  "name": "plug-exchange",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -9,6 +9,7 @@
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.7.0",
     "@mui/styled-engine-sc": "^5.7.0",
+    "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -23,11 +24,10 @@
     "echarts": "^5.3.2",
     "echarts-for-react": "^3.0.2",
     "echarts-for-react-typescript": "^1.2.5",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
     "react-redux": "^8.0.1",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "redux-debounced": "^0.5.0",
     "redux-thunk": "^2.4.1",
@@ -36,10 +36,9 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "prepare": "husky install"
   },
   "eslintConfig": {

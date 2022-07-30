@@ -1,8 +1,6 @@
-// this is a SwapHeader file and Provide a SwapHeader
 import styled from '@emotion/styled';
 import { useDispatch } from 'react-redux';
-import { onModalOpen } from '../../../../store/Actions';
-import menu from '../../../../assets/icon/menu.png';
+//import { onModalOpen } from '../../../../store/Actions';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
@@ -30,13 +28,13 @@ type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const SwapHeader = (props: SwapHeaderProps) => {
   const dispatch: AppDispatch = useDispatch();
   const onModal = (article: string | boolean) => {
-    dispatch(onModalOpen(article));
+    dispatch(null);
   };
   return (
     <SwapDiv>
       <Swap>Swap</Swap>
       <img
-        src={menu}
+        src="/images/menu.png"
         onClick={() => {
           onModal('Transaction');
         }}

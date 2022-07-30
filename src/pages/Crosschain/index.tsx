@@ -1,13 +1,5 @@
 import styled from '@emotion/styled';
-import menu from '../../assets/icon/menu.png';
-import Coin3 from '../../assets/icon/coin3.png';
-import DownArrow from '../../assets/icon/DownArrow.png';
 import { Button } from '@mui/material';
-import ShowMoreIcon from '../../assets/icon/ShowMore.png';
-import discord from '../../assets/icon/discord.png';
-import social from '../../assets/icon/social.png';
-import teligram from '../../assets/icon/teligram.png';
-import twiter from '../../assets/icon/twiter.png';
 
 const MainDiv = styled('div')({
   display: 'flex',
@@ -373,15 +365,15 @@ const Crosschain = () => {
         <Form>
           <Header>
             <Title>Swap</Title>
-            <Img src={menu} />
+            <Img src="/images/menu.png" />
           </Header>
           <From>
             <FromText>From Chain</FromText>
             <Header>
               <Drop>
-                <DropImg src={Coin3} />
+                <DropImg src="/images/coin3.png" />
                 <Text>SOL</Text>
-                <DroDownImg src={DownArrow} />
+                <DroDownImg src="/images/DownArrow.png" />
               </Drop>
               <Balance>Balance: 8.017</Balance>
             </Header>
@@ -389,9 +381,9 @@ const Crosschain = () => {
               <Imput type="text" />
               <Max>Max</Max>
               <Drop2>
-                <DropImg2 src={Coin3} />
+                <DropImg2 src="/images/coin3.png" />
                 <Text2>SOL</Text2>
-                <DroDownImg2 src={DownArrow} />
+                <DroDownImg2 src="/images/DownArrow.png" />
               </Drop2>
             </InputMain>
           </From>
@@ -403,20 +395,20 @@ const Crosschain = () => {
             <Header>
               <CoinDrop>
                 <Drop3>
-                  <DropImg3 src={Coin3} />
+                  <DropImg3 src="/images/coin3.png" />
                   <Content>
                     <Text>SOL</Text>
-                    <DroDownImg src={DownArrow} />
+                    <DroDownImg src="/images/DownArrow.png" />
                   </Content>
                 </Drop3>
               </CoinDrop>
               <InputMain2>
                 <Imput type="text" />
                 <Drop4>
-                  <DropImg3 src={Coin3} />
+                  <DropImg3 src="/images/coin3.png" />
                   <Content>
                     <Text>SOL</Text>
-                    <DroDownImg src={DownArrow} />
+                    <DroDownImg src="/images/DownArrow.png" />
                   </Content>
                 </Drop4>
               </InputMain2>
@@ -437,7 +429,7 @@ const Crosschain = () => {
           </UsdtList>
           <ShowMore>
             Show More
-            <DownArrowImg src={ShowMoreIcon} alt="Show" />
+            <DownArrowImg src="/images/ShowMore.png" alt="Show" />
           </ShowMore>
           <OrderBtn>Swap</OrderBtn>
         </Form>
@@ -460,16 +452,16 @@ const Crosschain = () => {
       <Footer>
         <div>
           <CustomButtom>
-            <img src={teligram} alt="teligram" />
+            <img src="/images/teligram.png" alt="teligram" />
           </CustomButtom>
           <CustomButtom>
-            <img src={social} alt="social" />
+            <img src="/images/social.png" alt="social" />
           </CustomButtom>
           <CustomButtom>
-            <img src={twiter} alt="twiter" />
+            <img src="/images/twiter.png" alt="twiter" />
           </CustomButtom>
           <CustomButtom>
-            <img src={discord} alt="discord" />
+            <img src="/images/discord.png" alt="discord" />
           </CustomButtom>
         </div>
       </Footer>

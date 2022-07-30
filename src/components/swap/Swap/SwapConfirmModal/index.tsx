@@ -1,8 +1,5 @@
-// this is a SwapConfirmmpdel File and Provide a SwapConfirmation Modal
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
-import Cros from '../../../../assets/icon/Cros.png';
-import ShortVartical from '../../../../assets/icon/ShortVartical.png';
 import CurrencyInput from '../CurrencyInput';
 import CurrencyOutput from '../CurrencyOutput';
 
@@ -108,7 +105,7 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
       <MainDiv>
         <Title>Swap Confirmation</Title>
         <Image
-          src={Cros}
+          src="/images/Cros.png"
           onClick={() => {
             props.handleClose(false);
           }}
@@ -130,7 +127,7 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
       />
       <ShortView>
         <ETH>1 ETH = 4,008.2766 USDT</ETH>
-        <ImgVarticalShort src={ShortVartical} />
+        <ImgVarticalShort src="/images/ShortVartical.png" />
       </ShortView>
       <DIv>
         <Main>

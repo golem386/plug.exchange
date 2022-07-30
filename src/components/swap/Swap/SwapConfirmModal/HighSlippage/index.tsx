@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
-import HighSlippageIcon from '../../../../../assets/icon/HighSlippage.png';
-import Cros from '../../../../../assets/icon/Cros.png';
 import { Button, FormControlLabel, Radio } from '@mui/material';
 
 const Title = styled('span')({
@@ -92,9 +90,9 @@ const HighSlippage = (props: TransactionFailedProps) => {
   return (
     <Main>
       <ImagDiv>
-        <CloseIcon src={Cros} onClick={props.handleClose} alt="Icon" />
+        <CloseIcon src="/images/Cros.png" onClick={props.handleClose} alt="Icon" />
       </ImagDiv>
-      <CompletedIcon src={HighSlippageIcon} alt="Image" />
+      <CompletedIcon src="/images/HighSlippage.png" alt="Image" />
       <Title>High Slippage Alert</Title>
       <SubTitle>Slippage is higher than normal trades. Swap results can be different than usual.</SubTitle>
       <TitleControl>

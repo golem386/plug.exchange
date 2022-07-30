@@ -1,9 +1,4 @@
-// this file is a AppFooter file and Create a Footer bar
 import styled from '@emotion/styled';
-import discord from '../../assets/icon/discord.png';
-import social from '../../assets/icon/social.png';
-import teligram from '../../assets/icon/teligram.png';
-import twiter from '../../assets/icon/twiter.png';
 import { Button, useMediaQuery } from '@mui/material';
 
 const MainComponent = styled('div')({
@@ -60,16 +55,16 @@ const AppFooter = () => {
       <MainComponent>
         <Div>
           <CustomButtom>
-            <img src={teligram} alt="teligram" />
+            <img src="/images/teligram.png" alt="teligram" />
           </CustomButtom>
           <CustomButtom>
-            <img src={social} alt="social" />
+            <img src="/images/social.png" alt="social" />
           </CustomButtom>
           <CustomButtom>
-            <img src={twiter} alt="twiter" />
+            <img src="/images/twiter.png" alt="twiter" />
           </CustomButtom>
           <CustomButtom>
-            <img src={discord} alt="discord" />
+            <img src="/images/discord.png" alt="discord" />
           </CustomButtom>
         </Div>
         <Div2>

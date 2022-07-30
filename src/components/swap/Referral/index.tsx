@@ -1,6 +1,4 @@
-// this file is a RestartModal and Provide a Paragraph
 import { Button, styled } from '@mui/material';
-import ShereLogo from '../../../assets/icon/ShereLogo.png';
 
 const MainDiv = styled('div')({
   display: 'flex',
@@ -28,7 +26,7 @@ const ReferralModal = () => {
   return (
     <MainDiv>
       <ShereImage>
-        <img src={ShereLogo} alt="Shere" />
+        <img src="/images/ShereLogo.png" alt="Shere" />
       </ShereImage>
       <PreText>
         Connect wallet to generate referral link.How it works?

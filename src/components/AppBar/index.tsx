@@ -1,22 +1,16 @@
-// this file is a appbar and Create appBar Design
-
 import { Button, Grid, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/system';
-import Logo from '../../assets/logo.png';
-import Cros from '../../assets/icon/Cros.png';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { Menu, OpenModal, Search } from '../../store/Actions';
+//import { Menu, OpenModal, Search } from '../../store/Actions';
 import WalletDetails from '../WalletDetails/WalletDetails';
 import Settings from '../Settings';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import Notification from '../swap/Swap/SwapConfirmModal/Notification';
-import Chain from '../../assets/icon/Chain.png';
-import DownIconWhite from '../../assets/icon/DownIconWhite.png';
-import { useNavigate } from 'react-router-dom';
 import AppFooter from '../AppFooter';
 import BuyCrypto from '../BuyCrypto';
+import Link from 'next/link';
 
 const MainComponent = styled('div')({
   display: 'flex',
@@ -24,7 +18,7 @@ const MainComponent = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-around',
 });
-const CustomButton2 = styled(Button)({
+const CustomButton2 = styled(Link)({
   borderRadius: 16,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
   fontSize: '16px',
@@ -37,7 +31,7 @@ const CustomButton2 = styled(Button)({
   width: '137px',
   border: '1px solid rgba(0, 0, 0, 0.1)',
 });
-const CustomButton4 = styled(Button)({
+const CustomButton4 = styled(Link)({
   borderRadius: 16,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
   fontSize: '16px',
@@ -50,7 +44,7 @@ const CustomButton4 = styled(Button)({
   width: '92px',
   border: '1px solid rgba(0, 0, 0, 0.1)',
 });
-const SwapCustomButton = styled(Button)({
+const SwapCustomButton = styled(Link)({
   borderRadius: 16,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   fontSize: '16px',
@@ -227,7 +221,6 @@ type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const AppBar = () => {
   const dispatch: AppDispatch = useDispatch();
   const matches = useMediaQuery('(min-width:660px)');
-  const Navigate = useNavigate();
   const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
   const SearchState: boolean = useSelector((state: ArticleState) => state.Search);
@@ -239,59 +232,31 @@ const AppBar = () => {
           <MainComponent>
             <ControlGrids container>
               <LogoGrid item sm={1}>
-                <Imgs src={Logo} alt="logo" />
+                <Imgs src="/logo.png" alt="logo" />
               </LogoGrid>
-              <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 6.5 : 8}>
-                {window.location.pathname === '/' ? (
-                  <SwapCustomButton
-                    onClick={() => {
-                      Navigate('/');
-                    }}
-                  >
-                    Swap
-                  </SwapCustomButton>
+              <CustomGrid item sm={CoinDetail?.name === '' && CoinNetwork?.name === '' ? 6.5 : 8}>
+                {window?.location?.pathname === '/' ? (
+                  <SwapCustomButton href="/">Swap</SwapCustomButton>
                 ) : (
-                  <CustomButton4
-                    onClick={() => {
-                      Navigate('/');
-                    }}
-                  >
-                    Swap
-                  </CustomButton4>
+                  <CustomButton4 href="/">Swap</CustomButton4>
                 )}
-                {window.location.pathname === '/Crosschain' ? (
-                  <CustomButtonActive1
-                    onClick={() => {
-                      Navigate('/Crosschain');
-                    }}
-                  >
-                    <Img src={Chain} />
+                {window?.location?.pathname === '/crosschain' ? (
+                  <CustomButtonActive1 href="/crosschain">
+                    <Img src="/images/Chain.png" />
                     Crosschain
-                    <DownImg src={DownIconWhite} />
+                    <DownImg src="/images/DownIconWhite.png" />
                   </CustomButtonActive1>
                 ) : (
-                  <CustomButton2
-                    onClick={() => {
-                      Navigate('/Crosschain');
-                    }}
-                  >
-                    Crosschain
-                  </CustomButton2>
+                  <CustomButton2 href="/crosschain">Crosschain</CustomButton2>
                 )}
                 <BuyCrypto />
-                {CoinNetwork.name !== '' ? null : (
+                {CoinNetwork?.name !== '' ? null : (
                   // <SwitchNetwork />
-                  <CustomButtonActive
-                    onClick={() => {
-                      dispatch(OpenModal());
-                    }}
-                  >
-                    Connect Wallet
-                  </CustomButtonActive>
+                  <CustomButtonActive onClick={() => null}>Connect Wallet</CustomButtonActive>
                 )}
-                {CoinDetail.name === '' && CoinNetwork.name !== '' ? (
+                {CoinDetail?.name === '' && CoinNetwork?.name !== '' ? (
                   <CustomButtonActiveCoin>Wrong Network</CustomButtonActiveCoin>
-                ) : CoinDetail.name === '' && CoinNetwork.name === '' ? (
+                ) : CoinDetail?.name === '' && CoinNetwork?.name === '' ? (
                   ''
                 ) : (
                   <WalletDetails account={null} />
@@ -304,29 +269,19 @@ const AppBar = () => {
       ) : (
         <>
           <OverLay style={{ display: SearchState ? 'block' : 'none' }}>
-            <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}>
+            <Grid item sm={CoinDetail?.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}>
               <DivFlex>
                 <Title>Setting</Title>
-                <CrosImg
-                  src={Cros}
-                  onClick={() => {
-                    dispatch(Search(false));
-                  }}
-                />
+                <CrosImg src="/images/Cros.png" onClick={() => null} />
               </DivFlex>
             </Grid>
           </OverLay>
           {
-            <OverLay2
-              style={{ display: MenuState ? 'block' : 'none' }}
-              onClick={() => {
-                dispatch(Menu(false));
-              }}
-            >
+            <OverLay2 style={{ display: MenuState ? 'block' : 'none' }} onClick={() => null}>
               <MainComponent2>
                 <TitleView>
                   <Title2>Connect Wallet</Title2>
-                  <img src={Cros} onClick={() => {}} alt="Image" />
+                  <img src="/images/Cros.png" onClick={() => {}} alt="Image" />
                 </TitleView>
                 <BuyCrypto />
                 <AppFooter />

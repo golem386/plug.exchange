@@ -1,23 +1,21 @@
+import { Provider } from 'react-redux';
+import type { AppProps } from 'next/app';
+import store from '../store';
 import { styled } from '@mui/system';
-import Modal from './components/Modal';
-import WalletModal from './components/WalletModal';
+import Modal from '../components/Modal';
+import WalletModal from '../components/WalletModal';
 import { useSelector } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
-import { closeModal, Menu, OpenModal } from './store/Actions';
 import { useMediaQuery } from '@mui/material';
-import mMenu from './assets/icon/mMenu.png';
-import mlogo from './assets/icon/mlogo.png';
-import SwitchNetwork from './components/SwitchNetwork';
-import WalletDetails from './components/WalletDetails/WalletDetails';
-import Settings from './components/Settings';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AppBar from './components/AppBar';
-import AppFooter from './components/AppFooter';
-import Swap from './pages/swap';
-import Crosschain from './pages/Crosschain';
-import NotFound from './pages/NotFound';
+import SwitchNetwork from '../components/SwitchNetwork';
+import WalletDetails from '../components/WalletDetails/WalletDetails';
+import Settings from '../components/Settings';
+import AppBar from '../components/AppBar';
+import AppFooter from '../components/AppFooter';
+import Head from 'next/head';
 
 const MyComponent = styled('div')({
   backgroundColor: '#FFFFFF',
@@ -31,6 +29,7 @@ const MyComponent = styled('div')({
     overflow: 'auto',
   },
 });
+
 const BoxsToken = styled('div')({
   backgroundColor: 'white',
   paddingBottom: 30,
@@ -108,23 +107,26 @@ type CoinDetail = {
   Price: String;
 };
 type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
-function App() {
+
+export default function MyApp({ Component, pageProps }: AppProps) {
   const matches = useMediaQuery('(min-width:660px)');
-  const ModalData: boolean = useSelector((state: ArticleState) => state.Modal);
-  const dispatch: AppDispatch = useDispatch();
-  const CoinDetail: CoinDetail = useSelector((state: ArticleState) => state.ConnectWallet);
+  //const ModalData: boolean = useSelector((state: ArticleState) => state.Modal);
+  //const dispatch: AppDispatch = useDispatch();
+  //const CoinDetail: CoinDetail = useSelector((state: ArticleState) => state.ConnectWallet);
+  let router = useRouter();
   return (
-    <>
+    <Provider store={store}>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="description" content="Plug Exchange" />
+      </Head>
       {matches ? null : (
         <NavBar>
           <div>
-            <NavImg
-              src={mMenu}
-              onClick={() => {
-                dispatch(Menu(true));
-              }}
-            />
-            <NavImg src={mlogo} />
+            <NavImg src="/images/mMenu.png" onClick={() => null} />
+            <NavImg src="/images/mlogo.png" />
           </div>
           <DivFlex>
             <Settings settings={settingData} />
@@ -132,49 +134,25 @@ function App() {
         </NavBar>
       )}
       <MyComponent>
-        <BrowserRouter>
-          <AppBar />
-          <Routes>
-            <Route path="/" element={<Swap />} />
-            <Route path="/Crosschain" element={<Crosschain />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          {window.location.pathname === '/Crosschain' ? null : matches ? <AppFooter /> : null}
-        </BrowserRouter>
-        <Modal
-          isOpen={ModalData}
-          modalTitle="WalletModal"
-          close={() => {
-            dispatch(closeModal());
-          }}
-        >
+        <AppBar />
+        {router?.pathname === '/Crosschain' ? null : matches ? <AppFooter /> : null}
+        <Modal isOpen={false} modalTitle="WalletModal" close={() => null}>
           <BoxsToken>
-            <WalletModal
-              onClose={() => {
-                dispatch(closeModal());
-              }}
-            />
+            <WalletModal onClose={() => null} />
           </BoxsToken>
         </Modal>
       </MyComponent>
-      {matches ? null : CoinDetail.name !== '' ? (
+      {matches ? null : null !== '' ? (
         <BtnGroup>
           <SwitchNetwork />
           <WalletDetails account={null} />
         </BtnGroup>
       ) : (
         <BtnGroup>
-          <ActiveBtn
-            onClick={() => {
-              dispatch(OpenModal());
-            }}
-          >
-            Connect Wallet
-          </ActiveBtn>
+          <ActiveBtn>Connect Wallet</ActiveBtn>
         </BtnGroup>
       )}
-    </>
+      <Component {...pageProps} />
+    </Provider>
   );
 }
-
-export default App;

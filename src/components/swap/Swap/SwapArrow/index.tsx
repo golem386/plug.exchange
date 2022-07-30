@@ -2,8 +2,7 @@
 import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { onReceiveCoin, onSelectCoin } from '../../../../store/Actions';
-import UpDown from '../../../../assets/icon/UpDown.png';
+//import { onReceiveCoin, onSelectCoin } from '../../../../store/Actions';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
@@ -31,10 +30,10 @@ const SwapArrow = (props: SwapArrowProps) => {
   const CoinDetail: CoinDetail = useSelector((state: ArticleState) => state.CoinDetail);
   const ReceiveCoin: CoinDetail = useSelector((state: ArticleState) => state.receiveCoinDetail);
   const onSelectIcon = (coin: CoinDetail) => {
-    dispatch(onSelectCoin(coin));
+    dispatch(null);
   };
   const onReceiveIcon = (coin: CoinDetail) => {
-    dispatch(onReceiveCoin(coin));
+    dispatch(null);
   };
   const onChangeToken = () => {
     onSelectIcon(ReceiveCoin);
@@ -42,7 +41,7 @@ const SwapArrow = (props: SwapArrowProps) => {
   };
   return (
     <UpDownImage
-      src={UpDown}
+      src="/images/UpDown.png"
       onClick={() => {
         onChangeToken();
       }}

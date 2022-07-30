@@ -62,7 +62,7 @@ const SwapTransactionDetails = (props: SwapTransactionDetailsProps) => {
   const ConnectWallet: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: CoinNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
   return props.btnTitle === 'Connect Wallet' ? (
-    ConnectWallet.name !== '' && CoinNetwork.name !== '' ? (
+    ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? (
       <DetailView>
         <Expected>
           <ItemText>Expected Output</ItemText>

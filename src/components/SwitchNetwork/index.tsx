@@ -1,10 +1,7 @@
-// this is a SwitchNetwork File and Switch Network
 import styled from '@emotion/styled';
 import { Button, MenuItem } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import DownIconWhite from '../../assets/icon/DownIconWhite.png';
-import right from '../../assets/icon/right.png';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
 
 const CustomButtonActiveCoin = styled(Button)({
@@ -161,9 +158,9 @@ const SwitchNetwork = () => {
   return (
     <div style={{ position: 'relative' }}>
       <CustomButtonActiveCoin onClick={handleClick}>
-        <ImageIcon src={CoinNetwork.coin} alt="Icon" />
-        <TitleIcon>{CoinNetwork.name}</TitleIcon>
-        <CoinDropIcon src={DownIconWhite} alt="Download" />
+        <ImageIcon src={CoinNetwork?.coin} alt="Icon" />
+        <TitleIcon>{CoinNetwork?.name}</TitleIcon>
+        <CoinDropIcon src="/images/DownIconWhite.png" alt="Download" />
       </CustomButtonActiveCoin>
       <OverLay style={{ display: openmenu ? 'block' : 'none' }} onClick={handleClosemenu}>
         <CustomMenu>
@@ -177,7 +174,7 @@ const SwitchNetwork = () => {
                   <ImageIconDropDown src={val.coin} alt="Icon" />
                   <DropDownTitleIcon>{val.name}</DropDownTitleIcon>
                 </CustomMenuItem2>
-                {val.name === CoinNetwork.name ? <Right src={right} /> : null}
+                {val.name === CoinNetwork?.name ? <Right src="/images/right.png" /> : null}
               </CustomMenuItem>
             );
           })}

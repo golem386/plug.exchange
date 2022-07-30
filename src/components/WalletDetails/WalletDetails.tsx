@@ -1,19 +1,13 @@
-// this file is a WalletDetails file and provide a History
 import styled from '@emotion/styled';
 import { useMediaQuery } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { connetNetwork, connetWallet } from '../../store/Actions';
-import filecopy from '../../assets/icon/filecopy.png';
-import History from '../../assets/icon/History.png';
-import DisConnect from '../../assets/icon/DisConnect.png';
-import DownArrow from '../../assets/icon/DownArrow.png';
+//import { connetNetwork, connetWallet } from '../../store/Actions';
 import { useSelector } from 'react-redux';
 import UserAssets from './UserAssets';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import SwapTransactionHistory from '../SwapTransactionHistory';
-import right from '../../assets/icon/right.png';
 
 const Copy = styled('div')({
   paddingLeft: '10px',
@@ -227,10 +221,10 @@ const WalletDetails = (props: WalletDetailsProps) => {
     setAnchorElPrice(null);
   };
   const connetWalletData = (coin: any) => {
-    dispatch(connetWallet(coin));
+    dispatch(null);
   };
   const connetNetworkData = (coin: any) => {
-    dispatch(connetNetwork(coin));
+    dispatch(null);
   };
   const DisConnectWallet = () => {
     handleClosemenuPrice();
@@ -243,12 +237,12 @@ const WalletDetails = (props: WalletDetailsProps) => {
   return (
     <div>
       <CoinPrice onClick={handleClickPrice}>
-        <ImageIconDropDown src={CoinDetail.coin} alt="Coin" />
-        <Name>{CoinDetail.Subname}</Name>
+        <ImageIconDropDown src={CoinDetail?.coin} alt="Coin" />
+        <Name>{CoinDetail?.Subname}</Name>
         {matches ? (
           <>
-            <Into>{CoinDetail.Price}</Into>
-            <CoinDropIcon src={DownArrow} alt="DownArrow" />
+            <Into>{CoinDetail?.Price}</Into>
+            <CoinDropIcon src="/images/DownArrow.png" alt="DownArrow" />
           </>
         ) : null}
       </CoinPrice>
@@ -261,7 +255,7 @@ const WalletDetails = (props: WalletDetailsProps) => {
                 setCopy(true);
               }}
             >
-              <FileCopy src={filecopy} alt="Copy" />
+              <FileCopy src="/images/filecopy.png" alt="Copy" />
               <Id>0x37...0420</Id>
             </Copy>
           ) : (
@@ -270,7 +264,7 @@ const WalletDetails = (props: WalletDetailsProps) => {
                 setCopy(true);
               }}
             >
-              <RightIcon src={right} alt="Copy" />
+              <RightIcon src="/images/right.png" alt="Copy" />
               <Copied>Copied!</Copied>
             </Copy>
           )}
@@ -281,7 +275,7 @@ const WalletDetails = (props: WalletDetailsProps) => {
                 handleOpen();
               }}
             >
-              <img src={History} alt="History" />
+              <img src="/images/History.png" alt="History" />
               <HistoryTitle>History</HistoryTitle>
             </MainDiv>
             <MainDiv
@@ -289,8 +283,8 @@ const WalletDetails = (props: WalletDetailsProps) => {
                 DisConnectWallet();
               }}
             >
-              <img src={DisConnect} alt="Disconnect" />
-              <HistoryTitle>{CoinNetwork.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
+              <img src="/images/DisConnect.png" alt="Disconnect" />
+              <HistoryTitle>{CoinNetwork?.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
             </MainDiv>
           </HistoryDiv>
           <SwapTransactionHistory
