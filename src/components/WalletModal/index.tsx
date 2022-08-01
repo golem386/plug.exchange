@@ -59,6 +59,7 @@ const ViewMain = styled('div')({
   paddingRight: '3%',
   marginLeft: 15,
   padding: '12px, 18px, 12px, 16px',
+  cursor:'pointer'
 });
 const ViewMainBtn = styled('div')({
   borderWidth: '1.5px',
@@ -73,6 +74,7 @@ const ViewMainBtn = styled('div')({
   paddingRight: '3%',
   marginLeft: 15,
   padding: '12px, 18px, 12px, 16px',
+  cursor:'pointer',
   '@media (max-width: 660px)': {
     display: 'none',
   },
@@ -92,6 +94,7 @@ const ViewMainActive = styled('div')({
   marginLeft: 15,
   borderColor: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   padding: '12px, 18px, 12px, 16px',
+  cursor:'pointer'
 });
 const Parmition = styled('div')({
   display: 'flex',
@@ -226,6 +229,10 @@ const HeaderTitle = styled('span')({
   fontWeight: '600',
   marginLeft: '5%',
 });
+const CloseBtn = styled('img')({
+  cursor:'pointer'
+});
+
 type WalletModalProps = {
   onClose: Function; //This is a Close Button Click and Modal Close
 };
@@ -281,8 +288,8 @@ const WalletModal = (props: WalletModalProps) => {
     <>
       <ConnectWalletHeader>
         <HeaderTitle>Connect Wallet</HeaderTitle>
-        <img
-          src="/images/Cros.png"
+        <CloseBtn
+          src="/images/cros.png"
           onClick={() => {
             props.onClose();
           }}
@@ -332,8 +339,8 @@ const WalletModal = (props: WalletModalProps) => {
                 <Box sx={styleError}>
                   <TitleView2>
                     <Title3>Wrong Network</Title3>
-                    <img
-                      src="/images/Cros.png"
+                    <CloseBtn
+                      src="/images/cros.png"
                       onClick={() => {
                         handleCloseError();
                       }}

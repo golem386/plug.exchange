@@ -242,15 +242,15 @@ const AppBar = () => {
                 )}
                 {window?.location?.pathname === '/crosschain' ? (
                   <CrosschainButton href="/crosschain">
-                    <Img src="/images/Chain.png" />
+                    <Img src="/images/chain.png" />
                     Crosschain
-                    <DownImg src="/images/DownIconWhite.png" />
+                    <DownImg src="/images/downIconWhite.png" />
                   </CrosschainButton>
                 ) : (
                   <CrosschainButtonActive href="/crosschain">Crosschain</CrosschainButtonActive>
                 )}
                 <BuyCrypto />
-                {CoinNetwork?.name === '' ? null : (
+                {CoinNetwork?.name !== '' ? null : (
                   // <SwitchNetwork />
                   <ConnectWalletActive onClick={() => null}>Connect Wallet</ConnectWalletActive>
                 )}
@@ -272,7 +272,7 @@ const AppBar = () => {
             <Grid item sm={CoinDetail?.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}>
               <SettingMain>
                 <SettingTitle>Setting</SettingTitle>
-                <CloseIcon src="/images/Cros.png" onClick={() => null} />
+                <CloseIcon src="/images/cros.png" onClick={() => null} />
               </SettingMain>
             </Grid>
           </SettingMenuOverLay>
@@ -281,7 +281,7 @@ const AppBar = () => {
               <ConnectWalletMain>
                 <TitleView>
                   <ConnectWalletTitle>Connect Wallet</ConnectWalletTitle>
-                  <img src="/images/Cros.png" onClick={() => {}} alt="Image" />
+                  <img src="/images/cros.png" onClick={() => {}} alt="Image" />
                 </TitleView>
                 <BuyCrypto />
                 <AppFooter />

@@ -143,7 +143,7 @@ const PairLineChart = (props: PairLineChartProps) => {
         <CurrencyTitle>
           {CoinDetail?.fullName}
           <CurrencySubName>({CoinDetail?.name})</CurrencySubName>
-          <ShortIcon src="/images/ShortVartical.png" alt="ShortIcon" />
+          <ShortIcon src="/images/shortVartical.png" alt="ShortIcon" />
           {receiveCoinDetail?.fullName}
           <CurrencySubName>({receiveCoinDetail?.name})</CurrencySubName>
         </CurrencyTitle>
@@ -155,6 +155,15 @@ const PairLineChart = (props: PairLineChartProps) => {
             <TabPanel value={value} index={0}>
               <ReactEcharts
                 option={{
+                  tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                      type: 'cross',
+                      label: {
+                        backgroundColor: '#BB36FF'
+                      }
+                    }
+                  },
                   color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
                   grid: {
                     left: '0%',
@@ -168,7 +177,7 @@ const PairLineChart = (props: PairLineChartProps) => {
                       type: 'category',
                       boundaryGap: false,
                       show: false,
-                      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'mon'],
+                      data: ['1/01/2022', '2/01/2022', '3/01/2022', '4/01/2022', '5/01/2022', '6/01/2022', '7/01/2022', '8/01/2022'],
                     },
                   ],
                   yAxis: [
@@ -179,7 +188,7 @@ const PairLineChart = (props: PairLineChartProps) => {
                   ],
                   series: [
                     {
-                      name: 'Line 1',
+                      name: 'Ethereum',
                       type: 'line',
                       stack: 'Total',
                       smooth: true,
@@ -216,6 +225,15 @@ const PairLineChart = (props: PairLineChartProps) => {
             <TabPanel value={value} index={1}>
               <ReactEcharts
                 option={{
+                  tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                      type: 'cross',
+                      label: {
+                        backgroundColor: '#BB36FF'
+                      }
+                    }
+                  },
                   color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
                   grid: {
                     left: '0%',
@@ -229,7 +247,7 @@ const PairLineChart = (props: PairLineChartProps) => {
                       type: 'category',
                       boundaryGap: false,
                       show: false,
-                      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'mon'],
+                      data: ['1/01/2022', '2/01/2022', '3/01/2022', '4/01/2022', '5/01/2022', '6/01/2022', '7/01/2022', '8/01/2022'],
                     },
                   ],
                   yAxis: [
@@ -240,7 +258,7 @@ const PairLineChart = (props: PairLineChartProps) => {
                   ],
                   series: [
                     {
-                      name: 'Line 1',
+                      name: 'Ethereum',
                       type: 'line',
                       stack: 'Total',
                       smooth: true,
@@ -277,6 +295,15 @@ const PairLineChart = (props: PairLineChartProps) => {
             <TabPanel value={value} index={2}>
               <ReactEcharts
                 option={{
+                  tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                      type: 'cross',
+                      label: {
+                        backgroundColor: '#BB36FF'
+                      }
+                    }
+                  },
                   color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
                   grid: {
                     left: '0%',
@@ -290,7 +317,7 @@ const PairLineChart = (props: PairLineChartProps) => {
                       type: 'category',
                       boundaryGap: false,
                       show: false,
-                      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'mon'],
+                      data: ['1/01/2022', '2/01/2022', '3/01/2022', '4/01/2022', '5/01/2022', '6/01/2022', '7/01/2022', '8/01/2022'],
                     },
                   ],
                   yAxis: [
@@ -301,7 +328,7 @@ const PairLineChart = (props: PairLineChartProps) => {
                   ],
                   series: [
                     {
-                      name: 'Line 1',
+                      name: 'Ethereum',
                       type: 'line',
                       stack: 'Total',
                       smooth: true,

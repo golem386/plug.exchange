@@ -59,7 +59,7 @@ const TransactionFailed = (props: TransactionFailedProps) => {
   return (
     <TransactionFailedModal>
       <CloseImage>
-        <CloseIcon src="/images/Cros.png" onClick={props.handleClose} alt="Icon" />
+        <CloseIcon src="/images/cros.png" onClick={props.handleClose} alt="Icon" />
       </CloseImage>
       <CompletedIcon src="/images/Check.png" alt="Image" />
       <Title>Transaction Failed</Title>

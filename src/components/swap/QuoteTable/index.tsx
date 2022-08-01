@@ -40,6 +40,7 @@ const MainSpan = styled('span')({
   color: 'transparent',
   backgroundClip: 'text',
   fontFamily: 'Inter',
+  cursor:'pointer'
 });
 const DataUpdat = styled('div')({
   backgroundColor: '#f0f0f0',
@@ -94,6 +95,7 @@ const ShereIcon = styled('img')({
   height: '18px',
   width: '18px',
   opacity: '0.4',
+  cursor:'pointer'
 });
 const Text = styled('p')({
   textAlign: 'center',
@@ -121,6 +123,7 @@ const ShortImage = styled('img')({
   paddingLeft: 3,
   height: 18,
   width: 19,
+  cursor:'pointer'
 });
 const ShowMore = styled('p')({
   textAlign: 'center',
@@ -207,7 +210,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                         <CoinHeader>
                           <CoinIcon src={val.icon} alt="icon" />
                           <CoinTitle>{val.name}</CoinTitle>
-                          <ShereIcon src="/images/Shere.png" alt="icon" />
+                          <ShereIcon src="/images/shere.png" alt="icon" />
                         </CoinHeader>
                         <Grid container spacing={0}>
                           <Grid item xs={4}>
@@ -271,7 +274,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                         <CoinHeader>
                           <CoinIcon src={val.icon} alt="icon" />
                           <CoinTitle>{val.name}</CoinTitle>
-                          <ShereIcon src="/images/Shere.png" alt="shere" />
+                          <ShereIcon src="/images/shere.png" alt="shere" />
                         </CoinHeader>
                         <Grid container spacing={0}>
                           <Grid item xs={4}>
@@ -309,7 +312,7 @@ const QuoteTables = (props: QuoteTableProps) => {
             }}
           >
             Hide Details
-            <DownArrowImgTop src="/images/HideDetail.png" alt="Hide" />
+            <DownArrowImgTop src="/images/hideDetail.png" alt="Hide" />
           </ShowMore>
         ) : (
           <ShowMore
@@ -319,7 +322,7 @@ const QuoteTables = (props: QuoteTableProps) => {
             }}
           >
             Show More Details
-            <DownArrowImg src="/images/ShowMore.png" alt="Show" />
+            <DownArrowImg src="/images/showMore.png" alt="Show" />
           </ShowMore>
         )}
       </>

@@ -91,6 +91,7 @@ const CoinPrice = styled('span')({
   border: 'none',
   height: 52,
   width: '100%',
+  cursor:'pointer',
   '@media (max-width: 660px)': {
     background: '#f7f7f7',
     height: 36,
@@ -242,7 +243,7 @@ const WalletDetails = (props: WalletDetailsProps) => {
         {matches ? (
           <>
             <Into>{CoinDetail?.Price}</Into>
-            <CoinDropIcon src="/images/DownArrow.png" alt="DownArrow" />
+            <CoinDropIcon src="/images/downArrow.png" alt="DownArrow" />
           </>
         ) : null}
       </CoinPrice>
@@ -275,7 +276,7 @@ const WalletDetails = (props: WalletDetailsProps) => {
                 handleOpen();
               }}
             >
-              <img src="/images/History.png" alt="History" />
+              <img src="/images/history.png" alt="History" />
               <HistoryTitle>History</HistoryTitle>
             </MainDiv>
             <MainDiv
@@ -283,7 +284,7 @@ const WalletDetails = (props: WalletDetailsProps) => {
                 DisConnectWallet();
               }}
             >
-              <img src="/images/DisConnect.png" alt="Disconnect" />
+              <img src="/images/disConnect.png" alt="Disconnect" />
               <HistoryTitle>{CoinNetwork?.name !== '' ? 'Disconnect' : 'Connected'}</HistoryTitle>
             </MainDiv>
           </HistoryDiv>

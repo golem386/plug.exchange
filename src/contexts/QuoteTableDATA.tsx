@@ -11,7 +11,7 @@ export const data = [
     gesprice: '$12.15',
   },
   {
-    icon: '/images/ListIcon2.png',
+    icon: '/images/listIcon2.png',
     name: 'Matcha',
     get: 'You Can Get USDT',
     proce: '556.60',
@@ -22,7 +22,7 @@ export const data = [
     gesprice: '$12.15',
   },
   {
-    icon: '/images/ListIcon3.png',
+    icon: '/images/listIcon3.png',
     name: '1inch',
     get: 'You Can Get USDT',
     proce: '556.60',
@@ -33,7 +33,7 @@ export const data = [
     gesprice: '$12.15',
   },
   {
-    icon: '/images/ListIcon4.png',
+    icon: '/images/listIcon4.png',
     name: '1inch',
     get: 'You Can Get USDT',
     proce: '556.60',

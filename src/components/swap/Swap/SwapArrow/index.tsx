@@ -41,7 +41,7 @@ const SwapArrow = (props: SwapArrowProps) => {
   };
   return (
     <CoinChangeIcon
-      src="/images/UpDown.png"
+      src="/images/upDown.png"
       onClick={() => {
         onChangeToken();
       }}

@@ -104,7 +104,7 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
       <Header>
         <Title>Swap Confirmation</Title>
         <CloseImage
-          src="/images/Cros.png"
+          src="/images/cros.png"
           onClick={() => {
             props.handleClose(false);
           }}
@@ -126,7 +126,7 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
       />
       <ShortView>
         <ETH>1 ETH = 4,008.2766 USDT</ETH>
-        <ImgVarticalShort src="/images/ShortVartical.png" />
+        <ImgVarticalShort src="/images/shortVartical.png" />
       </ShortView>
       <ShortViewList>
         <ShortViewListItem>

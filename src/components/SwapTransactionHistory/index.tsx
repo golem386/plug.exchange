@@ -100,7 +100,7 @@ const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {
         <Header>
           <HeaderText>Transaction History</HeaderText>
           <CloseImage
-            src="/images/Cros.png"
+            src="/images/cros.png"
             onClick={() => {
               props.close();
             }}

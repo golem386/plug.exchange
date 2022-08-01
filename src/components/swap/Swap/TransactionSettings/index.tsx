@@ -10,8 +10,9 @@ import { AnyAction } from 'redux';
 const TransactionSettingsModal = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
-  width: '100%',
-  paddingBottom: '10%',
+  width: '97%',
+  paddingBottom: '8%',
+  marginTop:'12%',
 });
 const Header = styled('div')({
   display: 'flex',
@@ -32,11 +33,12 @@ const Slippage = styled('div')({
   marginLeft: '5%',
   opacity: '0.65',
 });
-const SlippageText = styled('p')({
+const SlippageText = styled('span')({
   fontSize: '16px',
   fontWeight: '600',
   color: 'black',
   fontFamily: 'Inter',
+  paddingTop:'3%'
 });
 const QuestionIcon = styled('img')({
   height: 20,
@@ -240,7 +242,6 @@ const TextTypeinput = styled('input')({
     outline: 'none',
   },
 });
-
 const CloseImage = styled('img')({
   cursor: 'pointer',
 });
@@ -261,7 +262,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
       <Header>
         <TransactionSettingTitle>Transaction Settings</TransactionSettingTitle>
         <CloseImage
-          src="/images/Cros.png"
+          src="/images/cros.png"
           onClick={() => {
             onModal('Swap');
           }}
@@ -270,7 +271,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
       </Header>
       <Slippage>
         <SlippageText>Slippage Tolerance</SlippageText>
-        <QuestionIcon src="/images/Question.svg" alt="QuestionIcon" />
+        <QuestionIcon src="/images/puestion.svg" alt="QuestionIcon" />
       </Slippage>
       <AutoButtonGroup>
         <CustomButtonDisebal>Auto</CustomButtonDisebal>
@@ -278,7 +279,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
       </AutoButtonGroup>
       <Slippage>
         <SlippageText>Transaction Deadline</SlippageText>
-        <QuestionIcon src="/images/Question.svg" alt="QuestionIcon" />
+        <QuestionIcon src="/images/puestion.svg" alt="QuestionIcon" />
       </Slippage>
       <MainInput>
         <AutoButtonGroup>
@@ -293,7 +294,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
           <TimeText>
             <Span>Instant (102.73 - 140.28 GWEI)</Span>
             <DownArrowIcon
-              src="/images/DownArrow.png"
+              src="/images/downArrow.png"
               onClick={() => {
                 setSlider(!Slider);
               }}
@@ -307,7 +308,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
               onClick={() => {
                 setSlider(!Slider);
               }}
-              src="/images/TopArrow.png"
+              src="/images/topArrow.png"
               alt="TopArrow"
             />
           </TimeTextPink>
@@ -352,14 +353,14 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
         <MainRow>
           <AutoButtonGroup>
             <AutoRout>Auto Router API</AutoRout>
-            <QuestionIcon src="/images/DownArrow.png" alt="Icon" />
+            <QuestionIcon src="/images/downArrow.png" alt="Icon" />
           </AutoButtonGroup>
           <Switch defaultChecked={true} color="secondary" />
         </MainRow>
         <MainRow>
           <AutoButtonGroup>
             <AutoRout>Auto Router API</AutoRout>
-            <QuestionIcon src="/images/DownArrow.png" alt="Icon" />
+            <QuestionIcon src="/images/downArrow.png" alt="Icon" />
           </AutoButtonGroup>
           <Switch color="secondary" />
         </MainRow>
@@ -368,7 +369,7 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
         <MainRow>
           <AutoButtonGroup>
             <AutoRout>Auto Router API</AutoRout>
-            <QuestionIcon src="/images/DownArrow.png" alt="Icon" />
+            <QuestionIcon src="/images/downArrow.png" alt="Icon" />
           </AutoButtonGroup>
           <Switch defaultChecked={true} color="secondary" />
         </MainRow>

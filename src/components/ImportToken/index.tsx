@@ -165,7 +165,7 @@ const ImportToken = (props: ImportTokenProps) => {
       <ImportTokenHeader>
         <ImportTokenTitle>Import a Token</ImportTokenTitle>
         <img
-          src="/images/Cros.png"
+          src="/images/cros.png"
           onClick={() => {
             props.handleClose();
           }}

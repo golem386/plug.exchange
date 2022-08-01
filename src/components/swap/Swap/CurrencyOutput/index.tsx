@@ -106,7 +106,7 @@ const CurrencyOutput = (props: CurrencyOutputProps) => {
           >
             <CoinImage src={ReceiveCoin?.image} alt="Icon" />
             <CoinTitle>{ReceiveCoin?.name}</CoinTitle>
-            <CoinDropIcon src="/images/DownArrow.png" alt="DownArrow" />
+            <CoinDropIcon src="/images/downArrow.png" alt="DownArrow" />
           </SelectToken>
         </FormControl>
       </Input>

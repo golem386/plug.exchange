@@ -226,13 +226,13 @@ const SwapRouter = (props: SwapRouterProps) => {
       <SwapRouterButton>
         <ShortView>
           <ETH>1 ETH = 4,008.2766 USDT</ETH>
-          <ImgVarticalShort src="/images/ShortVartical.png" />
+          <ImgVarticalShort src="/images/shortVartical.png" />
         </ShortView>
         <ImgDownArrow
           onClick={() => {
             setSlider(!Slider);
           }}
-          src={Slider === true ? '/images/TopArrow.png' : '/images/DownArrow.png'}
+          src={Slider === true ? '/images/topArrow.png' : '/images/downArrow.png'}
           alt="Image"
         />
       </SwapRouterButton>
@@ -268,7 +268,7 @@ const SwapRouter = (props: SwapRouterProps) => {
             <RoutButton>
               <Icon2 src="/images/trans.png" alt="Image" />
               <AutoText>Auto Router</AutoText>
-              <QusetionIcon src="/images/Question.svg" alt="image" />
+              <QusetionIcon src="/images/puestion.svg" alt="image" />
             </RoutButton>
             {AddEntey === true ? (
               <IconHr

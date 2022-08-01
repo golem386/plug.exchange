@@ -68,7 +68,7 @@ const Notification = () => {
       >
         <AlertNotification>
           {Alert?.type === 'Error' ? (
-            <Img height={72} width={72} src="/images/Error.png" />
+            <Img height={72} width={72} src="/images/error.png" />
           ) : (
             <Img height={72} width={72} src="/images/success.png" />
           )}

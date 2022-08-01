@@ -83,6 +83,7 @@ const SettingButton = styled('button')({
   alignItems: 'center',
   justifyContent: 'center',
   marginLeft: '30%',
+  cursor:'pointer',
   '@media (max-width: 660px)': {
     borderRadius: 100,
     backgroundColor: 'transparent',
@@ -134,7 +135,7 @@ const Settings = (props: SettingsProps) => {
             <DropDownTitleIcon>{props.settings[0].name}</DropDownTitleIcon>
           </SettingMenuItem>
           <SettingMenuItem>
-            <ImageIconDropDown src="/images/Question.svg" alt="icon" />
+            <ImageIconDropDown src="/images/puestion.svg" alt="icon" />
             <DropDownTitleIcon>{props.settings[1].name}</DropDownTitleIcon>
           </SettingMenuItem>
           <SettingMenuItem>
@@ -142,11 +143,11 @@ const Settings = (props: SettingsProps) => {
             <DropDownTitleIcon>{props.settings[2].name}</DropDownTitleIcon>
           </SettingMenuItem>
           <SettingMenuItem>
-            <ImageIconDropDown src="/images/Language.svg" alt="icon" />
+            <ImageIconDropDown src="/images/language.svg" alt="icon" />
             <DropDownTitleIcon>{props.settings[3].name}</DropDownTitleIcon>
           </SettingMenuItem>
           <SettingMenuItem>
-            <ImageIconDropDown src="/images/Dark.svg" alt="Dark" />
+            <ImageIconDropDown src="/images/dark.svg" alt="Dark" />
             <DropDownTitleIcon>{props.settings[4].name}</DropDownTitleIcon>
           </SettingMenuItem>
         </SettingMenu>

@@ -35,7 +35,7 @@ const TransactionWaiting = (props: TransactionWaitingProps) => {
   return (
     <TransactionWaitingModal>
       {/* <CircularProgressIcon color="secondary" /> */}
-      <CircularProgressIcon src="/images/Loader.png" />
+      <CircularProgressIcon src="/images/loader.png" />
       <Title>Waiting for Confirmation</Title>
       <SubTitle>Swapping 0.000249 ETH for 1.46 USDT</SubTitle>
       <br />

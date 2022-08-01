@@ -373,7 +373,7 @@ const Crosschain = () => {
               <Drop>
                 <DropImg src="/images/coin3.png" />
                 <Text>SOL</Text>
-                <DroDownImg src="/images/DownArrow.png" />
+                <DroDownImg src="/images/downArrow.png" />
               </Drop>
               <Balance>Balance: 8.017</Balance>
             </Header>
@@ -383,7 +383,7 @@ const Crosschain = () => {
               <Drop2>
                 <DropImg2 src="/images/coin3.png" />
                 <Text2>SOL</Text2>
-                <DroDownImg2 src="/images/DownArrow.png" />
+                <DroDownImg2 src="/images/downArrow.png" />
               </Drop2>
             </InputMain>
           </From>
@@ -398,7 +398,7 @@ const Crosschain = () => {
                   <DropImg3 src="/images/coin3.png" />
                   <Content>
                     <Text>SOL</Text>
-                    <DroDownImg src="/images/DownArrow.png" />
+                    <DroDownImg src="/images/downArrow.png" />
                   </Content>
                 </Drop3>
               </CoinDrop>
@@ -408,7 +408,7 @@ const Crosschain = () => {
                   <DropImg3 src="/images/coin3.png" />
                   <Content>
                     <Text>SOL</Text>
-                    <DroDownImg src="/images/DownArrow.png" />
+                    <DroDownImg src="/images/downArrow.png" />
                   </Content>
                 </Drop4>
               </InputMain2>
@@ -429,7 +429,7 @@ const Crosschain = () => {
           </UsdtList>
           <ShowMore>
             Show More
-            <DownArrowImg src="/images/ShowMore.png" alt="Show" />
+            <DownArrowImg src="/images/showMore.png" alt="Show" />
           </ShowMore>
           <OrderBtn>Swap</OrderBtn>
         </Form>

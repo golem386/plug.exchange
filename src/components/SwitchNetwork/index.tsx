@@ -160,7 +160,7 @@ const SwitchNetwork = () => {
       <ButtonActive onClick={handleClick}>
         <ImageIcon src={CoinNetwork?.coin} alt="Icon" />
         <Title>{CoinNetwork?.name}</Title>
-        <CoinDropIcon src="/images/DownIconWhite.png" alt="Download" />
+        <CoinDropIcon src="/images/downIconWhite.png" alt="Download" />
       </ButtonActive>
       <OverLay style={{ display: openmenu ? 'block' : 'none' }} onClick={handleClosemenu}>
         <CustomMenu>

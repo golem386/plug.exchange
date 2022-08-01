@@ -62,14 +62,14 @@ const TransactionCompleted = (props: TransactionCompletedProps) => {
   return (
     <TransactionCompletedModal>
       <CloseImage>
-        <CloseIcon src="/images/Cros.png" onClick={props.handleClose} alt="Icon" />
+        <CloseIcon src="/images/cros.png" onClick={props.handleClose} alt="Icon" />
       </CloseImage>
-      <CompletedIcon src="/images/Completed.png" alt="Image" />
+      <CompletedIcon src="/images/completed.png" alt="Image" />
       <Title>Transaction Submitted</Title>
       <SubTitle>View on Explorer</SubTitle>
       <Buttons>
         Add USDT to
-        <BtnIcon src="/images/MataMask.png" alt="MataMask" />
+        <BtnIcon src="/images/mataMask.png" alt="MataMask" />
         MetaMask
       </Buttons>
     </TransactionCompletedModal>

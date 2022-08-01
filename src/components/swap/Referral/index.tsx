@@ -21,12 +21,13 @@ const PreText = styled('p')({
 const ReadMore = styled('span')({
   color: '#BB36FF',
   marginLeft: 2,
+  cursor:'pointer'
 });
 const ReferralModal = () => {
   return (
     <ReferralModalMain>
       <ShereImage>
-        <img src="/images/ShereLogo.png" alt="Shere" />
+        <img src="/images/shereLogo.png" alt="Shere" />
       </ShereImage>
       <PreText>
         Connect wallet to generate referral link.How it works?

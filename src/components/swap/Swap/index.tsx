@@ -246,7 +246,7 @@ const Swap = (props: SwapProps) => {
             }}
           >
             Allow the Plug protocol {matches ? null : <br />} to use your ETH.
-            <Img src="/images/WhiteQue.png" />
+            <Img src="/images/whiteQue.png" />
           </ParmitionBtn>
         ) : null}
         {ConnectWallet?.name === '' && CoinNetwork?.name !== '' ? (

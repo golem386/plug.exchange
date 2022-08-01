@@ -141,12 +141,12 @@ const CurrencyModal = (props: SelecttokenProps) => {
             onModal('Swap');
           }}
         >
-          <img src="/images/Cros.png" alt="Cros" />
+          <img src="/images/cros.png" alt="Cros" />
         </CloseIcon>
       </SelectTokenMain>
       <TextInputMain>
         <SearchIcon
-          src="/images/Search.png"
+          src="/images/search.png"
           onClick={
             props.select === 'PayToken'
               ? () => {

@@ -47,7 +47,7 @@ const NotFound = () => {
     <Div>
       <Grid container spacing={0}>
         <Grid item xs={6}>
-          <Img src="/NotFound.png" />
+          <Img src="/notFound.png" />
         </Grid>
         <Grid item xs={6}>
           <Form>

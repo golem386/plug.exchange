@@ -90,9 +90,9 @@ const HighSlippage = (props: TransactionFailedProps) => {
   return (
     <HighSlippageModal>
       <CloseImage>
-        <CloseIcon src="/images/Cros.png" onClick={props.handleClose} alt="Icon" />
+        <CloseIcon src="/images/cros.png" onClick={props.handleClose} alt="Icon" />
       </CloseImage>
-      <CompletedIcon src="/images/HighSlippage.png" alt="Image" />
+      <CompletedIcon src="/images/highSlippage.png" alt="Image" />
       <Title>High Slippage Alert</Title>
       <SubTitle>Slippage is higher than normal trades. Swap results can be different than usual.</SubTitle>
       <Parmition>

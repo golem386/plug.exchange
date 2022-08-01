@@ -241,13 +241,13 @@ const PaginationTable = (props: PaginationTableProps) => {
                       <Status>
                         <TranjectionType>
                           {data.Status === 'Swap' ? (
-                            <StatusImage src="/images/SwapIcon.png" />
+                            <StatusImage src="/images/swapIcon.png" />
                           ) : data.Status === 'Pending' ? (
-                            <StatusImage src="/images/Pending.png" />
+                            <StatusImage src="/images/pending.png" />
                           ) : data.Status === 'Approve' ? (
-                            <StatusImage src="/images/Approve.png" />
+                            <StatusImage src="/images/approve.png" />
                           ) : data.Status === 'Failed' ? (
-                            <StatusImage src="/images/Faild.png" />
+                            <StatusImage src="/images/faild.png" />
                           ) : null}
 
                           <TranjectionDetail>
@@ -256,7 +256,7 @@ const PaginationTable = (props: PaginationTableProps) => {
                             <TextPink>
                               {data.Id}
                               <TimeText>
-                                <TimeImage src="/images/Time.png" /> {data.Time}
+                                <TimeImage src="/images/time.png" /> {data.Time}
                               </TimeText>
                             </TextPink>
                           </TranjectionDetail>
@@ -271,7 +271,7 @@ const PaginationTable = (props: PaginationTableProps) => {
                         </TranjectionEntry>
                         {data.ReceiveImg !== '' && data.ReceiveToken !== '' ? (
                           <>
-                            <Img src={matches ? '/images/LeftIcon.png' : '/images/Down.png'} height={15} width={16} />
+                            <Img src={matches ? '/images/leftIcon.png' : '/images/down.png'} height={15} width={16} />
                             <TranjectionEntry>
                               <CoinImg src={data.ReceiveImg} />
                               {data.ReceiveToken}
@@ -319,7 +319,7 @@ const PaginationTable = (props: PaginationTableProps) => {
             {currentPage}-{count} of {page.length}
           </Item>
           <ImageIcon
-            src="/images/Left.png"
+            src="/images/left.png"
             onClick={() => {
               PriviousPage();
             }}
