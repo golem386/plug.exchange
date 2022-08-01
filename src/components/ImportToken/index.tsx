@@ -36,17 +36,17 @@ const style2 = {
   borderRadius: 5,
   overFlow: 'auto',
 };
-const TitleView = styled('div')({
+const ImportTokenHeader = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
 });
-const Title = styled('p')({
+const ImportTokenTitle = styled('p')({
   fontFamily: 'Inter',
   fontSize: '24px',
   fontWeight: 600,
 });
-const UserId = styled('div')({
+const Token = styled('div')({
   display: 'flex',
   alignItems: 'center',
   marginTop: '5%',
@@ -68,7 +68,7 @@ const TokenCode = styled('span')({
   fontSize: 16,
   color: '#dbdbdb',
 });
-const TokenCodeKey = styled('span')({
+const TokenKey = styled('span')({
   fontFamily: 'Inter',
   fontWeight: 500,
   fontSize: 16,
@@ -80,7 +80,7 @@ const TokenCodeKey = styled('span')({
     color: '#dbdbdb',
   },
 });
-const Warning = styled('div')({
+const WarningContent = styled('div')({
   backgroundColor: '#f0f0f0',
   padding: 20,
   borderRadius: 20,
@@ -112,19 +112,19 @@ const Pre = styled('span')({
   color: '#565656',
   lineHeight: 1.5,
 });
-const Parmition = styled('span')({
+const ParmitionText = styled('span')({
   fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
   color: '#565656',
 });
-const ParmitionDiv = styled('div')({
+const ParmitionMain = styled('div')({
   display: 'flex',
   alignItems: 'center',
   marginLeft: 10,
   marginBottom: 20,
 });
-const ConnectButton = styled(Button)({
+const ImportTokenButton = styled(Button)({
   width: '100%',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   borderRadius: 16,
@@ -136,7 +136,7 @@ const ConnectButton = styled(Button)({
   textTransform: 'initial',
   height: '52px',
 });
-const ConnectButtonDisabal = styled(Button)({
+const ImportTokenDisabalButton = styled(Button)({
   width: '100%',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   borderRadius: 16,
@@ -162,8 +162,8 @@ const ImportToken = (props: ImportTokenProps) => {
   const matches = useMediaQuery('(min-width:660px)');
   return (
     <Box sx={matches ? style : style2}>
-      <TitleView>
-        <Title>Import a Token</Title>
+      <ImportTokenHeader>
+        <ImportTokenTitle>Import a Token</ImportTokenTitle>
         <img
           src="/images/Cros.png"
           onClick={() => {
@@ -171,15 +171,15 @@ const ImportToken = (props: ImportTokenProps) => {
           }}
           alt="image"
         />
-      </TitleView>
-      <UserId>
+      </ImportTokenHeader>
+      <Token>
         <TokenImg src="/images/coin6.png" alt="coin" />
         <TokenName>
           Tether <TokenCode>(USDT)</TokenCode>
         </TokenName>
-      </UserId>
-      <TokenCodeKey>0x1ce0c2827e2ef14d5c4f29a091d735a204794041</TokenCodeKey>
-      <Warning>
+      </Token>
+      <TokenKey>0x1ce0c2827e2ef14d5c4f29a091d735a204794041</TokenKey>
+      <WarningContent>
         <Red>
           <Info src="/images/info.png" />
           <WarningText>Trade at your own risk!</WarningText>
@@ -191,8 +191,8 @@ const ImportToken = (props: ImportTokenProps) => {
         <br />
         <br />
         <Pre>&nbsp;&nbsp;&nbsp;If you purchase this token, you may not be able to sell it back.</Pre>
-      </Warning>
-      <ParmitionDiv>
+      </WarningContent>
+      <ParmitionMain>
         <FormControlLabel
           control={
             <Radio
@@ -204,14 +204,14 @@ const ImportToken = (props: ImportTokenProps) => {
           }
           label=""
         />
-        <Parmition>I understand and want to proceed.</Parmition>
-      </ParmitionDiv>
+        <ParmitionText>I understand and want to proceed.</ParmitionText>
+      </ParmitionMain>
       {Check ? (
-        <ConnectButton variant="text" onClick={() => {}}>
+        <ImportTokenButton variant="text" onClick={() => {}}>
           Import Token
-        </ConnectButton>
+        </ImportTokenButton>
       ) : (
-        <ConnectButtonDisabal variant="text">Import Token</ConnectButtonDisabal>
+        <ImportTokenDisabalButton variant="text">Import Token</ImportTokenDisabalButton>
       )}
     </Box>
   );

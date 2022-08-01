@@ -1,6 +1,6 @@
 import { Button, styled } from '@mui/material';
 
-const MainDiv = styled('div')({
+const ReferralModalMain = styled('div')({
   display: 'flex',
   alignItems: 'center',
 });
@@ -18,21 +18,21 @@ const PreText = styled('p')({
   fontWeight: '500',
   fontSize: 16,
 });
-const Read = styled('span')({
+const ReadMore = styled('span')({
   color: '#BB36FF',
   marginLeft: 2,
 });
 const ReferralModal = () => {
   return (
-    <MainDiv>
+    <ReferralModalMain>
       <ShereImage>
         <img src="/images/ShereLogo.png" alt="Shere" />
       </ShereImage>
       <PreText>
         Connect wallet to generate referral link.How it works?
-        <Read>Read More</Read>
+        <ReadMore>Read More</ReadMore>
       </PreText>
-    </MainDiv>
+    </ReferralModalMain>
   );
 };
 

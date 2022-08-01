@@ -20,7 +20,7 @@ const HeaderText = styled('span')({
   color: 'black',
 });
 
-const Image = styled('img')({
+const CloseImage = styled('img')({
   height: 18,
   width: 18,
 });
@@ -30,7 +30,7 @@ type SwapTransactionHistoryType = {
   isOpen: boolean;
 };
 
-const CustomButton = styled('button')({
+const Button = styled('button')({
   borderRadius: '50px',
   fontSize: '16px',
   fontWeight: '500',
@@ -49,7 +49,7 @@ const CustomButton = styled('button')({
   width: '80px',
   height: '36px',
 });
-const CustomButtonActive = styled('button')({
+const ActiveButton = styled('button')({
   borderRadius: '50px',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   fontSize: '16px',
@@ -75,7 +75,7 @@ const TabsBtn = styled('div')({
   paddingTop: '1%',
   paddingBottom: '1%',
 });
-const BoxsModal = styled('div')({
+const SwapTransactionHistoryModal = styled('div')({
   backgroundColor: 'white',
   width: '80%',
   height: '98%',
@@ -86,7 +86,6 @@ const BoxsModal = styled('div')({
     height: '98%',
   },
 });
-
 const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {
   const [value, setValue] = React.useState('All');
   return (
@@ -97,10 +96,10 @@ const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {
         props.close();
       }}
     >
-      <BoxsModal>
+      <SwapTransactionHistoryModal>
         <Header>
           <HeaderText>Transaction History</HeaderText>
-          <Image
+          <CloseImage
             src="/images/Cros.png"
             onClick={() => {
               props.close();
@@ -109,31 +108,31 @@ const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {
         </Header>
         <TabsBtn>
           {value === 'All' ? (
-            <CustomButtonActive>All</CustomButtonActive>
+            <ActiveButton>All</ActiveButton>
           ) : (
-            <CustomButton
+            <Button
               onClick={() => {
                 setValue('All');
               }}
             >
               All
-            </CustomButton>
+            </Button>
           )}
           {value === 'Swaps' ? (
-            <CustomButtonActive>Swaps</CustomButtonActive>
+            <ActiveButton>Swaps</ActiveButton>
           ) : (
-            <CustomButton
+            <Button
               onClick={() => {
                 setValue('Swaps');
               }}
             >
               Swaps
-            </CustomButton>
+            </Button>
           )}
         </TabsBtn>
 
         {value === 'All' ? <PaginationTable data={HistoryDATA} /> : <PaginationTable data={HistorySwapDATA} />}
-      </BoxsModal>
+      </SwapTransactionHistoryModal>
     </Modal>
   );
 };

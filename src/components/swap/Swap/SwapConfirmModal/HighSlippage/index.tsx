@@ -50,14 +50,14 @@ const CloseIcon = styled('img')({
   width: '15px',
   cursor: 'pointer',
 });
-const ImagDiv = styled('div')({
+const CloseImage = styled('div')({
   display: 'flex',
   justifyContent: 'flex-end',
 });
-const Main = styled('div')({
+const HighSlippageModal = styled('div')({
   marginTop: 10,
 });
-const TitleControl = styled('div')({
+const Parmition = styled('div')({
   display: 'flex',
   alignItems: 'center',
   marginLeft: '2%',
@@ -88,14 +88,14 @@ export type TransactionFailedProps = {
 const HighSlippage = (props: TransactionFailedProps) => {
   const [Check, setCheck] = useState(false);
   return (
-    <Main>
-      <ImagDiv>
+    <HighSlippageModal>
+      <CloseImage>
         <CloseIcon src="/images/Cros.png" onClick={props.handleClose} alt="Icon" />
-      </ImagDiv>
+      </CloseImage>
       <CompletedIcon src="/images/HighSlippage.png" alt="Image" />
       <Title>High Slippage Alert</Title>
       <SubTitle>Slippage is higher than normal trades. Swap results can be different than usual.</SubTitle>
-      <TitleControl>
+      <Parmition>
         <FormControlLabel
           control={
             <Radio
@@ -111,9 +111,9 @@ const HighSlippage = (props: TransactionFailedProps) => {
           I accept the &nbsp; <ConditionPink>Terms of Services</ConditionPink>&
           <ConditionPink>Privacy Policy</ConditionPink>
         </Condition>
-      </TitleControl>
+      </Parmition>
       {Check ? <ButtonsActive onClick={props.handleClose}>Close</ButtonsActive> : <Buttons>Close</Buttons>}
-    </Main>
+    </HighSlippageModal>
   );
 };
 

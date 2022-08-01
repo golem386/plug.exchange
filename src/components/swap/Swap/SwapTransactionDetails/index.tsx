@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
 
-const DetailView = styled('div')({
+const SwapTransactionDetailsModal = styled('div')({
   backgroundColor: '#F7F7F7',
   width: '80%',
   margin: 'auto',
@@ -18,7 +18,7 @@ const DetailView = styled('div')({
   },
 });
 
-const Expected = styled('div')({
+const SwapTransactionDetailsItem = styled('div')({
   justifyContent: 'space-between',
   alignItems: 'center',
   display: 'flex',
@@ -38,7 +38,6 @@ const ItemText2 = styled('span')({
   fontWeight: '500',
   color: '#010101',
 });
-
 export type SwapTransactionDetailsProps = {
   btnTitle: String;
   expectedOutput: number | null;
@@ -63,25 +62,25 @@ const SwapTransactionDetails = (props: SwapTransactionDetailsProps) => {
   const CoinNetwork: CoinNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
   return props.btnTitle === 'Connect Wallet' ? (
     ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? (
-      <DetailView>
-        <Expected>
+      <SwapTransactionDetailsModal>
+        <SwapTransactionDetailsItem>
           <ItemText>Expected Output</ItemText>
           <ItemText2>1.46 USDT</ItemText2>
-        </Expected>
-        <Expected>
+        </SwapTransactionDetailsItem>
+        <SwapTransactionDetailsItem>
           <ItemText>Price Impact</ItemText>
           <ItemText2>-0.01%</ItemText2>
-        </Expected>
+        </SwapTransactionDetailsItem>
         <hr />
-        <Expected>
+        <SwapTransactionDetailsItem>
           <ItemText>Minimum received after</ItemText>
           <ItemText2>1.46</ItemText2>
-        </Expected>
-        <Expected>
+        </SwapTransactionDetailsItem>
+        <SwapTransactionDetailsItem>
           <ItemText>slippage (0.50%)</ItemText>
           <ItemText2>USDT</ItemText2>
-        </Expected>
-      </DetailView>
+        </SwapTransactionDetailsItem>
+      </SwapTransactionDetailsModal>
     ) : null
   ) : null;
 };

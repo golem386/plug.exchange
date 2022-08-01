@@ -41,11 +41,11 @@ const CloseIcon = styled('img')({
   width: '15px',
   cursor: 'pointer',
 });
-const ImagDiv = styled('div')({
+const CloseImage = styled('div')({
   display: 'flex',
   justifyContent: 'flex-end',
 });
-const Main = styled('div')({
+const TransactionFailedModal = styled('div')({
   marginTop: 10,
 });
 
@@ -57,10 +57,10 @@ export type TransactionFailedProps = {
 
 const TransactionFailed = (props: TransactionFailedProps) => {
   return (
-    <Main>
-      <ImagDiv>
+    <TransactionFailedModal>
+      <CloseImage>
         <CloseIcon src="/images/Cros.png" onClick={props.handleClose} alt="Icon" />
-      </ImagDiv>
+      </CloseImage>
       <CompletedIcon src="/images/Check.png" alt="Image" />
       <Title>Transaction Failed</Title>
       <SubTitle>
@@ -68,7 +68,7 @@ const TransactionFailed = (props: TransactionFailedProps) => {
         tolerance.
       </SubTitle>
       <Buttons onClick={props.handleClose}>Close</Buttons>
-    </Main>
+    </TransactionFailedModal>
   );
 };
 

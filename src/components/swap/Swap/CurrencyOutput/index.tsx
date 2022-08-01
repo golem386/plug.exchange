@@ -8,21 +8,21 @@ import SwapArrow from '../SwapArrow';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-const ReceiveMain = styled('div')({
+const Receive = styled('div')({
   backgroundColor: '#F7F7F7',
   marginTop: '10%',
   position: 'relative',
   paddingBottom: '7%',
   paddingTop: '5%',
 });
-const YouReceive = styled('span')({
+const InputTitle = styled('span')({
   padding: '5%',
   fontFamily: 'inter',
   fontWeight: '500',
   fontSize: 16,
   color: '#565656',
 });
-const MainViewInput = styled('div')({
+const Input = styled('div')({
   display: 'flex',
   alignItems: 'center',
   backgroundColor: 'white',
@@ -47,7 +47,7 @@ const TextInput = styled('input')({
     outline: 'none',
   },
 });
-const SelectMainDarkCoin = styled('div')({
+const SelectToken = styled('div')({
   borderRadius: '100px',
   height: '36px',
   boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
@@ -56,7 +56,7 @@ const SelectMainDarkCoin = styled('div')({
   alignItems: 'center',
   cursor: 'pointer',
 });
-const CoinImgTag = styled('img')({
+const CoinImage = styled('img')({
   height: '36px',
   width: '36px',
 });
@@ -93,24 +93,24 @@ const CurrencyOutput = (props: CurrencyOutputProps) => {
     dispatch(null);
   };
   return (
-    <ReceiveMain>
+    <Receive>
       <SwapArrow switchCurrencyHandler={null} />
-      <YouReceive>You Receive</YouReceive>
-      <MainViewInput>
+      <InputTitle>You Receive</InputTitle>
+      <Input>
         <TextInput placeholder="0" />
         <FormControl sx={{ m: 1, minWidth: 120 }}>
-          <SelectMainDarkCoin
+          <SelectToken
             onClick={() => {
               onModal('ReceiveToken');
             }}
           >
-            <CoinImgTag src={ReceiveCoin?.image} alt="Icon" />
+            <CoinImage src={ReceiveCoin?.image} alt="Icon" />
             <CoinTitle>{ReceiveCoin?.name}</CoinTitle>
             <CoinDropIcon src="/images/DownArrow.png" alt="DownArrow" />
-          </SelectMainDarkCoin>
+          </SelectToken>
         </FormControl>
-      </MainViewInput>
-    </ReceiveMain>
+      </Input>
+    </Receive>
   );
 };
 

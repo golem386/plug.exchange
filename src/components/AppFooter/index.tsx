@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Button, useMediaQuery } from '@mui/material';
 
-const MainComponent = styled('div')({
+const Footer = styled('div')({
   '@media (min-width: 660px)': {
     display: 'flex',
     paddingLeft: 10,
@@ -9,7 +9,7 @@ const MainComponent = styled('div')({
     justifyContent: 'space-between',
   },
 });
-const CustomButtom = styled(Button)({
+const IconButtom = styled(Button)({
   borderRadius: 100,
   margin: 10,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
@@ -25,14 +25,14 @@ const CustomButtom = styled(Button)({
     opacity: '1',
   },
 });
-const NameButton = styled(Button)({
+const MenuItem = styled(Button)({
   margin: 10,
   backgroundColor: 'transparent',
   padding: '20px 0px',
   color: '#000000',
   opacity: '0.65',
 });
-const Div = styled('div')({
+const IconSection = styled('div')({
   '@media (max-width: 660px)': {
     display: 'flex',
     alignItems: 'center',
@@ -40,7 +40,7 @@ const Div = styled('div')({
     marginTop: '7%',
   },
 });
-const Div2 = styled('div')({
+const FooterMenu = styled('div')({
   '@media (max-width: 660px)': {
     display: 'flex',
     alignItems: 'center',
@@ -48,31 +48,32 @@ const Div2 = styled('div')({
   },
 });
 
+
 const AppFooter = () => {
   const matches = useMediaQuery('(min-width:660px)');
   return (
     <>
-      <MainComponent>
-        <Div>
-          <CustomButtom>
+      <Footer>
+        <IconSection>
+          <IconButtom>
             <img src="/images/teligram.png" alt="teligram" />
-          </CustomButtom>
-          <CustomButtom>
+          </IconButtom>
+          <IconButtom>
             <img src="/images/social.png" alt="social" />
-          </CustomButtom>
-          <CustomButtom>
+          </IconButtom>
+          <IconButtom>
             <img src="/images/twiter.png" alt="twiter" />
-          </CustomButtom>
-          <CustomButtom>
+          </IconButtom>
+          <IconButtom>
             <img src="/images/discord.png" alt="discord" />
-          </CustomButtom>
-        </Div>
-        <Div2>
-          <NameButton>FAQs</NameButton>
-          <NameButton>Docs</NameButton>
-          <NameButton>Careers</NameButton>
-        </Div2>
-      </MainComponent>
+          </IconButtom>
+        </IconSection>
+        <FooterMenu>
+          <MenuItem>FAQs</MenuItem>
+          <MenuItem>Docs</MenuItem>
+          <MenuItem>Careers</MenuItem>
+        </FooterMenu>
+      </Footer>
     </>
   );
 };

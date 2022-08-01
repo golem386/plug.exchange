@@ -6,14 +6,14 @@ import ReactEcharts from 'echarts-for-react';
 import { Box, Tab, Tabs } from '@mui/material';
 import * as echarts from 'echarts';
 
-const CurrencySwitch = styled('p')({
+const CurrencyTitle = styled('p')({
   fontFamily: 'Inter',
   fontSize: 'calc(0.55em + 1vw)',
   fontWeight: '600',
   display: 'flex',
   marginTop: '12%',
 });
-const TextSpan = styled('span')({
+const CurrencySubName = styled('span')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: 'calc(0.55em + 1vw)',
@@ -26,7 +26,7 @@ const ShortIcon = styled('img')({
   marginLeft: '20px',
   marginRight: '20px',
 });
-const CurrencyPriceUSD = styled('span')({
+const CurrencyTotalPrice = styled('span')({
   fontFamily: 'Inter',
   fontSize: '44px',
   fontWeight: '600',
@@ -41,17 +41,17 @@ const CurrencyPriceChange = styled('span')({
   marginLeft: '1.5%',
   fontFamily: 'Inter',
 });
-const View = styled('div')({
+const PairLineChartMain = styled('div')({
   display: 'block',
   '@media (max-width: 660px)': {
     display: 'none',
   },
 });
-const PairData = styled('div')({
+const PairLineChartData = styled('div')({
   width: '100%',
   marginTop: '10%',
 });
-const CustomButton = styled(Tab)({
+const HoverButton = styled(Tab)({
   borderRadius: '100px',
   fontSize: '16px',
   fontWeight: '500',
@@ -62,7 +62,7 @@ const CustomButton = styled(Tab)({
   height: '36px',
   width: '65px',
 });
-const CustomButtonActive = styled(Tab)({
+const HoverActiveButton = styled(Tab)({
   borderRadius: '100px',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   fontSize: '16px',
@@ -75,7 +75,7 @@ const CustomButtonActive = styled(Tab)({
   width: '65px',
 });
 
-const CustomTabsActive = styled(Tabs)({
+const TabBar = styled(Tabs)({
   marginLeft: '55%',
   backgroundColor: '#f7f7f7',
   borderRadius: '100px',
@@ -138,19 +138,19 @@ const PairLineChart = (props: PairLineChartProps) => {
   const CoinDetail: SelectType = useSelector((state: ArticleState) => state.CoinDetail);
   const receiveCoinDetail: SelectType = useSelector((state: ArticleState) => state.receiveCoinDetail);
   return (
-    <View>
+    <PairLineChartMain>
       <>
-        <CurrencySwitch>
+        <CurrencyTitle>
           {CoinDetail?.fullName}
-          <TextSpan>({CoinDetail?.name})</TextSpan>
+          <CurrencySubName>({CoinDetail?.name})</CurrencySubName>
           <ShortIcon src="/images/ShortVartical.png" alt="ShortIcon" />
           {receiveCoinDetail?.fullName}
-          <TextSpan>({receiveCoinDetail?.name})</TextSpan>
-        </CurrencySwitch>
-        <CurrencyPriceUSD>$3,744.19</CurrencyPriceUSD>
+          <CurrencySubName>({receiveCoinDetail?.name})</CurrencySubName>
+        </CurrencyTitle>
+        <CurrencyTotalPrice>$3,744.19</CurrencyTotalPrice>
         <br />
         <CurrencyPriceChange>$16.93333 (+0.41%)</CurrencyPriceChange>
-        <PairData>
+        <PairLineChartData>
           <Box sx={{ width: '100%' }}>
             <TabPanel value={value} index={0}>
               <ReactEcharts
@@ -336,7 +336,7 @@ const PairLineChart = (props: PairLineChartProps) => {
               />
             </TabPanel>
             <Box sx={{ borderBottom: 0, borderColor: 'divider' }}>
-              <CustomTabsActive
+              <TabBar
                 TabIndicatorProps={{
                   style: { display: 'none' },
                 }}
@@ -344,26 +344,26 @@ const PairLineChart = (props: PairLineChartProps) => {
                 onChange={handleChange}
               >
                 {value === 0 ? (
-                  <CustomButtonActive label="24H" {...a11yProps(0)} />
+                  <HoverActiveButton label="24H" {...a11yProps(0)} />
                 ) : (
-                  <CustomButton label="24H" {...a11yProps(0)} />
+                  <HoverButton label="24H" {...a11yProps(0)} />
                 )}
                 {value === 1 ? (
-                  <CustomButtonActive label="1W" {...a11yProps(1)} />
+                  <HoverActiveButton label="1W" {...a11yProps(1)} />
                 ) : (
-                  <CustomButton label="1W" {...a11yProps(1)} />
+                  <HoverButton label="1W" {...a11yProps(1)} />
                 )}
                 {value === 2 ? (
-                  <CustomButtonActive label="1M" {...a11yProps(2)} />
+                  <HoverActiveButton label="1M" {...a11yProps(2)} />
                 ) : (
-                  <CustomButton label="1M" {...a11yProps(2)} />
+                  <HoverButton label="1M" {...a11yProps(2)} />
                 )}
-              </CustomTabsActive>
+              </TabBar>
             </Box>
           </Box>
-        </PairData>
+        </PairLineChartData>
       </>
-    </View>
+    </PairLineChartMain>
   );
 };
 

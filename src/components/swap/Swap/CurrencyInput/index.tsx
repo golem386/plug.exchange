@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
-const SwapDiv = styled('div')({
+const SwapHeader = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -15,7 +15,7 @@ const SwapDiv = styled('div')({
   cursor: 'pointer',
   paddingTop: '5%',
 });
-const Pay = styled('span')({
+const HeaderTitle = styled('span')({
   fontSize: '16px',
   fontWeight: '500',
   color: 'black',
@@ -30,7 +30,7 @@ const Max = styled('span')({
   backgroundClip: 'text',
   fontFamily: 'Inter',
 });
-const MainViewInputToken = styled('div')({
+const Input = styled('div')({
   display: 'flex',
   alignItems: 'center',
   backgroundColor: '#f7f7f7',
@@ -55,7 +55,7 @@ const TextInput = styled('input')({
     outline: 'none',
   },
 });
-const SelectMain = styled('div')({
+const SelectToken = styled('div')({
   borderRadius: '100px',
   height: '36px',
   boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
@@ -64,11 +64,11 @@ const SelectMain = styled('div')({
   alignItems: 'center',
   cursor: 'pointer',
 });
-const CoinImgTag = styled('img')({
+const SelectTokenImage = styled('img')({
   height: '36px',
   width: '36px',
 });
-const CoinTitle = styled('p')({
+const SelectTokenTitle = styled('p')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
@@ -104,24 +104,24 @@ const CurrencyInput = (props: CurrencyInputProps) => {
   };
   return (
     <>
-      <SwapDiv>
-        <Pay>You Pay</Pay>
+      <SwapHeader>
+        <HeaderTitle>You Pay</HeaderTitle>
         <Max>{props.selectedCurrency}</Max>
-      </SwapDiv>
-      <MainViewInputToken>
+      </SwapHeader>
+      <Input>
         <TextInput placeholder="0" />
         <FormControl sx={{ m: 1, minWidth: 120 }}>
-          <SelectMain
+          <SelectToken
             onClick={() => {
               onModal('SelectToken');
             }}
           >
-            <CoinImgTag src={CoinDetail?.image} alt="Coin" />
-            <CoinTitle>{CoinDetail?.name}</CoinTitle>
+            <SelectTokenImage src={CoinDetail?.image} alt="Coin" />
+            <SelectTokenTitle>{CoinDetail?.name}</SelectTokenTitle>
             <CoinDropIcon src="/images/DownArrow.png" alt="DownArrow" />
-          </SelectMain>
+          </SelectToken>
         </FormControl>
-      </MainViewInputToken>
+      </Input>
     </>
   );
 };

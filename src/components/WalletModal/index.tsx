@@ -93,7 +93,7 @@ const ViewMainActive = styled('div')({
   borderColor: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   padding: '12px, 18px, 12px, 16px',
 });
-const TitleControl = styled('div')({
+const Parmition = styled('div')({
   display: 'flex',
   alignItems: 'center',
   marginLeft: '5%',
@@ -162,7 +162,7 @@ const SelectImg = styled('img')({
   height: 15,
   width: 15,
 });
-const TitleView = styled('div')({
+const ConnectWalletHeader = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -220,7 +220,7 @@ const Main = styled('div')({
     marginBottom: '5%',
   },
 });
-const Title2 = styled('span')({
+const HeaderTitle = styled('span')({
   fontFamily: 'Inter',
   fontSize: '24px',
   fontWeight: '600',
@@ -279,8 +279,8 @@ const WalletModal = (props: WalletModalProps) => {
   }, [NetworkData, WalletData]);
   return (
     <>
-      <TitleView>
-        <Title2>Connect Wallet</Title2>
+      <ConnectWalletHeader>
+        <HeaderTitle>Connect Wallet</HeaderTitle>
         <img
           src="/images/Cros.png"
           onClick={() => {
@@ -288,7 +288,7 @@ const WalletModal = (props: WalletModalProps) => {
           }}
           alt="Image"
         />
-      </TitleView>
+      </ConnectWalletHeader>
       <Over>
         <Main>
           <Title>Choose Network</Title>
@@ -381,7 +381,7 @@ const WalletModal = (props: WalletModalProps) => {
           </ViewMainView>
         </ButtonGroup>
       </Over>
-      <TitleControl>
+      <Parmition>
         <FormControlLabel
           control={
             <Radio
@@ -396,7 +396,7 @@ const WalletModal = (props: WalletModalProps) => {
         <Condition>
           I accept the <ConditionPink>Terms of Services</ConditionPink>&<ConditionPink>Privacy Policy</ConditionPink>
         </Condition>
-      </TitleControl>
+      </Parmition>
       {Check ? (
         <ConnectButton
           variant="text"

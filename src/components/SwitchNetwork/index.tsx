@@ -4,7 +4,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
 
-const CustomButtonActiveCoin = styled(Button)({
+const ButtonActive = styled(Button)({
   borderRadius: 16,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   padding: '0px 15px',
@@ -46,7 +46,7 @@ const ImageIcon = styled('img')({
     marginRight: 10,
   },
 });
-const TitleIcon = styled('p')({
+const Title = styled('p')({
   fontFamily: 'Inter',
   fontSize: '15px',
   fontWeight: '600',
@@ -57,7 +57,7 @@ const DropDownTitleIcon = styled('span')({
   fontWeight: '600',
   opacity: 0.65,
 });
-const DropDownTitleIcon2 = styled('span')({
+const SelectNetwork = styled('span')({
   fontFamily: 'Inter',
   fontSize: '14px',
   fontWeight: '500',
@@ -157,15 +157,15 @@ const SwitchNetwork = () => {
   };
   return (
     <div style={{ position: 'relative' }}>
-      <CustomButtonActiveCoin onClick={handleClick}>
+      <ButtonActive onClick={handleClick}>
         <ImageIcon src={CoinNetwork?.coin} alt="Icon" />
-        <TitleIcon>{CoinNetwork?.name}</TitleIcon>
+        <Title>{CoinNetwork?.name}</Title>
         <CoinDropIcon src="/images/DownIconWhite.png" alt="Download" />
-      </CustomButtonActiveCoin>
+      </ButtonActive>
       <OverLay style={{ display: openmenu ? 'block' : 'none' }} onClick={handleClosemenu}>
         <CustomMenu>
           <CustomMenuItem3>
-            <DropDownTitleIcon2>Select a Network</DropDownTitleIcon2>
+            <SelectNetwork>Select a Network</SelectNetwork>
           </CustomMenuItem3>
           {DropDownData.map((val, i) => {
             return (

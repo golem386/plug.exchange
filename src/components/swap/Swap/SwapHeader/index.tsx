@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-const SwapDiv = styled('div')({
+const SwapCardHeader = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -14,7 +14,7 @@ const SwapDiv = styled('div')({
   paddingTop: '5%',
 });
 
-const Swap = styled('span')({
+const SwapTitle = styled('span')({
   fontSize: '24px',
   fontWeight: '600',
   color: 'black',
@@ -31,8 +31,8 @@ const SwapHeader = (props: SwapHeaderProps) => {
     dispatch(null);
   };
   return (
-    <SwapDiv>
-      <Swap>Swap</Swap>
+    <SwapCardHeader>
+      <SwapTitle>Swap</SwapTitle>
       <img
         src="/images/menu.png"
         onClick={() => {
@@ -42,7 +42,7 @@ const SwapHeader = (props: SwapHeaderProps) => {
         height={20}
         width={20}
       />
-    </SwapDiv>
+    </SwapCardHeader>
   );
 };
 

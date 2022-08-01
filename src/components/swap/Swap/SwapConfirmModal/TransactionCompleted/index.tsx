@@ -45,11 +45,11 @@ const CloseIcon = styled('img')({
   height: '15px',
   width: '15px',
 });
-const ImagDiv = styled('div')({
+const CloseImage = styled('div')({
   display: 'flex',
   justifyContent: 'flex-end',
 });
-const Main = styled('div')({
+const TransactionCompletedModal = styled('div')({
   marginTop: 10,
 });
 
@@ -60,10 +60,10 @@ export type TransactionCompletedProps = {
 };
 const TransactionCompleted = (props: TransactionCompletedProps) => {
   return (
-    <Main>
-      <ImagDiv>
+    <TransactionCompletedModal>
+      <CloseImage>
         <CloseIcon src="/images/Cros.png" onClick={props.handleClose} alt="Icon" />
-      </ImagDiv>
+      </CloseImage>
       <CompletedIcon src="/images/Completed.png" alt="Image" />
       <Title>Transaction Submitted</Title>
       <SubTitle>View on Explorer</SubTitle>
@@ -72,7 +72,7 @@ const TransactionCompleted = (props: TransactionCompletedProps) => {
         <BtnIcon src="/images/MataMask.png" alt="MataMask" />
         MetaMask
       </Buttons>
-    </Main>
+    </TransactionCompletedModal>
   );
 };
 

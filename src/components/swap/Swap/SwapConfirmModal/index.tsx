@@ -3,14 +3,14 @@ import { Button } from '@mui/material';
 import CurrencyInput from '../CurrencyInput';
 import CurrencyOutput from '../CurrencyOutput';
 
-const MainDiv = styled('div')({
+const Header = styled('div')({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   marginLeft: 15,
   marginRight: 15,
 });
-const Image = styled('img')({
+const CloseImage = styled('img')({
   height: 15,
   width: 15,
   cursor: 'pointer',
@@ -40,7 +40,7 @@ const ShortView = styled('div')({
   marginLeft: '5%',
   marginTop: 5,
 });
-const DIv = styled('div')({
+const ShortViewList = styled('div')({
   backgroundColor: '#F7F7F7',
   borderRadius: 24,
   marginLeft: 15,
@@ -49,7 +49,7 @@ const DIv = styled('div')({
   marginBottom: 15,
   padding: 10,
 });
-const Main = styled('div')({
+const ShortViewListItem = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -78,7 +78,6 @@ const OrderBtn = styled(Button)({
   marginTop: '1%',
   textTransform: 'initial',
 });
-
 type Currency = {};
 type ENUM = {};
 type SWAP = {};
@@ -102,15 +101,15 @@ export type SwapConfirmModalProps = {
 const SwapConfirmModal = (props: SwapConfirmModalProps) => {
   return (
     <>
-      <MainDiv>
+      <Header>
         <Title>Swap Confirmation</Title>
-        <Image
+        <CloseImage
           src="/images/Cros.png"
           onClick={() => {
             props.handleClose(false);
           }}
         />
-      </MainDiv>
+      </Header>
       <CurrencyInput
         userInputTokenBalance={null}
         showMaxButton={null}
@@ -129,32 +128,32 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
         <ETH>1 ETH = 4,008.2766 USDT</ETH>
         <ImgVarticalShort src="/images/ShortVartical.png" />
       </ShortView>
-      <DIv>
-        <Main>
+      <ShortViewList>
+        <ShortViewListItem>
           <Text>Expected Output</Text>
           <Price>1.46 USDT</Price>
-        </Main>
-        <Main>
+        </ShortViewListItem>
+        <ShortViewListItem>
           <Text>Price Impact</Text>
           <Price>-0.01%</Price>
-        </Main>
-        <Main>
+        </ShortViewListItem>
+        <ShortViewListItem>
           <Text>Minimum Received</Text>
           <Price>1.45 USDT</Price>
-        </Main>
-        <Main>
+        </ShortViewListItem>
+        <ShortViewListItem>
           <Text>Gas Price</Text>
           <Price>76.34 - 134.45 GWEI</Price>
-        </Main>
-        <Main>
+        </ShortViewListItem>
+        <ShortViewListItem>
           <Text>Slippage Tolerance</Text>
           <Price>1%</Price>
-        </Main>
-        <Main>
+        </ShortViewListItem>
+        <ShortViewListItem>
           <Text>Transaction Cost</Text>
           <Price>~$0.02</Price>
-        </Main>
-      </DIv>
+        </ShortViewListItem>
+      </ShortViewList>
       <OrderBtn>Confirm Swap</OrderBtn>
     </>
   );

@@ -19,7 +19,7 @@ import SwapHeader from './SwapHeader';
 import SwapRouter from './SwapRouter';
 import SwapTransactionDetails from './SwapTransactionDetails';
 
-const MainDiv = styled('div')({
+const SwapModal = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   width: '97%',
@@ -134,7 +134,7 @@ const Swap = (props: SwapProps) => {
   };
   return (
     <>
-      <MainDiv>
+      <SwapModal>
         <SwapHeader transactionSettingHandler={null} />
         <CurrencyInput
           userInputTokenBalance={null}
@@ -278,7 +278,7 @@ const Swap = (props: SwapProps) => {
         ) : (
           <OrderBtnDisebal>Swap</OrderBtnDisebal>
         )}
-      </MainDiv>
+      </SwapModal>
       {props.btnTitle === 'Connect Wallet' ? (
         ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? (
           <SwapTransactionDetails

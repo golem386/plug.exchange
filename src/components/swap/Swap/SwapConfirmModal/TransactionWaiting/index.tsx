@@ -23,7 +23,7 @@ const CircularProgressIcon = styled('img')({
   height: 70,
   width: 70,
 });
-const Main = styled('div')({
+const TransactionWaitingModal = styled('div')({
   marginTop: 10,
 });
 
@@ -33,14 +33,14 @@ export type TransactionWaitingProps = {
 };
 const TransactionWaiting = (props: TransactionWaitingProps) => {
   return (
-    <Main>
+    <TransactionWaitingModal>
       {/* <CircularProgressIcon color="secondary" /> */}
       <CircularProgressIcon src="/images/Loader.png" />
       <Title>Waiting for Confirmation</Title>
       <SubTitle>Swapping 0.000249 ETH for 1.46 USDT</SubTitle>
       <br />
       <SubTitle>Please confirm this transaction in your wallet.</SubTitle>
-    </Main>
+    </TransactionWaitingModal>
   );
 };
 

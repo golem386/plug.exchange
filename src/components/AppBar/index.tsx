@@ -12,13 +12,13 @@ import AppFooter from '../AppFooter';
 import BuyCrypto from '../BuyCrypto';
 import Link from 'next/link';
 
-const MainComponent = styled('div')({
+const NavMainComponent = styled('div')({
   display: 'flex',
   paddingLeft: 10,
   alignItems: 'center',
   justifyContent: 'space-around',
 });
-const CustomButton2 = styled(Link)({
+const CrosschainButtonActive = styled(Button)({
   borderRadius: 16,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
   fontSize: '16px',
@@ -31,7 +31,7 @@ const CustomButton2 = styled(Link)({
   width: '137px',
   border: '1px solid rgba(0, 0, 0, 0.1)',
 });
-const CustomButton4 = styled(Link)({
+const SwapButtonActive = styled(Button)({
   borderRadius: 16,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
   fontSize: '16px',
@@ -44,7 +44,7 @@ const CustomButton4 = styled(Link)({
   width: '92px',
   border: '1px solid rgba(0, 0, 0, 0.1)',
 });
-const SwapCustomButton = styled(Link)({
+const SwapButton = styled(Button)({
   borderRadius: 16,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   fontSize: '16px',
@@ -57,7 +57,7 @@ const SwapCustomButton = styled(Link)({
   border: 'none',
 });
 
-const CustomButtonActive = styled(Button)({
+const ConnectWalletActive = styled(Button)({
   borderRadius: 16,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   fontSize: '16px',
@@ -68,7 +68,7 @@ const CustomButtonActive = styled(Button)({
   height: 52,
   width: '169px',
 });
-const CustomButtonActive1 = styled(Button)({
+const CrosschainButton = styled(Button)({
   borderRadius: 16,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   fontSize: '16px',
@@ -92,7 +92,7 @@ const DownImg = styled('img')({
   height: '5.19px',
 });
 
-const CustomButtonActiveCoin = styled(Button)({
+const WrongNetworkButton = styled(Button)({
   borderRadius: 16,
   background: 'red',
   padding: '0px 15px',
@@ -109,7 +109,7 @@ const CustomButtonActiveCoin = styled(Button)({
     backgroundColor: 'red',
   },
 });
-const CustomGrid = styled(Grid)({
+const ButtonGrid = styled(Grid)({
   display: 'flex',
   justifyContent: 'space-evenly',
 });
@@ -118,7 +118,7 @@ const Img = styled('img')({
   width: '36px',
 });
 
-const DivFlex = styled('div')({
+const SettingMain = styled('div')({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -126,7 +126,7 @@ const DivFlex = styled('div')({
   marginLeft: 15,
 });
 
-const ControlGrids = styled(Grid)({
+const NavGrids = styled(Grid)({
   display: 'flex',
   justifyContent: 'space-between',
 });
@@ -137,17 +137,17 @@ const Notificationdiv = styled('div')({
   display: 'flex',
   justifyContent: 'end',
 });
-const Title = styled('p')({
+const SettingTitle = styled('p')({
   fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 20,
 });
-const CrosImg = styled('img')({
+const CloseIcon = styled('img')({
   width: 15,
   height: 15,
 });
 
-const OverLay = styled('div')({
+const SettingMenuOverLay = styled('div')({
   position: 'fixed',
   width: '100%',
   height: '100%',
@@ -160,7 +160,7 @@ const OverLay = styled('div')({
   cursor: 'pointer',
   paddingTop: 10,
 });
-const OverLay2 = styled('div')({
+const ConnectWalletOverLay = styled('div')({
   position: 'fixed',
   width: '100%',
   height: '100%',
@@ -173,7 +173,7 @@ const OverLay2 = styled('div')({
   cursor: 'pointer',
   paddingTop: 10,
 });
-const MainComponent2 = styled('div')({
+const ConnectWalletMain = styled('div')({
   paddingLeft: 10,
   paddingRight: 5,
   paddingTop: '5%',
@@ -193,7 +193,7 @@ const TitleView = styled('div')({
   marginBottom: 15,
   marginRight: '3%',
 });
-const Title2 = styled('span')({
+const ConnectWalletTitle = styled('span')({
   fontFamily: 'Inter',
   fontSize: '24px',
   fontWeight: '600',
@@ -229,64 +229,64 @@ const AppBar = () => {
     <>
       {matches ? (
         <>
-          <MainComponent>
-            <ControlGrids container>
+          <NavMainComponent>
+            <NavGrids container>
               <LogoGrid item sm={1}>
                 <Imgs src="/logo.png" alt="logo" />
               </LogoGrid>
-              <CustomGrid item sm={CoinDetail?.name === '' && CoinNetwork?.name === '' ? 6.5 : 8}>
-                {window?.location?.pathname === '/' ? (
-                  <SwapCustomButton href="/">Swap</SwapCustomButton>
+              <ButtonGrid item sm={CoinDetail?.name === '' && CoinNetwork?.name === '' ? 6.5 : 8}>
+                {window?.location?.pathname === '/swap' ? (
+                  <SwapButton href="/swap">Swap</SwapButton>
                 ) : (
-                  <CustomButton4 href="/">Swap</CustomButton4>
+                  <SwapButtonActive href="/swap">Swap</SwapButtonActive>
                 )}
                 {window?.location?.pathname === '/crosschain' ? (
-                  <CustomButtonActive1 href="/crosschain">
+                  <CrosschainButton href="/crosschain">
                     <Img src="/images/Chain.png" />
                     Crosschain
                     <DownImg src="/images/DownIconWhite.png" />
-                  </CustomButtonActive1>
+                  </CrosschainButton>
                 ) : (
-                  <CustomButton2 href="/crosschain">Crosschain</CustomButton2>
+                  <CrosschainButtonActive href="/crosschain">Crosschain</CrosschainButtonActive>
                 )}
                 <BuyCrypto />
-                {CoinNetwork?.name !== '' ? null : (
+                {CoinNetwork?.name === '' ? null : (
                   // <SwitchNetwork />
-                  <CustomButtonActive onClick={() => null}>Connect Wallet</CustomButtonActive>
+                  <ConnectWalletActive onClick={() => null}>Connect Wallet</ConnectWalletActive>
                 )}
                 {CoinDetail?.name === '' && CoinNetwork?.name !== '' ? (
-                  <CustomButtonActiveCoin>Wrong Network</CustomButtonActiveCoin>
+                  <WrongNetworkButton>Wrong Network</WrongNetworkButton>
                 ) : CoinDetail?.name === '' && CoinNetwork?.name === '' ? (
                   ''
                 ) : (
                   <WalletDetails account={null} />
                 )}
                 <Settings settings={settingData} />
-              </CustomGrid>
-            </ControlGrids>
-          </MainComponent>
+              </ButtonGrid>
+            </NavGrids>
+          </NavMainComponent>
         </>
       ) : (
         <>
-          <OverLay style={{ display: SearchState ? 'block' : 'none' }}>
+          <SettingMenuOverLay style={{ display: SearchState ? 'block' : 'none' }}>
             <Grid item sm={CoinDetail?.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}>
-              <DivFlex>
-                <Title>Setting</Title>
-                <CrosImg src="/images/Cros.png" onClick={() => null} />
-              </DivFlex>
+              <SettingMain>
+                <SettingTitle>Setting</SettingTitle>
+                <CloseIcon src="/images/Cros.png" onClick={() => null} />
+              </SettingMain>
             </Grid>
-          </OverLay>
+          </SettingMenuOverLay>
           {
-            <OverLay2 style={{ display: MenuState ? 'block' : 'none' }} onClick={() => null}>
-              <MainComponent2>
+            <ConnectWalletOverLay style={{ display: MenuState ? 'block' : 'none' }} onClick={() => null}>
+              <ConnectWalletMain>
                 <TitleView>
-                  <Title2>Connect Wallet</Title2>
+                  <ConnectWalletTitle>Connect Wallet</ConnectWalletTitle>
                   <img src="/images/Cros.png" onClick={() => {}} alt="Image" />
                 </TitleView>
                 <BuyCrypto />
                 <AppFooter />
-              </MainComponent2>
-            </OverLay2>
+              </ConnectWalletMain>
+            </ConnectWalletOverLay>
           }
         </>
       )}

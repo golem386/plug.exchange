@@ -17,7 +17,7 @@ const NetWorthTitle = styled('span')({
   fontWeight: '600',
   marginLeft: 10,
 });
-const H1 = styled('span')({
+const TotalNetWorth = styled('span')({
   fontSize: '24px',
   fontFamily: 'Inter',
   fontWeight: '600',
@@ -52,13 +52,13 @@ const DropMain = styled('div')({
   },
 });
 
-const DIV = styled('div')({
+const Detail = styled('div')({
   alignItems: 'center',
   display: 'flex',
   marginTop: 3,
   marginBottom: 3,
 });
-const ImageIconDropDown = styled('img')({
+const CoinImage = styled('img')({
   height: '30px',
   width: '30px',
   paddingRight: '20px',
@@ -87,15 +87,15 @@ const UserAssets = (props: UserAssetsProps) => {
         <NetWorthTitle>Net Worth</NetWorthTitle>
         <br />
         <br />
-        <H1>36.34 USDT</H1>
+        <TotalNetWorth>36.34 USDT</TotalNetWorth>
       </NetWorth>
       {DropDownDataWallet.map((val, i) => {
         return (
           <DropMain>
-            <DIV>
-              <ImageIconDropDown src={val.coin} alt="Icon" />
+            <Detail>
+              <CoinImage src={val.coin} alt="Icon" />
               <DropTitle>{val.Subname}</DropTitle>
-            </DIV>
+            </Detail>
             <DropPrice>{val.Price}</DropPrice>
           </DropMain>
         );

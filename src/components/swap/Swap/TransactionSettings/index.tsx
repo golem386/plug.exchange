@@ -7,20 +7,20 @@ import { Switch } from '@mui/material';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-const MainDiv = styled('div')({
+const TransactionSettingsModal = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   width: '100%',
   paddingBottom: '10%',
 });
-const SwapDiv = styled('div')({
+const Header = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   paddingLeft: '5%',
   paddingRight: '5%',
 });
-const Swap = styled('p')({
+const TransactionSettingTitle = styled('p')({
   fontSize: '24px',
   fontWeight: '600',
   color: 'black',
@@ -45,7 +45,7 @@ const QuestionIcon = styled('img')({
   marginBottom: 5,
   opacity: '0.65',
 });
-const FlexView = styled('div')({
+const AutoButtonGroup = styled('div')({
   display: 'flex',
   alignItems: 'center',
 });
@@ -257,9 +257,9 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
     dispatch(null);
   };
   return (
-    <MainDiv>
-      <SwapDiv>
-        <Swap>Transaction Settings</Swap>
+    <TransactionSettingsModal>
+      <Header>
+        <TransactionSettingTitle>Transaction Settings</TransactionSettingTitle>
         <CloseImage
           src="/images/Cros.png"
           onClick={() => {
@@ -267,24 +267,24 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
           }}
           alt="Close"
         />
-      </SwapDiv>
+      </Header>
       <Slippage>
         <SlippageText>Slippage Tolerance</SlippageText>
         <QuestionIcon src="/images/Question.svg" alt="QuestionIcon" />
       </Slippage>
-      <FlexView>
+      <AutoButtonGroup>
         <CustomButtonDisebal>Auto</CustomButtonDisebal>
         <CustomButtonActiveNumber>0.50 %</CustomButtonActiveNumber>
-      </FlexView>
+      </AutoButtonGroup>
       <Slippage>
         <SlippageText>Transaction Deadline</SlippageText>
         <QuestionIcon src="/images/Question.svg" alt="QuestionIcon" />
       </Slippage>
       <MainInput>
-        <FlexView>
+        <AutoButtonGroup>
           <TextInput placeholder="0" />
           <Span>Minutes</Span>
-        </FlexView>
+        </AutoButtonGroup>
       </MainInput>
       <hr />
       <FlexViewJustyfy>
@@ -350,30 +350,30 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
       <Settings>Interface Settings</Settings>
       <FlexRow>
         <MainRow>
-          <FlexVIew>
+          <AutoButtonGroup>
             <AutoRout>Auto Router API</AutoRout>
             <QuestionIcon src="/images/DownArrow.png" alt="Icon" />
-          </FlexVIew>
+          </AutoButtonGroup>
           <Switch defaultChecked={true} color="secondary" />
         </MainRow>
         <MainRow>
-          <FlexVIew>
+          <AutoButtonGroup>
             <AutoRout>Auto Router API</AutoRout>
             <QuestionIcon src="/images/DownArrow.png" alt="Icon" />
-          </FlexVIew>
+          </AutoButtonGroup>
           <Switch color="secondary" />
         </MainRow>
       </FlexRow>
       <FlexRow>
         <MainRow>
-          <FlexVIew>
+          <AutoButtonGroup>
             <AutoRout>Auto Router API</AutoRout>
             <QuestionIcon src="/images/DownArrow.png" alt="Icon" />
-          </FlexVIew>
+          </AutoButtonGroup>
           <Switch defaultChecked={true} color="secondary" />
         </MainRow>
       </FlexRow>
-    </MainDiv>
+    </TransactionSettingsModal>
   );
 };
 

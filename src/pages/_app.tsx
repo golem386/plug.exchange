@@ -135,24 +135,25 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       )}
       <MyComponent>
         <AppBar />
-        {router?.pathname === '/Crosschain' ? null : matches ? <AppFooter /> : null}
         <Modal isOpen={false} modalTitle="WalletModal" close={() => null}>
           <BoxsToken>
             <WalletModal onClose={() => null} />
           </BoxsToken>
         </Modal>
+
+        {matches ? null : null !== '' ? (
+          <BtnGroup>
+            <SwitchNetwork />
+            <WalletDetails account={null} />
+          </BtnGroup>
+        ) : (
+          <BtnGroup>
+            <ActiveBtn>Connect Wallet</ActiveBtn>
+          </BtnGroup>
+        )}
+        <Component {...pageProps} />
+        {router?.pathname === '/Crosschain' ? null : matches ? <AppFooter /> : null}
       </MyComponent>
-      {matches ? null : null !== '' ? (
-        <BtnGroup>
-          <SwitchNetwork />
-          <WalletDetails account={null} />
-        </BtnGroup>
-      ) : (
-        <BtnGroup>
-          <ActiveBtn>Connect Wallet</ActiveBtn>
-        </BtnGroup>
-      )}
-      <Component {...pageProps} />
     </Provider>
   );
 }

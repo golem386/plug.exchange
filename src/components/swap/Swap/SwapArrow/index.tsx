@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-const UpDownImage = styled('img')({
+const CoinChangeIcon = styled('img')({
   backgroundColor: 'white',
   padding: 10,
   borderRadius: 100,
@@ -40,7 +40,7 @@ const SwapArrow = (props: SwapArrowProps) => {
     onReceiveIcon(CoinDetail);
   };
   return (
-    <UpDownImage
+    <CoinChangeIcon
       src="/images/UpDown.png"
       onClick={() => {
         onChangeToken();

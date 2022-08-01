@@ -4,7 +4,7 @@ import { Button, Grid, List } from '@mui/material';
 import React, { useState } from 'react';
 import { data } from '../../../contexts/QuoteTableDATA';
 
-const QuoteTable = styled('div')({
+const QuoteTableblur = styled('div')({
   borderRadius: 24,
   filter: 'blur(5px)',
 });
@@ -12,7 +12,7 @@ const CardCustom = styled('div')({
   borderRadius: 24,
 });
 
-const FirseDiv = styled('div')({
+const PriceDetail = styled('div')({
   backgroundColor: '#f0f0f0',
   display: 'flex',
   alignItems: 'center',
@@ -26,7 +26,7 @@ const FirseDiv = styled('div')({
   borderBottomColor: '#e0e0e0',
   width: '96%',
 });
-const Title = styled('p')({
+const MaxPriceDetail = styled('p')({
   color: 'rgba(0, 0, 0, 0.4)',
   fontFamily: 'Inter',
   fontWeight: '600',
@@ -41,7 +41,7 @@ const MainSpan = styled('span')({
   backgroundClip: 'text',
   fontFamily: 'Inter',
 });
-const SecondDiv = styled('div')({
+const DataUpdat = styled('div')({
   backgroundColor: '#f0f0f0',
   display: 'flex',
   alignItems: 'center',
@@ -50,7 +50,7 @@ const SecondDiv = styled('div')({
   paddingRight: '2%',
   height: 70,
 });
-const DangerTitle = styled('p')({
+const UpdateTitle = styled('p')({
   color: '#FF0000',
   fontWeight: '500',
   fontSize: '16px',
@@ -71,7 +71,7 @@ const RefresBtn = styled(Button)({
     backgroundColor: 'white',
   },
 });
-const ListDiv = styled('div')({
+const ListItem = styled('div')({
   borderStyle: 'solid',
   borderWidth: 1,
   borderColor: '#f0f0f0',
@@ -81,12 +81,12 @@ const ListDiv = styled('div')({
     backgroundColor: '#f2f2f2',
   },
 });
-const HeaderDiv = styled('div')({
+const CoinHeader = styled('div')({
   display: 'flex',
   alignItems: 'center',
   paddingLeft: '7%',
 });
-const ImageIcon = styled('img')({
+const CoinIcon = styled('img')({
   paddingRight: 10,
 });
 const ShereIcon = styled('img')({
@@ -136,7 +136,7 @@ const DownArrowImg = styled('img')({
   height: 11,
   paddingLeft: 10,
 });
-const TableTitle = styled('p')({
+const CoinTitle = styled('p')({
   fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: '16px',
@@ -151,7 +151,7 @@ const MainTitle = styled('p')({
   fontSize: '16px',
 });
 
-const View = styled('div')({
+const QuoteTablesMain = styled('div')({
   display: 'block',
   '@media (max-width: 660px)': {
     display: 'none',
@@ -170,12 +170,12 @@ const QuoteTables = (props: QuoteTableProps) => {
   const [loardData, setLoardData] = useState<number>(1);
   const [blur, setBlur] = useState<Boolean>(true);
   return (
-    <View>
+    <QuoteTablesMain>
       <>
         {blur ? (
-          <QuoteTable>
-            <FirseDiv>
-              <Title>
+          <QuoteTableblur>
+            <PriceDetail>
+              <MaxPriceDetail>
                 Max Price Slippage:{' '}
                 <MainSpan>
                   1%
@@ -183,8 +183,8 @@ const QuoteTables = (props: QuoteTableProps) => {
                     <img src="/images/DownArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
-              </Title>
-              <Title>
+              </MaxPriceDetail>
+              <MaxPriceDetail>
                 Gas Price:{' '}
                 <MainSpan>
                   206 GWEI
@@ -192,23 +192,23 @@ const QuoteTables = (props: QuoteTableProps) => {
                     <img src="/images/DownArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
-              </Title>
-            </FirseDiv>
-            <SecondDiv>
-              <DangerTitle>Data updated 18m ago. Please refresh:</DangerTitle>
+              </MaxPriceDetail>
+            </PriceDetail>
+            <DataUpdat>
+              <UpdateTitle>Data updated 18m ago. Please refresh:</UpdateTitle>
               <RefresBtn>Refresh</RefresBtn>
-            </SecondDiv>
+            </DataUpdat>
             <List aria-label="main mailbox folders">
               {data.map((val, i) => {
                 return (
                   <>
                     {loardData > i ? (
-                      <ListDiv>
-                        <HeaderDiv>
-                          <ImageIcon src={val.icon} alt="icon" />
-                          <TableTitle>{val.name}</TableTitle>
+                      <ListItem>
+                        <CoinHeader>
+                          <CoinIcon src={val.icon} alt="icon" />
+                          <CoinTitle>{val.name}</CoinTitle>
                           <ShereIcon src="/images/Shere.png" alt="icon" />
-                        </HeaderDiv>
+                        </CoinHeader>
                         <Grid container spacing={0}>
                           <Grid item xs={4}>
                             <Text>{val.get}</Text>
@@ -227,7 +227,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                             <TextDown>{val.gesprice}</TextDown>
                           </Grid>
                         </Grid>
-                      </ListDiv>
+                      </ListItem>
                     ) : (
                       ''
                     )}
@@ -235,11 +235,11 @@ const QuoteTables = (props: QuoteTableProps) => {
                 );
               })}
             </List>
-          </QuoteTable>
+          </QuoteTableblur>
         ) : (
           <CardCustom>
-            <FirseDiv>
-              <Title>
+            <PriceDetail>
+              <MaxPriceDetail>
                 Max Price Slippage:{' '}
                 <MainSpan>
                   1%
@@ -247,8 +247,8 @@ const QuoteTables = (props: QuoteTableProps) => {
                     <img src="/images/DownArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
-              </Title>
-              <Title>
+              </MaxPriceDetail>
+              <MaxPriceDetail>
                 Gas Price:{' '}
                 <MainSpan>
                   206 GWEI
@@ -256,23 +256,23 @@ const QuoteTables = (props: QuoteTableProps) => {
                     <img src="/images/DownArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
-              </Title>
-            </FirseDiv>
-            <SecondDiv>
-              <DangerTitle>Data updated 18m ago. Please refresh:</DangerTitle>
+              </MaxPriceDetail>
+            </PriceDetail>
+            <DataUpdat>
+              <UpdateTitle>Data updated 18m ago. Please refresh:</UpdateTitle>
               <RefresBtn>Refresh</RefresBtn>
-            </SecondDiv>
+            </DataUpdat>
             <List aria-label="main mailbox folders">
               {data.map((val, i) => {
                 return (
                   <>
                     {loardData > i ? (
-                      <ListDiv>
-                        <HeaderDiv>
-                          <ImageIcon src={val.icon} alt="icon" />
-                          <MainTitle>{val.name}</MainTitle>
+                      <ListItem>
+                        <CoinHeader>
+                          <CoinIcon src={val.icon} alt="icon" />
+                          <CoinTitle>{val.name}</CoinTitle>
                           <ShereIcon src="/images/Shere.png" alt="shere" />
-                        </HeaderDiv>
+                        </CoinHeader>
                         <Grid container spacing={0}>
                           <Grid item xs={4}>
                             <Text>{val.get}</Text>
@@ -291,7 +291,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                             <TextDown>{val.gesprice}</TextDown>
                           </Grid>
                         </Grid>
-                      </ListDiv>
+                      </ListItem>
                     ) : (
                       ''
                     )}
@@ -323,7 +323,7 @@ const QuoteTables = (props: QuoteTableProps) => {
           </ShowMore>
         )}
       </>
-    </View>
+    </QuoteTablesMain>
   );
 };
 

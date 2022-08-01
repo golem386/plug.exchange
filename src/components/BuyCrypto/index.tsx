@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Button } from '@mui/material';
 import React, { Component } from 'react';
 
-const CustomButton = styled(Button)({
+const BuyCryptoButton = styled(Button)({
   borderRadius: 16,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
   fontSize: '16px',
@@ -32,7 +32,7 @@ const CustomButton = styled(Button)({
 });
 
 const BuyCrypto = () => {
-  return <CustomButton>Buy Crypto</CustomButton>;
+  return <BuyCryptoButton>Buy Crypto</BuyCryptoButton>;
 };
 
 export default BuyCrypto;

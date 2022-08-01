@@ -65,7 +65,7 @@ const Body = styled('div')({
   paddingLeft: '5%',
   paddingRight: '5%',
 });
-const Main = styled(Grid)({
+const Table = styled(Grid)({
   '@media (min-width: 660px)': {
     display: 'flex',
     alignItems: 'center',
@@ -77,7 +77,7 @@ const Main = styled(Grid)({
     marginTop: '10%',
   },
 });
-const Maindiv = styled('div')({
+const TranjectionType = styled('div')({
   display: 'flex',
   alignItems: 'center',
 });
@@ -85,7 +85,7 @@ const StatusImage = styled('img')({
   height: 52,
   width: 52,
 });
-const Div = styled('div')({
+const TranjectionDetail = styled('div')({
   marginLeft: 5,
 });
 const StatusText = styled('span')({
@@ -123,7 +123,7 @@ const Span = styled('span')({
   marginTop: 15,
   marginBottom: 15,
 });
-const Span2 = styled('span')({
+const TranjectionEntry = styled('span')({
   fontFamily: 'Inter',
   fontWaight: 600,
   fontSize: '16px',
@@ -236,10 +236,10 @@ const PaginationTable = (props: PaginationTableProps) => {
               <Span>{val.Date}</Span>
               {val.Transaction.map((data, ind) => {
                 return (
-                  <Main container columnSpacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+                  <Table container columnSpacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
                     <Grid item lg={4} xs={matches ? 0 : 12}>
                       <Status>
-                        <Maindiv>
+                        <TranjectionType>
                           {data.Status === 'Swap' ? (
                             <StatusImage src="/images/SwapIcon.png" />
                           ) : data.Status === 'Pending' ? (
@@ -250,7 +250,7 @@ const PaginationTable = (props: PaginationTableProps) => {
                             <StatusImage src="/images/Faild.png" />
                           ) : null}
 
-                          <Div>
+                          <TranjectionDetail>
                             <StatusText>{data.Name}</StatusText>
                             <br />
                             <TextPink>
@@ -259,23 +259,23 @@ const PaginationTable = (props: PaginationTableProps) => {
                                 <TimeImage src="/images/Time.png" /> {data.Time}
                               </TimeText>
                             </TextPink>
-                          </Div>
-                        </Maindiv>
+                          </TranjectionDetail>
+                        </TranjectionType>
                       </Status>
                     </Grid>
                     <Grid item lg={4} xs={matches ? 0 : 12}>
                       <Share>
-                        <Span2>
+                        <TranjectionEntry>
                           <CoinImg src={data.PayImg} />
                           {data.PayToken}
-                        </Span2>
+                        </TranjectionEntry>
                         {data.ReceiveImg !== '' && data.ReceiveToken !== '' ? (
                           <>
                             <Img src={matches ? '/images/LeftIcon.png' : '/images/Down.png'} height={15} width={16} />
-                            <Span2>
+                            <TranjectionEntry>
                               <CoinImg src={data.ReceiveImg} />
                               {data.ReceiveToken}
-                            </Span2>
+                            </TranjectionEntry>
                           </>
                         ) : null}
                       </Share>
@@ -285,7 +285,7 @@ const PaginationTable = (props: PaginationTableProps) => {
                         <Span3>{data.ETH}</Span3>
                       </div>
                     </Grid>
-                  </Main>
+                  </Table>
                 );
               })}
             </>

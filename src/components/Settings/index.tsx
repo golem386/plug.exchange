@@ -8,7 +8,7 @@ const DropDownTitleIcon = styled('span')({
   fontWeight: '600',
   color: 'blak',
 });
-const CustomMenu = styled('div')({
+const SettingMenu = styled('div')({
   position: 'absolute',
   top: '12%',
   left: '82%',
@@ -51,7 +51,7 @@ const OverLay = styled('div')({
     cursor: 'pointer',
   },
 });
-const CustomMenuItem = styled(MenuItem)({
+const SettingMenuItem = styled(MenuItem)({
   paddingTop: 10,
   paddingBottom: 10,
   paddingRight: '50px',
@@ -70,7 +70,7 @@ const ImageIconDropDown = styled('img')({
   opacity: 0.6,
 });
 
-const SettingButton2 = styled('button')({
+const SettingButton = styled('button')({
   borderRadius: 100,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
   padding: '20px 0px',
@@ -98,7 +98,7 @@ const SettingButton2 = styled('button')({
     marginLeft: '5%',
   },
 });
-const NavImg = styled('img')({
+const SettingIcon = styled('img')({
   '@media (max-width: 660px)': {
     height: '36px',
     width: '36px',
@@ -124,32 +124,32 @@ const Settings = (props: SettingsProps) => {
   };
   return (
     <div>
-      <SettingButton2 onClick={handleClick}>
-        <NavImg src={matches ? '/images/setting.png' : '/images/mSetting.png'} onClick={handleClick} />
-      </SettingButton2>
+      <SettingButton onClick={handleClick}>
+        <SettingIcon src={matches ? '/images/setting.png' : '/images/mSetting.png'} onClick={handleClick} />
+      </SettingButton>
       <OverLay style={{ display: openmenu ? 'block' : 'none' }} onClick={handleClosemenu}>
-        <CustomMenu>
-          <CustomMenuItem>
+        <SettingMenu>
+          <SettingMenuItem>
             <ImageIconDropDown src="/images/About.svg" alt="About" />
             <DropDownTitleIcon>{props.settings[0].name}</DropDownTitleIcon>
-          </CustomMenuItem>
-          <CustomMenuItem>
+          </SettingMenuItem>
+          <SettingMenuItem>
             <ImageIconDropDown src="/images/Question.svg" alt="icon" />
             <DropDownTitleIcon>{props.settings[1].name}</DropDownTitleIcon>
-          </CustomMenuItem>
-          <CustomMenuItem>
+          </SettingMenuItem>
+          <SettingMenuItem>
             <ImageIconDropDown src="/images/request.svg" alt="Request" />
             <DropDownTitleIcon>{props.settings[2].name}</DropDownTitleIcon>
-          </CustomMenuItem>
-          <CustomMenuItem>
+          </SettingMenuItem>
+          <SettingMenuItem>
             <ImageIconDropDown src="/images/Language.svg" alt="icon" />
             <DropDownTitleIcon>{props.settings[3].name}</DropDownTitleIcon>
-          </CustomMenuItem>
-          <CustomMenuItem>
+          </SettingMenuItem>
+          <SettingMenuItem>
             <ImageIconDropDown src="/images/Dark.svg" alt="Dark" />
             <DropDownTitleIcon>{props.settings[4].name}</DropDownTitleIcon>
-          </CustomMenuItem>
-        </CustomMenu>
+          </SettingMenuItem>
+        </SettingMenu>
       </OverLay>
     </div>
   );

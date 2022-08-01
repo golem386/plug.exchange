@@ -18,29 +18,29 @@ import ImportToken from '../ImportToken';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-const MainDiv = styled('div')({
+const CurrencyCard = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   width: '100%',
   overflow: 'auto',
 });
-const Token = styled('p')({
+const SelectTokenTitle = styled('p')({
   fontSize: '24px',
   fontWeight: 600,
   fontFamily: 'Inter',
 });
-const Flex = styled('div')({
+const SelectTokenMain = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   paddingLeft: 10,
 });
-const CrosIcon = styled(Button)({
+const CloseIcon = styled(Button)({
   fontSize: '24px',
   fontWeight: 600,
   fontFamily: 'Inter',
 });
-const InputIcon = styled('div')({
+const TextInputMain = styled('div')({
   display: 'flex',
   alignItems: 'center',
   backgroundColor: '#F7F7F7',
@@ -83,13 +83,13 @@ const Type = styled('span')({
   fontWeight: 600,
   fontSize: 16,
 });
-const ListItemMain = styled(ListItem)({
+const ListRow = styled(ListItem)({
   height: 53,
 });
-const IconImg = styled('img')({
+const SearchIcon = styled('img')({
   opacity: 0.5,
 });
-const ModalCustom = styled(Modal)({
+const ImportTokenModal = styled(Modal)({
   border: 'none',
   borderRadius: 20,
 });
@@ -133,19 +133,19 @@ const CurrencyModal = (props: SelecttokenProps) => {
   const receiveCoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.receiveCoinDetail);
   const matches = useMediaQuery('(min-width:660px)');
   return (
-    <MainDiv style={{ height: matches ? '50%' : '540px' }}>
-      <Flex>
-        <Token>Select a Token</Token>
-        <CrosIcon
+    <CurrencyCard style={{ height: matches ? '50%' : '540px' }}>
+      <SelectTokenMain>
+        <SelectTokenTitle>Select a Token</SelectTokenTitle>
+        <CloseIcon
           onClick={() => {
             onModal('Swap');
           }}
         >
           <img src="/images/Cros.png" alt="Cros" />
-        </CrosIcon>
-      </Flex>
-      <InputIcon>
-        <IconImg
+        </CloseIcon>
+      </SelectTokenMain>
+      <TextInputMain>
+        <SearchIcon
           src="/images/Search.png"
           onClick={
             props.select === 'PayToken'
@@ -158,7 +158,7 @@ const CurrencyModal = (props: SelecttokenProps) => {
           loading="lazy"
         />
         <TextInputActive placeholder="Search by Name or Paste Address" />
-        <ModalCustom
+        <ImportTokenModal
           open={open}
           onClose={() => {
             handleClose();
@@ -170,12 +170,12 @@ const CurrencyModal = (props: SelecttokenProps) => {
             }}
             importedToken={null}
           />
-        </ModalCustom>
-      </InputIcon>
+        </ImportTokenModal>
+      </TextInputMain>
       {props.select === 'ReceiveToken' ? (
         <List>
-          <ListItemMain disablePadding>
-            <ListMain>
+          <ListRow disablePadding>
+            <ListItem>
               <ListItemIcon>
                 <img src="/images/coin3.png" alt="icon" />
               </ListItemIcon>
@@ -185,14 +185,14 @@ const CurrencyModal = (props: SelecttokenProps) => {
               </ListItemTextStyle>
 
               <Count>0</Count>
-            </ListMain>
-          </ListItemMain>
+            </ListItem>
+          </ListRow>
         </List>
       ) : (
         <List>
           {list.map((val, i) => {
             return (
-              <ListItemMain
+              <ListRow
                 disablePadding
                 onClick={() => {
                   onModal('Swap');
@@ -232,12 +232,12 @@ const CurrencyModal = (props: SelecttokenProps) => {
 
                   <Count>{val.count}</Count>
                 </ListMain>
-              </ListItemMain>
+              </ListRow>
             );
           })}
         </List>
       )}
-    </MainDiv>
+    </CurrencyCard>
   );
 };
 

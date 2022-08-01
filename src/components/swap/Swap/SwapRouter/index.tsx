@@ -3,9 +3,9 @@ import { Button } from '@mui/material';
 import React from 'react';
 
 const ETH = styled('p')({
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  color: 'transparent',
-  backgroundClip: 'text',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
   fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
@@ -27,7 +27,7 @@ const ShortView = styled('div')({
   alignItems: 'center',
   marginLeft: '7%',
 });
-const MainContent = styled('div')({
+const SwapRouterButton = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -39,10 +39,10 @@ const UsdtList = styled('div')({
   borderColor: 'rgba(0, 0, 0, 0.1)',
   borderStyle: 'solid',
   margin: 10,
-  marginLeft: '5%',
-  marginRight: '5%',
+  marginLeft:'5%',
+  marginRight:'5%',
   height: '92px',
-  cursor: 'pointer',
+  cursor:'pointer',
   '&:hover': {
     backgroundColor: '#ededed',
     borderColor: '#BB36FF',
@@ -74,12 +74,12 @@ const CustomButtonActive = styled(Button)({
   height: '28px',
 });
 
-const MainTitleView = styled('div')({
+const UsdtListItem = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginLeft: '5%',
-  marginRight: '5%',
+  marginLeft:'5%',
+  marginRight:'5%'
 });
 const Amount = styled('p')({
   fontFamily: 'Inter',
@@ -92,14 +92,14 @@ const AmountDisebal = styled('p')({
   fontWeight: '600',
   color: '#949494',
 });
-const Div = styled('div')({
+const ListTile = styled('div')({
   display: 'flex',
   alignItems: 'center',
 });
-const Div2 = styled('div')({
+const RoutButton = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  marginLeft: '5%',
+  marginLeft:'5%'
 });
 const Span = styled('span')({
   fontWeight: '500',
@@ -122,7 +122,7 @@ const Icon = styled('img')({
   marginLeft: 5,
   marginRight: '5%',
   cursor: 'pointer',
-  opacity: '0.5',
+  opacity: '0.5'
 });
 const Icon2 = styled('img')({
   width: '20.5px',
@@ -151,16 +151,16 @@ const AutoText = styled('p')({
   fontSize: '16px',
   fontWeight: '600',
   fontFamily: 'Inter',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  color: 'transparent',
-  backgroundClip: 'text',
+  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  color: "transparent",
+  backgroundClip: "text",
 });
 const Route = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginRight: '5%',
-  marginLeft: '5%',
+  marginRight:'5%',
+  marginLeft:'5%'
 });
 const CoinImg = styled('img')({
   height: '24px',
@@ -223,7 +223,7 @@ const SwapRouter = (props: SwapRouterProps) => {
   const [AddEntey, setAddEntey] = React.useState<Boolean>(false);
   return props.btnTitle === 'Connect Wallet' ? (
     <>
-      <MainContent>
+      <SwapRouterButton>
         <ShortView>
           <ETH>1 ETH = 4,008.2766 USDT</ETH>
           <ImgVarticalShort src="/images/ShortVartical.png" />
@@ -235,41 +235,41 @@ const SwapRouter = (props: SwapRouterProps) => {
           src={Slider === true ? '/images/TopArrow.png' : '/images/DownArrow.png'}
           alt="Image"
         />
-      </MainContent>
+      </SwapRouterButton>
       {Slider === true ? (
         <>
           <UsdtList>
-            <MainTitleView>
-              <Div>
+            <UsdtListItem>
+              <ListTile>
                 <Title>1inch</Title>
                 <CustomButtonActive>Save $12.20</CustomButtonActive>
-              </Div>
+              </ListTile>
               <Amount>2442.57</Amount>
-            </MainTitleView>
-            <MainTitleView>
+            </UsdtListItem>
+            <UsdtListItem>
               <Span>TXN Cost 0.0161 = (~$39.51)</Span>
               <Span>~$2,451</Span>
-            </MainTitleView>
+            </UsdtListItem>
           </UsdtList>
           <UsdtList>
-            <MainTitleView>
-              <Div>
+            <UsdtListItem>
+              <ListTile>
                 <TitleDisebal>1inch</TitleDisebal>
                 <CustomButtonActive>Save $12.20</CustomButtonActive>
-              </Div>
+              </ListTile>
               <AmountDisebal>2442.57</AmountDisebal>
-            </MainTitleView>
-            <MainTitleView>
+            </UsdtListItem>
+            <UsdtListItem>
               <Span>TXN Cost 0.0161 = (~$39.51)</Span>
               <Span>~$2,451</Span>
-            </MainTitleView>
+            </UsdtListItem>
           </UsdtList>
           <AutoRoute>
-            <Div2>
+            <RoutButton>
               <Icon2 src="/images/trans.png" alt="Image" />
               <AutoText>Auto Router</AutoText>
               <QusetionIcon src="/images/Question.svg" alt="image" />
-            </Div2>
+            </RoutButton>
             {AddEntey === true ? (
               <IconHr
                 onClick={() => {
