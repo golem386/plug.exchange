@@ -143,12 +143,14 @@ const Swap = (props: SwapProps) => {
           inputOnChangeHandler={null}
           toggleCurrencyModal={null}
           selectedCurrency="Max 0 ETH"
+          Read={true}
         />
         <CurrencyOutput
           inputOnChangeHandler={null}
           inputValue={null}
           selectedCurrency={null}
           toggleCurrencyModal={null}
+          Read={true}
         />
         <SwapRouter btnTitle={props.btnTitle} liquiditySources={null} router={null} />
         <Modal

@@ -88,6 +88,7 @@ export type CurrencyInputProps = {
   inputOnChangeHandler: () => void | null;
   toggleCurrencyModal: () => void | null;
   selectedCurrency: string | boolean | null;
+  Read?: Boolean
 };
 type CoinDetailType = {
   name: String;
@@ -109,16 +110,19 @@ const CurrencyInput = (props: CurrencyInputProps) => {
         <Max>{props.selectedCurrency}</Max>
       </SwapHeader>
       <Input>
-        <TextInput placeholder="0" />
+        <TextInput placeholder="0" disabled={!props.Read ? true : false} />
         <FormControl sx={{ m: 1, minWidth: 120 }}>
           <SelectToken
             onClick={() => {
-              onModal('SelectToken');
+              !props.Read ? null :
+              onModal('SelectToken')
             }}
           >
             <SelectTokenImage src={CoinDetail?.image} alt="Coin" />
             <SelectTokenTitle>{CoinDetail?.name}</SelectTokenTitle>
-            <CoinDropIcon src="/images/DownArrow.png" alt="DownArrow" />
+            {
+              !props.Read ? null : <CoinDropIcon src="/images/DownArrow.png" alt="DownArrow" />
+            }
           </SelectToken>
         </FormControl>
       </Input>

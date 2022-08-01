@@ -117,12 +117,14 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
         inputOnChangeHandler={null}
         toggleCurrencyModal={null}
         selectedCurrency={null}
+        Read={false}
       />
       <CurrencyOutput
         inputOnChangeHandler={null}
         inputValue={null}
         selectedCurrency={null}
         toggleCurrencyModal={null}
+        Read={false}
       />
       <ShortView>
         <ETH>1 ETH = 4,008.2766 USDT</ETH>

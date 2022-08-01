@@ -84,6 +84,7 @@ export type CurrencyOutputProps = {
   inputValue: number | null;
   selectedCurrency: string | number | null;
   toggleCurrencyModal: () => void | null;
+  Read?: boolean
 };
 const CurrencyOutput = (props: CurrencyOutputProps) => {
   const dispatch: AppDispatch = useDispatch();
@@ -97,16 +98,19 @@ const CurrencyOutput = (props: CurrencyOutputProps) => {
       <SwapArrow switchCurrencyHandler={null} />
       <InputTitle>You Receive</InputTitle>
       <Input>
-        <TextInput placeholder="0" />
+        <TextInput placeholder="0" disabled={!props.Read ? true : false} />
         <FormControl sx={{ m: 1, minWidth: 120 }}>
           <SelectToken
             onClick={() => {
-              onModal('ReceiveToken');
+              !props.Read ? null :
+                onModal('ReceiveToken');
             }}
           >
             <CoinImage src={ReceiveCoin?.image} alt="Icon" />
             <CoinTitle>{ReceiveCoin?.name}</CoinTitle>
-            <CoinDropIcon src="/images/downArrow.png" alt="DownArrow" />
+            {
+              !props.Read ? null : <CoinDropIcon src="/images/downArrow.png" alt="DownArrow" />
+            }
           </SelectToken>
         </FormControl>
       </Input>
