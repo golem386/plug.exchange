@@ -12,12 +12,11 @@ import { useDispatch } from 'react-redux';
 import { useMediaQuery } from '@mui/material';
 import SwitchNetwork from '../components/SwitchNetwork';
 import WalletDetails from '../components/WalletDetails/WalletDetails';
-import Settings from '../components/Settings';
 import AppBar from '../components/AppBar';
 import AppFooter from '../components/AppFooter';
 import Head from 'next/head';
 
-const MyComponent = styled('div')({
+const Content = styled('div')({
   backgroundColor: '#FFFFFF',
   height: '100%',
   width: '100%',
@@ -30,7 +29,7 @@ const MyComponent = styled('div')({
   },
 });
 
-const BoxsToken = styled('div')({
+const WalletModalDiv = styled('div')({
   backgroundColor: 'white',
   paddingBottom: 30,
   paddingTop: 10,
@@ -76,23 +75,7 @@ const ActiveBtn = styled('button')({
   alignItems: 'center',
   justifyContent: 'center',
 });
-const NavBar = styled('div')({
-  backgroundColor: 'white',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  height: 76,
-});
-const NavImg = styled('img')({
-  height: '36px',
-  width: '36px',
-  marginLeft: 10,
-  marginRight: 10,
-});
-const DivFlex = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-});
+
 const settingData = [
   { name: 'About' },
   { name: 'Help Center' },
@@ -122,23 +105,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="Plug Exchange" />
       </Head>
-      {matches ? null : (
-        <NavBar>
-          <div>
-            <NavImg src="/images/mMenu.png" onClick={() => null} />
-            <NavImg src="/images/mlogo.png" />
-          </div>
-          <DivFlex>
-            <Settings settings={settingData} />
-          </DivFlex>
-        </NavBar>
-      )}
-      <MyComponent>
+     
+      <Content>
         <AppBar />
         <Modal isOpen={false} modalTitle="WalletModal" close={() => null}>
-          <BoxsToken>
+          <WalletModalDiv>
             <WalletModal onClose={() => null} />
-          </BoxsToken>
+          </WalletModalDiv>
         </Modal>
 
         {matches ? null : null !== '' ? (
@@ -153,7 +126,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         )}
         <Component {...pageProps} />
         {router?.pathname === '/Crosschain' ? null : matches ? <AppFooter /> : null}
-      </MyComponent>
+      </Content>
     </Provider>
   );
 }

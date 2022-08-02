@@ -207,7 +207,7 @@ const Comper = styled('p')({
   fontSize: '14px',
   color: '#b3b3b3',
 });
-const GWEI = styled('p')({
+const GasPrice = styled('p')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '14px',
@@ -321,28 +321,28 @@ const TransactionSettings = (props: TransactionSettingsProps) => {
               <FormControlLabel value="Instant" control={<Radio />} label="Instant" />
               <Comper>{'<10Sec'}</Comper>
             </DivForms>
-            <GWEI>102.73 - 140.28 GWEI</GWEI>
+            <GasPrice>102.73 - 140.28 GWEI</GasPrice>
           </MainDivs>
           <MainDivs>
             <DivForms>
               <FormControlLabel value="High" control={<Radio />} label="High" />
               <Comper>{'~12Sec'}</Comper>
             </DivForms>
-            <GWEI>106.73 - 179.28 GWEI</GWEI>
+            <GasPrice>106.73 - 179.28 GWEI</GasPrice>
           </MainDivs>
           <MainDivs>
             <DivForms>
               <FormControlLabel value="Low" control={<Radio />} label="Low" />
               <Comper>{'≥1Min'}</Comper>
             </DivForms>
-            <GWEI>108.73 - 130.28 GWEI</GWEI>
+            <GasPrice>108.73 - 130.28 GWEI</GasPrice>
           </MainDivs>
           <MainDivs>
             <DivFormsCustom>
               <FormControlLabel value="Custom" control={<Radio />} label="Custom" />
               <TextTypeinput defaultValue={10} />
             </DivFormsCustom>
-            <GWEI>GWEI</GWEI>
+            <GasPrice>GWEI</GasPrice>
           </MainDivs>
         </>
       ) : (

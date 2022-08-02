@@ -59,7 +59,7 @@ const ViewMain = styled('div')({
   paddingRight: '3%',
   marginLeft: 15,
   padding: '12px, 18px, 12px, 16px',
-  cursor:'pointer'
+  cursor: 'pointer',
 });
 const ViewMainBtn = styled('div')({
   borderWidth: '1.5px',
@@ -74,7 +74,7 @@ const ViewMainBtn = styled('div')({
   paddingRight: '3%',
   marginLeft: 15,
   padding: '12px, 18px, 12px, 16px',
-  cursor:'pointer',
+  cursor: 'pointer',
   '@media (max-width: 660px)': {
     display: 'none',
   },
@@ -94,7 +94,7 @@ const ViewMainActive = styled('div')({
   marginLeft: 15,
   borderColor: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   padding: '12px, 18px, 12px, 16px',
-  cursor:'pointer'
+  cursor: 'pointer',
 });
 const Parmition = styled('div')({
   display: 'flex',
@@ -200,8 +200,10 @@ const MainDiv = styled('div')({
 });
 const TitleIcon = styled('p')({
   fontFamily: 'Inter',
-  fontSize: '15px',
+  fontSize: '16px',
   fontWeight: '600',
+  color: '#000000',
+  opacity: 0.65,
 });
 const ImageIcon = styled('img')({
   height: 35,
@@ -230,7 +232,7 @@ const HeaderTitle = styled('span')({
   marginLeft: '5%',
 });
 const CloseBtn = styled('img')({
-  cursor:'pointer'
+  cursor: 'pointer',
 });
 
 type WalletModalProps = {

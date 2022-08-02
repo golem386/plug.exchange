@@ -199,6 +199,23 @@ const ConnectWalletTitle = styled('span')({
   fontWeight: '600',
   marginLeft: '3%',
 });
+const NavBar = styled('div')({
+  backgroundColor: 'white',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  height: 76,
+});
+const NavImg = styled('img')({
+  height: '36px',
+  width: '36px',
+  marginLeft: 10,
+  marginRight: 10,
+});
+const DivFlex = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+});
 type ConnectWalletType = {
   name: String;
   image: String;
@@ -227,6 +244,17 @@ const AppBar = () => {
   const MenuState: string | boolean = useSelector((state: ArticleState) => state.Menu);
   return (
     <>
+      {matches ? null : (
+        <NavBar>
+          <div>
+            <NavImg src="/images/mMenu.png" onClick={() => null} />
+            <NavImg src="/images/mlogo.png" />
+          </div>
+          <DivFlex>
+            <Settings settings={settingData} />
+          </DivFlex>
+        </NavBar>
+      )}
       {matches ? (
         <>
           <NavMainComponent>
@@ -240,14 +268,14 @@ const AppBar = () => {
                 ) : (
                   <SwapButtonActive href="/swap">Swap</SwapButtonActive>
                 )}
-                {window?.location?.pathname === '/crosschain' ? (
-                  <CrosschainButton href="/crosschain">
+                {window?.location?.pathname === '/Crosschain' ? (
+                  <CrosschainButton href="/Crosschain">
                     <Img src="/images/chain.png" />
                     Crosschain
                     <DownImg src="/images/downIconWhite.png" />
                   </CrosschainButton>
                 ) : (
-                  <CrosschainButtonActive href="/crosschain">Crosschain</CrosschainButtonActive>
+                  <CrosschainButtonActive href="/Crosschain">Crosschain</CrosschainButtonActive>
                 )}
                 <BuyCrypto />
                 {CoinNetwork?.name !== '' ? null : (
