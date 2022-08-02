@@ -6,6 +6,7 @@ const Div = styled('div')({
   marginLeft: '5%',
   marginTop: '6%',
   marginBottom: '6%',
+  minHeight:'400px'
 });
 const Img = styled('img')({
   width: '483px',
@@ -47,7 +48,7 @@ const NotFound = () => {
     <Div>
       <Grid container spacing={0}>
         <Grid item xs={6}>
-          <Img src="/notFound.png" />
+          <Img src="/images/notFound.png" />
         </Grid>
         <Grid item xs={6}>
           <Form>
