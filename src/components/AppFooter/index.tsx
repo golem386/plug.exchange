@@ -54,6 +54,8 @@ type AppfooterProps = {
 const AppFooter = (props:AppfooterProps) => {
   const isMobile = useMediaQuery('(min-width:660px)');
   return (
+    ((!isMobile && props.type === 'Mobile') ||
+    (props.type === 'Window' && isMobile )) && 
       <Footer>
         <IconSection>
           <IconButtom>
@@ -75,6 +77,7 @@ const AppFooter = (props:AppfooterProps) => {
           <MenuItem>Careers</MenuItem>
         </FooterMenu>
       </Footer>
+    
   );
 };
 

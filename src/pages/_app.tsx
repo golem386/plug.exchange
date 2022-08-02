@@ -17,11 +17,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="Plug Exchange" />
       </Head>
-        <AppBar />
-        <WalletModal />
-        <Component {...pageProps} />
-         <AppFooter type="Window" />
-        <Notification />    
+      <AppBar />
+      <WalletModal />
+      <Component {...pageProps} />
+      <AppFooter type="Window" />
+      <Notification />
     </Provider>
   );
 }

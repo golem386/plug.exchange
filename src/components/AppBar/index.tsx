@@ -328,7 +328,7 @@ const AppBar = () => {
             </Grid>
           </SettingMenuOverLay>
           {
-            <ConnectWalletOverLay style={{ display:'block'}} onClick={() => null}>
+            <ConnectWalletOverLay style={{ display: MenuState ? 'block' : 'none' }}> onClick={() => null}>
               <ConnectWalletMain>
                 <TitleView>
                   <ConnectWalletTitle>Connect Wallet</ConnectWalletTitle>
