@@ -159,9 +159,9 @@ export type ImportTokenProps = {
 
 const ImportToken = (props: ImportTokenProps) => {
   const [Check, setCheck] = React.useState<Boolean>(false);
-  const matches = useMediaQuery('(min-width:660px)');
+  const isMobile = useMediaQuery('(min-width:660px)');
   return (
-    <Box sx={matches ? style : style2}>
+    <Box sx={isMobile ? style : style2}>
       <ImportTokenHeader>
         <ImportTokenTitle>Import a Token</ImportTokenTitle>
         <img

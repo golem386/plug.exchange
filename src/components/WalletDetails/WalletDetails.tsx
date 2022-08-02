@@ -200,7 +200,7 @@ const nullObj = {
 type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 
 const WalletDetails = (props: WalletDetailsProps) => {
-  const matches = useMediaQuery('(min-width:660px)');
+  const isMobile = useMediaQuery('(min-width:660px)');
   const [open, setOpen] = React.useState(false);
   const [CopyId, setCopy] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -240,7 +240,7 @@ const WalletDetails = (props: WalletDetailsProps) => {
       <CoinPrice onClick={handleClickPrice}>
         <ImageIconDropDown src={CoinDetail?.coin} alt="Coin" />
         <Name>{CoinDetail?.Subname}</Name>
-        {matches ? (
+        {isMobile ? (
           <>
             <Into>{CoinDetail?.Price}</Into>
             <CoinDropIcon src="/images/downArrow.png" alt="DownArrow" />

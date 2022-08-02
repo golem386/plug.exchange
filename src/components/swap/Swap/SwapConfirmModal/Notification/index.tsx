@@ -39,10 +39,15 @@ const Btn = styled('span')({
 const Img = styled('img')({
   marginTop: 15,
 });
+const Notificationdiv = styled('div')({
+  display: 'flex',
+  justifyContent: 'end',
+});
 
 export interface State extends SnackbarOrigin {
   open: boolean;
 }
+
 const Notification = () => {
   const [state, setState] = React.useState<State>({
     open: false,
@@ -58,7 +63,7 @@ const Notification = () => {
     setState({ ...state, open: false });
   };
   return (
-    <div>
+    <Notificationdiv>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
         open={false}
@@ -90,7 +95,7 @@ const Notification = () => {
           </AlertTitle>
         </AlertNotification>
       </Snackbar>
-    </div>
+    </Notificationdiv>
   );
 };
 

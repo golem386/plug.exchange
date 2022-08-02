@@ -131,9 +131,9 @@ const CurrencyModal = (props: SelecttokenProps) => {
   };
   const CoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.CoinDetail);
   const receiveCoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.receiveCoinDetail);
-  const matches = useMediaQuery('(min-width:660px)');
+  const isMobile = useMediaQuery('(min-width:660px)');
   return (
-    <CurrencyCard style={{ height: matches ? '50%' : '540px' }}>
+    <CurrencyCard style={{ height: isMobile ? '50%' : '540px' }}>
       <SelectTokenMain>
         <SelectTokenTitle>Select a Token</SelectTokenTitle>
         <CloseIcon

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { ConnectNetWorkOne, ConnectWalletOne } from '../../contexts/ConnectWalletDATA';
-import { Box, Button, FormControlLabel, Modal, Radio } from '@mui/material';
+import { Box, Button, FormControlLabel, Radio } from '@mui/material';
 import { styled } from '@mui/system';
 import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import Modal from '../Modal';
 //import { connetNetwork, connetWallet } from '../../store/Actions';
 
 const styleError = {
@@ -235,8 +236,34 @@ const CloseBtn = styled('img')({
   cursor: 'pointer',
 });
 
+
+const WalletModalDiv = styled('div')({
+  backgroundColor: 'white',
+  paddingBottom: 30,
+  paddingTop: 10,
+  width: '585px',
+  height: '90%',
+  borderRadius: 10,
+  overflow: 'hidden',
+  '@media (max-width: 660px)': {
+    backgroundColor: 'white',
+    paddingBottom: 30,
+    paddingTop: 10,
+    width: '585px',
+    height: '90%',
+    borderRadius: 0,
+    overflow: 'hidden',
+  },
+  '&:hover': {
+    overflowY: 'auto',
+  },
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
+});
+
 type WalletModalProps = {
-  onClose: Function; //This is a Close Button Click and Modal Close
+  onClose?: Function; //This is a Close Button Click and Modal Close
 };
 type DataObject = {
   name: String;
@@ -288,136 +315,140 @@ const WalletModal = (props: WalletModalProps) => {
   }, [NetworkData, WalletData]);
   return (
     <>
-      <ConnectWalletHeader>
-        <HeaderTitle>Connect Wallet</HeaderTitle>
-        <CloseBtn
-          src="/images/cros.png"
-          onClick={() => {
-            props.onClose();
-          }}
-          alt="Image"
-        />
-      </ConnectWalletHeader>
-      <Over>
-        <Main>
-          <Title>Choose Network</Title>
-          <ButtonGroup>
-            <ViewMainView>
-              {ConnectNetWorkOne.map((val, i) => {
-                return NetworkData.name === val.name ? (
-                  <ViewMainActive>
-                    <SelectImg src="/images/select.png" alt="Select_Icon" />
-                    <ImageIcon src={val.coin} alt="Coin" />
-                    <TitleIcon>{val.name}</TitleIcon>
-                  </ViewMainActive>
-                ) : (
-                  <ViewMain
-                    onClick={() => {
-                      connetNetworkFunction(val);
+      <Modal isOpen={false} modalTitle="WalletModal" close={() => null}>
+        <WalletModalDiv>
+          <ConnectWalletHeader>
+            <HeaderTitle>Connect Wallet</HeaderTitle>
+            <CloseBtn
+              src="/images/cros.png"
+              onClick={() => {
+                props.onClose();
+              }}
+              alt="Image"
+            />
+          </ConnectWalletHeader>
+          <Over>
+            <Main>
+              <Title>Choose Network</Title>
+              <ButtonGroup>
+                <ViewMainView>
+                  {ConnectNetWorkOne.map((val, i) => {
+                    return NetworkData.name === val.name ? (
+                      <ViewMainActive>
+                        <SelectImg src="/images/select.png" alt="Select_Icon" />
+                        <ImageIcon src={val.coin} alt="Coin" />
+                        <TitleIcon>{val.name}</TitleIcon>
+                      </ViewMainActive>
+                    ) : (
+                      <ViewMain
+                        onClick={() => {
+                          connetNetworkFunction(val);
+                        }}
+                      >
+                        <ImageIcon src={val.coin} alt="Coin" />
+                        <TitleIcon>{val.name}</TitleIcon>
+                      </ViewMain>
+                    );
+                  })}
+                </ViewMainView>
+                {/* <ViewMainView>
+                  <ViewMainBtn>
+                    <TitleIcon
+                      onClick={() => {
+                        handleOpenError();
+                      }}
+                    >
+                      Error Modal
+                    </TitleIcon>
+                  </ViewMainBtn>
+                  <ModalCustom
+                    open={ErrorStatus}
+                    onClose={() => {
+                      handleCloseError();
                     }}
                   >
-                    <ImageIcon src={val.coin} alt="Coin" />
-                    <TitleIcon>{val.name}</TitleIcon>
-                  </ViewMain>
-                );
-              })}
-            </ViewMainView>
-            <ViewMainView>
-              <ViewMainBtn>
-                <TitleIcon
-                  onClick={() => {
-                    handleOpenError();
-                  }}
-                >
-                  Error Modal
-                </TitleIcon>
-              </ViewMainBtn>
-              <ModalCustom
-                open={ErrorStatus}
-                onClose={() => {
-                  handleCloseError();
-                }}
-              >
-                <Box sx={styleError}>
-                  <TitleView2>
-                    <Title3>Wrong Network</Title3>
-                    <CloseBtn
-                      src="/images/cros.png"
-                      onClick={() => {
-                        handleCloseError();
-                      }}
-                      alt="Cros"
-                    />
-                  </TitleView2>
-                  <MainDiv>
-                    <ImageIcon src="/images/coin.png" alt="Coin" />
-                    <Span>Arbitrum</Span>
-                  </MainDiv>
-                  <br />
-                  <Warning>You select wrong network please select anothor network</Warning>
-                  <br />
-                  <br />
-                  <ConnectButton2 variant="text" onClick={() => {}}>
-                    Ok
-                  </ConnectButton2>
-                </Box>
-              </ModalCustom>
-            </ViewMainView>
-          </ButtonGroup>
-        </Main>
+                    <Box sx={styleError}>
+                      <TitleView2>
+                        <Title3>Wrong Network</Title3>
+                        <CloseBtn
+                          src="/images/cros.png"
+                          onClick={() => {
+                            handleCloseError();
+                          }}
+                          alt="Cros"
+                        />
+                      </TitleView2>
+                      <MainDiv>
+                        <ImageIcon src="/images/coin.png" alt="Coin" />
+                        <Span>Arbitrum</Span>
+                      </MainDiv>
+                      <br />
+                      <Warning>You select wrong network please select anothor network</Warning>
+                      <br />
+                      <br />
+                      <ConnectButton2 variant="text" onClick={() => { }}>
+                        Ok
+                      </ConnectButton2>
+                    </Box>
+                  </ModalCustom>
+                </ViewMainView> */}
+              </ButtonGroup>
+            </Main>
 
-        <Title>Choose Wallet</Title>
-        <ButtonGroup>
-          <ViewMainView>
-            {ConnectWalletOne.map((val, i) => {
-              return WalletData.name === val.name ? (
-                <ViewMainActive>
-                  <SelectImg src="/images/select.png" alt="Select" />
-                  <ImageIcon src={val.coin} alt="Coin" />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMainActive>
-              ) : (
-                <ViewMain
+            <Title>Choose Wallet</Title>
+            <ButtonGroup>
+              <ViewMainView>
+                {ConnectWalletOne.map((val, i) => {
+                  return WalletData.name === val.name ? (
+                    <ViewMainActive>
+                      <SelectImg src="/images/select.png" alt="Select" />
+                      <ImageIcon src={val.coin} alt="Coin" />
+                      <TitleIcon>{val.name}</TitleIcon>
+                    </ViewMainActive>
+                  ) : (
+                    <ViewMain
+                      onClick={() => {
+                        connetWalletFunction(val);
+                      }}
+                    >
+                      <ImageIcon src={val.coin} alt="Coin" />
+                      <TitleIcon>{val.name}</TitleIcon>
+                    </ViewMain>
+                  );
+                })}
+              </ViewMainView>
+            </ButtonGroup>
+          </Over>
+          <Parmition>
+            <FormControlLabel
+              control={
+                <Radio
                   onClick={() => {
-                    connetWalletFunction(val);
+                    setCheck(!Check);
                   }}
-                >
-                  <ImageIcon src={val.coin} alt="Coin" />
-                  <TitleIcon>{val.name}</TitleIcon>
-                </ViewMain>
-              );
-            })}
-          </ViewMainView>
-        </ButtonGroup>
-      </Over>
-      <Parmition>
-        <FormControlLabel
-          control={
-            <Radio
-              onClick={() => {
-                setCheck(!Check);
-              }}
-              checked={Check ? true : false}
+                  checked={Check ? true : false}
+                />
+              }
+              label=""
             />
-          }
-          label=""
-        />
-        <Condition>
-          I accept the <ConditionPink>Terms of Services</ConditionPink>&<ConditionPink>Privacy Policy</ConditionPink>
-        </Condition>
-      </Parmition>
-      {Check ? (
-        <ConnectButton
-          variant="text"
-          onClick={() => {
-            SelectData();
-          }}
-        >
-          Connect Wallet
-        </ConnectButton>
-      ) : (
-        <ConnectButtonDisable variant="text">Connect Wallet</ConnectButtonDisable>
-      )}
+            <Condition>
+              I accept the <ConditionPink>Terms of Services</ConditionPink>&<ConditionPink>Privacy Policy</ConditionPink>
+            </Condition>
+          </Parmition>
+          {Check ? (
+            <ConnectButton
+              variant="text"
+              onClick={() => {
+                SelectData();
+              }}
+            >
+              Connect Wallet
+            </ConnectButton>
+          ) : (
+            <ConnectButtonDisable variant="text">Connect Wallet</ConnectButtonDisable>
+          )}
+        </WalletModalDiv>
+      </Modal>
     </>
   );
 };

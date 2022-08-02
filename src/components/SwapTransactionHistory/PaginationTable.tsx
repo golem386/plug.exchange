@@ -201,7 +201,7 @@ const PaginationTable = (props: PaginationTableProps) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [count, setCount] = React.useState('10');
   const a = parseInt(count);
-  const matches = useMediaQuery('(min-width:660px)');
+  const isMobile = useMediaQuery('(min-width:660px)');
   useEffect(() => {
     const range = [];
     const num = Math.ceil(props.data.length / a);
@@ -237,7 +237,7 @@ const PaginationTable = (props: PaginationTableProps) => {
               {val.Transaction.map((data, ind) => {
                 return (
                   <Table container columnSpacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-                    <Grid item lg={4} xs={matches ? 0 : 12}>
+                    <Grid item lg={4} xs={isMobile ? 0 : 12}>
                       <Status>
                         <TranjectionType>
                           {data.Status === 'Swap' ? (
@@ -263,7 +263,7 @@ const PaginationTable = (props: PaginationTableProps) => {
                         </TranjectionType>
                       </Status>
                     </Grid>
-                    <Grid item lg={4} xs={matches ? 0 : 12}>
+                    <Grid item lg={4} xs={isMobile ? 0 : 12}>
                       <Share>
                         <TranjectionEntry>
                           <CoinImg src={data.PayImg} />
@@ -271,7 +271,7 @@ const PaginationTable = (props: PaginationTableProps) => {
                         </TranjectionEntry>
                         {data.ReceiveImg !== '' && data.ReceiveToken !== '' ? (
                           <>
-                            <Img src={matches ? '/images/leftIcon.png' : '/images/down.png'} height={15} width={16} />
+                            <Img src={isMobile ? '/images/leftIcon.png' : '/images/down.png'} height={15} width={16} />
                             <TranjectionEntry>
                               <CoinImg src={data.ReceiveImg} />
                               {data.ReceiveToken}
@@ -280,7 +280,7 @@ const PaginationTable = (props: PaginationTableProps) => {
                         ) : null}
                       </Share>
                     </Grid>
-                    <Grid item lg={4} xs={matches ? 0 : 12}>
+                    <Grid item lg={4} xs={isMobile ? 0 : 12}>
                       <div>
                         <Span3>{data.ETH}</Span3>
                       </div>

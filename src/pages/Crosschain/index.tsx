@@ -449,22 +449,6 @@ const Crosschain = () => {
           <ItemText2>1.46 USDT</ItemText2>
         </Expected>
       </DetailView>
-      <Footer>
-        <div>
-          <CustomButtom>
-            <img src="/images/teligram.png" alt="teligram" />
-          </CustomButtom>
-          <CustomButtom>
-            <img src="/images/social.png" alt="social" />
-          </CustomButtom>
-          <CustomButtom>
-            <img src="/images/twiter.png" alt="twiter" />
-          </CustomButtom>
-          <CustomButtom>
-            <img src="/images/discord.png" alt="discord" />
-          </CustomButtom>
-        </div>
-      </Footer>
     </>
   );
 };

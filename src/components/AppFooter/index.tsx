@@ -48,11 +48,12 @@ const FooterMenu = styled('div')({
   },
 });
 
-
-const AppFooter = () => {
-  const matches = useMediaQuery('(min-width:660px)');
+type AppfooterProps = {
+  type:string
+}
+const AppFooter = (props:AppfooterProps) => {
+  const isMobile = useMediaQuery('(min-width:660px)');
   return (
-    <>
       <Footer>
         <IconSection>
           <IconButtom>
@@ -74,7 +75,6 @@ const AppFooter = () => {
           <MenuItem>Careers</MenuItem>
         </FooterMenu>
       </Footer>
-    </>
   );
 };
 

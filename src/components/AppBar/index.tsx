@@ -11,6 +11,7 @@ import Notification from '../swap/Swap/SwapConfirmModal/Notification';
 import AppFooter from '../AppFooter';
 import BuyCrypto from '../BuyCrypto';
 import Link from 'next/link';
+import SwitchNetwork from '../SwitchNetwork';
 
 const NavMainComponent = styled('div')({
   display: 'flex',
@@ -133,10 +134,6 @@ const NavGrids = styled(Grid)({
 const LogoGrid = styled(Grid)({
   marginRight: 0,
 });
-const Notificationdiv = styled('div')({
-  display: 'flex',
-  justifyContent: 'end',
-});
 const SettingTitle = styled('p')({
   fontFamily: 'Inter',
   fontWeight: 600,
@@ -216,6 +213,28 @@ const DivFlex = styled('div')({
   display: 'flex',
   alignItems: 'center',
 });
+const BtnGroup = styled('div')({
+  backgroundColor: 'transparent',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-around',
+  width: '100%',
+  marginTop: '10%',
+});
+const ActiveBtn = styled('button')({
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  height: 36,
+  width: '100%',
+  border: 'none',
+  borderRadius: '100px',
+  fontFamily: 'Inter',
+  fontWeight: '600',
+  fontSize: '16px',
+  color: 'white',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
 type ConnectWalletType = {
   name: String;
   image: String;
@@ -237,14 +256,15 @@ type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 
 const AppBar = () => {
   const dispatch: AppDispatch = useDispatch();
-  const matches = useMediaQuery('(min-width:660px)');
+  const isMobile = useMediaQuery('(min-width:660px)');
   const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
   const SearchState: boolean = useSelector((state: ArticleState) => state.Search);
   const MenuState: string | boolean = useSelector((state: ArticleState) => state.Menu);
   return (
     <>
-      {matches ? null : (
+    {/* mobile Navbar  */}
+      {isMobile ? null : (
         <NavBar>
           <div>
             <NavImg src="/images/mMenu.png" onClick={() => null} />
@@ -255,7 +275,8 @@ const AppBar = () => {
           </DivFlex>
         </NavBar>
       )}
-      {matches ? (
+
+      {isMobile ? (
         <>
           <NavMainComponent>
             <NavGrids container>
@@ -279,13 +300,14 @@ const AppBar = () => {
                 )}
                 <BuyCrypto />
                 {CoinNetwork?.name !== '' ? null : (
-                  // <SwitchNetwork />
+                  
                   <ConnectWalletActive onClick={() => null}>Connect Wallet</ConnectWalletActive>
                 )}
+                <SwitchNetwork />
                 {CoinDetail?.name === '' && CoinNetwork?.name !== '' ? (
                   <WrongNetworkButton>Wrong Network</WrongNetworkButton>
                 ) : CoinDetail?.name === '' && CoinNetwork?.name === '' ? (
-                  ''
+                  null
                 ) : (
                   <WalletDetails account={null} />
                 )}
@@ -295,6 +317,7 @@ const AppBar = () => {
           </NavMainComponent>
         </>
       ) : (
+        // Mobile Main Content
         <>
           <SettingMenuOverLay style={{ display: SearchState ? 'block' : 'none' }}>
             <Grid item sm={CoinDetail?.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}>
@@ -305,22 +328,30 @@ const AppBar = () => {
             </Grid>
           </SettingMenuOverLay>
           {
-            <ConnectWalletOverLay style={{ display: MenuState ? 'block' : 'none' }} onClick={() => null}>
+            <ConnectWalletOverLay style={{ display:'block'}} onClick={() => null}>
               <ConnectWalletMain>
                 <TitleView>
                   <ConnectWalletTitle>Connect Wallet</ConnectWalletTitle>
-                  <img src="/images/cros.png" onClick={() => {}} alt="Image" />
+                  <img src="/images/cros.png" onClick={() => { }} alt="Image" />
                 </TitleView>
                 <BuyCrypto />
-                <AppFooter />
+                <AppFooter type="Mobile" />
               </ConnectWalletMain>
             </ConnectWalletOverLay>
           }
         </>
       )}
-      <Notificationdiv>
-        <Notification />
-      </Notificationdiv>
+      {/* for mobile Connect Wallete */}
+      {isMobile ? null : null !== '' ? (
+        <BtnGroup>
+          <SwitchNetwork />
+          <WalletDetails account={null} />
+        </BtnGroup>
+      ) : (
+        <BtnGroup>
+          <ActiveBtn>Connect Wallet</ActiveBtn>
+        </BtnGroup>
+      )}
     </>
   );
 };

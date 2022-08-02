@@ -29,7 +29,7 @@ const Resetmorediv = styled('div')({
 });
 
 const Swap = () => {
-  const matches = useMediaQuery('(min-width:660px)');
+  const isMobile = useMediaQuery('(min-width:660px)');
   const Modal: string | boolean = useSelector((state: ArticleState) => state.modal);
   return (
     <>

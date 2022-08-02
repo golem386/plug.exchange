@@ -107,7 +107,7 @@ export type SwapProps = {
 type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 const Swap = (props: SwapProps) => {
   const dispatch: AppDispatch = useDispatch();
-  const matches = useMediaQuery('(min-width:660px)');
+  const isMobile = useMediaQuery('(min-width:660px)');
   const ConnectWallet: WalletType = useSelector((state: ArticleState) => state.ConnectWallet);
   const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
   const [TransactionWaitingopen, setTransactionWaitingOpen] = useState(false);
@@ -247,7 +247,7 @@ const Swap = (props: SwapProps) => {
               SetParmition(true);
             }}
           >
-            Allow the Plug protocol {matches ? null : <br />} to use your ETH.
+            Allow the Plug protocol {isMobile ? null : <br />} to use your ETH.
             <Img src="/images/whiteQue.png" />
           </ParmitionBtn>
         ) : null}

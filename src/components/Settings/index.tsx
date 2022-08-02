@@ -116,7 +116,7 @@ type SettingsProps = {
 const Settings = (props: SettingsProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const openmenu = Boolean(anchorEl);
-  const matches = useMediaQuery('(min-width:660px)');
+  const isMobile = useMediaQuery('(min-width:660px)');
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -126,7 +126,7 @@ const Settings = (props: SettingsProps) => {
   return (
     <div>
       <SettingButton onClick={handleClick}>
-        <SettingIcon src={matches ? '/images/setting.png' : '/images/mSetting.png'} onClick={handleClick} />
+        <SettingIcon src={isMobile ? '/images/setting.png' : '/images/mSetting.png'} onClick={handleClick} />
       </SettingButton>
       <OverLay style={{ display: openmenu ? 'block' : 'none' }} onClick={handleClosemenu}>
         <SettingMenu>
