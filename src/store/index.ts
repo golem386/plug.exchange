@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import app from './app';
 import swap from './swap';
 
 const store = configureStore({
   reducer: {
+    app,
     swap,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),

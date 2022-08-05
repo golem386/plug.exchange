@@ -1,16 +1,10 @@
+import React from 'react';
 import { Button, Grid, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/system';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-//import { Menu, OpenModal, Search } from '../../store/Actions';
 import WalletDetails from '../WalletDetails/WalletDetails';
 import Settings from '../Settings';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
-import Notification from '../swap/Swap/SwapConfirmModal/Notification';
 import AppFooter from '../AppFooter';
 import BuyCrypto from '../BuyCrypto';
-import Link from 'next/link';
 import SwitchNetwork from '../SwitchNetwork';
 
 const NavMainComponent = styled('div')({
@@ -19,6 +13,7 @@ const NavMainComponent = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-around',
 });
+
 const CrosschainButtonActive = styled(Button)({
   borderRadius: 16,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
@@ -32,6 +27,7 @@ const CrosschainButtonActive = styled(Button)({
   width: '137px',
   border: '1px solid rgba(0, 0, 0, 0.1)',
 });
+
 const SwapButtonActive = styled(Button)({
   borderRadius: 16,
   backgroundColor: 'rgba(0, 0, 0, 0.03)',
@@ -45,6 +41,7 @@ const SwapButtonActive = styled(Button)({
   width: '92px',
   border: '1px solid rgba(0, 0, 0, 0.1)',
 });
+
 const SwapButton = styled(Button)({
   borderRadius: 16,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
@@ -69,6 +66,7 @@ const ConnectWalletActive = styled(Button)({
   height: 52,
   width: '169px',
 });
+
 const CrosschainButton = styled(Button)({
   borderRadius: 16,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
@@ -83,11 +81,13 @@ const CrosschainButton = styled(Button)({
   alignItems: 'center',
   justifyContent: 'space-around',
 });
+
 const Imgs = styled('img')({
   width: '90px',
   height: 43,
   marginTop: 5,
 });
+
 const DownImg = styled('img')({
   width: '8.49px',
   height: '5.19px',
@@ -110,10 +110,12 @@ const WrongNetworkButton = styled(Button)({
     backgroundColor: 'red',
   },
 });
+
 const ButtonGrid = styled(Grid)({
   display: 'flex',
   justifyContent: 'space-evenly',
 });
+
 const Img = styled('img')({
   height: '36px',
   width: '36px',
@@ -131,14 +133,17 @@ const NavGrids = styled(Grid)({
   display: 'flex',
   justifyContent: 'space-between',
 });
+
 const LogoGrid = styled(Grid)({
   marginRight: 0,
 });
+
 const SettingTitle = styled('p')({
   fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 20,
 });
+
 const CloseIcon = styled('img')({
   width: 15,
   height: 15,
@@ -235,16 +240,7 @@ const ActiveBtn = styled('button')({
   alignItems: 'center',
   justifyContent: 'center',
 });
-type ConnectWalletType = {
-  name: String;
-  image: String;
-  Subname: String;
-  Price: String;
-};
-type ConnectNetworkType = {
-  name: String;
-  image: String;
-};
+
 const settingData = [
   { name: 'About' },
   { name: 'Help Center' },
@@ -252,18 +248,13 @@ const settingData = [
   { name: 'Language' },
   { name: 'Dark Mode' },
 ];
-type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 
 const AppBar = () => {
-  const dispatch: AppDispatch = useDispatch();
   const isMobile = useMediaQuery('(min-width:660px)');
-  const CoinDetail: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
-  const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
-  const SearchState: boolean = useSelector((state: ArticleState) => state.Search);
-  const MenuState: string | boolean = useSelector((state: ArticleState) => state.Menu);
+
   return (
     <>
-    {/* mobile Navbar  */}
+      {/* mobile Navbar  */}
       {isMobile ? null : (
         <NavBar>
           <div>
@@ -300,15 +291,12 @@ const AppBar = () => {
                 )}
                 <BuyCrypto />
                 {CoinNetwork?.name !== '' ? null : (
-                  
                   <ConnectWalletActive onClick={() => null}>Connect Wallet</ConnectWalletActive>
                 )}
                 <SwitchNetwork />
                 {CoinDetail?.name === '' && CoinNetwork?.name !== '' ? (
                   <WrongNetworkButton>Wrong Network</WrongNetworkButton>
-                ) : CoinDetail?.name === '' && CoinNetwork?.name === '' ? (
-                  null
-                ) : (
+                ) : CoinDetail?.name === '' && CoinNetwork?.name === '' ? null : (
                   <WalletDetails account={null} />
                 )}
                 <Settings settings={settingData} />
@@ -332,7 +320,7 @@ const AppBar = () => {
               <ConnectWalletMain>
                 <TitleView>
                   <ConnectWalletTitle>Connect Wallet</ConnectWalletTitle>
-                  <img src="/images/cros.png" onClick={() => { }} alt="Image" />
+                  <img src="/images/cros.png" onClick={() => {}} alt="Image" />
                 </TitleView>
                 <BuyCrypto />
                 <AppFooter type="Mobile" />
