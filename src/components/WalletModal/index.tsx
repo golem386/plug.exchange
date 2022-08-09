@@ -154,7 +154,7 @@ const WalletModal = () => {
 
   return (
     <>
-      <Modal isOpen={true} modalTitle="Connect Wallet" close={close}>
+      <Modal isOpen={false} modalTitle="Connect Wallet" close={close}>
         <WalletModalDiv>
           <Over>
             <Main>
