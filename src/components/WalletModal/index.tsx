@@ -36,6 +36,7 @@ padding-right: 3%;
 margin-left: 15;
 padding: 12px, 18px, 12px, 16px;
 cursor: pointer;
+
 `;
 
 const Checkbox = styled.div`
@@ -153,7 +154,7 @@ const WalletModal = () => {
 
   return (
     <>
-      <Modal isOpen={isOpen} modalTitle="Connect Wallet" close={close}>
+      <Modal isOpen={true} modalTitle="Connect Wallet" close={close}>
         <WalletModalDiv>
           <Over>
             <Main>
@@ -161,33 +162,24 @@ const WalletModal = () => {
               <ButtonGroup>
                 <Wrapper>
                   {ConnectNetWorkOne.map((val, i) => {
-                    return NetworkData.name === val.name ? (
-                      <ViewMainActive>
+                    return (
+                      <StyledButton isActice={true}>
                         <SelectImg src="/images/select.png" alt="Select_Icon" />
                         <ImageIcon src={val.coin} alt="Coin" />
-                        <TitleIcon>{val.name}</TitleIcon>
-                      </ViewMainActive>
-                    ) : (
-                      <ViewMain
-                        onClick={() => {
-                          connetNetworkFunction(val);
-                        }}
-                      >
-                        <ImageIcon src={val.coin} alt="Coin" />
-                        <TitleIcon>{val.name}</TitleIcon>
-                      </ViewMain>
+                        <StyledButtonTitle>{val.name}</StyledButtonTitle>
+                      </StyledButton>
                     );
                   })}
                 </Wrapper>
                 {/* <ViewMainView>
                   <ViewMainBtn>
-                    <TitleIcon
+                    <StyledButtonTitle
                       onClick={() => {
                         handleOpenError();
                       }}
                     >
                       Error Modal
-                    </TitleIcon>
+                    </StyledButtonTitle>
                   </ViewMainBtn>
                   <ModalCustom
                     open={ErrorStatus}
@@ -224,57 +216,51 @@ const WalletModal = () => {
             </Main>
             <Title>Choose Wallet</Title>
             <ButtonGroup>
-              <ViewMainView>
+              <Wrapper>
                 {ConnectWalletOne.map((val, i) => {
-                  return WalletData.name === val.name ? (
-                    <ViewMainActive>
-                      <SelectImg src="/images/select.png" alt="Select" />
+                  return (
+                    <StyledButton isActice={true}>
+                      <SelectImg src="/images/select.png" alt="Select_Icon" />
                       <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMainActive>
-                  ) : (
-                    <ViewMain
-                      onClick={() => {
-                        connetWalletFunction(val);
-                      }}
-                    >
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <TitleIcon>{val.name}</TitleIcon>
-                    </ViewMain>
+                      <StyledButtonTitle>{val.name}</StyledButtonTitle>
+                    </StyledButton>
                   );
                 })}
-              </ViewMainView>
+              </Wrapper>
             </ButtonGroup>
           </Over>
-          <Parmition>
+          <Checkbox>
             <FormControlLabel
               control={
                 <Radio
                   onClick={() => {
-                    setCheck(!Check);
+                    // setCheck(!Check);
                   }}
-                  checked={Check ? true : false}
+                  // checked={Check ? true : false}
                 />
               }
               label=""
             />
-            <Condition>
-              I accept the <ConditionPink>Terms of Services</ConditionPink>&
-              <ConditionPink>Privacy Policy</ConditionPink>
-            </Condition>
-          </Parmition>
-          {Check ? (
+            <TermsAndConditionText>
+              I accept the <TermsAndConditionPinkText>Terms of Services</TermsAndConditionPinkText>&
+              <TermsAndConditionPinkText>Privacy Policy</TermsAndConditionPinkText>
+            </TermsAndConditionText>
+          </Checkbox>
+          {/* {Check ? ( */}
             <ConnectButton
               variant="text"
-              onClick={() => {
-                SelectData();
-              }}
+              // onClick={() => {
+              //   SelectData();
+              // }}
+              disabled={false}
             >
               Connect Wallet
             </ConnectButton>
-          ) : (
-            <ConnectButtonDisable variant="text">Connect Wallet</ConnectButtonDisable>
-          )}
+          {/* ) : (
+            <ConnectButton disabled={true} variant="text">
+              Connect Wallet
+            </ConnectButton>
+          )} */}
         </WalletModalDiv>
       </Modal>
     </>

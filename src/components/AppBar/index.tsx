@@ -13,114 +13,31 @@ const NavMainComponent = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-around',
 });
-
-const CrosschainButtonActive = styled(Button)({
-  borderRadius: 16,
-  backgroundColor: 'rgba(0, 0, 0, 0.03)',
-  fontSize: '16px',
-  fontWeight: '600',
-  color: '#000000',
-  fontStyle: 'Inter',
-  opacity: '0.65',
-  textTransform: 'initial',
+const NavButton = styled(Button)((props: any) => ({
+  background: props.isActive ? props.theme.palette.color.active : props.theme.palette.color.lightText,
+  color: props.isActive ? props.theme.palette.color.white : props.theme.palette.color.text,
   height: 52,
-  width: '137px',
-  border: '1px solid rgba(0, 0, 0, 0.1)',
-});
-
-const SwapButtonActive = styled(Button)({
-  borderRadius: 16,
-  backgroundColor: 'rgba(0, 0, 0, 0.03)',
-  fontSize: '16px',
-  fontWeight: '600',
-  color: '#000000',
-  fontStyle: 'Inter',
-  opacity: '0.65',
-  textTransform: 'initial',
-  height: 52,
-  width: '92px',
-  border: '1px solid rgba(0, 0, 0, 0.1)',
-});
-
-const SwapButton = styled(Button)({
-  borderRadius: 16,
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  fontSize: '16px',
-  fontWeight: '600',
-  color: 'white',
-  fontStyle: 'Inter',
-  textTransform: 'initial',
-  height: 52,
-  width: '92px',
-  border: 'none',
-});
-
-const ConnectWalletActive = styled(Button)({
-  borderRadius: 16,
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  fontSize: '16px',
-  fontWeight: '600',
-  color: '#FFFFFF',
-  fontStyle: 'Inter',
-  textTransform: 'initial',
-  height: 52,
-  width: '169px',
-});
-
-const CrosschainButton = styled(Button)({
-  borderRadius: 16,
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  fontSize: '16px',
-  fontWeight: '600',
-  color: '#FFFFFF',
-  fontStyle: 'Inter',
-  textTransform: 'initial',
-  height: 52,
-  width: '191px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-around',
-});
-
+  border: props.isActive ? 'none' : '1px solid ' + props.theme.palette.color.border,
+}));
 const Imgs = styled('img')({
   width: '90px',
   height: 43,
   marginTop: 5,
 });
-
-const DownImg = styled('img')({
-  width: '8.49px',
-  height: '5.19px',
-});
-
 const WrongNetworkButton = styled(Button)({
-  borderRadius: 16,
   background: 'red',
-  padding: '0px 15px',
-  fontSize: '16px',
-  fontWeight: '600',
-  color: '#FFFFFF',
-  fontStyle: 'Inter',
-  textTransform: 'initial',
-  marginLeft: 5,
-  marginRight: 5,
-  height: 52,
-  width: '38%',
   '&:hover': {
     backgroundColor: 'red',
   },
 });
-
 const ButtonGrid = styled(Grid)({
   display: 'flex',
   justifyContent: 'space-evenly',
 });
-
 const Img = styled('img')({
   height: '36px',
   width: '36px',
 });
-
 const SettingMain = styled('div')({
   display: 'flex',
   justifyContent: 'space-between',
@@ -128,27 +45,17 @@ const SettingMain = styled('div')({
   marginRight: 15,
   marginLeft: 15,
 });
-
 const NavGrids = styled(Grid)({
   display: 'flex',
   justifyContent: 'space-between',
 });
-
 const LogoGrid = styled(Grid)({
   marginRight: 0,
 });
-
-const SettingTitle = styled('p')({
-  fontFamily: 'Inter',
-  fontWeight: 600,
-  fontSize: 20,
-});
-
 const CloseIcon = styled('img')({
   width: 15,
   height: 15,
 });
-
 const SettingMenuOverLay = styled('div')({
   position: 'fixed',
   width: '100%',
@@ -226,21 +133,6 @@ const BtnGroup = styled('div')({
   width: '100%',
   marginTop: '10%',
 });
-const ActiveBtn = styled('button')({
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  height: 36,
-  width: '100%',
-  border: 'none',
-  borderRadius: '100px',
-  fontFamily: 'Inter',
-  fontWeight: '600',
-  fontSize: '16px',
-  color: 'white',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
-
 const settingData = [
   { name: 'About' },
   { name: 'Help Center' },
@@ -274,31 +166,26 @@ const AppBar = () => {
               <LogoGrid item sm={1}>
                 <Imgs src="/logo.png" alt="logo" />
               </LogoGrid>
-              <ButtonGrid item sm={CoinDetail?.name === '' && CoinNetwork?.name === '' ? 6.5 : 8}>
-                {window?.location?.pathname === '/swap' ? (
-                  <SwapButton href="/swap">Swap</SwapButton>
-                ) : (
-                  <SwapButtonActive href="/swap">Swap</SwapButtonActive>
-                )}
-                {window?.location?.pathname === '/Crosschain' ? (
-                  <CrosschainButton href="/Crosschain">
-                    <Img src="/images/chain.png" />
-                    Crosschain
-                    <DownImg src="/images/downIconWhite.png" />
-                  </CrosschainButton>
-                ) : (
-                  <CrosschainButtonActive href="/Crosschain">Crosschain</CrosschainButtonActive>
-                )}
+              <ButtonGrid item sm={8}>
+                <NavButton isActive={window?.location?.pathname === '/swap'} href="/swap">
+                  Swap
+                </NavButton>
+                <NavButton isActive={window?.location?.pathname === '/Crosschain'} href="/Crosschain">
+                  {window?.location?.pathname === '/Crosschain' && <Img src="/images/chain.png" />}
+                  Crosschain
+                </NavButton>
                 <BuyCrypto />
-                {CoinNetwork?.name !== '' ? null : (
-                  <ConnectWalletActive onClick={() => null}>Connect Wallet</ConnectWalletActive>
-                )}
+                {/* {CoinNetwork?.name !== '' ? null : ( */}
+                <NavButton isActive={false} onClick={() => null}>
+                  Connect Wallet
+                </NavButton>
+                {/* )} */}
                 <SwitchNetwork />
-                {CoinDetail?.name === '' && CoinNetwork?.name !== '' ? (
+                {/* {CoinDetail?.name === '' && CoinNetwork?.name !== '' ? (
                   <WrongNetworkButton>Wrong Network</WrongNetworkButton>
                 ) : CoinDetail?.name === '' && CoinNetwork?.name === '' ? null : (
                   <WalletDetails account={null} />
-                )}
+                )} */}
                 <Settings settings={settingData} />
               </ButtonGrid>
             </NavGrids>
@@ -307,16 +194,24 @@ const AppBar = () => {
       ) : (
         // Mobile Main Content
         <>
-          <SettingMenuOverLay style={{ display: SearchState ? 'block' : 'none' }}>
-            <Grid item sm={CoinDetail?.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}>
+          <SettingMenuOverLay
+          // style={{ display: SearchState ? 'block' : 'none' }}
+          >
+            <Grid
+              item
+              // sm={CoinDetail?.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}
+            >
               <SettingMain>
-                <SettingTitle>Setting</SettingTitle>
+                <h4>Setting</h4>
                 <CloseIcon src="/images/cros.png" onClick={() => null} />
               </SettingMain>
             </Grid>
           </SettingMenuOverLay>
           {
-            <ConnectWalletOverLay style={{ display: MenuState ? 'block' : 'none' }} onClick={() => null}>
+            <ConnectWalletOverLay
+              // style={{ display: MenuState ? 'block' : 'none' }}
+              onClick={() => null}
+            >
               <ConnectWalletMain>
                 <TitleView>
                   <ConnectWalletTitle>Connect Wallet</ConnectWalletTitle>
@@ -337,7 +232,7 @@ const AppBar = () => {
         </BtnGroup>
       ) : (
         <BtnGroup>
-          <ActiveBtn>Connect Wallet</ActiveBtn>
+          <NavButton isActive={false}>Connect Wallet</NavButton>
         </BtnGroup>
       )}
     </>
