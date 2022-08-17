@@ -26,12 +26,12 @@ const ShortIcon = styled('img')({
   marginLeft: '20px',
   marginRight: '20px',
 });
-const CurrencyTotalPrice = styled('span')({
+const CurrencyTotalPrice = styled('span')((props:any) =>({
   fontFamily: 'Inter',
   fontSize: '44px',
   fontWeight: '600',
   color: 'black',
-});
+}));
 const CurrencyPriceChange = styled('span')({
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   color: 'transparent',

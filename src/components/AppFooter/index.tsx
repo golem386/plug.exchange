@@ -9,29 +9,39 @@ const Footer = styled('div')({
     justifyContent: 'space-between',
   },
 });
-const IconButtom = styled(Button)({
+// const NavButton = styled(Button)((props: any) => ({
+//   background: props.isActive ? props.theme.palette.color.active : props.theme.palette.color.lightText,
+//   color: props.isActive ? props.theme.palette.color.white : props.theme.palette.color.text,
+//   height: 52,
+//   border: props.isActive ? 'none' : '1px solid ' + props.theme.palette.color.border,
+// }));
+
+const IconButtom = styled(Button)((props:any) =>({
   borderRadius: 100,
   margin: 10,
-  backgroundColor: 'rgba(0, 0, 0, 0.03)',
+  backgroundColor: props.theme.palette.color.lightText,
   padding: '20px 0px',
-  color: '#000000',
+  color: props.theme.palette.color.dark,
   opacity: '0.65',
   '&:hover': {
     borderRadius: 100,
     margin: 10,
-    background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+    background: props.theme.palette.color.active,
     padding: '20px 0px',
-    color: '#000000',
+    color: props.theme.palette.color.dark,
     opacity: '1',
   },
-});
-const MenuItem = styled(Button)({
+}))
+const MenuItem = styled(Button)((props:any)=>({
   margin: 10,
   backgroundColor: 'transparent',
   padding: '20px 0px',
-  color: '#000000',
+  color: props.theme.palette.color.dark,
   opacity: '0.65',
-});
+  '&:hover': {
+    backgroundColor:props.theme.palette.color.lightText
+  }
+}));
 const IconSection = styled('div')({
   '@media (max-width: 660px)': {
     display: 'flex',
