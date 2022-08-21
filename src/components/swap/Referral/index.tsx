@@ -18,11 +18,13 @@ const PreText = styled('p')({
   fontWeight: '500',
   fontSize: 16,
 });
-const ReadMore = styled('span')({
-  color: '#BB36FF',
+const ReadMore = styled('span')((props:any) =>({
+  background: props.theme.palette.color.active,
+  color: 'transparent',
+  backgroundClip: 'text',
   marginLeft: 2,
   cursor:'pointer'
-});
+}));
 const ReferralModal = () => {
   return (
     <ReferralModalMain>

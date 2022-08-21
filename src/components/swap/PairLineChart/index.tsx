@@ -51,7 +51,7 @@ const PairLineChartData = styled('div')({
   width: '100%',
   marginTop: '10%',
 });
-const HoverButton = styled(Tab)({
+const HoverButton = styled(Tab)((props:any) =>({
   borderRadius: '100px',
   fontSize: '16px',
   fontWeight: '500',
@@ -61,7 +61,9 @@ const HoverButton = styled(Tab)({
   fontFamily: 'Inter',
   height: '36px',
   width: '65px',
-});
+  background: props.isActive ? props.theme.palette.color.active : "",
+  color: props.isActive ? 'white!important' : '',
+}));
 const HoverActiveButton = styled(Tab)({
   borderRadius: '100px',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
@@ -370,11 +372,12 @@ const PairLineChart = (props: PairLineChartProps) => {
                 value={value}
                 onChange={handleChange}
               >
-                {value === 0 ? (
+                {/* {value === 0 ? (
                   <HoverActiveButton label="24H" {...a11yProps(0)} />
                 ) : (
-                  <HoverButton label="24H" {...a11yProps(0)} />
-                )}
+                  <HoverButton isActive={false} label="24H" {...a11yProps(0)} />
+                )} */}
+                <HoverButton isActive={false} label="24H" {...a11yProps(0)} />
                 {value === 1 ? (
                   <HoverActiveButton label="1W" {...a11yProps(1)} />
                 ) : (

@@ -25,29 +25,18 @@ const SwapModal = styled('div')({
   width: '97%',
   marginTop: '12%',
 });
-const OrderBtn = styled(Button)({
+const OrderBtn = styled(Button)((props: any) => ({
   margin: 15,
   width: '86%',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'white',
   borderRadius: '12px',
   marginBottom: '6%',
   marginTop: '5%',
   marginLeft: '7%',
   textTransform: 'initial',
-});
-const OrderBtnDisebal = styled(Button)({
-  margin: 15,
-  width: '86%',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  color: 'white',
-  borderRadius: '12px',
-  marginBottom: '6%',
-  marginTop: '5%',
-  marginLeft: '7%',
-  textTransform: 'initial',
-  opacity: 0.4,
-});
+  opacity: props.isActive ? 1 : 0.4
+}));
 
 const ParmitionBtn = styled(Button)({
   marginLeft: '7%',
@@ -253,33 +242,32 @@ const Swap = (props: SwapProps) => {
         ) : null}
         {ConnectWallet?.name === '' && CoinNetwork?.name !== '' ? (
           <WrongBtn>Wrong Network</WrongBtn>
-        ) : Parmition ? (
+        ) :
           <OrderBtn
+            isActive={Parmition}
             onClick={
-              ConnectWallet?.name !== '' && CoinNetwork?.name !== ''
+              Parmition ? ConnectWallet?.name !== '' && CoinNetwork?.name !== ''
                 ? () => {
-                    setTransactionWaitingOpen(true);
-                    setTimeout(() => {
-                      setTransactionWaitingOpen(false);
-                      setTransactionCompletedOpen(true);
-                    }, 1000);
-                  }
+                  setTransactionWaitingOpen(true);
+                  setTimeout(() => {
+                    setTransactionWaitingOpen(false);
+                    setTransactionCompletedOpen(true);
+                  }, 1000);
+                }
                 : () => {
-                    setSwapConfirmModalOpen(true);
-                    setTransactionFaildopen(true);
-                    setHighSlippageModalOpen(true);
+                  setSwapConfirmModalOpen(true);
+                  setTransactionFaildopen(true);
+                  setHighSlippageModalOpen(true);
+                  dispatch(null);
+                  setTimeout(() => {
                     dispatch(null);
-                    setTimeout(() => {
-                      dispatch(null);
-                    }, 4000);
-                  }
+                  }, 4000);
+                } : () => { }
             }
           >
             {ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? 'Swap' : props.btnTitle}
           </OrderBtn>
-        ) : (
-          <OrderBtnDisebal>Swap</OrderBtnDisebal>
-        )}
+        }
       </SwapModal>
       {props.btnTitle === 'Connect Wallet' ? (
         ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? (

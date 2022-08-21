@@ -35,13 +35,13 @@ const ImageSpan = styled('span')({
   color: 'black',
   paddingLeft: 5,
 });
-const MainSpan = styled('span')({
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+const MainSpan = styled('span')((props:any) =>({
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontFamily: 'Inter',
-  cursor:'pointer'
-});
+  cursor: 'pointer'
+}));
 const DataUpdat = styled('div')({
   backgroundColor: '#f0f0f0',
   display: 'flex',
@@ -95,7 +95,7 @@ const ShereIcon = styled('img')({
   height: '18px',
   width: '18px',
   opacity: '0.4',
-  cursor:'pointer'
+  cursor: 'pointer'
 });
 const Text = styled('p')({
   textAlign: 'center',
@@ -110,31 +110,31 @@ const TextDown = styled('p')({
   fontWeight: '600',
   fontFamily: 'Inter',
 });
-const ChangeText = styled('span')({
+const ChangeText = styled('span')((props:any) =>({
   textAlign: 'center',
   fontSize: '16px',
   fontWeight: '600',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontFamily: 'Inter',
-});
+}));
 const ShortImage = styled('img')({
   paddingLeft: 3,
   height: 18,
   width: 19,
-  cursor:'pointer'
+  cursor: 'pointer'
 });
-const ShowMore = styled('p')({
+const ShowMore = styled('p')((props: any) => ({
   textAlign: 'center',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontSize: '16px',
   fontWeight: '600',
   fontFamily: 'Inter',
   cursor: 'pointer',
-});
+}));
 const DownArrowImg = styled('img')({
   height: 11,
   paddingLeft: 10,
@@ -304,17 +304,19 @@ const QuoteTables = (props: QuoteTableProps) => {
             </List>
           </CardCustom>
         )}
-        {data.length === loardData || data.length + 1 === loardData ? (
-          <ShowMore
-            onClick={() => {
-              setLoardData(1);
-              setBlur(true);
-            }}
-          >
-            Hide Details
-            <DownArrowImgTop src="/images/hideDetail.png" alt="Hide" />
-          </ShowMore>
-        ) : (
+        <ShowMore
+          onClick={data.length === loardData || data.length + 1 === loardData ? () => {
+            setLoardData(1);
+            setBlur(true);
+          } : () => {
+            setLoardData(data.length > loardData ? loardData + 2 : loardData);
+            setBlur(false);
+          }}
+        >
+          {data.length === loardData || data.length + 1 === loardData ? "Hide Details" : "Show More Details"}
+          <DownArrowImgTop src={data.length === loardData || data.length + 1 === loardData ? "/images/hideDetail.png" : '/images/showMore.png'} alt="Hide" />
+        </ShowMore>
+        {/* ) : (
           <ShowMore
             onClick={() => {
               setLoardData(data.length > loardData ? loardData + 2 : loardData);
@@ -324,7 +326,7 @@ const QuoteTables = (props: QuoteTableProps) => {
             Show More Details
             <DownArrowImg src="/images/showMore.png" alt="Show" />
           </ShowMore>
-        )}
+        )} */}
       </>
     </QuoteTablesMain>
   );

@@ -22,14 +22,14 @@ const HeaderTitle = styled('span')({
   fontFamily: 'Inter',
   opacity: 0.65,
 });
-const Max = styled('span')({
+const Max = styled('span')((props:any) =>({
   fontSize: '16px',
   fontWeight: '500',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontFamily: 'Inter',
-});
+}));
 const Input = styled('div')({
   display: 'flex',
   alignItems: 'center',

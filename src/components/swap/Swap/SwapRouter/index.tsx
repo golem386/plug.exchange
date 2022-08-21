@@ -2,14 +2,14 @@ import styled from '@emotion/styled';
 import { Button } from '@mui/material';
 import React from 'react';
 
-const ETH = styled('p')({
-  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+const ETH = styled('p')((props:any) =>({
+  background: props.theme.palette.color.active,
   color: "transparent",
   backgroundClip: "text",
   fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
-});
+}));
 const ImgVarticalShort = styled('img')({
   height: '15px',
   width: '15px',
@@ -60,9 +60,9 @@ const TitleDisebal = styled('p')({
   fontSize: '20px',
   fontWeight: 600,
 });
-const CustomButtonActive = styled(Button)({
+const CustomButtonActive = styled(Button)((props:any) =>({
   borderRadius: '100px',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background:props.theme.palette.color.active,
   padding: '3px 10px',
   fontSize: '14px',
   fontWeight: '600',
@@ -72,7 +72,7 @@ const CustomButtonActive = styled(Button)({
   marginLeft: 15,
   marginRight: 5,
   height: '28px',
-});
+}));
 
 const UsdtListItem = styled('div')({
   display: 'flex',
@@ -116,14 +116,6 @@ const AutoRoute = styled('div')({
   paddingRight: 15,
 });
 
-const Icon = styled('img')({
-  width: '14px',
-  height: '14px',
-  marginLeft: 5,
-  marginRight: '5%',
-  cursor: 'pointer',
-  opacity: '0.5'
-});
 const Icon2 = styled('img')({
   width: '20.5px',
   height: '18px',
@@ -131,14 +123,15 @@ const Icon2 = styled('img')({
   marginRight: 5,
   cursor: 'pointer',
 });
-const IconHr = styled('img')({
-  width: '14px',
-  height: '2px',
+const IconHr = styled('img')((props:any) =>({
+  width: props.isActive === true ? 27 : 25,
+  height: props.isActive === true ? 13 : 25,
   marginLeft: 5,
   marginRight: '5%',
   cursor: 'pointer',
   padding: 5,
-});
+  opacity:props.isActive ? '' : '0.5'
+}));
 
 const QusetionIcon = styled('img')({
   width: '20px',
@@ -147,14 +140,14 @@ const QusetionIcon = styled('img')({
   marginRight: 5,
   opacity: '0.4',
 });
-const AutoText = styled('p')({
+const AutoText = styled('p')((props:any) =>({
   fontSize: '16px',
   fontWeight: '600',
   fontFamily: 'Inter',
-  background: "linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)",
+  background: props.theme.palette.color.active,
   color: "transparent",
   backgroundClip: "text",
-});
+}));
 const Route = styled('div')({
   display: 'flex',
   alignItems: 'center',
@@ -181,9 +174,9 @@ const CViewImgThree = styled('img')({
   width: '24px',
   marginRight: 20,
 });
-const CustomButtonActiveCoin = styled(Button)({
+const CustomButtonActiveCoin = styled(Button)((props:any) =>({
   borderRadius: '100px',
-  backgroundColor: '#f2f2f2',
+  backgroundColor: props.theme.palette.color.active,
   padding: '3px 10px',
   fontSize: '14px',
   fontWeight: '600',
@@ -193,7 +186,7 @@ const CustomButtonActiveCoin = styled(Button)({
   marginLeft: 5,
   marginRight: 5,
   height: '28px',
-});
+}));
 const CView = styled('div')({
   display: 'flex',
   alignItems: 'center',
@@ -270,23 +263,14 @@ const SwapRouter = (props: SwapRouterProps) => {
               <AutoText>Auto Router</AutoText>
               <QusetionIcon src="/images/puestion.svg" alt="image" />
             </RoutButton>
-            {AddEntey === true ? (
               <IconHr
+                isActive={AddEntey}
                 onClick={() => {
                   setAddEntey(!AddEntey);
                 }}
-                src="/images/hr.png"
+                src={AddEntey === true ? "/images/hr.png" : "/images/plus.png"}
                 alt="image"
               />
-            ) : (
-              <Icon
-                onClick={() => {
-                  setAddEntey(!AddEntey);
-                }}
-                src="/images/plus.png"
-                alt="image"
-              />
-            )}
           </AutoRoute>
           {AddEntey === true ? (
             <Route>
