@@ -20,6 +20,7 @@ const style = {
   borderRadius: 5,
   overFlow: 'auto',
 };
+
 const style2 = {
   position: 'absolute',
   top: '50%',
@@ -42,7 +43,6 @@ const ImportTokenHeader = styled('div')({
   justifyContent: 'space-between',
 });
 const ImportTokenTitle = styled('p')({
-  fontFamily: 'Inter',
   fontSize: '24px',
   fontWeight: 600,
 });
@@ -58,23 +58,19 @@ const TokenImg = styled('img')({
   marginRight: 10,
 });
 const TokenName = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 16,
 });
 const TokenCode = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 16,
   color: '#dbdbdb',
 });
 const TokenKey = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 500,
   fontSize: 16,
   color: '#dbdbdb',
   '@media (max-width: 660px)': {
-    fontFamily: 'Inter',
     fontWeight: 500,
     fontSize: 14,
     color: '#dbdbdb',
@@ -95,7 +91,6 @@ const Info = styled('img')({
   marginRight: 10,
 });
 const WarningText = styled('span')({
-  fontFamily: 'Inter',
   fontSize: 18,
   fontWeight: 600,
   color: 'red',
@@ -106,14 +101,12 @@ const Red = styled('div')({
   marginBottom: 15,
 });
 const Pre = styled('span')({
-  fontFamily: 'Inter',
   fontSize: 14,
   fontWeight: 500,
   color: '#565656',
   lineHeight: 1.5,
 });
 const ParmitionText = styled('span')({
-  fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
   color: '#565656',
@@ -130,7 +123,6 @@ const ImportTokenButton = styled(Button)({
   borderRadius: 16,
   padding: 7,
   color: 'white',
-  fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: 600,
   textTransform: 'initial',
@@ -142,7 +134,6 @@ const ImportTokenDisabalButton = styled(Button)({
   borderRadius: 16,
   padding: 7,
   color: 'white',
-  fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: 600,
   textTransform: 'initial',

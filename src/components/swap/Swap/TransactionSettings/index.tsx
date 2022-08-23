@@ -25,7 +25,6 @@ const TransactionSettingTitle = styled('p')({
   fontSize: '24px',
   fontWeight: '600',
   color: 'black',
-  fontFamily: 'Inter',
 });
 const Slippage = styled('div')({
   display: 'flex',
@@ -37,7 +36,6 @@ const SlippageText = styled('span')({
   fontSize: '16px',
   fontWeight: '600',
   color: 'black',
-  fontFamily: 'Inter',
   paddingTop:'3%'
 });
 const QuestionIcon = styled('img')({
@@ -79,7 +77,6 @@ const CustomButtonActiveNumber = styled(Button)({
   height: '52px',
   width: '47%',
   fontSize: 24,
-  fontFamily: 'Inter',
   fontWeight: 500,
   marginLeft: '2.5%',
 });
@@ -98,7 +95,6 @@ const TextInput = styled('input')({
   backgroundColor: 'transparent',
   borderBottom: 0,
   border: 'none',
-  fontFamily: 'Inter',
   fontWeight: 500,
   fontSize: '24px',
   '&:focus-visible': {
@@ -114,17 +110,15 @@ const FlexViewJustyfy = styled('div')({
   marginRight: '5%',
 });
 const PriseText = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
   '@media (max-width: 660px)': {
-    fontFamily: 'Inter',
+
     fontWeight: '600',
     fontSize: '14px',
   },
 });
 const TimeText = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '14px',
   color: '#cccccc',
@@ -132,7 +126,6 @@ const TimeText = styled('p')({
   alignItems: 'center',
 });
 const TimeTextPink = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: '500',
   fontSize: '16px',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
@@ -141,7 +134,7 @@ const TimeTextPink = styled('p')({
   display: 'flex',
   alignItems: 'center',
   '@media (max-width: 660px)': {
-    fontFamily: 'Inter',
+
     fontWeight: '500',
     fontSize: '14px',
     background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
@@ -160,7 +153,6 @@ const DownArrowIcon = styled('img')({
 const Settings = styled('p')({
   fontWeight: '600',
   fontSize: '16px',
-  fontFamily: 'Inter',
   marginLeft: '5%',
 });
 const FlexVIew = styled('div')({
@@ -175,7 +167,6 @@ const FlexRow = styled('div')({
   marginRight: '5%',
 });
 const AutoRout = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: '500',
   fontSize: '16px',
   color: '#b3b3b3',
@@ -202,24 +193,21 @@ const DivFormsCustom = styled('div')({
   justifyContent: 'space-between',
 });
 const Comper = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '14px',
   color: '#b3b3b3',
 });
 const GasPrice = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '14px',
   color: '#b3b3b3',
 });
 const Span = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: '500',
   fontSize: '16px',
   color: '#b3b3b3',
   '@media (max-width: 660px)': {
-    fontFamily: 'Inter',
+
     fontWeight: '500',
     fontSize: '14px',
     color: '#b3b3b3',
@@ -234,7 +222,6 @@ const TextTypeinput = styled('input')({
   outline: 'none',
   padding: 3,
   paddingLeft: 15,
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
   '&:focus-visible': {

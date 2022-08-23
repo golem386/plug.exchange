@@ -20,7 +20,6 @@ const Header = styled('div')({
   justifyContent: 'space-between',
 });
 const Title = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '24px',
   marginLeft: '20px',
@@ -49,7 +48,6 @@ const ToMain = styled('div')({
 });
 
 const FromText = styled('span')({
-  fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
   color: '#000000',
@@ -102,21 +100,18 @@ const DroDownImg2 = styled('img')({
   width: '10.61px',
 });
 const Text = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: '18px',
   color: '#000000',
   opacity: 0.65,
 });
 const Text2 = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: '16px',
   color: '#000000',
   opacity: 0.65,
 });
 const Text3 = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 500,
   fontSize: '16px',
   color: '#000000',
@@ -124,7 +119,6 @@ const Text3 = styled('span')({
 });
 
 const Max = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 500,
   fontSize: '16px',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
@@ -133,7 +127,6 @@ const Max = styled('span')({
 });
 
 const Balance = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 500,
   fontSize: '16px',
   color: '#000000',
@@ -235,7 +228,6 @@ const UsdtList = styled('div')({
 });
 const TitleDisebal = styled('p')({
   color: '#949494',
-  fontFamily: 'Inter',
   fontSize: '20px',
   fontWeight: 600,
 });
@@ -261,7 +253,6 @@ const MainTitleView = styled('div')({
   marginRight: '5%',
 });
 const Amount = styled('p')({
-  fontFamily: 'Inter',
   fontSize: '20px',
   fontWeight: '600',
 });
@@ -271,7 +262,6 @@ const Div = styled('div')({
 });
 const Span = styled('span')({
   fontWeight: '500',
-  fontFamily: 'Inter',
   fontSize: '14px',
   color: '#949494',
   opacity: '0.4',
@@ -283,7 +273,6 @@ const ShowMore = styled('p')({
   backgroundClip: 'text',
   fontSize: '16px',
   fontWeight: '600',
-  fontFamily: 'Inter',
   cursor: 'pointer',
 });
 const DownArrowImg = styled('img')({
@@ -302,7 +291,6 @@ const OrderBtn = styled(Button)({
 });
 const Title2 = styled('p')({
   color: 'black',
-  fontFamily: 'Inter',
   fontSize: '20px',
   fontWeight: 600,
 });
@@ -323,14 +311,12 @@ const Expected = styled('div')({
 });
 const ItemText = styled('span')({
   padding: 10,
-  fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '500',
   color: 'black',
 });
 const ItemText2 = styled('span')({
   padding: 10,
-  fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '500',
   color: '#010101',

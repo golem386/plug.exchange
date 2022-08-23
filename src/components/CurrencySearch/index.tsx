@@ -25,20 +25,17 @@ const List = styled('span')({
   },
 });
 const TokenHeading = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 14,
   color: '#d7d7d7',
 });
 const ListTitle = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 14,
   color: 'black',
   marginLeft: 5,
 });
 const ListSubTitle = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 14,
   color: '#d7d7d7',

@@ -49,7 +49,6 @@ const ParmitionBtn = styled(Button)({
   textTransform: 'initial',
   display: 'flex',
   alignItems: 'center',
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
 });

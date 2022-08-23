@@ -26,7 +26,6 @@ const ButtonActive = styled(Button)({
     paddingBottom: '5%',
     border: 'none',
     borderRadius: '100px',
-    fontFamily: 'Inter',
     fontWeight: '500',
     fontSize: '16px',
     color: 'white',
@@ -47,18 +46,15 @@ const ImageIcon = styled('img')({
   },
 });
 const Title = styled('p')({
-  fontFamily: 'Inter',
   fontSize: '15px',
   fontWeight: '600',
 });
 const DropDownTitleIcon = styled('span')({
-  fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '600',
   opacity: 0.65,
 });
 const SelectNetwork = styled('span')({
-  fontFamily: 'Inter',
   fontSize: '14px',
   fontWeight: '500',
   opacity: 0.4,

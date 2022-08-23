@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { Button } from '@mui/material';
 
 const Title = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '24px',
   color: 'black',
@@ -12,7 +11,6 @@ const Title = styled('span')({
   marginTop: 20,
 });
 const SubTitle = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: '500',
   fontSize: '16px',
   textAlign: 'center',
@@ -27,14 +25,14 @@ const CompletedIcon = styled('img')({
   margin: 'auto',
   display: 'block',
 });
-const Buttons = styled(Button)({
+const Buttons = styled(Button)((props:any) =>({
   width: '100%',
   borderRadius: 16,
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'white',
   textTransform: 'initial',
   marginTop: 20,
-});
+}));
 const BtnIcon = styled('img')({
   height: '32px',
   width: '32px',

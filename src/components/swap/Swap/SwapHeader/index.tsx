@@ -18,7 +18,6 @@ const SwapTitle = styled('span')({
   fontSize: '24px',
   fontWeight: '600',
   color: 'black',
-  fontFamily: 'Inter',
 });
 export type SwapHeaderProps = {
   transactionSettingHandler: () => void | null;

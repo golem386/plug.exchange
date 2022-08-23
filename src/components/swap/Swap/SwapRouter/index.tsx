@@ -6,7 +6,6 @@ const ETH = styled('p')((props:any) =>({
   background: props.theme.palette.color.active,
   color: "transparent",
   backgroundClip: "text",
-  fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
 }));
@@ -50,13 +49,11 @@ const UsdtList = styled('div')({
 });
 const Title = styled('p')({
   color: 'black',
-  fontFamily: 'Inter',
   fontSize: '20px',
   fontWeight: 600,
 });
 const TitleDisebal = styled('p')({
   color: '#949494',
-  fontFamily: 'Inter',
   fontSize: '20px',
   fontWeight: 600,
 });
@@ -79,15 +76,15 @@ const UsdtListItem = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-between',
   marginLeft:'5%',
-  marginRight:'5%'
+  marginRight:'5%',
+  marginBottom:'3%',
+  marginTop:'3%'
 });
 const Amount = styled('p')({
-  fontFamily: 'Inter',
   fontSize: '20px',
   fontWeight: '600',
 });
 const AmountDisebal = styled('p')({
-  fontFamily: 'Inter',
   fontSize: '20px',
   fontWeight: '600',
   color: '#949494',
@@ -103,7 +100,6 @@ const RoutButton = styled('div')({
 });
 const Span = styled('span')({
   fontWeight: '500',
-  fontFamily: 'Inter',
   fontSize: '14px',
   color: '#949494',
   opacity: '0.4',
@@ -143,7 +139,6 @@ const QusetionIcon = styled('img')({
 const AutoText = styled('p')((props:any) =>({
   fontSize: '16px',
   fontWeight: '600',
-  fontFamily: 'Inter',
   background: props.theme.palette.color.active,
   color: "transparent",
   backgroundClip: "text",

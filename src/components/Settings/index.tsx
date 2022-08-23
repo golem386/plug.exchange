@@ -3,7 +3,6 @@ import { MenuItem, useMediaQuery } from '@mui/material';
 import React from 'react';
 
 const DropDownTitleIcon = styled('span')({
-  fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '600',
   color: 'blak',
@@ -85,17 +84,7 @@ const SettingButton = styled('button')({
   marginLeft: '30%',
   cursor:'pointer',
   '@media (max-width: 660px)': {
-    borderRadius: 100,
     backgroundColor: 'transparent',
-    padding: '20px 0px',
-    color: '#000000',
-    opacity: '0.65',
-    height: 52,
-    width: 52,
-    border: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     marginLeft: '5%',
   },
 });

@@ -17,7 +17,6 @@ const Receive = styled('div')({
 });
 const InputTitle = styled('span')({
   padding: '5%',
-  fontFamily: 'inter',
   fontWeight: '500',
   fontSize: 16,
   color: '#565656',
@@ -38,7 +37,6 @@ const TextInput = styled('input')({
   borderBottom: 'none',
   border: 'none',
   height: '52px',
-  fontFamily: 'Inter',
   fontWeight: 500,
   fontSize: '24px',
   backgroundColor: 'transparent',
@@ -61,7 +59,6 @@ const CoinImage = styled('img')({
   width: '36px',
 });
 const CoinTitle = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
   color: '#565656',

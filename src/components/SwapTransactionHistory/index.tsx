@@ -16,7 +16,6 @@ const Header = styled('div')({
 const HeaderText = styled('span')({
   fontWeight: 600,
   fontSize: 24,
-  fontFamily: 'Inter',
   color: 'black',
 });
 
@@ -39,7 +38,6 @@ const Button = styled('button')({
   textTransform: 'initial',
   marginLeft: 25,
   marginRight: 5,
-  fontFamily: 'Inter',
   borderWidth: 0,
   padding: 5,
   paddingLeft: 15,
@@ -59,7 +57,6 @@ const ActiveButton = styled('button')({
   textTransform: 'initial',
   marginLeft: 25,
   marginRight: 5,
-  fontFamily: 'Inter',
   borderWidth: 0,
   padding: 5,
   paddingLeft: 15,

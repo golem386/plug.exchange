@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { Button } from '@mui/material';
 
 const Title = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '24px',
   color: 'red',
@@ -12,7 +11,6 @@ const Title = styled('span')({
   marginTop: 20,
 });
 const SubTitle = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: '500',
   fontSize: '14px',
   textAlign: 'center',

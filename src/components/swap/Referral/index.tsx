@@ -14,7 +14,6 @@ const ShereImage = styled(Button)({
 });
 const PreText = styled('p')({
   marginLeft: 10,
-  fontFamily: 'inter',
   fontWeight: '500',
   fontSize: 16,
 });

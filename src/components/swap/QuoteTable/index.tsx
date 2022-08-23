@@ -21,14 +21,14 @@ const PriceDetail = styled('div')({
   justifyContent: 'space-between',
   paddingLeft: '2%',
   paddingRight: '2%',
+  marginTop:'2%',
   borderBottomWidth: '1px',
   borderBottomStyle: 'solid',
   borderBottomColor: '#e0e0e0',
-  width: '96%',
+  // width: '96%',
 });
 const MaxPriceDetail = styled('p')({
   color: 'rgba(0, 0, 0, 0.4)',
-  fontFamily: 'Inter',
   fontWeight: '600',
 });
 const ImageSpan = styled('span')({
@@ -39,7 +39,6 @@ const MainSpan = styled('span')((props:any) =>({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
-  fontFamily: 'Inter',
   cursor: 'pointer'
 }));
 const DataUpdat = styled('div')({
@@ -50,12 +49,12 @@ const DataUpdat = styled('div')({
   paddingLeft: '2%',
   paddingRight: '2%',
   height: 70,
+  // width:'96%'
 });
 const UpdateTitle = styled('p')({
   color: '#FF0000',
   fontWeight: '500',
   fontSize: '16px',
-  fontFamily: 'Inter',
 });
 const RefresBtn = styled(Button)({
   backgroundColor: 'white',
@@ -66,7 +65,6 @@ const RefresBtn = styled(Button)({
   fontSize: '16px',
   width: '93px',
   height: '36px',
-  fontFamily: 'Inter',
   textTransform: 'inherit',
   '&:hover': {
     backgroundColor: 'white',
@@ -77,7 +75,7 @@ const ListItem = styled('div')({
   borderWidth: 1,
   borderColor: '#f0f0f0',
   padding: 10,
-  width: '97%',
+  // width: '97%',
   '&:hover': {
     backgroundColor: '#f2f2f2',
   },
@@ -102,13 +100,11 @@ const Text = styled('p')({
   opacity: 0.4,
   fontSize: '16px',
   fontWeight: '500',
-  fontFamily: 'Inter',
 });
 const TextDown = styled('p')({
   textAlign: 'center',
   fontSize: '16px',
   fontWeight: '600',
-  fontFamily: 'Inter',
 });
 const ChangeText = styled('span')((props:any) =>({
   textAlign: 'center',
@@ -117,7 +113,6 @@ const ChangeText = styled('span')((props:any) =>({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
-  fontFamily: 'Inter',
 }));
 const ShortImage = styled('img')({
   paddingLeft: 3,
@@ -132,7 +127,6 @@ const ShowMore = styled('p')((props: any) => ({
   backgroundClip: 'text',
   fontSize: '16px',
   fontWeight: '600',
-  fontFamily: 'Inter',
   cursor: 'pointer',
 }));
 const DownArrowImg = styled('img')({
@@ -140,7 +134,6 @@ const DownArrowImg = styled('img')({
   paddingLeft: 10,
 });
 const CoinTitle = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: '16px',
 });
@@ -149,7 +142,6 @@ const DownArrowImgTop = styled('img')({
   paddingLeft: 10,
 });
 const MainTitle = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
 });

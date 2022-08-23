@@ -89,19 +89,16 @@ const TranjectionDetail = styled('div')({
   marginLeft: 5,
 });
 const StatusText = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 16,
   color: 'black',
 });
 const TextPink = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 16,
   color: '#BB36FF',
 });
 const TimeText = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: 500,
   fontSize: 14,
   color: '#999999',
@@ -114,7 +111,6 @@ const TimeImage = styled('img')({
   marginTop: 7,
 });
 const Span = styled('span')({
-  fontFamily: 'Inter',
   fontWaight: 500,
   fontSize: '14px',
   color: '#999999',
@@ -124,14 +120,13 @@ const Span = styled('span')({
   marginBottom: 15,
 });
 const TranjectionEntry = styled('span')({
-  fontFamily: 'Inter',
   fontWaight: 600,
   fontSize: '16px',
   color: '#595959',
   alignItems: 'center',
   display: 'flex',
   '@media (max-width: 660px)': {
-    fontFamily: 'Inter',
+
     fontWaight: 600,
     fontSize: '16px',
     color: '#595959',
@@ -141,14 +136,13 @@ const TranjectionEntry = styled('span')({
   },
 });
 const Span3 = styled('span')({
-  fontFamily: 'Inter',
   fontWaight: 500,
   fontSize: '16px',
   color: '#595959',
   alignItems: 'center',
   display: 'flex',
   '@media (max-width: 660px)': {
-    fontFamily: 'Inter',
+
     fontWaight: 500,
     fontSize: '16px',
     color: '#595959',

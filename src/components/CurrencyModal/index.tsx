@@ -27,7 +27,6 @@ const CurrencyCard = styled('div')({
 const SelectTokenTitle = styled('p')({
   fontSize: '24px',
   fontWeight: 600,
-  fontFamily: 'Inter',
 });
 const SelectTokenMain = styled('div')({
   display: 'flex',
@@ -38,7 +37,6 @@ const SelectTokenMain = styled('div')({
 const CloseIcon = styled(Button)({
   fontSize: '24px',
   fontWeight: 600,
-  fontFamily: 'Inter',
 });
 const TextInputMain = styled('div')({
   display: 'flex',
@@ -64,7 +62,6 @@ const TextInputActive = styled('input')({
 const Count = styled('p')({
   fontWeight: 600,
   fontSize: '16px',
-  fontFamily: 'Inter',
 });
 const ListMain = styled(ListItemButton)({
   display: 'flex',
@@ -72,14 +69,12 @@ const ListMain = styled(ListItemButton)({
   justifyContent: 'space-around',
 });
 const ListItemTextStyle = styled(ListItemText)({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: '16px!important',
 });
 const Type = styled('span')({
   opacity: 0.5,
   marginRight: 10,
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 16,
 });

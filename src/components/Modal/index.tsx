@@ -19,7 +19,6 @@ const ModalHeader = styled('div')({
 });
 
 const HeaderTitle = styled('span')({
-  fontFamily: 'Inter',
   fontSize: '24px',
   fontWeight: '600',
   marginLeft: '5%',

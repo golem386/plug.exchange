@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Button, FormControlLabel, Radio } from '@mui/material';
 
 const Title = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '24px',
   color: 'red',
@@ -13,7 +12,6 @@ const Title = styled('span')({
   marginTop: 20,
 });
 const SubTitle = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: '500',
   fontSize: '14px',
   textAlign: 'center',
@@ -63,7 +61,6 @@ const Parmition = styled('div')({
   marginLeft: '2%',
 });
 const ConditionPink = styled('span')({
-  fontFamily: 'Inter',
   fontSize: '15px',
   fontWeight: '600',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
@@ -72,7 +69,6 @@ const ConditionPink = styled('span')({
   marginRight: 5,
 });
 const Condition = styled('p')({
-  fontFamily: 'Inter',
   fontSize: '15px',
   fontWeight: '600',
   display: 'flex',

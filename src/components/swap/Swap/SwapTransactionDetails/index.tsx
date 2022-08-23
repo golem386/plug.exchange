@@ -25,7 +25,6 @@ const SwapTransactionDetailsItem = styled('div')({
 });
 const ItemText = styled('span')({
   padding: 10,
-  fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '500',
   color: 'black',
@@ -33,7 +32,6 @@ const ItemText = styled('span')({
 });
 const ItemText2 = styled('span')({
   padding: 10,
-  fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '500',
   color: '#010101',

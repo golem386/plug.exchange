@@ -19,7 +19,6 @@ const HeaderTitle = styled('span')({
   fontSize: '16px',
   fontWeight: '500',
   color: 'black',
-  fontFamily: 'Inter',
   opacity: 0.65,
 });
 const Max = styled('span')((props:any) =>({
@@ -28,7 +27,6 @@ const Max = styled('span')((props:any) =>({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
-  fontFamily: 'Inter',
 }));
 const Input = styled('div')({
   display: 'flex',
@@ -46,7 +44,6 @@ const TextInput = styled('input')({
   borderBottom: 'none',
   border: 'none',
   height: '52px',
-  fontFamily: 'Inter',
   fontWeight: 500,
   fontSize: '24px',
   backgroundColor: 'transparent',
@@ -69,7 +66,6 @@ const SelectTokenImage = styled('img')({
   width: '36px',
 });
 const SelectTokenTitle = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '16px',
   color: '#595959',

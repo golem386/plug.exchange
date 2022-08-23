@@ -103,7 +103,6 @@ const TitleView = styled('div')({
   marginRight: '3%',
 });
 const ConnectWalletTitle = styled('span')({
-  fontFamily: 'Inter',
   fontSize: '24px',
   fontWeight: '600',
   marginLeft: '3%',

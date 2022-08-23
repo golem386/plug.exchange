@@ -16,7 +16,6 @@ const CloseImage = styled('img')({
   cursor: 'pointer',
 });
 const Title = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 24,
 });
@@ -24,7 +23,6 @@ const ETH = styled('span')({
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   color: 'transparent',
   backgroundClip: 'text',
-  fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
 });
@@ -58,13 +56,11 @@ const ShortViewListItem = styled('div')({
 });
 const Text = styled('span')({
   color: '#b0b0b0',
-  fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
 });
 const Price = styled('span')({
   color: 'black',
-  fontFamily: 'Inter',
   fontSize: 16,
   fontWeight: 500,
 });

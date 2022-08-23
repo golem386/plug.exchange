@@ -7,14 +7,12 @@ import { Box, Tab, Tabs } from '@mui/material';
 import * as echarts from 'echarts';
 
 const CurrencyTitle = styled('p')({
-  fontFamily: 'Inter',
   fontSize: 'calc(0.55em + 1vw)',
   fontWeight: '600',
   display: 'flex',
   marginTop: '12%',
 });
 const CurrencySubName = styled('span')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: 'calc(0.55em + 1vw)',
   paddingLeft: 5,
@@ -27,7 +25,6 @@ const ShortIcon = styled('img')({
   marginRight: '20px',
 });
 const CurrencyTotalPrice = styled('span')((props:any) =>({
-  fontFamily: 'Inter',
   fontSize: '44px',
   fontWeight: '600',
   color: 'black',
@@ -39,7 +36,6 @@ const CurrencyPriceChange = styled('span')({
   fontSize: '16px',
   fontWeight: '600',
   marginLeft: '1.5%',
-  fontFamily: 'Inter',
 });
 const PairLineChartMain = styled('div')({
   display: 'block',
@@ -58,7 +54,6 @@ const HoverButton = styled(Tab)((props:any) =>({
   fontStyle: 'normal',
   opacity: '0.65',
   textTransform: 'lowercase',
-  fontFamily: 'Inter',
   height: '36px',
   width: '65px',
   background: props.isActive ? props.theme.palette.color.active : "",
@@ -72,7 +67,6 @@ const HoverActiveButton = styled(Tab)({
   color: 'white!important',
   fontStyle: 'normal',
   textTransform: 'lowercase',
-  fontFamily: 'Inter',
   height: '36px',
   width: '65px',
 });

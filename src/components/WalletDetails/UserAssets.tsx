@@ -13,13 +13,11 @@ const NetWorth = styled('div')({
 });
 const NetWorthTitle = styled('span')({
   fontSize: '14px',
-  fontFamily: 'Inter',
   fontWeight: '600',
   marginLeft: 10,
 });
 const TotalNetWorth = styled('span')({
   fontSize: '24px',
-  fontFamily: 'Inter',
   fontWeight: '600',
   marginLeft: 10,
 });
@@ -65,12 +63,10 @@ const CoinImage = styled('img')({
 });
 const DropTitle = styled('span')({
   fontSize: '16px',
-  fontFamily: 'Inter',
   fontWeight: '600',
 });
 const DropPrice = styled('span')({
   fontSize: '14px',
-  fontFamily: 'Inter',
   fontWeight: '600',
   color: '#d4d4d4',
   marginLeft: 10,

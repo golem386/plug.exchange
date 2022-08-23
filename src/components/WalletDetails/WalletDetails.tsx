@@ -20,12 +20,10 @@ const Copy = styled('div')({
   },
 });
 const Id = styled('p')({
-  fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '600',
 });
 const Copied = styled('p')({
-  fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '600',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
@@ -35,7 +33,6 @@ const Copied = styled('p')({
 
 const DropPrice = styled('span')({
   fontSize: '14px',
-  fontFamily: 'Inter',
   fontWeight: '500',
   color: '#d4d4d4',
   marginLeft: 10,
@@ -63,7 +60,6 @@ const HistoryDiv = styled('div')({
 });
 const HistoryTitle = styled('span')({
   fontSize: '16px',
-  fontFamily: 'Inter',
   fontWeight: '600',
   color: 'black',
   marginLeft: 10,
@@ -99,7 +95,7 @@ const CoinPrice = styled('span')({
     padding: '0px 10px',
     border: 'none',
     borderRadius: '100px',
-    fontFamily: 'Inter',
+
     fontWeight: '500',
     fontSize: '16px',
     color: 'black',
@@ -117,7 +113,6 @@ const Into = styled('p')({
   boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
   fontWeight: 600,
   fontSize: 16,
-  fontFamily: 'Inter',
   marginBottom: '6%',
   color: '#565656',
 });
@@ -181,7 +176,6 @@ const CoinDropIcon = styled('img')({
   marginLeft: 10,
 });
 const Name = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: 600,
   fontSize: 16,
   color: '#565656',
