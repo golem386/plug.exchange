@@ -6,97 +6,130 @@ import { useIsModalOpen, useToggleModal } from '../../store/app/hooks';
 import { ModalType } from 'src/store/app';
 import styled from 'styled-components';
 
-const Title = styled.div`
-  font-family: Inter;
-  font-size: 18px;
-  font-weight: 600;
-  margin-left: 5%;
-`;
 
-const Wrapper = styled.div`
-  display: flex;
-  alignitems: center;
-  flexwrap: wrap;
-  marginleft: 3%;
-`;
+const Title = styled('div')({
+  fontSize:18,
+  fontWeight:'600',
+  marginLeft:'5%'
+});
 
-const StyledButton = styled('button')<{ isActice: boolean }>`
-position: relative;
-border-width: 1.5px;
-border-style: solid;
-border-color: ${(props) => (!props.isActice ? '#e0e0e0' : 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)')};
-background: ${(props) => props.isActice && 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)'}
-display: flex;
-align-items: center;
-border-radius: 10;
-justify-content: center;
-margin: 5;
-padding-left: 3%;
-padding-right: 3%;
-margin-left: 15;
-padding: 12px, 18px, 12px, 16px;
-cursor: pointer;
+const Wrapper = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  marginLeft: '3%'
+});
 
-`;
+// const StyledButton = styled('button') <{ isActice: boolean }>`
+// position: relative;
+// border-width: 1.5px;
+// border-style: solid;
+// border-color: ${(props) => (!props.isActice ? '#e0e0e0' : 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)')};
+// background: ${(props) => props.isActice && 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)'}
+// display: flex;
+// align-items: center;
+// border-radius: 10;
+// justify-content: center;
+// margin: 5;
+// padding-left: 3%;
+// padding-right: 3%;
+// margin-left: 15;
+// padding: 12px, 18px, 12px, 16px;
+// cursor: pointer;
 
-const Checkbox = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 5%;
-  margin-top: 2%;
-  margin-bottom: 3%;
-`;
+// `;
 
-const TermsAndConditionText = styled.p`
-  font-family: Inter;
-  font-size: 15px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-`;
+const StyledButton = styled('button')((isActice: boolean) =>({
+  position: 'relative',
+  borderWidth: "1.5px",
+  borderStyle: 'solid',
+  borderColor: isActice ? '#e0e0e0' : 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: isActice ? "#e0e0e0" : 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  display: 'flex',
+  alignItems: 'center',
+  borderRadius: 10,
+  justifyContent: 'center',
+  margin: 5,
+  paddingLeft: '3%',
+  paddingRight: '3%',
+  paddingBottom:'2%',
+  paddingTop:'2%',
+  marginLeft: 15,
+  padding: '12px, 18px, 12px, 16px',
+  cursor: 'pointer'
+}));
 
-const TermsAndConditionPinkText = styled.span`
-  font-family: Inter;
-  font-size: 15px;
-  font-weight: 600;
-  background: linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%);
-  color: transparent;
-  background-clip: text;
-  margin-right: 5;
-  margin-left: 5;
-`;
+const Checkbox = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  marginLeft: '5%',
+  marginTop: '2%',
+  marginBottom: '3%'
+});
 
-const ConnectButton = styled(Button)<{ disabled: boolean }>`
-  width: 90%;
-  background: linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%);
-  border-radius: 16;
-  padding: 7px;
-  color: white;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: initial;
-  margin-left: 4%;
-  ${(props) => props.disabled && 'opacity: 0.3;'}
-`;
 
-const SelectImg = styled('img')({
+const TermsAndConditionText = styled('p')({
+  fontSize: 15,
+  fontWeight: '600',
+  display: 'flex',
+  alignItems: 'center',
+  flexWrap: "wrap"
+});
+
+const TermsAndConditionPinkText = styled('span')({
+  fontSize: 15,
+  fontWeight: '600',
+  background: "linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)",
+  color: 'transparent',
+  backgroundClip: 'text',
+  marginRight: 5,
+  marginLeft: 5
+});
+
+// const ConnectButton = styled(Button) <{ disabled: boolean }>`
+//   width: 90%;
+//   background: linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%);
+//   border-radius: 16;
+//   padding: 7px;
+//   color: white;
+//   font-family: Inter;
+//   font-size: 16px;
+//   font-weight: 600;
+//   text-transform: initial;
+//   margin-left: 4%;
+//   ${(props) => props.disabled && 'opacity: 0.3;'}
+// `;
+
+const ConnectButton = styled(Button)((disabled: boolean) =>({
+  width: '90%',
+  background: 'linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)',
+  borderRadius: 16,
+  padding: 7,
+  color: 'white',
+  fontSize: 16,
+  fontWeight: '600',
+  textTransform: 'initial',
+  marginLeft: '4%',
+  opacity:disabled ? '0.3' : 1
+}));
+
+const SelectImg = styled('img')((isActice: boolean) =>({
   position: 'absolute',
   left: '45px',
   top: '70%',
   transform: 'translate(-50%, -50%)',
   height: 15,
   width: 15,
-});
+  display:isActice ? 'none' : 'block'
+}));
 
-const StyledButtonTitle = styled.p`
-fontFamily: 'Inter',
-fontSize: '16px',
-fontWeight: '600',
-color: '#000000',
-opacity: 0.65,
-`;
+
+const StyledButtonTitle = styled('p')({
+  fontSize: 16,
+  fontWeight: '600',
+  color: '#000000',
+  opacity: 0.65
+});
 
 const ImageIcon = styled('img')({
   height: 35,
@@ -154,7 +187,7 @@ const WalletModal = () => {
 
   return (
     <>
-      <Modal isOpen={false} modalTitle="Connect Wallet" close={close}>
+      <Modal isOpen={true} modalTitle="Connect Wallet" close={close}>
         <WalletModalDiv>
           <Over>
             <Main>
@@ -236,7 +269,7 @@ const WalletModal = () => {
                   onClick={() => {
                     // setCheck(!Check);
                   }}
-                  // checked={Check ? true : false}
+                // checked={Check ? true : false}
                 />
               }
               label=""
@@ -247,15 +280,15 @@ const WalletModal = () => {
             </TermsAndConditionText>
           </Checkbox>
           {/* {Check ? ( */}
-            <ConnectButton
-              variant="text"
-              // onClick={() => {
-              //   SelectData();
-              // }}
-              disabled={false}
-            >
-              Connect Wallet
-            </ConnectButton>
+          <ConnectButton
+            variant="text"
+            // onClick={() => {
+            //   SelectData();
+            // }}
+            disabled={false}
+          >
+            Connect Wallet
+          </ConnectButton>
           {/* ) : (
             <ConnectButton disabled={true} variant="text">
               Connect Wallet
