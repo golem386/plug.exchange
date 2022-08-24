@@ -8,9 +8,9 @@ import styled from 'styled-components';
 
 
 const Title = styled('div')({
-  fontSize:18,
-  fontWeight:'600',
-  marginLeft:'5%'
+  fontSize: 18,
+  fontWeight: '600',
+  marginLeft: '5%'
 });
 
 const Wrapper = styled('div')({
@@ -39,7 +39,7 @@ const Wrapper = styled('div')({
 
 // `;
 
-const StyledButton = styled('button')((isActice: boolean) =>({
+const StyledButton = styled('button')((isActice: boolean) => ({
   position: 'relative',
   borderWidth: "1.5px",
   borderStyle: 'solid',
@@ -52,8 +52,8 @@ const StyledButton = styled('button')((isActice: boolean) =>({
   margin: 5,
   paddingLeft: '3%',
   paddingRight: '3%',
-  paddingBottom:'2%',
-  paddingTop:'2%',
+  paddingBottom: '2%',
+  paddingTop: '2%',
   marginLeft: 15,
   padding: '12px, 18px, 12px, 16px',
   cursor: 'pointer'
@@ -79,7 +79,7 @@ const TermsAndConditionText = styled('p')({
 const TermsAndConditionPinkText = styled('span')({
   fontSize: 15,
   fontWeight: '600',
-  background: "linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)",
+  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   color: 'transparent',
   backgroundClip: 'text',
   marginRight: 5,
@@ -100,7 +100,7 @@ const TermsAndConditionPinkText = styled('span')({
 //   ${(props) => props.disabled && 'opacity: 0.3;'}
 // `;
 
-const ConnectButton = styled(Button)((disabled: boolean) =>({
+const ConnectButton = styled(Button)((disabled: boolean) => ({
   width: '90%',
   background: 'linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)',
   borderRadius: 16,
@@ -110,17 +110,17 @@ const ConnectButton = styled(Button)((disabled: boolean) =>({
   fontWeight: '600',
   textTransform: 'initial',
   marginLeft: '4%',
-  opacity:disabled ? '0.3' : 1
+  opacity: disabled ? '0.3' : 1
 }));
 
-const SelectImg = styled('img')((isActice: boolean) =>({
+const SelectImg = styled('img')((isActice: boolean) => ({
   position: 'absolute',
   left: '45px',
   top: '70%',
   transform: 'translate(-50%, -50%)',
   height: 15,
   width: 15,
-  display:isActice ? 'none' : 'block'
+  display: isActice ? 'none' : 'block'
 }));
 
 
@@ -153,6 +153,23 @@ const Main = styled('div')({
     marginBottom: '5%',
   },
 });
+
+const Header = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between'
+});
+const Heading = styled('div')({
+  fontWeight: '600',
+  fontSize: '24px',
+  marginLeft: 27,
+  marginBottom: 10
+});
+const CloseButton = styled('img')({
+  marginRight: 27,
+  marginBottom: 10
+});
+
 
 const WalletModalDiv = styled('div')({
   backgroundColor: 'white',
@@ -187,8 +204,12 @@ const WalletModal = () => {
 
   return (
     <>
-      <Modal isOpen={true} modalTitle="Connect Wallet" close={close}>
+      <Modal isOpen={false} modalTitle="Connect Wallet" close={close}>
         <WalletModalDiv>
+          <Header>
+            <Heading>Connect Wallet</Heading>
+            <CloseButton src={'/images/cros.png'} />
+          </Header>
           <Over>
             <Main>
               <Title>Choose Network</Title>

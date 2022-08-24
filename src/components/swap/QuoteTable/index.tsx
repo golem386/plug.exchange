@@ -30,6 +30,8 @@ const PriceDetail = styled('div')({
 const MaxPriceDetail = styled('p')({
   color: 'rgba(0, 0, 0, 0.4)',
   fontWeight: '600',
+  marginTop:20,
+  display:'flex'
 });
 const ImageSpan = styled('span')({
   color: 'black',
@@ -39,7 +41,8 @@ const MainSpan = styled('span')((props:any) =>({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  display:'flex'
 }));
 const DataUpdat = styled('div')({
   backgroundColor: '#f0f0f0',
