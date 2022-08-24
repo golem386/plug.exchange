@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ConnectNetWorkOne, ConnectWalletOne } from '../../contexts/ConnectWalletDATA';
 import { Button, FormControlLabel, Radio } from '@mui/material';
 import Modal from '../Modal';
@@ -39,12 +39,12 @@ const Wrapper = styled('div')({
 
 // `;
 
-const StyledButton = styled('button')((isActice: boolean) => ({
+const StyledButton = styled('button')((props: any) => ({
   position: 'relative',
   borderWidth: "1.5px",
   borderStyle: 'solid',
-  borderColor: isActice ? '#e0e0e0' : 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  background: isActice ? "#e0e0e0" : 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  borderColor: props.isActive ? 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)': '#e0e0e0',
+  background: props.isActive ?  'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)': "#e0e0e0",
   display: 'flex',
   alignItems: 'center',
   borderRadius: 10,
@@ -100,7 +100,7 @@ const TermsAndConditionPinkText = styled('span')({
 //   ${(props) => props.disabled && 'opacity: 0.3;'}
 // `;
 
-const ConnectButton = styled(Button)((disabled: boolean) => ({
+const ConnectButton = styled(Button)((props: any) => ({
   width: '90%',
   background: 'linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)',
   borderRadius: 16,
@@ -110,17 +110,17 @@ const ConnectButton = styled(Button)((disabled: boolean) => ({
   fontWeight: '600',
   textTransform: 'initial',
   marginLeft: '4%',
-  opacity: disabled ? '0.3' : 1
+  opacity: props.isActive ? 1 : 0.3
 }));
 
-const SelectImg = styled('img')((isActice: boolean) => ({
+const SelectImg = styled('img')((props: any) => ({
   position: 'absolute',
   left: '45px',
   top: '70%',
   transform: 'translate(-50%, -50%)',
   height: 15,
   width: 15,
-  display: isActice ? 'none' : 'block'
+  display: props.isActive ? 'block' : 'none'
 }));
 
 
@@ -198,13 +198,17 @@ const WalletModalDiv = styled('div')({
 
 const WalletModal = () => {
   // for close the wallet modal
+  const [WallerSelect,setWallerSelect] = useState(false)
+  const [parmition,setParmition] = useState(false)
+  const [Wallet,setWallet] = useState('')
+  const [Network,setNetwork] = useState('')
   const close = useToggleModal(null);
 
   let isOpen = useIsModalOpen(ModalType.WALLET_MODAL);
 
   return (
     <>
-      <Modal isOpen={false} modalTitle="Connect Wallet" close={close}>
+      <Modal isOpen={true} modalTitle="Connect Wallet" close={close}>
         <WalletModalDiv>
           <Header>
             <Heading>Connect Wallet</Heading>
@@ -217,9 +221,9 @@ const WalletModal = () => {
                 <Wrapper>
                   {ConnectNetWorkOne.map((val, i) => {
                     return (
-                      <StyledButton isActice={true}>
-                        <SelectImg src="/images/select.png" alt="Select_Icon" />
-                        <ImageIcon src={val.coin} alt="Coin" />
+                      <StyledButton isActive={Network === val.name ? WallerSelect : false} onClick={()=>{setWallerSelect(true); setNetwork(val.name)}}>
+                        <SelectImg isActive={Network === val.name ? WallerSelect : false} src="/images/select.png" alt="Select_Icon" />
+                        <ImageIcon  src={val.coin} alt="Coin" />
                         <StyledButtonTitle>{val.name}</StyledButtonTitle>
                       </StyledButton>
                     );
@@ -273,8 +277,8 @@ const WalletModal = () => {
               <Wrapper>
                 {ConnectWalletOne.map((val, i) => {
                   return (
-                    <StyledButton isActice={true}>
-                      <SelectImg src="/images/select.png" alt="Select_Icon" />
+                    <StyledButton isActive={Wallet === val.name ? WallerSelect : false} onClick={()=>{setWallerSelect(true);setWallet(val.name)}}>
+                      <SelectImg isActive={Wallet === val.name ? WallerSelect : false} src="/images/select.png" alt="Select_Icon" />
                       <ImageIcon src={val.coin} alt="Coin" />
                       <StyledButtonTitle>{val.name}</StyledButtonTitle>
                     </StyledButton>
@@ -289,7 +293,9 @@ const WalletModal = () => {
                 <Radio
                   onClick={() => {
                     // setCheck(!Check);
+                    setParmition(!parmition)
                   }}
+                  checked={parmition}
                 // checked={Check ? true : false}
                 />
               }
@@ -306,7 +312,8 @@ const WalletModal = () => {
             // onClick={() => {
             //   SelectData();
             // }}
-            disabled={false}
+            isActive={parmition}
+            
           >
             Connect Wallet
           </ConnectButton>
