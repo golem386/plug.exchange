@@ -117,7 +117,7 @@ const CurrencyInput = (props: CurrencyInputProps) => {
             <SelectTokenImage src={CoinDetail?.image} alt="Coin" />
             <SelectTokenTitle>{CoinDetail?.name}</SelectTokenTitle>
             {
-              !props.Read ? null : <CoinDropIcon src="/images/DownArrow.png" alt="DownArrow" />
+              !props.Read ? null : <CoinDropIcon src="/images/downArrow.png" alt="DownArrow" />
             }
           </SelectToken>
         </FormControl>

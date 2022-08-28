@@ -41,7 +41,7 @@ const Modal = ({ isOpen, modalTitle, children, close }: ModalProps): JSX.Element
       <>
         <ModalHeader>
           <HeaderTitle>{modalTitle}</HeaderTitle>
-          <CloseBtn src="/images/cros.png" onClick={() => close()} alt="Image" />
+          {/* <CloseBtn src="/images/cros.png" onClick={() => close()} alt="Image" /> */}
         </ModalHeader>
         {children}
       </>

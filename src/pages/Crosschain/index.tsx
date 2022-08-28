@@ -1,6 +1,38 @@
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
+import { useState } from 'react';
+import Modal from 'src/components/Modal';
+import HighSlippage from 'src/components/swap/Swap/SwapConfirmModal/HighSlippage';
+import ContinuewithWallets from '../ContinuewithWallets/ContinuewithWallets';
+import Converting from '../Converting/Converting';
 
+
+const data = [
+  {
+    title: 'Lifinity > 1inch',
+    total: '2442.57',
+    tnxcost: 'TXN Cost 0.0161 = (~$39.51)',
+    earn: '~$2,451'
+  },
+  {
+    title: 'Lifinity > 1inch',
+    total: '2442.57',
+    tnxcost: 'TXN Cost 0.0161 = (~$39.51)',
+    earn: '~$2,451'
+  },
+  {
+    title: 'Lifinity > 1inch',
+    total: '2442.57',
+    tnxcost: 'TXN Cost 0.0161 = (~$39.51)',
+    earn: '~$2,451'
+  },
+  {
+    title: 'Lifinity > 1inch',
+    total: '2442.57',
+    tnxcost: 'TXN Cost 0.0161 = (~$39.51)',
+    earn: '~$2,451'
+  },
+]
 const MainDiv = styled('div')({
   display: 'flex',
   justifyContent: 'center',
@@ -251,6 +283,7 @@ const MainTitleView = styled('div')({
   justifyContent: 'space-between',
   marginLeft: '5%',
   marginRight: '5%',
+  marginTop: '2.5%'
 });
 const Amount = styled('p')({
   fontSize: '20px',
@@ -267,16 +300,18 @@ const Span = styled('span')({
   opacity: '0.4',
 });
 const ShowMore = styled('p')({
-  textAlign: 'center',
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   color: 'transparent',
   backgroundClip: 'text',
   fontSize: '16px',
   fontWeight: '600',
   cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
 });
 const DownArrowImg = styled('img')({
-  height: 11,
+  height: 15,
   paddingLeft: 10,
 });
 const OrderBtn = styled(Button)({
@@ -344,7 +379,46 @@ const Footer = styled('div')({
   marginTop: '10%',
 });
 
+
+const Routs = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
+const RoutImg = styled('img')({
+  height: 24,
+  width: 24
+});
+
+const Vs = styled('img')({
+  height: 15,
+  width: 16,
+  marginLeft: 5,
+  marginRight: 5,
+  opacity: 0.4
+});
+
+const Boxs = styled('div')({
+  backgroundColor: 'white',
+  paddingBottom: 30,
+  paddingRight: 20,
+  paddingLeft: 20,
+  paddingTop: 10,
+  width: '450px',
+  height: 'auto',
+  borderRadius: 10,
+});
+
+
+
 const Crosschain = () => {
+  const [open, setOpen] = useState(1)
+  const [HighSlippageModalopen, setHighSlippageModalOpen] = useState(false);
+
+  const closeHighSlippageModel = () => {
+    setHighSlippageModalOpen(false);
+  };
   return (
     <>
       <MainDiv>
@@ -400,26 +474,59 @@ const Crosschain = () => {
               </InputMain2>
             </Header>
           </ToMain>
-          <UsdtList>
-            <MainTitleView>
-              <Div>
-                <Title2>1inch</Title2>
-                <CustomButtonActive>Save $12.20</CustomButtonActive>
-              </Div>
-              <Amount>2442.57</Amount>
-            </MainTitleView>
-            <MainTitleView>
-              <Span>TXN Cost 0.0161 = (~$39.51)</Span>
-              <Span>~$2,451</Span>
-            </MainTitleView>
-          </UsdtList>
-          <ShowMore>
-            Show More
-            <DownArrowImg src="/images/showMore.png" alt="Show" />
+          {
+            data.map((val, i) => {
+              return (
+                open > i ? <UsdtList>
+                  <MainTitleView>
+                    <Div>
+                      <Title2>{val.title}</Title2>
+                      {/* <CustomButtonActive>Save $12.20</CustomButtonActive> */}
+                    </Div>
+                    <Amount>{val.total}</Amount>
+                  </MainTitleView>
+                  <MainTitleView>
+                    <Span>{val.tnxcost}</Span>
+                    <Span>{val.earn}</Span>
+                  </MainTitleView>
+                </UsdtList> : null
+
+              )
+            })
+          }
+
+          <ShowMore onClick={data.length > open ? () => { setOpen(open + 1) } : () => { setOpen(1) }}>
+            {
+              data.length > open ? 'Show More' : 'Hide Detaiis'
+            }
+            <DownArrowImg src={data.length > open ? "/images/showMore.png" : "/images/hideDetail.png"} alt="Show" />
           </ShowMore>
-          <OrderBtn>Swap</OrderBtn>
+          <OrderBtn onClick={() => { setHighSlippageModalOpen(true) }}>Swap</OrderBtn>
         </Form>
       </MainDiv>
+      <Modal
+        modalTitle=""
+        isOpen={HighSlippageModalopen}
+        close={() => {
+          closeHighSlippageModel();
+        }}
+      >
+        <Boxs>
+          <ContinuewithWallets />
+        </Boxs>
+      </Modal>
+      <Modal
+        modalTitle=""
+        isOpen={HighSlippageModalopen}
+        close={() => {
+          closeHighSlippageModel();
+        }}
+      >
+        <Boxs>
+          <Converting />
+        </Boxs>
+      </Modal>
+      
       <DetailView>
         <Expected>
           <ItemText>Expected Output</ItemText>
@@ -429,10 +536,29 @@ const Crosschain = () => {
           <ItemText>Price Impact</ItemText>
           <ItemText2>-0.01%</ItemText2>
         </Expected>
-        <hr />
         <Expected>
-          <ItemText>Minimum received after slippage (0.50%)</ItemText>
-          <ItemText2>1.46 USDT</ItemText2>
+          <ItemText>Route</ItemText>
+          <Routs>
+            <RoutImg src='/images/coin3.png' />
+            <Vs src='/images/leftIcon.png' />
+            <RoutImg src='/images/coin6.png' />
+          </Routs>
+        </Expected>
+        <Expected>
+          <ItemText>SOL Price</ItemText>
+          <ItemText2>0.000249 USDT</ItemText2>
+        </Expected>
+        <Expected>
+          <ItemText>ETH Price</ItemText>
+          <ItemText2>1.46 ETH</ItemText2>
+        </Expected>
+        <Expected>
+          <ItemText>Slippage Tolerance</ItemText>
+          <ItemText2>0.50%</ItemText2>
+        </Expected>
+        <Expected>
+          <ItemText>Estimated Time</ItemText>
+          <ItemText2>1 min</ItemText2>
         </Expected>
       </DetailView>
     </>
