@@ -65,12 +65,12 @@ const Coin = styled('div')({
     width:'100%'
    });
    
-const ContinuewithWallets = () => {
+const ContinuewithWallets = (props) => {
   return (
     <>
       <Header>
         <Title>Continue with Wallets</Title>
-        <img src="/images/cros.png" />
+        <img src="/images/cros.png" onClick={() =>{props.close()}} />
       </Header>
       <br/>
       <div>

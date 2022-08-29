@@ -150,13 +150,13 @@ const Text3 = styled('span')({
   opacity: 0.65,
 });
 
-const Max = styled('span')({
+const Max = styled('span')((props: any) => ({
   fontWeight: 500,
   fontSize: '16px',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
-});
+}));
 
 const Balance = styled('span')({
   fontWeight: 500,
@@ -258,24 +258,7 @@ const UsdtList = styled('div')({
     borderColor: '#BB36FF',
   },
 });
-const TitleDisebal = styled('p')({
-  color: '#949494',
-  fontSize: '20px',
-  fontWeight: 600,
-});
-const CustomButtonActive = styled(Button)({
-  borderRadius: '100px',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  padding: '3px 10px',
-  fontSize: '14px',
-  fontWeight: '600',
-  color: '#FFFFFF',
-  fontStyle: 'Inter',
-  textTransform: 'lowercase',
-  marginLeft: 15,
-  marginRight: 5,
-  height: '28px',
-});
+
 
 const MainTitleView = styled('div')({
   display: 'flex',
@@ -299,8 +282,8 @@ const Span = styled('span')({
   color: '#949494',
   opacity: '0.4',
 });
-const ShowMore = styled('p')({
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+const ShowMore = styled('p')((props: any) => ({
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontSize: '16px',
@@ -309,21 +292,21 @@ const ShowMore = styled('p')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center'
-});
+}));
 const DownArrowImg = styled('img')({
   height: 15,
   paddingLeft: 10,
 });
-const OrderBtn = styled(Button)({
+const OrderBtn = styled(Button)((props: any) => ({
   margin: 15,
   width: '93%',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'white',
   borderRadius: '12px',
   marginBottom: '6%',
   marginTop: '5%',
   textTransform: 'initial',
-});
+}));
 const Title2 = styled('p')({
   color: 'black',
   fontSize: '20px',
@@ -355,28 +338,6 @@ const ItemText2 = styled('span')({
   fontSize: '16px',
   fontWeight: '500',
   color: '#010101',
-});
-const CustomButtom = styled(Button)({
-  borderRadius: 100,
-  margin: 10,
-  backgroundColor: 'rgba(0, 0, 0, 0.03)',
-  padding: '20px 0px',
-  color: '#000000',
-  opacity: '0.65',
-  '&:hover': {
-    borderRadius: 100,
-    margin: 10,
-    background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-    padding: '20px 0px',
-    color: '#000000',
-    opacity: '1',
-  },
-});
-const Footer = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginTop: '10%',
 });
 
 
@@ -415,6 +376,7 @@ const Boxs = styled('div')({
 const Crosschain = () => {
   const [open, setOpen] = useState(1)
   const [HighSlippageModalopen, setHighSlippageModalOpen] = useState(false);
+  const [ContinueModalOpen, setContinueModalOpen] = useState(false);
 
   const closeHighSlippageModel = () => {
     setHighSlippageModalOpen(false);
@@ -501,18 +463,20 @@ const Crosschain = () => {
             }
             <DownArrowImg src={data.length > open ? "/images/showMore.png" : "/images/hideDetail.png"} alt="Show" />
           </ShowMore>
-          <OrderBtn onClick={() => { setHighSlippageModalOpen(true) }}>Swap</OrderBtn>
+          <OrderBtn onClick={() => { setHighSlippageModalOpen(true); setContinueModalOpen(true) }}>Swap</OrderBtn>
         </Form>
       </MainDiv>
       <Modal
         modalTitle=""
-        isOpen={HighSlippageModalopen}
+        isOpen={ContinueModalOpen}
         close={() => {
-          closeHighSlippageModel();
+          setContinueModalOpen(false);
         }}
       >
         <Boxs>
-          <ContinuewithWallets />
+          <ContinuewithWallets close={() => {
+            setContinueModalOpen(false);
+          }} />
         </Boxs>
       </Modal>
       <Modal
@@ -523,10 +487,12 @@ const Crosschain = () => {
         }}
       >
         <Boxs>
-          <Converting />
+          <Converting close={() => {
+            closeHighSlippageModel();
+          }} />
         </Boxs>
       </Modal>
-      
+
       <DetailView>
         <Expected>
           <ItemText>Expected Output</ItemText>

@@ -36,6 +36,7 @@ const MaxPriceDetail = styled('p')({
 const ImageSpan = styled('span')({
   color: 'black',
   paddingLeft: 5,
+  marginTop:10
 });
 const MainSpan = styled('span')((props:any) =>({
   background: props.theme.palette.color.active,
@@ -131,6 +132,9 @@ const ShowMore = styled('p')((props: any) => ({
   fontSize: '16px',
   fontWeight: '600',
   cursor: 'pointer',
+  display:'flex',
+  alignItems:'center',
+  justifyContent:'center'
 }));
 const DownArrowImg = styled('img')({
   height: 11,
@@ -178,7 +182,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   1%
                   <ImageSpan>
-                    <img src="/images/DownArrow.png" alt="DownArrow" />
+                    <img src="/images/downArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>
@@ -187,7 +191,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   206 GWEI
                   <ImageSpan>
-                    <img src="/images/DownArrow.png" alt="DownArrow" />
+                    <img src="/images/downArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>
@@ -242,7 +246,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   1%
                   <ImageSpan>
-                    <img src="/images/DownArrow.png" alt="DownArrow" />
+                    <img src="/images/downArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>
@@ -251,7 +255,7 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   206 GWEI
                   <ImageSpan>
-                    <img src="/images/DownArrow.png" alt="DownArrow" />
+                    <img src="/images/downArrow.png" alt="DownArrow" />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>

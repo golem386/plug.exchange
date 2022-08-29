@@ -19,13 +19,13 @@ const Title = styled('p')({
   fontWeight: 600,
   fontSize: 24,
 });
-const ETH = styled('span')({
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+const ETH = styled('span')((props:any) =>({
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontSize: 16,
   fontWeight: 500,
-});
+}));
 const ImgVarticalShort = styled('img')({
   height: '15px',
   width: '15px',
@@ -65,15 +65,15 @@ const Price = styled('span')({
   fontWeight: 500,
 });
 
-const OrderBtn = styled(Button)({
+const OrderBtn = styled(Button)((props:any) =>({
   width: '100%',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'white',
   borderRadius: '12px',
   marginBottom: '2%',
   marginTop: '1%',
   textTransform: 'initial',
-});
+}));
 type Currency = {};
 type ENUM = {};
 type SWAP = {};

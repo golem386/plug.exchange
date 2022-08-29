@@ -29,14 +29,14 @@ const CurrencyTotalPrice = styled('span')((props: any) => ({
   fontWeight: '600',
   color: 'black',
 }));
-const CurrencyPriceChange = styled('span')({
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+const CurrencyPriceChange = styled('span')((props:any) =>({
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontSize: '16px',
   fontWeight: '600',
   marginLeft: '1.5%',
-});
+}));
 const PairLineChartMain = styled('div')({
   display: 'block',
   '@media (max-width: 660px)': {

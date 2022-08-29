@@ -114,12 +114,13 @@ const Solscan = styled(Slider)((props) =>({
     backgroundClip: 'text',
 }));
 
-const Converting = () => {
+
+const Converting = (props) => {
   return (
     <>
       <Header>
         <Title>Continue with Wallets</Title>
-        <img src="/images/cros.png" />
+        <img src="/images/cros.png" onClick={() =>{props.close()}} />
       </Header>
       <Warning>
         <img src="/images/info.png" />

@@ -38,12 +38,12 @@ const OrderBtn = styled(Button)((props: any) => ({
   opacity: props.isActive ? 1 : 0.4
 }));
 
-const ParmitionBtn = styled(Button)({
+const ParmitionBtn = styled(Button)((props:any) =>({
   marginLeft: '7%',
   marginRight: 15,
   marginTop: 15,
   width: '86%',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'white',
   borderRadius: '12px',
   textTransform: 'initial',
@@ -51,7 +51,7 @@ const ParmitionBtn = styled(Button)({
   alignItems: 'center',
   fontWeight: '600',
   fontSize: '16px',
-});
+}));
 
 const Boxs = styled('div')({
   backgroundColor: 'white',

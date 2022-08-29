@@ -43,8 +43,8 @@ const StyledButton = styled('button')((props: any) => ({
   position: 'relative',
   borderWidth: "1.5px",
   borderStyle: 'solid',
-  borderColor: props.isActive ? 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)': '#e0e0e0',
-  background: props.isActive ?  'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)': "#e0e0e0",
+  borderColor: props.isActive ? props.theme.palette.color.active: '#e0e0e0',
+  background: props.isActive ?  props.theme.palette.color.active: "#e0e0e0",
   display: 'flex',
   alignItems: 'center',
   borderRadius: 10,
@@ -76,15 +76,15 @@ const TermsAndConditionText = styled('p')({
   flexWrap: "wrap"
 });
 
-const TermsAndConditionPinkText = styled('span')({
+const TermsAndConditionPinkText = styled('span')((props:any) =>({
   fontSize: 15,
   fontWeight: '600',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   marginRight: 5,
   marginLeft: 5
-});
+}));
 
 // const ConnectButton = styled(Button) <{ disabled: boolean }>`
 //   width: 90%;

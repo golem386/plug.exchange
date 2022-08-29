@@ -117,9 +117,9 @@ const ParmitionMain = styled('div')({
   marginLeft: 10,
   marginBottom: 20,
 });
-const ImportTokenButton = styled(Button)({
+const ImportTokenButton = styled(Button)(() =>({
   width: '100%',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   borderRadius: 16,
   padding: 7,
   color: 'white',
@@ -127,10 +127,10 @@ const ImportTokenButton = styled(Button)({
   fontWeight: 600,
   textTransform: 'initial',
   height: '52px',
-});
-const ImportTokenDisabalButton = styled(Button)({
+}));
+const ImportTokenDisabalButton = styled(Button)((props:any) =>({
   width: '100%',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   borderRadius: 16,
   padding: 7,
   color: 'white',
@@ -139,7 +139,7 @@ const ImportTokenDisabalButton = styled(Button)({
   textTransform: 'initial',
   opacity: 0.3,
   height: '52px',
-});
+}));
 
 type Token = {};
 

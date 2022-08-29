@@ -23,13 +23,13 @@ const Id = styled('p')({
   fontSize: '16px',
   fontWeight: '600',
 });
-const Copied = styled('p')({
+const Copied = styled('p')((props:any) =>({
   fontSize: '16px',
   fontWeight: '600',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
-});
+}));
 
 const DropPrice = styled('span')({
   fontSize: '14px',

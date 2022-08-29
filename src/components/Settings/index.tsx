@@ -50,18 +50,18 @@ const OverLay = styled('div')({
     cursor: 'pointer',
   },
 });
-const SettingMenuItem = styled(MenuItem)({
+const SettingMenuItem = styled(MenuItem)((props:any) =>({
   paddingTop: 10,
   paddingBottom: 10,
   paddingRight: '50px',
   opacity: 0.65,
   '&:hover': {
-    background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+    background: props.theme.palette.color.active,
     color: 'transparent',
     backgroundClip: 'text',
     opacity: 1,
   },
-});
+}));
 const ImageIconDropDown = styled('img')({
   height: '25px',
   width: '25px',

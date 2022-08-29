@@ -125,10 +125,10 @@ const TimeText = styled('p')({
   display: 'flex',
   alignItems: 'center',
 });
-const TimeTextPink = styled('p')({
+const TimeTextPink = styled('p')((props:any) =>({
   fontWeight: '500',
   fontSize: '16px',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   display: 'flex',
@@ -137,13 +137,13 @@ const TimeTextPink = styled('p')({
 
     fontWeight: '500',
     fontSize: '14px',
-    background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+    background: props.theme.palette.color.active,
     color: 'transparent',
     backgroundClip: 'text',
     display: 'flex',
     alignItems: 'center',
   },
-});
+}));
 const DownArrowIcon = styled('img')({
   height: '7.78px',
   width: '12.73px',

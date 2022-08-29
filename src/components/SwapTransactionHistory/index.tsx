@@ -47,9 +47,9 @@ const Button = styled('button')({
   width: '80px',
   height: '36px',
 });
-const ActiveButton = styled('button')({
+const ActiveButton = styled('button')((props:any) =>({
   borderRadius: '50px',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   fontSize: '16px',
   fontWeight: '500',
   color: 'white!important',
@@ -65,7 +65,7 @@ const ActiveButton = styled('button')({
   marginBottom: 5,
   width: '80px',
   height: '36px',
-});
+}));
 
 const TabsBtn = styled('div')({
   paddingLeft: '3%',

@@ -19,6 +19,7 @@ const Form = styled('div')({
   padding: 40,
   height: '60%',
   marginTop: 20,
+  paddingBottom:'40%'
 });
 const Error = styled('span')({
   fontFamily: 'Inter',
@@ -28,11 +29,11 @@ const Error = styled('span')({
 const Pre = styled('span')({
   fontFamily: 'Inter',
   fontWeight: '400',
-  fontSize: '18px',
+  fontSize: '16px',
 });
-const CustomButtonActive = styled(Link)({
+const CustomButtonActive = styled('a')((props:any) =>({
   borderRadius: 16,
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   fontSize: '16px',
   fontWeight: '600',
   color: '#FFFFFF',
@@ -41,7 +42,8 @@ const CustomButtonActive = styled(Link)({
   height: 52,
   width: '25%',
   marginTop: 20,
-});
+  padding:'15px 15px'
+}));
 
 const NotFound = () => {
   return (
@@ -54,7 +56,9 @@ const NotFound = () => {
           <Form>
             <Error>404</Error>
             <br />
-            <Pre>The page you’re looking for couldn’t be found.</Pre>
+            <Pre>The page you’re looking for couldn’t be found.</Pre><br/>
+            <br/>
+            <br/>
             <CustomButtonActive href="/">Go Back</CustomButtonActive>
           </Form>
         </Grid>

@@ -4,9 +4,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
 
-const ButtonActive = styled(Button)({
+const ButtonActive = styled(Button)((props:any) =>({
   borderRadius: 16,
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   padding: '0px 15px',
   fontSize: '16px',
   fontWeight: '600',
@@ -18,7 +18,7 @@ const ButtonActive = styled(Button)({
   height: 52,
   width: '100%',
   '@media (max-width: 660px)': {
-    background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+    background: props.theme.palette.color.active,
     height: 36,
     paddingLeft: '10%',
     paddingRight: '7%',
@@ -34,7 +34,7 @@ const ButtonActive = styled(Button)({
     textTransform: 'initial',
     width: '188px',
   },
-});
+}));
 const ImageIcon = styled('img')({
   height: 35,
   width: 35,

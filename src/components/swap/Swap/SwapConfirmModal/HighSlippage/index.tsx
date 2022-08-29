@@ -26,23 +26,23 @@ const CompletedIcon = styled('img')({
   margin: 'auto',
   display: 'block',
 });
-const Buttons = styled(Button)({
+const Buttons = styled(Button)((props:any) =>({
   borderRadius: 12,
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'white',
   textTransform: 'initial',
   display: 'block',
   margin: 'auto',
   opacity: 0.4,
-});
-const ButtonsActive = styled(Button)({
+}));
+const ButtonsActive = styled(Button)((props:any) =>({
   borderRadius: 12,
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'white',
   textTransform: 'initial',
   display: 'block',
   margin: 'auto',
-});
+}));
 const CloseIcon = styled('img')({
   height: '15px',
   width: '15px',
@@ -60,14 +60,14 @@ const Parmition = styled('div')({
   alignItems: 'center',
   marginLeft: '2%',
 });
-const ConditionPink = styled('span')({
+const ConditionPink = styled('span')((props:any) =>({
   fontSize: '15px',
   fontWeight: '600',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   marginRight: 5,
-});
+}));
 const Condition = styled('p')({
   fontSize: '15px',
   fontWeight: '600',
