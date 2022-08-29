@@ -24,7 +24,7 @@ const ShortIcon = styled('img')({
   marginLeft: '20px',
   marginRight: '20px',
 });
-const CurrencyTotalPrice = styled('span')((props:any) =>({
+const CurrencyTotalPrice = styled('span')((props: any) => ({
   fontSize: '44px',
   fontWeight: '600',
   color: 'black',
@@ -47,29 +47,16 @@ const PairLineChartData = styled('div')({
   width: '100%',
   marginTop: '10%',
 });
-const HoverButton = styled(Tab)((props:any) =>({
+const TabButton = styled(Tab)((props: any) => ({
   borderRadius: '100px',
-  fontSize: '16px',
   fontWeight: '500',
   fontStyle: 'normal',
-  opacity: '0.65',
   textTransform: 'lowercase',
   height: '36px',
   width: '65px',
-  background: props.isActive ? props.theme.palette.color.active : "",
+  background: props.isActive ? props.theme.palette.color.active : '',
   color: props.isActive ? 'white!important' : '',
 }));
-const HoverActiveButton = styled(Tab)({
-  borderRadius: '100px',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  fontSize: '16px',
-  fontWeight: '500',
-  color: 'white!important',
-  fontStyle: 'normal',
-  textTransform: 'lowercase',
-  height: '36px',
-  width: '65px',
-});
 
 const TabBar = styled(Tabs)({
   marginLeft: '55%',
@@ -156,9 +143,9 @@ const PairLineChart = (props: PairLineChartProps) => {
                     axisPointer: {
                       type: 'cross',
                       label: {
-                        backgroundColor: '#BB36FF'
-                      }
-                    }
+                        backgroundColor: '#BB36FF',
+                      },
+                    },
                   },
                   color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
                   grid: {
@@ -173,7 +160,16 @@ const PairLineChart = (props: PairLineChartProps) => {
                       type: 'category',
                       boundaryGap: false,
                       show: false,
-                      data: ['1/01/2022', '2/01/2022', '3/01/2022', '4/01/2022', '5/01/2022', '6/01/2022', '7/01/2022', '8/01/2022'],
+                      data: [
+                        '1/01/2022',
+                        '2/01/2022',
+                        '3/01/2022',
+                        '4/01/2022',
+                        '5/01/2022',
+                        '6/01/2022',
+                        '7/01/2022',
+                        '8/01/2022',
+                      ],
                     },
                   ],
                   yAxis: [
@@ -226,9 +222,9 @@ const PairLineChart = (props: PairLineChartProps) => {
                     axisPointer: {
                       type: 'cross',
                       label: {
-                        backgroundColor: '#BB36FF'
-                      }
-                    }
+                        backgroundColor: '#BB36FF',
+                      },
+                    },
                   },
                   color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
                   grid: {
@@ -243,7 +239,16 @@ const PairLineChart = (props: PairLineChartProps) => {
                       type: 'category',
                       boundaryGap: false,
                       show: false,
-                      data: ['1/01/2022', '2/01/2022', '3/01/2022', '4/01/2022', '5/01/2022', '6/01/2022', '7/01/2022', '8/01/2022'],
+                      data: [
+                        '1/01/2022',
+                        '2/01/2022',
+                        '3/01/2022',
+                        '4/01/2022',
+                        '5/01/2022',
+                        '6/01/2022',
+                        '7/01/2022',
+                        '8/01/2022',
+                      ],
                     },
                   ],
                   yAxis: [
@@ -296,9 +301,9 @@ const PairLineChart = (props: PairLineChartProps) => {
                     axisPointer: {
                       type: 'cross',
                       label: {
-                        backgroundColor: '#BB36FF'
-                      }
-                    }
+                        backgroundColor: '#BB36FF',
+                      },
+                    },
                   },
                   color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
                   grid: {
@@ -313,7 +318,16 @@ const PairLineChart = (props: PairLineChartProps) => {
                       type: 'category',
                       boundaryGap: false,
                       show: false,
-                      data: ['1/01/2022', '2/01/2022', '3/01/2022', '4/01/2022', '5/01/2022', '6/01/2022', '7/01/2022', '8/01/2022'],
+                      data: [
+                        '1/01/2022',
+                        '2/01/2022',
+                        '3/01/2022',
+                        '4/01/2022',
+                        '5/01/2022',
+                        '6/01/2022',
+                        '7/01/2022',
+                        '8/01/2022',
+                      ],
                     },
                   ],
                   yAxis: [
@@ -366,22 +380,10 @@ const PairLineChart = (props: PairLineChartProps) => {
                 value={value}
                 onChange={handleChange}
               >
-                {/* {value === 0 ? (
-                  <HoverActiveButton label="24H" {...a11yProps(0)} />
-                ) : (
-                  <HoverButton isActive={false} label="24H" {...a11yProps(0)} />
-                )} */}
-                <HoverButton isActive={false} label="24H" {...a11yProps(0)} />
-                {value === 1 ? (
-                  <HoverActiveButton label="1W" {...a11yProps(1)} />
-                ) : (
-                  <HoverButton label="1W" {...a11yProps(1)} />
-                )}
-                {value === 2 ? (
-                  <HoverActiveButton label="1M" {...a11yProps(2)} />
-                ) : (
-                  <HoverButton label="1M" {...a11yProps(2)} />
-                )}
+                <TabButton isActive={value === 0} label="24H" {...a11yProps(0)} />
+                <TabButton isActive={value === 1} label="1W" {...a11yProps(1)} />
+
+                <TabButton isActive={value === 2} label="1M" {...a11yProps(2)} />
               </TabBar>
             </Box>
           </Box>

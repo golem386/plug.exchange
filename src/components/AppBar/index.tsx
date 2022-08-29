@@ -10,6 +10,7 @@ import SwitchNetwork from '../SwitchNetwork';
 const NavMainComponent = styled('div')({
   display: 'flex',
   paddingLeft: 10,
+  paddingTop:20,
   alignItems: 'center',
   justifyContent: 'space-around',
 });
