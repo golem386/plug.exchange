@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-//import { handleClick } from '../../../store/Actions';
 import Modal from '../../Modal';
 import CurrencyInput from './CurrencyInput';
 import CurrencyOutput from './CurrencyOutput';
@@ -25,7 +24,7 @@ const SwapModal = styled('div')({
   width: '97%',
   marginTop: '12%',
 });
-const OrderBtn = styled(Button)((props: any) => ({
+const OrderBtn = styled(Button)((props: string | number | boolean) => ({
   margin: 15,
   width: '86%',
   background: props.theme.palette.color.active,
@@ -38,7 +37,7 @@ const OrderBtn = styled(Button)((props: any) => ({
   opacity: props.isActive ? 1 : 0.4
 }));
 
-const ParmitionBtn = styled(Button)((props:any) =>({
+const ParmitionBtn = styled(Button)((props:string | number | boolean) =>({
   marginLeft: '7%',
   marginRight: 15,
   marginTop: 15,

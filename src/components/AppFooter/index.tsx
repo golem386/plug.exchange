@@ -9,14 +9,8 @@ const Footer = styled('div')({
     justifyContent: 'space-between',
   },
 });
-// const NavButton = styled(Button)((props: any) => ({
-//   background: props.isActive ? props.theme.palette.color.active : props.theme.palette.color.lightText,
-//   color: props.isActive ? props.theme.palette.color.white : props.theme.palette.color.text,
-//   height: 52,
-//   border: props.isActive ? 'none' : '1px solid ' + props.theme.palette.color.border,
-// }));
 
-const IconButtom = styled(Button)((props:any) =>({
+const IconButtom = styled(Button)((props:string | number | boolean) =>({
   borderRadius: 100,
   margin: 10,
   backgroundColor: props.theme.palette.color.lightText,
@@ -32,7 +26,7 @@ const IconButtom = styled(Button)((props:any) =>({
     opacity: '1',
   },
 }))
-const MenuItem = styled(Button)((props:any)=>({
+const MenuItem = styled(Button)((props:string | number | boolean)=>({
   margin: 10,
   backgroundColor: 'transparent',
   padding: '20px 0px',

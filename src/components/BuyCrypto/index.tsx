@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
 import React, { Component } from 'react';
-const BuyCryptoButton = styled(Button)((props: any) => ({
+const BuyCryptoButton = styled(Button)((props: string | number | boolean) => ({
   background: props.isActive ? props.theme.palette.color.active : props.theme.palette.color.lightText,
   color: props.isActive ? props.theme.palette.color.white : props.theme.palette.color.text,
   height: 52,

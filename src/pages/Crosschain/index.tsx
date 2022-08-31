@@ -150,7 +150,7 @@ const Text3 = styled('span')({
   opacity: 0.65,
 });
 
-const Max = styled('span')((props: any) => ({
+const Max = styled('span')((props: string | number | boolean) => ({
   fontWeight: 500,
   fontSize: '16px',
   background: props.theme.palette.color.active,
@@ -282,7 +282,7 @@ const Span = styled('span')({
   color: '#949494',
   opacity: '0.4',
 });
-const ShowMore = styled('p')((props: any) => ({
+const ShowMore = styled('p')((props: string | number | boolean) => ({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
@@ -297,7 +297,7 @@ const DownArrowImg = styled('img')({
   height: 15,
   paddingLeft: 10,
 });
-const OrderBtn = styled(Button)((props: any) => ({
+const OrderBtn = styled(Button)((props: string | number | boolean) => ({
   margin: 15,
   width: '93%',
   background: props.theme.palette.color.active,

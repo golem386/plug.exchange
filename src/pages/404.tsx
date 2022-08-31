@@ -31,7 +31,7 @@ const Pre = styled('span')({
   fontWeight: '400',
   fontSize: '16px',
 });
-const CustomButtonActive = styled('a')((props:any) =>({
+const CustomButtonActive = styled('a')((props:string | number | boolean) =>({
   borderRadius: 16,
   background: props.theme.palette.color.active,
   fontSize: '16px',

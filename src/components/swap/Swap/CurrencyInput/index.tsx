@@ -21,7 +21,7 @@ const HeaderTitle = styled('span')({
   color: 'black',
   opacity: 0.65,
 });
-const Max = styled('span')((props:any) =>({
+const Max = styled('span')((props:string | number | boolean) =>({
   fontSize: '16px',
   fontWeight: '500',
   background: props.theme.palette.color.active,

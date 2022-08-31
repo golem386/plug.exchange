@@ -2,7 +2,6 @@
 import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-//import { onReceiveCoin, onSelectCoin } from '../../../../store/Actions';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 

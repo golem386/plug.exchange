@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { useDispatch } from 'react-redux';
-//import { onModalOpen } from '../../../../store/Actions';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 

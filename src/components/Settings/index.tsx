@@ -50,7 +50,7 @@ const OverLay = styled('div')({
     cursor: 'pointer',
   },
 });
-const SettingMenuItem = styled(MenuItem)((props:any) =>({
+const SettingMenuItem = styled(MenuItem)((props:string | number | boolean) =>({
   paddingTop: 10,
   paddingBottom: 10,
   paddingRight: '50px',
@@ -63,8 +63,6 @@ const SettingMenuItem = styled(MenuItem)((props:any) =>({
   },
 }));
 const ImageIconDropDown = styled('img')({
-  height: '25px',
-  width: '25px',
   paddingRight: '20px',
   opacity: 0.6,
 });

@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { Button, FormControlLabel, Radio } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-//import { onModalOpen } from '../../../../store/Actions';
 import { Switch } from '@mui/material';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -125,7 +124,7 @@ const TimeText = styled('p')({
   display: 'flex',
   alignItems: 'center',
 });
-const TimeTextPink = styled('p')((props:any) =>({
+const TimeTextPink = styled('p')((props:string | number | boolean) =>({
   fontWeight: '500',
   fontSize: '16px',
   background: props.theme.palette.color.active,

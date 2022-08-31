@@ -36,17 +36,7 @@ const DropMain = styled('div')({
   },
   '@media (max-width: 660px)': {
     width: '94%',
-    display: 'flex',
-    alignItems: 'center',
-    paddingLeft: 10,
-    paddingRight: 15,
-    paddingTop: 5,
-    paddingBottom: 5,
-    justifyContent: 'space-between',
-    cursor: 'pointer',
-    '&:hover': {
-      backgroundColor: '#f7f7f7',
-    },
+    
   },
 });
 

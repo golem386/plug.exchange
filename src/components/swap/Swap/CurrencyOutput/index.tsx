@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { FormControl } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-//import { onModalOpen } from '../../../../store/Actions';
 import SwapArrow from '../SwapArrow';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';

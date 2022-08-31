@@ -24,12 +24,12 @@ const ShortIcon = styled('img')({
   marginLeft: '20px',
   marginRight: '20px',
 });
-const CurrencyTotalPrice = styled('span')((props: any) => ({
+const CurrencyTotalPrice = styled('span')((props: string | number | boolean) => ({
   fontSize: '44px',
   fontWeight: '600',
   color: 'black',
 }));
-const CurrencyPriceChange = styled('span')((props:any) =>({
+const CurrencyPriceChange = styled('span')((props:string | number | boolean) =>({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
@@ -47,7 +47,7 @@ const PairLineChartData = styled('div')({
   width: '100%',
   marginTop: '10%',
 });
-const TabButton = styled(Tab)((props: any) => ({
+const TabButton = styled(Tab)((props: string | number | boolean) => ({
   borderRadius: '100px',
   fontWeight: '500',
   fontStyle: 'normal',

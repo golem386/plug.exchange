@@ -39,12 +39,12 @@ const Wrapper = styled('div')({
 
 // `;
 
-const StyledButton = styled('button')((props: any) => ({
+const StyledButton = styled('button')((props: string | number | boolean) => ({
   position: 'relative',
   borderWidth: "1.5px",
   borderStyle: 'solid',
-  borderColor: props.isActive ? props.theme.palette.color.active: '#e0e0e0',
-  background: props.isActive ?  props.theme.palette.color.active: "#e0e0e0",
+  borderColor: props.isActive ? 'linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)': '#e0e0e0',
+  background: props.isActive ?  'linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)': "#e0e0e0",
   display: 'flex',
   alignItems: 'center',
   borderRadius: 10,
@@ -76,10 +76,10 @@ const TermsAndConditionText = styled('p')({
   flexWrap: "wrap"
 });
 
-const TermsAndConditionPinkText = styled('span')((props:any) =>({
+const TermsAndConditionPinkText = styled('span')((props:string | number | boolean) =>({
   fontSize: 15,
   fontWeight: '600',
-  background: props.theme.palette.color.active,
+  background: 'linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)',
   color: 'transparent',
   backgroundClip: 'text',
   marginRight: 5,
@@ -100,7 +100,7 @@ const TermsAndConditionPinkText = styled('span')((props:any) =>({
 //   ${(props) => props.disabled && 'opacity: 0.3;'}
 // `;
 
-const ConnectButton = styled(Button)((props: any) => ({
+const ConnectButton = styled(Button)((props: string | number | boolean) => ({
   width: '90%',
   background: 'linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)',
   borderRadius: 16,
@@ -113,7 +113,7 @@ const ConnectButton = styled(Button)((props: any) => ({
   opacity: props.isActive ? 1 : 0.3
 }));
 
-const SelectImg = styled('img')((props: any) => ({
+const SelectImg = styled('img')((props: string | number | boolean) => ({
   position: 'absolute',
   left: '45px',
   top: '70%',
@@ -147,11 +147,6 @@ const Main = styled('div')({
   paddingTop: '3%',
   paddingBottom: '3%',
   marginBottom: '5%',
-  '@media (max-width: 660px)': {
-    paddingTop: '3%',
-    paddingBottom: '3%',
-    marginBottom: '5%',
-  },
 });
 
 const Header = styled('div')({
@@ -180,11 +175,6 @@ const WalletModalDiv = styled('div')({
   borderRadius: 10,
   overflow: 'hidden',
   '@media (max-width: 660px)': {
-    backgroundColor: 'white',
-    paddingBottom: 30,
-    paddingTop: 10,
-    width: '585px',
-    height: '90%',
     borderRadius: 0,
     overflow: 'hidden',
   },

@@ -14,7 +14,7 @@ const NavMainComponent = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-around',
 });
-const NavButton = styled(Button)((props: any) => ({
+const NavButton = styled(Button)((props: string | number | boolean) => ({
   background: props.isActive ? props.theme.palette.color.active : props.theme.palette.color.lightText,
   color: props.isActive ? props.theme.palette.color.white : props.theme.palette.color.text,
   height: 52,
@@ -175,17 +175,12 @@ const AppBar = () => {
                   Crosschain
                 </NavButton>
                 <BuyCrypto />
-                {/* {CoinNetwork?.name !== '' ? null : ( */}
                 <NavButton isActive={false} onClick={() => null}>
                   Connect Wallet
                 </NavButton>
                 {/* )} */}
                 <SwitchNetwork />
-                {/* {CoinDetail?.name === '' && CoinNetwork?.name !== '' ? (
-                  <WrongNetworkButton>Wrong Network</WrongNetworkButton>
-                ) : CoinDetail?.name === '' && CoinNetwork?.name === '' ? null : (
-                  <WalletDetails account={null} />
-                )} */}
+              
                 <Settings settings={settingData} />
               </ButtonGrid>
             </NavGrids>

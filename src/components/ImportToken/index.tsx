@@ -128,7 +128,7 @@ const ImportTokenButton = styled(Button)(() =>({
   textTransform: 'initial',
   height: '52px',
 }));
-const ImportTokenDisabalButton = styled(Button)((props:any) =>({
+const ImportTokenDisabalButton = styled(Button)((props:string | number | boolean) =>({
   width: '100%',
   background: props.theme.palette.color.active,
   borderRadius: 16,

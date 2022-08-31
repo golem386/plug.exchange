@@ -16,6 +16,7 @@ const ModalHeader = styled('div')({
   marginTop: 15,
   marginBottom: 15,
   marginRight: '5%',
+  marginLeft:'-20%'
 });
 
 const HeaderTitle = styled('span')({
@@ -41,7 +42,6 @@ const Modal = ({ isOpen, modalTitle, children, close }: ModalProps): JSX.Element
       <>
         <ModalHeader>
           <HeaderTitle>{modalTitle}</HeaderTitle>
-          {/* <CloseBtn src="/images/cros.png" onClick={() => close()} alt="Image" /> */}
         </ModalHeader>
         {children}
       </>

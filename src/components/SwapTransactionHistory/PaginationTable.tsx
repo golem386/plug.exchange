@@ -126,12 +126,6 @@ const TranjectionEntry = styled('span')({
   alignItems: 'center',
   display: 'flex',
   '@media (max-width: 660px)': {
-
-    fontWaight: 600,
-    fontSize: '16px',
-    color: '#595959',
-    alignItems: 'center',
-    display: 'flex',
     marginTop: 10,
   },
 });
@@ -142,12 +136,6 @@ const Span3 = styled('span')({
   alignItems: 'center',
   display: 'flex',
   '@media (max-width: 660px)': {
-
-    fontWaight: 500,
-    fontSize: '16px',
-    color: '#595959',
-    alignItems: 'center',
-    display: 'flex',
     marginTop: 10,
     marginLeft: '16%',
   },

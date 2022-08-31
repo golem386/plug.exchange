@@ -1,4 +1,3 @@
-// this is a SwapTransactionDetails file and Provide a SwapTransactionDetails list
 import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
 

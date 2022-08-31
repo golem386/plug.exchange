@@ -23,7 +23,7 @@ const Id = styled('p')({
   fontSize: '16px',
   fontWeight: '600',
 });
-const Copied = styled('p')((props:any) =>({
+const Copied = styled('p')((props:string | number | boolean) =>({
   fontSize: '16px',
   fontWeight: '600',
   background: props.theme.palette.color.active,

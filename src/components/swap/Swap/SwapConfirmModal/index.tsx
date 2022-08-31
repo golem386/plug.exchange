@@ -19,7 +19,7 @@ const Title = styled('p')({
   fontWeight: 600,
   fontSize: 24,
 });
-const ETH = styled('span')((props:any) =>({
+const ETH = styled('span')((props:string | number | boolean) =>({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
@@ -65,7 +65,7 @@ const Price = styled('span')({
   fontWeight: 500,
 });
 
-const OrderBtn = styled(Button)((props:any) =>({
+const OrderBtn = styled(Button)((props:string | number | boolean) =>({
   width: '100%',
   background: props.theme.palette.color.active,
   color: 'white',

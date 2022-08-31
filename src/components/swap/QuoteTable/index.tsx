@@ -38,7 +38,7 @@ const ImageSpan = styled('span')({
   paddingLeft: 5,
   marginTop:10
 });
-const MainSpan = styled('span')((props:any) =>({
+const MainSpan = styled('span')((props:string | number | boolean) =>({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
@@ -110,7 +110,7 @@ const TextDown = styled('p')({
   fontSize: '16px',
   fontWeight: '600',
 });
-const ChangeText = styled('span')((props:any) =>({
+const ChangeText = styled('span')((props:string | number | boolean) =>({
   textAlign: 'center',
   fontSize: '16px',
   fontWeight: '600',
@@ -124,7 +124,7 @@ const ShortImage = styled('img')({
   width: 19,
   cursor: 'pointer'
 });
-const ShowMore = styled('p')((props: any) => ({
+const ShowMore = styled('p')((props: string | number | boolean) => ({
   textAlign: 'center',
   background: props.theme.palette.color.active,
   color: 'transparent',
@@ -315,17 +315,6 @@ const QuoteTables = (props: QuoteTableProps) => {
           {data.length === loardData || data.length + 1 === loardData ? "Hide Details" : "Show More Details"}
           <DownArrowImgTop src={data.length === loardData || data.length + 1 === loardData ? "/images/hideDetail.png" : '/images/showMore.png'} alt="Hide" />
         </ShowMore>
-        {/* ) : (
-          <ShowMore
-            onClick={() => {
-              setLoardData(data.length > loardData ? loardData + 2 : loardData);
-              setBlur(false);
-            }}
-          >
-            Show More Details
-            <DownArrowImg src="/images/showMore.png" alt="Show" />
-          </ShowMore>
-        )} */}
       </>
     </QuoteTablesMain>
   );

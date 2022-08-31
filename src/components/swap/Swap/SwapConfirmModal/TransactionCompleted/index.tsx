@@ -25,7 +25,7 @@ const CompletedIcon = styled('img')({
   margin: 'auto',
   display: 'block',
 });
-const Buttons = styled(Button)((props:any) =>({
+const Buttons = styled(Button)((props:string | number | boolean) =>({
   width: '100%',
   borderRadius: 16,
   background: props.theme.palette.color.active,

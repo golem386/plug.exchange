@@ -17,7 +17,7 @@ const PreText = styled('p')({
   fontWeight: '500',
   fontSize: 16,
 });
-const ReadMore = styled('span')((props:any) =>({
+const ReadMore = styled('span')((props:string | number | boolean) =>({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',

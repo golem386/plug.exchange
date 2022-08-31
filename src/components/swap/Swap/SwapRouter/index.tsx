@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Button } from '@mui/material';
 import React from 'react';
 
-const ETH = styled('p')((props:any) =>({
+const ETH = styled('p')((props:string | number | boolean) =>({
   background: props.theme.palette.color.active,
   color: "transparent",
   backgroundClip: "text",
@@ -57,7 +57,7 @@ const TitleDisebal = styled('p')({
   fontSize: '20px',
   fontWeight: 600,
 });
-const CustomButtonActive = styled(Button)((props:any) =>({
+const CustomButtonActive = styled(Button)((props:string | number | boolean) =>({
   borderRadius: '100px',
   background:props.theme.palette.color.active,
   padding: '3px 10px',
@@ -119,7 +119,7 @@ const Icon2 = styled('img')({
   marginRight: 5,
   cursor: 'pointer',
 });
-const IconHr = styled('img')((props:any) =>({
+const IconHr = styled('img')((props:string | number | boolean) =>({
   width: props.isActive === true ? 27 : 25,
   height: props.isActive === true ? 13 : 25,
   marginLeft: 5,
@@ -136,7 +136,7 @@ const QusetionIcon = styled('img')({
   marginRight: 5,
   opacity: '0.4',
 });
-const AutoText = styled('p')((props:any) =>({
+const AutoText = styled('p')((props:string | number | boolean) =>({
   fontSize: '16px',
   fontWeight: '600',
   background: props.theme.palette.color.active,
@@ -169,7 +169,7 @@ const CViewImgThree = styled('img')({
   width: '24px',
   marginRight: 20,
 });
-const CustomButtonActiveCoin = styled(Button)((props:any) =>({
+const CustomButtonActiveCoin = styled(Button)((props:string | number | boolean) =>({
   borderRadius: '100px',
   backgroundColor: props.theme.palette.color.active,
   padding: '3px 10px',
