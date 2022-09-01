@@ -1,5 +1,5 @@
 // this is a CurrencyOutput file and Provide a Currency Output value and input Design
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { FormControl } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';

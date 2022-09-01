@@ -1,5 +1,5 @@
 // this file is a ImportToken file and Provide a Token id
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { Button, FormControlLabel, Radio, useMediaQuery } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';

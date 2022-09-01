@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { useSelector } from 'react-redux';
 
 const SwapTransactionDetailsModal = styled('div')({

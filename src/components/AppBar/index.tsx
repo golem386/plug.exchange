@@ -6,6 +6,7 @@ import Settings from '../Settings';
 import AppFooter from '../AppFooter';
 import BuyCrypto from '../BuyCrypto';
 import SwitchNetwork from '../SwitchNetwork';
+import {StyledButton} from '../../theme/globalStyleComponent';
 
 const NavMainComponent = styled('div')({
   display: 'flex',
@@ -14,12 +15,7 @@ const NavMainComponent = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-around',
 });
-const NavButton = styled(Button)((props: string | number | boolean) => ({
-  background: props.isActive ? props.theme.palette.color.active : props.theme.palette.color.lightText,
-  color: props.isActive ? props.theme.palette.color.white : props.theme.palette.color.text,
-  height: 52,
-  border: props.isActive ? 'none' : '1px solid ' + props.theme.palette.color.border,
-}));
+
 const Imgs = styled('img')({
   width: '90px',
   height: 43,
@@ -167,17 +163,17 @@ const AppBar = () => {
                 <Imgs src="/logo.png" alt="logo" />
               </LogoGrid>
               <ButtonGrid item sm={8}>
-                <NavButton isActive={window?.location?.pathname === '/swap'} href="/swap">
+                <StyledButton isActive={window?.location?.pathname === '/swap'} href="/swap">
                   Swap
-                </NavButton>
-                <NavButton isActive={window?.location?.pathname === '/Crosschain'} href="/Crosschain">
+                </StyledButton>
+                <StyledButton isActive={window?.location?.pathname === '/Crosschain'} href="/Crosschain">
                   {window?.location?.pathname === '/Crosschain' && <Img src="/images/chain.png" />}
                   Crosschain
-                </NavButton>
+                </StyledButton>
                 <BuyCrypto />
-                <NavButton isActive={false} onClick={() => null}>
+                <StyledButton isActive={false} onClick={() => null}>
                   Connect Wallet
-                </NavButton>
+                </StyledButton>
                 {/* )} */}
                 <SwitchNetwork />
               
@@ -227,7 +223,7 @@ const AppBar = () => {
         </BtnGroup>
       ) : (
         <BtnGroup>
-          <NavButton isActive={false}>Connect Wallet</NavButton>
+          <StyledButton isActive={false}>Connect Wallet</StyledButton>
         </BtnGroup>
       )}
     </>

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import React, { Component } from 'react';
 const BuyCryptoButton = styled(Button)((props: string | number | boolean) => ({

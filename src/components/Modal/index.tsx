@@ -1,5 +1,5 @@
 import React, { JSXElementConstructor, ReactElement } from 'react';
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { Modal as MuiModal } from '@mui/material';
 
 const ModalCustom = styled(MuiModal)({

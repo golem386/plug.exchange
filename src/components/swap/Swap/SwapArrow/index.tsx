@@ -1,5 +1,5 @@
 // this is a SwapArrow file and Provide a Short Arrow Change Data
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';

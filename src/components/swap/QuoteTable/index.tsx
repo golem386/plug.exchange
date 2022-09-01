@@ -1,5 +1,5 @@
 // this is a QuoteTable file and Provide a table List and Data
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { Button, Grid, List } from '@mui/material';
 import React, { useState } from 'react';
 import { data } from '../../../contexts/QuoteTableDATA';

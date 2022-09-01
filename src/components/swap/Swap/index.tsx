@@ -1,5 +1,5 @@
 // this is a swap index file and Provide a Swap modal layout
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { Button, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';

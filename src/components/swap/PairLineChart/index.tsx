@@ -1,5 +1,5 @@
 // this is a PairLineChart file and Create a PairLineChart Design
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ReactEcharts from 'echarts-for-react';

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { Grid, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 import CurrencyModal from '../../components/CurrencyModal';

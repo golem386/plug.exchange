@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 
 const NotResult = styled('div')({
   padding: 30,

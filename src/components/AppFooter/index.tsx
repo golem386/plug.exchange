@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import {styled} from '@mui/system';
 import { Button, useMediaQuery } from '@mui/material';
 
 const Footer = styled('div')({

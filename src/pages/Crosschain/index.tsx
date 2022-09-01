@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import { useState } from 'react';
 import Modal from 'src/components/Modal';

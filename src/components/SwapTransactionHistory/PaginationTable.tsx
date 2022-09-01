@@ -1,5 +1,5 @@
 import React, { ChangeEvent, Component, useEffect } from 'react';
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { Box, FormControl, Grid, NativeSelect, useMediaQuery } from '@mui/material';
 
 const Footer = styled('div')({

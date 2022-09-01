@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { useSelector } from 'react-redux';
 
 const AlertNotification = styled('div')({

@@ -16,7 +16,7 @@ ThemeConfig.propTypes = {
   children: PropTypes.node
 };
 
-export default function ThemeConfig({ children }) {
+export default function ThemeConfig({ children } : any) {
   const themeOptions = useMemo(
     () => ({
       palette,
