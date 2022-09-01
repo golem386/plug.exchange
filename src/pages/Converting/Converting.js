@@ -1,7 +1,7 @@
+import { styled } from '@mui/system';
 import { Slider } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
 const Warning = styled('div')({
   display: 'flex',

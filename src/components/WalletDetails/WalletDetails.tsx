@@ -92,17 +92,8 @@ const CoinPrice = styled('span')({
     background: '#f7f7f7',
     height: 36,
     width: 130,
-    padding: '0px 10px',
-    border: 'none',
     borderRadius: '100px',
-
     fontWeight: '500',
-    fontSize: '16px',
-    color: 'black',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    textTransform: 'initial',
   },
 });
 const Into = styled('p')({
@@ -139,11 +130,8 @@ const CustomMenu = styled('div')({
     position: 'fixed',
     top: '15%',
     left: 5,
-    borderRadius: 20,
-    backgroundColor: 'white',
     width: '95%',
     padding: 5,
-    paddingTop: 20,
   },
 });
 const OverLay = styled('div')({
@@ -159,15 +147,7 @@ const OverLay = styled('div')({
   cursor: 'pointer',
   '@media (max-width: 660px)': {
     position: 'fixed',
-    width: '100%',
-    height: '100%',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
     backgroundColor: 'rgba(0,0,0,0.5)',
-    zIndex: 2,
-    cursor: 'pointer',
   },
 });
 const CoinDropIcon = styled('img')({

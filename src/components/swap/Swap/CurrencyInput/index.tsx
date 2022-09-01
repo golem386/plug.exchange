@@ -48,7 +48,6 @@ const TextInput = styled('input')({
   fontSize: '24px',
   backgroundColor: 'transparent',
   '&:focus-visible': {
-    border: 'none',
     outline: 'none',
   },
 });

@@ -10,9 +10,7 @@ const SwapTransactionDetailsModal = styled('div')({
   borderBottomLeftRadius: 25,
   borderBottomRightRadius: 25,
   '@media (max-width: 660px)': {
-    backgroundColor: '#F7F7F7',
     width: '95%',
-    padding: 10,
     borderRadius: 25,
   },
 });

@@ -17,6 +17,7 @@ import TransactionWaiting from './SwapConfirmModal/TransactionWaiting';
 import SwapHeader from './SwapHeader';
 import SwapRouter from './SwapRouter';
 import SwapTransactionDetails from './SwapTransactionDetails';
+import Buttons from '../../Buttons'
 
 const SwapModal = styled('div')({
   borderRadius: '24px',
@@ -24,20 +25,8 @@ const SwapModal = styled('div')({
   width: '97%',
   marginTop: '12%',
 });
-const OrderBtn = styled(Button)((props: string | number | boolean) => ({
-  margin: 15,
-  width: '86%',
-  background: props.theme.palette.color.active,
-  color: 'white',
-  borderRadius: '12px',
-  marginBottom: '6%',
-  marginTop: '5%',
-  marginLeft: '7%',
-  textTransform: 'initial',
-  opacity: props.isActive ? 1 : 0.4
-}));
 
-const ParmitionBtn = styled(Button)((props:string | number | boolean) =>({
+const ParmitionBtn = styled(Button)((props: string | number | boolean) => ({
   marginLeft: '7%',
   marginRight: 15,
   marginTop: 15,
@@ -229,42 +218,44 @@ const Swap = (props: SwapProps) => {
           </Boxs>
         </Modal>
         {!Parmition ? (
-          <ParmitionBtn
+          <Buttons
+            width='86%'
+            isActive={true}
             onClick={() => {
               SetParmition(true);
             }}
-          >
-            Allow the Plug protocol {isMobile ? null : <br />} to use your ETH.
-            <Img src="/images/whiteQue.png" />
-          </ParmitionBtn>
+            title={<div className='d-flex'>Allow the Plug protocol{isMobile ? null : <br />} to use your ETH.
+              <Img src="/images/whiteQue.png" /></div>} />
+
         ) : null}
         {ConnectWallet?.name === '' && CoinNetwork?.name !== '' ? (
           <WrongBtn>Wrong Network</WrongBtn>
         ) :
-          <OrderBtn
-            isActive={Parmition}
-            onClick={
-              Parmition ? ConnectWallet?.name !== '' && CoinNetwork?.name !== ''
-                ? () => {
-                  setTransactionWaitingOpen(true);
-                  setTimeout(() => {
-                    setTransactionWaitingOpen(false);
-                    setTransactionCompletedOpen(true);
-                  }, 1000);
-                }
-                : () => {
-                  setSwapConfirmModalOpen(true);
-                  setTransactionFaildopen(true);
-                  setHighSlippageModalOpen(true);
-                  dispatch(null);
-                  setTimeout(() => {
+          <>
+            <Buttons
+              width='86%'
+              isActive={Parmition}
+              onClick={
+                Parmition ? ConnectWallet?.name !== '' && CoinNetwork?.name !== ''
+                  ? () => {
+                    setTransactionWaitingOpen(true);
+                    setTimeout(() => {
+                      setTransactionWaitingOpen(false);
+                      setTransactionCompletedOpen(true);
+                    }, 1000);
+                  }
+                  : () => {
+                    setSwapConfirmModalOpen(true);
+                    setTransactionFaildopen(true);
+                    setHighSlippageModalOpen(true);
                     dispatch(null);
-                  }, 4000);
-                } : () => { }
-            }
-          >
-            {ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? 'Swap' : props.btnTitle}
-          </OrderBtn>
+                    setTimeout(() => {
+                      dispatch(null);
+                    }, 4000);
+                  } : () => { }
+              }
+              title={ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? 'Swap' : props.btnTitle} />
+          </>
         }
       </SwapModal>
       {props.btnTitle === 'Connect Wallet' ? (

@@ -26,7 +26,7 @@ const CompletedIcon = styled('img')({
   margin: 'auto',
   display: 'block',
 });
-const Buttons = styled(Button)((props:any) =>({
+const Buttons = styled(Button)((props:string|number|boolean) =>({
   borderRadius: 12,
   background: props.theme.palette.color.active,
   color: 'white',
@@ -35,7 +35,7 @@ const Buttons = styled(Button)((props:any) =>({
   margin: 'auto',
   opacity: 0.4,
 }));
-const ButtonsActive = styled(Button)((props:any) =>({
+const ButtonsActive = styled(Button)((props:string|number|boolean) =>({
   borderRadius: 12,
   background: props.theme.palette.color.active,
   color: 'white',
@@ -60,7 +60,7 @@ const Parmition = styled('div')({
   alignItems: 'center',
   marginLeft: '2%',
 });
-const ConditionPink = styled('span')((props:any) =>({
+const ConditionPink = styled('span')((props:string|number|boolean) =>({
   fontSize: '15px',
   fontWeight: '600',
   background: props.theme.palette.color.active,

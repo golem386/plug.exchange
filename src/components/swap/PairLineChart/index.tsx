@@ -65,9 +65,6 @@ const TabBar = styled(Tabs)({
   width: '273px',
   '@media (max-width: 660px)': {
     marginLeft: '20%',
-    backgroundColor: '#f7f7f7',
-    borderRadius: '100px',
-    width: '273px',
   },
 });
 type SelectType = {

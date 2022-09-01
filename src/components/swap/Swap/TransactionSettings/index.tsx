@@ -97,7 +97,6 @@ const TextInput = styled('input')({
   fontWeight: 500,
   fontSize: '24px',
   '&:focus-visible': {
-    border: 'none',
     outline: 'none',
   },
 });
@@ -112,8 +111,6 @@ const PriseText = styled('p')({
   fontWeight: '600',
   fontSize: '16px',
   '@media (max-width: 660px)': {
-
-    fontWeight: '600',
     fontSize: '14px',
   },
 });
@@ -133,14 +130,8 @@ const TimeTextPink = styled('p')((props:string | number | boolean) =>({
   display: 'flex',
   alignItems: 'center',
   '@media (max-width: 660px)': {
-
-    fontWeight: '500',
     fontSize: '14px',
     background: props.theme.palette.color.active,
-    color: 'transparent',
-    backgroundClip: 'text',
-    display: 'flex',
-    alignItems: 'center',
   },
 }));
 const DownArrowIcon = styled('img')({
@@ -206,10 +197,7 @@ const Span = styled('span')({
   fontSize: '16px',
   color: '#b3b3b3',
   '@media (max-width: 660px)': {
-
-    fontWeight: '500',
     fontSize: '14px',
-    color: '#b3b3b3',
   },
 });
 const TextTypeinput = styled('input')({

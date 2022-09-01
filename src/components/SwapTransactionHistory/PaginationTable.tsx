@@ -73,7 +73,6 @@ const Table = styled(Grid)({
   },
   marginBottom: '7px',
   '@media (max-width: 660px)': {
-    marginBottom: '7px',
     marginTop: '10%',
   },
 });

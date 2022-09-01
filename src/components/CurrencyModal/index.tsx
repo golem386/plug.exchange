@@ -1,4 +1,4 @@
-import { styled } from '@material-ui/core';
+import { styled } from '@mui/system';
 import {
   Button,
   List,

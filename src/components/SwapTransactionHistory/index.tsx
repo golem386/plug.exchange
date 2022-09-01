@@ -78,9 +78,7 @@ const SwapTransactionHistoryModal = styled('div')({
   height: '98%',
   borderRadius: 10,
   '@media (max-width: 660px)': {
-    backgroundColor: 'white',
     width: '100%',
-    height: '98%',
   },
 });
 const SwapTransactionHistory = (props: SwapTransactionHistoryType) => {

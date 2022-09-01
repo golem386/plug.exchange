@@ -4,7 +4,8 @@ import { Button, FormControlLabel, Radio } from '@mui/material';
 import Modal from '../Modal';
 import { useIsModalOpen, useToggleModal } from '../../store/app/hooks';
 import { ModalType } from 'src/store/app';
-import styled from 'styled-components';
+import { styled } from '@mui/system';
+import Buttons from '../Buttons';
 
 
 const Title = styled('div')({
@@ -20,31 +21,12 @@ const Wrapper = styled('div')({
   marginLeft: '3%'
 });
 
-// const StyledButton = styled('button') <{ isActice: boolean }>`
-// position: relative;
-// border-width: 1.5px;
-// border-style: solid;
-// border-color: ${(props) => (!props.isActice ? '#e0e0e0' : 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)')};
-// background: ${(props) => props.isActice && 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)'}
-// display: flex;
-// align-items: center;
-// border-radius: 10;
-// justify-content: center;
-// margin: 5;
-// padding-left: 3%;
-// padding-right: 3%;
-// margin-left: 15;
-// padding: 12px, 18px, 12px, 16px;
-// cursor: pointer;
-
-// `;
-
 const StyledButton = styled('button')((props: string | number | boolean) => ({
   position: 'relative',
   borderWidth: "1.5px",
   borderStyle: 'solid',
-  borderColor: props.isActive ? 'linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)': '#e0e0e0',
-  background: props.isActive ?  'linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)': "#e0e0e0",
+  borderColor: props.isActive ? props.theme.palette.color.active : '#e0e0e0',
+  background: props.isActive ? props.theme.palette.color.active : "#e0e0e0",
   display: 'flex',
   alignItems: 'center',
   borderRadius: 10,
@@ -76,41 +58,14 @@ const TermsAndConditionText = styled('p')({
   flexWrap: "wrap"
 });
 
-const TermsAndConditionPinkText = styled('span')((props:string | number | boolean) =>({
+const TermsAndConditionPinkText = styled('span')((props: string | number | boolean) => ({
   fontSize: 15,
   fontWeight: '600',
-  background: 'linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)',
+  background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   marginRight: 5,
   marginLeft: 5
-}));
-
-// const ConnectButton = styled(Button) <{ disabled: boolean }>`
-//   width: 90%;
-//   background: linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%);
-//   border-radius: 16;
-//   padding: 7px;
-//   color: white;
-//   font-family: Inter;
-//   font-size: 16px;
-//   font-weight: 600;
-//   text-transform: initial;
-//   margin-left: 4%;
-//   ${(props) => props.disabled && 'opacity: 0.3;'}
-// `;
-
-const ConnectButton = styled(Button)((props: string | number | boolean) => ({
-  width: '90%',
-  background: 'linear-gradient(90deg, #bb36ff 0%, #dc7fb6 100%)',
-  borderRadius: 16,
-  padding: 7,
-  color: 'white',
-  fontSize: 16,
-  fontWeight: '600',
-  textTransform: 'initial',
-  marginLeft: '4%',
-  opacity: props.isActive ? 1 : 0.3
 }));
 
 const SelectImg = styled('img')((props: string | number | boolean) => ({
@@ -122,7 +77,6 @@ const SelectImg = styled('img')((props: string | number | boolean) => ({
   width: 15,
   display: props.isActive ? 'block' : 'none'
 }));
-
 
 const StyledButtonTitle = styled('p')({
   fontSize: 16,
@@ -176,7 +130,6 @@ const WalletModalDiv = styled('div')({
   overflow: 'hidden',
   '@media (max-width: 660px)': {
     borderRadius: 0,
-    overflow: 'hidden',
   },
   '&:hover': {
     overflowY: 'auto',
@@ -188,10 +141,10 @@ const WalletModalDiv = styled('div')({
 
 const WalletModal = () => {
   // for close the wallet modal
-  const [WallerSelect,setWallerSelect] = useState(false)
-  const [parmition,setParmition] = useState(false)
-  const [Wallet,setWallet] = useState('')
-  const [Network,setNetwork] = useState('')
+  const [WallerSelect, setWallerSelect] = useState(false)
+  const [parmition, setParmition] = useState(false)
+  const [Wallet, setWallet] = useState('')
+  const [Network, setNetwork] = useState('')
   const close = useToggleModal(null);
 
   let isOpen = useIsModalOpen(ModalType.WALLET_MODAL);
@@ -211,9 +164,9 @@ const WalletModal = () => {
                 <Wrapper>
                   {ConnectNetWorkOne.map((val, i) => {
                     return (
-                      <StyledButton isActive={Network === val.name ? WallerSelect : false} onClick={()=>{setWallerSelect(true); setNetwork(val.name)}}>
+                      <StyledButton isActive={Network === val.name ? WallerSelect : false} onClick={() => { setWallerSelect(true); setNetwork(val.name) }}>
                         <SelectImg isActive={Network === val.name ? WallerSelect : false} src="/images/select.png" alt="Select_Icon" />
-                        <ImageIcon  src={val.coin} alt="Coin" />
+                        <ImageIcon src={val.coin} alt="Coin" />
                         <StyledButtonTitle>{val.name}</StyledButtonTitle>
                       </StyledButton>
                     );
@@ -267,7 +220,7 @@ const WalletModal = () => {
               <Wrapper>
                 {ConnectWalletOne.map((val, i) => {
                   return (
-                    <StyledButton isActive={Wallet === val.name ? WallerSelect : false} onClick={()=>{setWallerSelect(true);setWallet(val.name)}}>
+                    <StyledButton isActive={Wallet === val.name ? WallerSelect : false} onClick={() => { setWallerSelect(true); setWallet(val.name) }}>
                       <SelectImg isActive={Wallet === val.name ? WallerSelect : false} src="/images/select.png" alt="Select_Icon" />
                       <ImageIcon src={val.coin} alt="Coin" />
                       <StyledButtonTitle>{val.name}</StyledButtonTitle>
@@ -297,16 +250,13 @@ const WalletModal = () => {
             </TermsAndConditionText>
           </Checkbox>
           {/* {Check ? ( */}
-          <ConnectButton
-            variant="text"
-            // onClick={() => {
-            //   SelectData();
-            // }}
+          <Buttons
+            width='87%'
             isActive={parmition}
-            
-          >
-            Connect Wallet
-          </ConnectButton>
+            onClick={() => {
+
+            }}
+            title='Connect Wallet' />
           {/* ) : (
             <ConnectButton disabled={true} variant="text">
               Connect Wallet

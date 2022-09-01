@@ -1,5 +1,5 @@
+import { styled } from '@mui/system';
 import React, { Component, useState } from 'react';
-import styled from 'styled-components';
 
 const Header = styled('div')({
   display: 'flex',
@@ -55,14 +55,14 @@ const CoinImg = styled('img')({
   marginLeft: 10,
   borderRadius: 100,
 });
-const ContinueBtn = styled('button')({
+const ContinueBtn = styled('button')((props) =>({
   height: 52,
   background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
   borderRadius: 16,
   color: 'white',
   border: 'none',
   width: '100%',
-});
+}));
 
 const Close = styled('img')({
   cursor:'pointer'

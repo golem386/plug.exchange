@@ -27,8 +27,6 @@ const ButtonActive = styled(Button)((props:string | number | boolean) =>({
     border: 'none',
     borderRadius: '100px',
     fontWeight: '500',
-    fontSize: '16px',
-    color: 'white',
     display: 'flex',
     alignItems: 'center',
     textTransform: 'initial',
@@ -42,7 +40,6 @@ const ImageIcon = styled('img')({
   '@media (max-width: 660px)': {
     height: '20px',
     width: '20px',
-    marginRight: 10,
   },
 });
 const Title = styled('p')({
@@ -74,8 +71,6 @@ const CustomMenu = styled('div')({
   '@media (max-width: 660px)': {
     position: 'fixed',
     top: '25%',
-    borderRadius: 20,
-    backgroundColor: 'white',
     marginLeft: '2%',
     width: '96%',
   },
@@ -95,7 +90,6 @@ const OverLay = styled('div')({
   '@media (max-width: 660px)': {
     position: 'fixed',
     backgroundColor: 'rgba(0,0,0,0.5)',
-    paddingLeft: '6%',
   },
 });
 const CustomMenuItem = styled(MenuItem)({

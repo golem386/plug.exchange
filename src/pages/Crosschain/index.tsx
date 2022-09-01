@@ -1,10 +1,10 @@
 import { styled } from '@mui/system';
-import { Button } from '@mui/material';
 import { useState } from 'react';
 import Modal from 'src/components/Modal';
 import HighSlippage from 'src/components/swap/Swap/SwapConfirmModal/HighSlippage';
 import ContinuewithWallets from '../ContinuewithWallets/ContinuewithWallets';
 import Converting from '../Converting/Converting';
+import Buttons from 'src/components/Buttons';
 
 
 const data = [
@@ -297,16 +297,7 @@ const DownArrowImg = styled('img')({
   height: 15,
   paddingLeft: 10,
 });
-const OrderBtn = styled(Button)((props: string | number | boolean) => ({
-  margin: 15,
-  width: '93%',
-  background: props.theme.palette.color.active,
-  color: 'white',
-  borderRadius: '12px',
-  marginBottom: '6%',
-  marginTop: '5%',
-  textTransform: 'initial',
-}));
+
 const Title2 = styled('p')({
   color: 'black',
   fontSize: '20px',
@@ -463,7 +454,14 @@ const Crosschain = () => {
             }
             <DownArrowImg src={data.length > open ? "/images/showMore.png" : "/images/hideDetail.png"} alt="Show" />
           </ShowMore>
-          <OrderBtn onClick={() => { setHighSlippageModalOpen(true); setContinueModalOpen(true) }}>Swap</OrderBtn>
+          <Buttons
+            width='87%'
+            isActive={true}
+            onClick={() => {
+              setHighSlippageModalOpen(true);
+              setContinueModalOpen(true)
+            }}
+            title='Swap' />
         </Form>
       </MainDiv>
       <Modal

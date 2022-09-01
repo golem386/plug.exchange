@@ -71,7 +71,6 @@ const TokenKey = styled('span')({
   fontSize: 16,
   color: '#dbdbdb',
   '@media (max-width: 660px)': {
-    fontWeight: 500,
     fontSize: 14,
     color: '#dbdbdb',
   },
@@ -117,7 +116,7 @@ const ParmitionMain = styled('div')({
   marginLeft: 10,
   marginBottom: 20,
 });
-const ImportTokenButton = styled(Button)(() =>({
+const ImportTokenButton = styled(Button)((props:string | number | boolean) =>({
   width: '100%',
   background: props.theme.palette.color.active,
   borderRadius: 16,

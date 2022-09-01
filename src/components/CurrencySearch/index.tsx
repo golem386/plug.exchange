@@ -7,12 +7,6 @@ const NotResult = styled('div')({
   position: 'absolute',
   zIndex: 10,
   backgroundColor: 'white',
-  '@media (max-width: 660px)': {
-    padding: 30,
-    borderRadius: '24px',
-    position: 'absolute',
-    zIndex: 10,
-  },
 });
 const List = styled('span')({
   display: 'flex',
