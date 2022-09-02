@@ -3,6 +3,7 @@ import { Button } from '@mui/material';
 import CurrencyInput from '../CurrencyInput';
 import CurrencyOutput from '../CurrencyOutput';
 import Buttons from 'src/components/Buttons';
+import { ThemeProps } from 'src/theme';
 
 const Header = styled('div')({
   display: 'flex',
@@ -20,7 +21,7 @@ const Title = styled('p')({
   fontWeight: 600,
   fontSize: 24,
 });
-const ETH = styled('span')((props: string | number | boolean) => ({
+const ETH = styled('span')((props: { theme: ThemeProps }) => ({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',

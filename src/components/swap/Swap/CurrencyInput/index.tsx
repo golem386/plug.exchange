@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 //import { onModalOpen } from '../../../../store/Actions';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
+import { ThemeProps } from 'src/theme';
 
 const SwapHeader = styled('div')({
   display: 'flex',
@@ -21,7 +22,7 @@ const HeaderTitle = styled('span')({
   color: 'black',
   opacity: 0.65,
 });
-const Max = styled('span')((props:string | number | boolean) =>({
+const Max = styled('span')((props:{theme: ThemeProps}) =>({
   fontSize: '16px',
   fontWeight: '500',
   background: props.theme.palette.color.active,

@@ -4,18 +4,24 @@ import { useMemo } from 'react';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme, StyledEngineProvider } from '@mui/material/styles';
 //
-import shape from './shape';
-import palette from './palette';
-import typography from './typography';
+import shape, { ThemeShapeProps } from './shape';
+import palette, { ThemePaletteProps } from './palette';
+import typography, { ThemeTypographyProps } from './typography';
 import componentsOverride from './overrides';
-import shadows, { customShadows } from './shadows';
+import shadows, { customShadows, ThemeCustomShadowsProps } from './shadows';
 
 // ----------------------------------------------------------------------
 
 ThemeConfig.propTypes = {
   children: PropTypes.node
 };
-
+export interface ThemeProps {
+  palette: ThemePaletteProps;
+  shape: ThemeShapeProps;
+  typography: ThemeTypographyProps;
+  shadows: string[];
+  customShadows: ThemeCustomShadowsProps;
+}
 export default function ThemeConfig({ children } : any) {
   const themeOptions = useMemo(
     () => ({

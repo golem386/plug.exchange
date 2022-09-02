@@ -1,11 +1,12 @@
 import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import React from 'react';
+import { ThemeProps } from 'src/theme';
 
-const ETH = styled('p')((props:string | number | boolean) =>({
+const ETH = styled('p')((props: { theme: ThemeProps }) => ({
   background: props.theme.palette.color.active,
-  color: "transparent",
-  backgroundClip: "text",
+  color: 'transparent',
+  backgroundClip: 'text',
   fontSize: 16,
   fontWeight: 500,
 }));
@@ -57,9 +58,9 @@ const TitleDisebal = styled('p')({
   fontSize: '20px',
   fontWeight: 600,
 });
-const CustomButtonActive = styled(Button)((props:string | number | boolean) =>({
+const CustomButtonActive = styled(Button)((props: { theme: ThemeProps }) => ({
   borderRadius: '100px',
-  background:props.theme.palette.color.active,
+  background: props.theme.palette.color.active,
   padding: '3px 10px',
   fontSize: '14px',
   fontWeight: '600',
@@ -119,14 +120,14 @@ const Icon2 = styled('img')({
   marginRight: 5,
   cursor: 'pointer',
 });
-const IconHr = styled('img')((props:string | number | boolean) =>({
+const IconHr = styled('img')((props: { theme: ThemeProps, isActive : boolean }) => ({
   width: props.isActive === true ? 27 : 25,
   height: props.isActive === true ? 13 : 25,
   marginLeft: 5,
   marginRight: '5%',
   cursor: 'pointer',
   padding: 5,
-  opacity:props.isActive ? '' : '0.5'
+  opacity: props.isActive ? '' : '0.5',
 }));
 
 const QusetionIcon = styled('img')({
@@ -136,12 +137,12 @@ const QusetionIcon = styled('img')({
   marginRight: 5,
   opacity: '0.4',
 });
-const AutoText = styled('p')((props:string | number | boolean) =>({
+const AutoText = styled('p')((props: { theme: ThemeProps }) => ({
   fontSize: '16px',
   fontWeight: '600',
   background: props.theme.palette.color.active,
-  color: "transparent",
-  backgroundClip: "text",
+  color: 'transparent',
+  backgroundClip: 'text',
 }));
 const Route = styled('div')({
   display: 'flex',
@@ -169,7 +170,7 @@ const CViewImgThree = styled('img')({
   width: '24px',
   marginRight: 20,
 });
-const CustomButtonActiveCoin = styled(Button)((props:string | number | boolean) =>({
+const CustomButtonActiveCoin = styled(Button)((props: { theme: ThemeProps }) => ({
   borderRadius: '100px',
   backgroundColor: props.theme.palette.color.active,
   padding: '3px 10px',

@@ -18,6 +18,7 @@ import SwapHeader from './SwapHeader';
 import SwapRouter from './SwapRouter';
 import SwapTransactionDetails from './SwapTransactionDetails';
 import Buttons from '../../Buttons'
+import { ThemeProps } from 'src/theme';
 
 const SwapModal = styled('div')({
   borderRadius: '24px',
@@ -26,7 +27,7 @@ const SwapModal = styled('div')({
   marginTop: '12%',
 });
 
-const ParmitionBtn = styled(Button)((props: string | number | boolean) => ({
+const ParmitionBtn = styled(Button)((props: { theme: ThemeProps }) => ({
   marginLeft: '7%',
   marginRight: 15,
   marginTop: 15,

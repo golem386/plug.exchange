@@ -2,12 +2,99 @@ import { alpha } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 
-function createGradient(color1:string, color2:string) {
+function createGradient(color1: string, color2: string) {
   return `linear-gradient(to bottom, ${color1}, ${color2})`;
 }
-
+interface PaletteColorProps {
+  lighter: string;
+  light: string;
+  main: string;
+  dark: string;
+  darker: string;
+  contrastText: string;
+}
+interface PaletteGreyColorProps {
+  0: string;
+  100: string;
+  200: string;
+  300: string;
+  400: string;
+  500: string;
+  600: string;
+  700: string;
+  800: string;
+  900: string;
+  500_8: string;
+  500_12: string;
+  500_16: string;
+  500_24: string;
+  500_32: string;
+  500_48: string;
+  500_56: string;
+  500_80: string;
+}
+interface PaletteGradientsProps {
+  primary: string;
+  info: string;
+  success: string;
+  warning: string;
+  error: string;
+  active: string;
+}
+interface PaletteChartProps {
+  violet: string[];
+  blue: string[];
+  green: string[];
+  yellow: string[];
+  red: string[];
+}
+interface PaletteColorsProps {
+  white: string;
+  dark: string;
+  active: string;
+  subTitle: string;
+  title: string;
+  lightText: string;
+  text: string;
+  border: string;
+  hover: string;
+}
+export interface ThemePaletteProps {
+  common: { black: string, white: string };
+  color: PaletteColorsProps;
+  primary: PaletteColorProps;
+  secondary: PaletteColorProps;
+  info: PaletteColorProps;
+  success: PaletteColorProps;
+  warning: PaletteColorProps;
+  error: PaletteColorProps;
+  grey: PaletteGreyColorProps;
+  gradients: PaletteGradientsProps;
+  chart: PaletteChartProps;
+  divider: string;
+  text: {
+    primary: string;
+    secondary: string;
+    disabled: string;
+  };
+  background: {
+    paper: string;
+    default: string;
+    neutral: string;
+  };
+  action: {
+    active: string;
+    hover: string;
+    selected: string;
+    disabled: string;
+    disabledBackground: string;
+    focus: string;
+    hoverOpacity: number;
+    disabledOpacity: number;
+  };
+}
 // SETUP COLORS
-const GREY = {
+const GREY: PaletteGreyColorProps = {
   0: '#FFFFFF',
   100: '#F9FAFB',
   200: '#F4F6F8',
@@ -28,15 +115,15 @@ const GREY = {
   500_80: alpha('#919EAB', 0.8),
 };
 
-const PRIMARY = {
+const PRIMARY: PaletteColorProps = {
   lighter: '#C8FACD',
   light: '#5BE584',
-  main: '#FAD759',
+  main: '#b950ee',
   dark: '#FAD759',
   darker: '#eda900',
   contrastText: '#fff',
 };
-const SECONDARY = {
+const SECONDARY: PaletteColorProps = {
   lighter: '#D6E4FF',
   light: '#84A9FF',
   main: '#3366FF',
@@ -44,7 +131,7 @@ const SECONDARY = {
   darker: '#091A7A',
   contrastText: '#fff',
 };
-const INFO = {
+const INFO: PaletteColorProps = {
   lighter: '#D0F2FF',
   light: '#74CAFF',
   main: '#1890FF',
@@ -52,7 +139,7 @@ const INFO = {
   darker: '#04297A',
   contrastText: '#fff',
 };
-const SUCCESS = {
+const SUCCESS: PaletteColorProps = {
   lighter: '#E9FCD4',
   light: '#AAF27F',
   main: '#54D62C',
@@ -60,7 +147,7 @@ const SUCCESS = {
   darker: '#08660D',
   contrastText: GREY[800],
 };
-const WARNING = {
+const WARNING: PaletteColorProps = {
   lighter: '#FFF7CD',
   light: '#FFE16A',
   main: '#FFC107',
@@ -68,7 +155,7 @@ const WARNING = {
   darker: '#7A4F01',
   contrastText: GREY[800],
 };
-const ERROR = {
+const ERROR: PaletteColorProps = {
   lighter: '#FFE7D9',
   light: '#FFA48D',
   main: '#FF4842',
@@ -77,7 +164,7 @@ const ERROR = {
   contrastText: '#fff',
 };
 
-const GRADIENTS = {
+const GRADIENTS: PaletteGradientsProps = {
   primary: createGradient(PRIMARY.light, PRIMARY.main),
   info: createGradient(INFO.light, INFO.main),
   success: createGradient(SUCCESS.light, SUCCESS.main),
@@ -86,14 +173,15 @@ const GRADIENTS = {
   active: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%);',
 };
 
-const CHART_COLORS = {
+const CHART_COLORS: PaletteChartProps = {
   violet: ['#826AF9', '#9E86FF', '#D0AEFF', '#F7D2FF'],
   blue: ['#2D99FF', '#83CFFF', '#A5F3FF', '#CCFAFF'],
   green: ['#2CD9C5', '#60F1C8', '#A4F7CC', '#C0F2DC'],
   yellow: ['#FFE700', '#FFEF5A', '#FFF7AE', '#FFF3D6'],
   red: ['#FF6C40', '#FF8F6D', '#FFBD98', '#FFF2D4'],
 };
-const COLOR = {
+
+const COLOR: PaletteColorsProps = {
   white: '#FFFFFF',
   dark: '#000000',
   active: GRADIENTS.active,
@@ -104,7 +192,8 @@ const COLOR = {
   border: 'rgba(0, 0, 0, 0.1)',
   hover: 'rgb(191 91 227 / 41%)',
 };
-const palette = {
+
+const palette: ThemePaletteProps = {
   common: { black: '#000', white: '#fff' },
   color: { ...COLOR },
   primary: { ...PRIMARY },

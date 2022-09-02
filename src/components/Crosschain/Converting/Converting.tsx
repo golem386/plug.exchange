@@ -117,13 +117,20 @@ const Solscan = styled(Slider)((props) =>({
 const Close = styled('img')({
   cursor:'pointer'
 });
-
-const Converting = (props) => {
+interface ConvertingProps {
+  close: () => void;
+} 
+const Converting = (props: ConvertingProps) => {
   return (
     <>
       <Header>
         <Title>Converting</Title>
-        <Close src="/images/cros.png" onClick={() =>{props.close()}} />
+        <Close
+          src="/images/cros.png"
+          onClick={() => {
+            props.close();
+          }}
+        />
       </Header>
       <Warning>
         <img src="/images/info.png" />

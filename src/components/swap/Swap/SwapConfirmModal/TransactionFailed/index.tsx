@@ -1,5 +1,6 @@
 import { styled } from '@mui/system';
 import { Button } from '@mui/material';
+import { ThemeProps } from 'src/theme';
 
 const Title = styled('span')({
   fontWeight: '600',
@@ -26,7 +27,7 @@ const CompletedIcon = styled('img')({
   margin: 'auto',
   display: 'block',
 });
-const Buttons = styled(Button)((props:string|number|boolean) =>({
+const Buttons = styled(Button)((props: { theme: ThemeProps }) => ({
   borderRadius: 12,
   background: props.theme.palette.color.active,
   color: 'white',

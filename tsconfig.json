@@ -63,7 +63,7 @@
   "include": [
     "./src/pages",
     "./src/next-env.d.ts"
-  ],
+, "src/components/Converting"  ],
   "exclude": [
     "./node_modules"
   ]

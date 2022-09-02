@@ -1,12 +1,13 @@
 import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import React, { Component } from 'react';
-const BuyCryptoButton = styled(Button)((props: string | number | boolean) => ({
+import { ThemeProps } from 'src/theme';
+const BuyCryptoButton = styled(Button)((props: {isActive:boolean; theme: ThemeProps;}) => ({
   background: props.isActive ? props.theme.palette.color.active : props.theme.palette.color.lightText,
   color: props.isActive ? props.theme.palette.color.white : props.theme.palette.color.text,
   height: 52,
   width: '137px',
-  border: props.isActive ? 'none' : '1px solid' + props.theme.palette.color.border,
+  border: props.isActive ? 'none' : '1px solid ' + props.theme.palette.color.border,
   '@media (max-width: 660px)': {
     borderRadius: 16,
     backgroundColor: 'rgba(0, 0, 0, 0.03)',
@@ -23,7 +24,7 @@ const BuyCryptoButton = styled(Button)((props: string | number | boolean) => ({
 }));
 
 const BuyCrypto = () => {
-  return <BuyCryptoButton>Buy Crypto</BuyCryptoButton>;
+  return <BuyCryptoButton isActive={false}>Buy Crypto</BuyCryptoButton>;
 };
 
 export default BuyCrypto;

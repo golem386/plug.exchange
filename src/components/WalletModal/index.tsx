@@ -6,6 +6,7 @@ import { useIsModalOpen, useToggleModal } from '../../store/app/hooks';
 import { ModalType } from 'src/store/app';
 import { styled } from '@mui/system';
 import Buttons from '../Buttons';
+import { ThemeProps } from 'src/theme';
 
 
 const Title = styled('div')({
@@ -21,12 +22,12 @@ const Wrapper = styled('div')({
   marginLeft: '3%'
 });
 
-const StyledButton = styled('button')((props: string | number | boolean) => ({
+const StyledButton = styled('button')((props: { theme: ThemeProps, isActive: boolean }) => ({
   position: 'relative',
-  borderWidth: "1.5px",
+  borderWidth: '1.5px',
   borderStyle: 'solid',
   borderColor: props.isActive ? props.theme.palette.color.active : '#e0e0e0',
-  background: props.isActive ? props.theme.palette.color.active : "#e0e0e0",
+  background: props.isActive ? props.theme.palette.color.active : '#e0e0e0',
   display: 'flex',
   alignItems: 'center',
   borderRadius: 10,
@@ -38,7 +39,7 @@ const StyledButton = styled('button')((props: string | number | boolean) => ({
   paddingTop: '2%',
   marginLeft: 15,
   padding: '12px, 18px, 12px, 16px',
-  cursor: 'pointer'
+  cursor: 'pointer',
 }));
 
 const Checkbox = styled('div')({
@@ -58,24 +59,24 @@ const TermsAndConditionText = styled('p')({
   flexWrap: "wrap"
 });
 
-const TermsAndConditionPinkText = styled('span')((props: string | number | boolean) => ({
+const TermsAndConditionPinkText = styled('span')((props: { theme: ThemeProps; }) => ({
   fontSize: 15,
   fontWeight: '600',
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   marginRight: 5,
-  marginLeft: 5
+  marginLeft: 5,
 }));
 
-const SelectImg = styled('img')((props: string | number | boolean) => ({
+const SelectImg = styled('img')((props: { isActive: boolean }) => ({
   position: 'absolute',
   left: '45px',
   top: '70%',
   transform: 'translate(-50%, -50%)',
   height: 15,
   width: 15,
-  display: props.isActive ? 'block' : 'none'
+  display: props.isActive ? 'block' : 'none',
 }));
 
 const StyledButtonTitle = styled('p')({

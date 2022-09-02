@@ -1,6 +1,7 @@
 import { styled } from '@mui/system';
 import React, { useState } from 'react';
 import { Button, FormControlLabel, Radio } from '@mui/material';
+import { ThemeProps } from 'src/theme';
 
 const Title = styled('span')({
   fontWeight: '600',
@@ -26,7 +27,7 @@ const CompletedIcon = styled('img')({
   margin: 'auto',
   display: 'block',
 });
-const Buttons = styled(Button)((props:string|number|boolean) =>({
+const Buttons = styled(Button)((props:{theme: ThemeProps}) =>({
   borderRadius: 12,
   background: props.theme.palette.color.active,
   color: 'white',
@@ -35,7 +36,7 @@ const Buttons = styled(Button)((props:string|number|boolean) =>({
   margin: 'auto',
   opacity: 0.4,
 }));
-const ButtonsActive = styled(Button)((props:string|number|boolean) =>({
+const ButtonsActive = styled(Button)((props:{theme: ThemeProps}) =>({
   borderRadius: 12,
   background: props.theme.palette.color.active,
   color: 'white',
@@ -60,7 +61,7 @@ const Parmition = styled('div')({
   alignItems: 'center',
   marginLeft: '2%',
 });
-const ConditionPink = styled('span')((props:string|number|boolean) =>({
+const ConditionPink = styled('span')((props:{theme: ThemeProps}) =>({
   fontSize: '15px',
   fontWeight: '600',
   background: props.theme.palette.color.active,

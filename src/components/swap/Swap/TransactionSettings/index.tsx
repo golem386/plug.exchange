@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Switch } from '@mui/material';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import { ThemeProps } from 'src/theme';
 
 const TransactionSettingsModal = styled('div')({
   borderRadius: '24px',
@@ -121,7 +122,7 @@ const TimeText = styled('p')({
   display: 'flex',
   alignItems: 'center',
 });
-const TimeTextPink = styled('p')((props:string | number | boolean) =>({
+const TimeTextPink = styled('p')((props: { theme: ThemeProps }) => ({
   fontWeight: '500',
   fontSize: '16px',
   background: props.theme.palette.color.active,

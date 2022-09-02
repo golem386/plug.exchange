@@ -3,6 +3,7 @@ import { styled } from '@mui/system';
 import { Button, FormControlLabel, Radio, useMediaQuery } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { ThemeProps } from 'src/theme';
 
 const style = {
   position: 'absolute',
@@ -116,7 +117,7 @@ const ParmitionMain = styled('div')({
   marginLeft: 10,
   marginBottom: 20,
 });
-const ImportTokenButton = styled(Button)((props:string | number | boolean) =>({
+const ImportTokenButton = styled(Button)((props:{theme: ThemeProps}) =>({
   width: '100%',
   background: props.theme.palette.color.active,
   borderRadius: 16,
@@ -127,7 +128,7 @@ const ImportTokenButton = styled(Button)((props:string | number | boolean) =>({
   textTransform: 'initial',
   height: '52px',
 }));
-const ImportTokenDisabalButton = styled(Button)((props:string | number | boolean) =>({
+const ImportTokenDisabalButton = styled(Button)((props:{theme: ThemeProps}) =>({
   width: '100%',
   background: props.theme.palette.color.active,
   borderRadius: 16,

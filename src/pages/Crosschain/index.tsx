@@ -2,37 +2,37 @@ import { styled } from '@mui/system';
 import { useState } from 'react';
 import Modal from 'src/components/Modal';
 import HighSlippage from 'src/components/swap/Swap/SwapConfirmModal/HighSlippage';
-import ContinuewithWallets from '../ContinuewithWallets/ContinuewithWallets';
-import Converting from '../Converting/Converting';
+import ContinuewithWallets from '../../components/Crosschain/CrosschainWallets/CrosschainWallets';
+import Converting from '../../components/Crosschain/Converting/Converting';
 import Buttons from 'src/components/Buttons';
-
+import { ThemeProps } from 'src/theme';
 
 const data = [
   {
     title: 'Lifinity > 1inch',
     total: '2442.57',
     tnxcost: 'TXN Cost 0.0161 = (~$39.51)',
-    earn: '~$2,451'
+    earn: '~$2,451',
   },
   {
     title: 'Lifinity > 1inch',
     total: '2442.57',
     tnxcost: 'TXN Cost 0.0161 = (~$39.51)',
-    earn: '~$2,451'
+    earn: '~$2,451',
   },
   {
     title: 'Lifinity > 1inch',
     total: '2442.57',
     tnxcost: 'TXN Cost 0.0161 = (~$39.51)',
-    earn: '~$2,451'
+    earn: '~$2,451',
   },
   {
     title: 'Lifinity > 1inch',
     total: '2442.57',
     tnxcost: 'TXN Cost 0.0161 = (~$39.51)',
-    earn: '~$2,451'
+    earn: '~$2,451',
   },
-]
+];
 const MainDiv = styled('div')({
   display: 'flex',
   justifyContent: 'center',
@@ -150,7 +150,7 @@ const Text3 = styled('span')({
   opacity: 0.65,
 });
 
-const Max = styled('span')((props: string | number | boolean) => ({
+const Max = styled('span')((props:{theme: ThemeProps}) => ({
   fontWeight: 500,
   fontSize: '16px',
   background: props.theme.palette.color.active,
@@ -259,14 +259,13 @@ const UsdtList = styled('div')({
   },
 });
 
-
 const MainTitleView = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   marginLeft: '5%',
   marginRight: '5%',
-  marginTop: '2.5%'
+  marginTop: '2.5%',
 });
 const Amount = styled('p')({
   fontSize: '20px',
@@ -282,7 +281,7 @@ const Span = styled('span')({
   color: '#949494',
   opacity: '0.4',
 });
-const ShowMore = styled('p')((props: string | number | boolean) => ({
+const ShowMore = styled('p')((props: { theme: ThemeProps}) => ({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
@@ -291,7 +290,7 @@ const ShowMore = styled('p')((props: string | number | boolean) => ({
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
 }));
 const DownArrowImg = styled('img')({
   height: 15,
@@ -331,7 +330,6 @@ const ItemText2 = styled('span')({
   color: '#010101',
 });
 
-
 const Routs = styled('div')({
   display: 'flex',
   alignItems: 'center',
@@ -340,7 +338,7 @@ const Routs = styled('div')({
 
 const RoutImg = styled('img')({
   height: 24,
-  width: 24
+  width: 24,
 });
 
 const Vs = styled('img')({
@@ -348,7 +346,7 @@ const Vs = styled('img')({
   width: 16,
   marginLeft: 5,
   marginRight: 5,
-  opacity: 0.4
+  opacity: 0.4,
 });
 
 const Boxs = styled('div')({
@@ -362,10 +360,8 @@ const Boxs = styled('div')({
   borderRadius: 10,
 });
 
-
-
 const Crosschain = () => {
-  const [open, setOpen] = useState(1)
+  const [open, setOpen] = useState(1);
   const [HighSlippageModalopen, setHighSlippageModalOpen] = useState(false);
   const [ContinueModalOpen, setContinueModalOpen] = useState(false);
 
@@ -427,41 +423,47 @@ const Crosschain = () => {
               </InputMain2>
             </Header>
           </ToMain>
-          {
-            data.map((val, i) => {
-              return (
-                open > i ? <UsdtList>
-                  <MainTitleView>
-                    <Div>
-                      <Title2>{val.title}</Title2>
-                      {/* <CustomButtonActive>Save $12.20</CustomButtonActive> */}
-                    </Div>
-                    <Amount>{val.total}</Amount>
-                  </MainTitleView>
-                  <MainTitleView>
-                    <Span>{val.tnxcost}</Span>
-                    <Span>{val.earn}</Span>
-                  </MainTitleView>
-                </UsdtList> : null
+          {data.map((val, i) => {
+            return open > i ? (
+              <UsdtList>
+                <MainTitleView>
+                  <Div>
+                    <Title2>{val.title}</Title2>
+                    {/* <CustomButtonActive>Save $12.20</CustomButtonActive> */}
+                  </Div>
+                  <Amount>{val.total}</Amount>
+                </MainTitleView>
+                <MainTitleView>
+                  <Span>{val.tnxcost}</Span>
+                  <Span>{val.earn}</Span>
+                </MainTitleView>
+              </UsdtList>
+            ) : null;
+          })}
 
-              )
-            })
-          }
-
-          <ShowMore onClick={data.length > open ? () => { setOpen(open + 1) } : () => { setOpen(1) }}>
-            {
-              data.length > open ? 'Show More' : 'Hide Detaiis'
+          <ShowMore
+            onClick={
+              data.length > open
+                ? () => {
+                    setOpen(open + 1);
+                  }
+                : () => {
+                    setOpen(1);
+                  }
             }
-            <DownArrowImg src={data.length > open ? "/images/showMore.png" : "/images/hideDetail.png"} alt="Show" />
+          >
+            {data.length > open ? 'Show More' : 'Hide Detaiis'}
+            <DownArrowImg src={data.length > open ? '/images/showMore.png' : '/images/hideDetail.png'} alt="Show" />
           </ShowMore>
           <Buttons
-            width='87%'
+            width="87%"
             isActive={true}
             onClick={() => {
               setHighSlippageModalOpen(true);
-              setContinueModalOpen(true)
+              setContinueModalOpen(true);
             }}
-            title='Swap' />
+            title="Swap"
+          />
         </Form>
       </MainDiv>
       <Modal
@@ -472,9 +474,11 @@ const Crosschain = () => {
         }}
       >
         <Boxs>
-          <ContinuewithWallets close={() => {
-            setContinueModalOpen(false);
-          }} />
+          <ContinuewithWallets
+            close={() => {
+              setContinueModalOpen(false);
+            }}
+          />
         </Boxs>
       </Modal>
       <Modal
@@ -485,9 +489,11 @@ const Crosschain = () => {
         }}
       >
         <Boxs>
-          <Converting close={() => {
-            closeHighSlippageModel();
-          }} />
+          <Converting
+            close={() => {
+              closeHighSlippageModel();
+            }}
+          />
         </Boxs>
       </Modal>
 
@@ -503,9 +509,9 @@ const Crosschain = () => {
         <Expected>
           <ItemText>Route</ItemText>
           <Routs>
-            <RoutImg src='/images/coin3.png' />
-            <Vs src='/images/leftIcon.png' />
-            <RoutImg src='/images/coin6.png' />
+            <RoutImg src="/images/coin3.png" />
+            <Vs src="/images/leftIcon.png" />
+            <RoutImg src="/images/coin6.png" />
           </Routs>
         </Expected>
         <Expected>

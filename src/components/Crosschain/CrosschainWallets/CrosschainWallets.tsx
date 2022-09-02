@@ -69,13 +69,14 @@ const Close = styled('img')({
 });
 
 const CopyText = styled('p')({
-  fontFamily: 'Inter',
   fontSize: '16px',
   fontWeight: '600',
   color: '#BB36FF',
 });
-
-const ContinuewithWallets = (props) => {
+interface ContinuewithWalletsProps {
+  close: () => void;
+} 
+const CrosschainWallets = (props: ContinuewithWalletsProps) => {
   const [copy, setCopy] = useState(false);
   const [copyto, setCopyto] = useState(false);
   return (
@@ -135,4 +136,4 @@ const ContinuewithWallets = (props) => {
   );
 };
 
-export default ContinuewithWallets;
+export default CrosschainWallets;

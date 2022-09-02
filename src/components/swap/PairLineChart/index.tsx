@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import ReactEcharts from 'echarts-for-react';
 import { Box, Tab, Tabs } from '@mui/material';
 import * as echarts from 'echarts';
+import { Theme } from '@emotion/react';
+import { ThemeProps } from 'src/theme';
 
 const CurrencyTitle = styled('p')({
   fontSize: 'calc(0.55em + 1vw)',
@@ -24,12 +26,12 @@ const ShortIcon = styled('img')({
   marginLeft: '20px',
   marginRight: '20px',
 });
-const CurrencyTotalPrice = styled('span')((props: string | number | boolean) => ({
+const CurrencyTotalPrice = styled('span')(() => ({
   fontSize: '44px',
   fontWeight: '600',
   color: 'black',
 }));
-const CurrencyPriceChange = styled('span')((props:string | number | boolean) =>({
+const CurrencyPriceChange = styled('span')((props:{theme:ThemeProps}) =>({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
@@ -47,7 +49,7 @@ const PairLineChartData = styled('div')({
   width: '100%',
   marginTop: '10%',
 });
-const TabButton = styled(Tab)((props: string | number | boolean) => ({
+const TabButton = styled(Tab)((props: { isActive:boolean; theme: ThemeProps }) => ({
   borderRadius: '100px',
   fontWeight: '500',
   fontStyle: 'normal',

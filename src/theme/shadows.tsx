@@ -57,9 +57,21 @@ const createCustomShadow = (color:string) => {
     error: `0 8px 16px 0 ${alpha(palette.error.main, 0.24)}`
   };
 };
-
-export const customShadows = createCustomShadow(LIGHT_MODE);
-
-const shadows = createShadow(LIGHT_MODE);
+export interface ThemeCustomShadowsProps {
+  z1: string;
+  z8: string;
+  z12: string;
+  z16: string;
+  z20: string;
+  z24: string;
+  primary: string;
+  secondary: string;
+  info: string;
+  success: string;
+  warning: string;
+  error: string;
+}
+export const customShadows: ThemeCustomShadowsProps = createCustomShadow(LIGHT_MODE);
+const shadows: string[] = createShadow(LIGHT_MODE);
 
 export default shadows;

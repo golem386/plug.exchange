@@ -1,5 +1,7 @@
 import {styled} from '@mui/system';
-import { Button, useMediaQuery } from '@mui/material';
+import { Button, ButtonBaseProps, useMediaQuery } from '@mui/material';
+import { ThemeProps } from 'src/theme';
+import { ReactElement } from 'react';
 
 const Footer = styled('div')({
   '@media (min-width: 660px)': {
@@ -10,7 +12,7 @@ const Footer = styled('div')({
   },
 });
 
-const IconButtom = styled(Button)((props:string | number | boolean) =>({
+const IconButtom = styled(Button)((props: { theme: ThemeProps }) => ({
   borderRadius: 100,
   margin: 10,
   backgroundColor: props.theme.palette.color.lightText,
@@ -18,23 +20,19 @@ const IconButtom = styled(Button)((props:string | number | boolean) =>({
   color: props.theme.palette.color.dark,
   opacity: '0.65',
   '&:hover': {
-    borderRadius: 100,
-    margin: 10,
     background: props.theme.palette.color.active,
-    padding: '20px 0px',
-    color: props.theme.palette.color.dark,
     opacity: '1',
   },
-}))
-const MenuItem = styled(Button)((props:string | number | boolean)=>({
+}));
+const MenuItem = styled(Button)((props: { theme: ThemeProps }) => ({
   margin: 10,
   backgroundColor: 'transparent',
   padding: '20px 0px',
   color: props.theme.palette.color.dark,
   opacity: '0.65',
   '&:hover': {
-    backgroundColor:props.theme.palette.color.lightText
-  }
+    backgroundColor: props.theme.palette.color.lightText,
+  },
 }));
 const IconSection = styled('div')({
   '@media (max-width: 660px)': {

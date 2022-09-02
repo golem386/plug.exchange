@@ -3,8 +3,9 @@ import { Button, MenuItem } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
+import { ThemeProps } from 'src/theme';
 
-const ButtonActive = styled(Button)((props:string | number | boolean) =>({
+const ButtonActive = styled(Button)((props: { theme: ThemeProps }) => ({
   borderRadius: 16,
   background: props.theme.palette.color.active,
   padding: '0px 15px',

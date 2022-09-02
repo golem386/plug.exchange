@@ -1,6 +1,7 @@
 import { styled } from '@mui/system';
 import { Grid } from '@mui/material';
 import Link from 'next/link';
+import { ThemeProps } from 'src/theme';
 
 const Div = styled('div')({
   marginLeft: '5%',
@@ -31,7 +32,7 @@ const Pre = styled('span')({
   fontWeight: '400',
   fontSize: '16px',
 });
-const CustomButtonActive = styled('a')((props:string | number | boolean) =>({
+const CustomButtonActive = styled('a')((props: { theme: ThemeProps; }) => ({
   borderRadius: 16,
   background: props.theme.palette.color.active,
   fontSize: '16px',
@@ -42,7 +43,7 @@ const CustomButtonActive = styled('a')((props:string | number | boolean) =>({
   height: 52,
   width: '25%',
   marginTop: 20,
-  padding:'15px 15px'
+  padding: '15px 15px',
 }));
 
 const NotFound = () => {

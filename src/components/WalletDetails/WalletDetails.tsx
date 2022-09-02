@@ -8,6 +8,7 @@ import UserAssets from './UserAssets';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import SwapTransactionHistory from '../SwapTransactionHistory';
+import { ThemeProps } from 'src/theme';
 
 const Copy = styled('div')({
   paddingLeft: '10px',
@@ -23,7 +24,7 @@ const Id = styled('p')({
   fontSize: '16px',
   fontWeight: '600',
 });
-const Copied = styled('p')((props:string | number | boolean) =>({
+const Copied = styled('p')((props: { theme: ThemeProps }) => ({
   fontSize: '16px',
   fontWeight: '600',
   background: props.theme.palette.color.active,

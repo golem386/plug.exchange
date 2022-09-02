@@ -1,4 +1,5 @@
 import { Button, styled } from '@mui/material';
+import { ThemeProps } from 'src/theme';
 
 const ReferralModalMain = styled('div')({
   display: 'flex',
@@ -17,7 +18,7 @@ const PreText = styled('p')({
   fontWeight: '500',
   fontSize: 16,
 });
-const ReadMore = styled('span')((props:string | number | boolean) =>({
+const ReadMore = styled('span')((props:{theme: ThemeProps}) =>({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',

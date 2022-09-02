@@ -19,8 +19,65 @@ function responsiveFontSizes({ sm, md, lg }:any) {
 }
 
 const FONT_PRIMARY = 'Inter';
-
-const typography = {
+interface TypographyHeadProps {
+  fontWeight: number;
+  lineHeight: number;
+  fontSize: string;
+  '@media (min-width:600px)': {
+    fontSize: string;
+  };
+  '@media (min-width:900px)': {
+    fontSize: string;
+  };
+  '@media (min-width:1200px)': {
+    fontSize: string;
+  };
+};
+interface TypographyTitleProps {
+    fontWeight: number,
+    lineHeight: number,
+    fontSize: string,
+  }
+interface TypographyCaptionProps {
+    lineHeight: number,
+    fontSize: string,
+  }
+  interface TypographyButtonProps {
+    lineHeight: number,
+    fontSize: string,
+    fontWeight: number,
+    textTransform: string,
+    padding: string,
+    borderRadius: number,
+  }
+  interface TypographyOverlineProps {
+    lineHeight: number;
+    fontSize: string;
+    fontWeight: number;
+    textTransform: string;
+    letterSpacing: number,
+  }
+export interface ThemeTypographyProps {
+  fontFamily: string;
+  fontWeightRegular: number;
+  fontWeightMedium: number;
+  fontWeightBold: number;
+  h1: TypographyHeadProps;
+  h2: TypographyHeadProps;
+  h3: TypographyHeadProps;
+  h4: TypographyHeadProps;
+  h5: TypographyHeadProps;
+  h6: TypographyHeadProps;
+  subtitle1: TypographyTitleProps;
+  subtitle2: TypographyTitleProps;
+  body1: TypographyCaptionProps;
+  body2: TypographyCaptionProps;
+  caption: TypographyCaptionProps;
+  overline: TypographyOverlineProps;
+  button: TypographyButtonProps;
+  a: TypographyButtonProps;
+}
+const typography: ThemeTypographyProps = {
   fontFamily: FONT_PRIMARY,
   fontWeightRegular: 500,
   fontWeightMedium: 600,

@@ -1,5 +1,6 @@
 import { styled } from '@mui/system';
 import React from 'react';
+import { ThemeProps } from 'src/theme';
 import { HistoryDATA, HistorySwapDATA } from '../../contexts/HistoryDATA';
 import Modal from '../Modal';
 import PaginationTable from './PaginationTable';
@@ -47,7 +48,7 @@ const Button = styled('button')({
   width: '80px',
   height: '36px',
 });
-const ActiveButton = styled('button')((props:string | number | boolean) =>({
+const ActiveButton = styled('button')((props: { theme: ThemeProps }) => ({
   borderRadius: '50px',
   background: props.theme.palette.color.active,
   fontSize: '16px',

@@ -1,6 +1,7 @@
 import { styled } from '@mui/system';
 import { MenuItem, useMediaQuery } from '@mui/material';
 import React from 'react';
+import { ThemeProps } from 'src/theme';
 
 const DropDownTitleIcon = styled('span')({
   fontSize: '16px',
@@ -42,7 +43,7 @@ const OverLay = styled('div')({
     backgroundColor: 'rgba(0,0,0,0.5)',
   },
 });
-const SettingMenuItem = styled(MenuItem)((props:string | number | boolean) =>({
+const SettingMenuItem = styled(MenuItem)((props:{ theme: ThemeProps}) =>({
   paddingTop: 10,
   paddingBottom: 10,
   paddingRight: '50px',

@@ -1,4 +1,5 @@
 import { styled } from '@mui/system';
+import React from 'react';
 
 const NotResult = styled('div')({
   padding: 30,

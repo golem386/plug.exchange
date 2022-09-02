@@ -6,12 +6,12 @@ import Settings from '../Settings';
 import AppFooter from '../AppFooter';
 import BuyCrypto from '../BuyCrypto';
 import SwitchNetwork from '../SwitchNetwork';
-import {StyledButton} from '../../theme/globalStyleComponent';
+import { StyledButton } from '../../theme/globalStyleComponent';
 
 const NavMainComponent = styled('div')({
   display: 'flex',
   paddingLeft: 10,
-  paddingTop:20,
+  paddingTop: 20,
   alignItems: 'center',
   justifyContent: 'space-around',
 });
@@ -176,7 +176,7 @@ const AppBar = () => {
                 </StyledButton>
                 {/* )} */}
                 <SwitchNetwork />
-              
+
                 <Settings settings={settingData} />
               </ButtonGrid>
             </NavGrids>

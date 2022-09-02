@@ -3,6 +3,7 @@ import { styled } from '@mui/system';
 import { Button, Grid, List } from '@mui/material';
 import React, { useState } from 'react';
 import { data } from '../../../contexts/QuoteTableDATA';
+import { ThemeProps } from 'src/theme';
 
 const QuoteTableblur = styled('div')({
   borderRadius: 24,
@@ -38,7 +39,7 @@ const ImageSpan = styled('span')({
   paddingLeft: 5,
   marginTop:10
 });
-const MainSpan = styled('span')((props:string | number | boolean) =>({
+const MainSpan = styled('span')((props:{theme: ThemeProps}) =>({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
@@ -110,7 +111,7 @@ const TextDown = styled('p')({
   fontSize: '16px',
   fontWeight: '600',
 });
-const ChangeText = styled('span')((props:string | number | boolean) =>({
+const ChangeText = styled('span')((props:{theme: ThemeProps}) =>({
   textAlign: 'center',
   fontSize: '16px',
   fontWeight: '600',
@@ -124,7 +125,7 @@ const ShortImage = styled('img')({
   width: 19,
   cursor: 'pointer'
 });
-const ShowMore = styled('p')((props: string | number | boolean) => ({
+const ShowMore = styled('p')((props: {theme: ThemeProps}) => ({
   textAlign: 'center',
   background: props.theme.palette.color.active,
   color: 'transparent',
