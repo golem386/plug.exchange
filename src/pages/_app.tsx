@@ -10,28 +10,35 @@ import './app.css';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../themeStyledComponents';
 import GlobalCSS from '../themeStyledComponents/GlobalStyle';
-import  GlobalStyles  from '../theme/globalStyles';
+import GlobalStyles from '../theme/globalStyles';
 import ThemeConfig from '../theme';
+import LandingPage from './LandingPage';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeConfig theme={theme}>
       {/* <ThemeProvider theme={theme}> */}
-        <Provider store={store}>
-          {/* <GlobalCSS /> */}
-          <GlobalStyles />
-          <Head>
-            <meta charSet="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta name="theme-color" content="#000000" />
-            <meta name="description" content="Plug Exchange" />
-          </Head>
-          <AppBar />
-          <WalletModal />
-          <Component {...pageProps} />
-          <AppFooter type="Window" />
-          <Notification />
-        </Provider>
+      <Provider store={store}>
+        {/* <GlobalCSS /> */}
+        <GlobalStyles />
+        <Head>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="theme-color" content="#000000" />
+          <meta name="description" content="Plug Exchange" />
+        </Head> 
+        {
+          globalThis.window?.location?.pathname !== "/HomePage" && globalThis.window?.location?.pathname !== "/LandingPage" ? <>
+            <AppBar />
+            <WalletModal />
+            <Component {...pageProps} />
+            <AppFooter type="Window" />
+            <Notification />
+          </> : <>
+            <Component {...pageProps} />
+          </>
+        }
+      </Provider>
       {/* </ThemeProvider> */}
     </ThemeConfig>
   );

@@ -166,6 +166,14 @@ const AppBar = () => {
                 <StyledButton isActive={window?.location?.pathname === '/swap'} href="/swap">
                   Swap
                 </StyledButton>
+                <StyledButton isActive={window?.location?.pathname === '/Recovery'} href="/Recovery">
+                  {window?.location?.pathname === '/Recovery'}
+                  Recovery
+                </StyledButton>
+                <StyledButton isActive={window?.location?.pathname === '/Referral'} href="/Referral">
+                  {window?.location?.pathname === '/Referral'}
+                  Referral
+                </StyledButton>
                 <StyledButton isActive={window?.location?.pathname === '/Crosschain'} href="/Crosschain">
                   {window?.location?.pathname === '/Crosschain' && <Img src="/images/chain.png" />}
                   Crosschain
@@ -190,7 +198,7 @@ const AppBar = () => {
           >
             <Grid
               item
-              // sm={CoinDetail?.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}
+            // sm={CoinDetail?.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}
             >
               <SettingMain>
                 <h4>Setting</h4>
@@ -206,7 +214,7 @@ const AppBar = () => {
               <ConnectWalletMain>
                 <TitleView>
                   <ConnectWalletTitle>Connect Wallet</ConnectWalletTitle>
-                  <img src="/images/cros.png" onClick={() => {}} alt="Image" />
+                  <img src="/images/cros.png" onClick={() => { }} alt="Image" />
                 </TitleView>
                 <BuyCrypto />
                 <AppFooter type="Mobile" />
