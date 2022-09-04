@@ -16,7 +16,6 @@ const ShereImage = styled(Button)({
 const PreText = styled('p')({
   marginLeft: 10,
   fontWeight: '500',
-  fontSize: 16,
 });
 const ReadMore = styled('span')((props:{theme: ThemeProps}) =>({
   background: props.theme.palette.color.active,

@@ -38,7 +38,6 @@ const Count = styled('div')({
 });
 const Item = styled('p')({
   fontWeight: 500,
-  fontSize: 16,
   fontFamily: 'Inter !important',
   color: '#918f92',
   marginRight: 10,
@@ -87,19 +86,16 @@ const StatusImage = styled('img')({
 const TranjectionDetail = styled('div')({
   marginLeft: 5,
 });
-const StatusText = styled('span')({
+const StatusText = styled('p')({
   fontWeight: 600,
-  fontSize: 16,
   color: 'black',
 });
-const TextPink = styled('span')({
+const TextPink = styled('p')({
   fontWeight: 600,
-  fontSize: 16,
   color: '#BB36FF',
 });
-const TimeText = styled('span')({
+const TimeText = styled('p')({
   fontWeight: 500,
-  fontSize: 14,
   color: '#999999',
   marginLeft: 5,
 });
@@ -109,18 +105,16 @@ const TimeImage = styled('img')({
   opacity: 0.3,
   marginTop: 7,
 });
-const Span = styled('span')({
+const Span = styled('p')({
   fontWaight: 500,
-  fontSize: '14px',
   color: '#999999',
   alignItems: 'center',
   display: 'flex',
   marginTop: 15,
   marginBottom: 15,
 });
-const TranjectionEntry = styled('span')({
+const TranjectionEntry = styled('p')({
   fontWaight: 600,
-  fontSize: '16px',
   color: '#595959',
   alignItems: 'center',
   display: 'flex',
@@ -128,9 +122,8 @@ const TranjectionEntry = styled('span')({
     marginTop: 10,
   },
 });
-const Span3 = styled('span')({
+const Span3 = styled('p')({
   fontWaight: 500,
-  fontSize: '16px',
   color: '#595959',
   alignItems: 'center',
   display: 'flex',

@@ -14,11 +14,13 @@ const Receive = styled('div')({
   paddingBottom: '7%',
   paddingTop: '5%',
 });
-const InputTitle = styled('span')({
-  padding: '5%',
+const InputTitle = styled('p')({
+  paddingLeft:'5%',
+  paddingTop:'2%',
+  paddingBottom:'3%',
   fontWeight: '500',
-  fontSize: 16,
   color: '#565656',
+  lineHeight:0
 });
 const Input = styled('div')({
   display: 'flex',
@@ -58,7 +60,6 @@ const CoinImage = styled('img')({
 });
 const CoinTitle = styled('p')({
   fontWeight: '600',
-  fontSize: '16px',
   color: '#565656',
   marginLeft: 10,
 });

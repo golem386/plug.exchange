@@ -13,8 +13,7 @@ const SwapCardHeader = styled('div')({
   paddingTop: '5%',
 });
 
-const SwapTitle = styled('span')({
-  fontSize: '24px',
+const SwapTitle = styled('h2')({
   fontWeight: '600',
   color: 'black',
 });

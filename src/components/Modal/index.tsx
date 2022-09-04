@@ -15,12 +15,10 @@ const ModalHeader = styled('div')({
   justifyContent: 'space-between',
   marginTop: 15,
   marginBottom: 15,
-  marginRight: '5%',
-  marginLeft:'-20%'
+  // marginRight: '5%',
 });
 
-const HeaderTitle = styled('span')({
-  fontSize: '24px',
+const HeaderTitle = styled('h2')({
   fontWeight: '600',
   marginLeft: '5%',
 });

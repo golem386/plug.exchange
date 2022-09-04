@@ -21,8 +21,7 @@ const Header = styled('div')({
   paddingLeft: '5%',
   paddingRight: '5%',
 });
-const TransactionSettingTitle = styled('p')({
-  fontSize: '24px',
+const TransactionSettingTitle = styled('h2')({
   fontWeight: '600',
   color: 'black',
 });
@@ -32,8 +31,7 @@ const Slippage = styled('div')({
   marginLeft: '5%',
   opacity: '0.65',
 });
-const SlippageText = styled('span')({
-  fontSize: '16px',
+const SlippageText = styled('p')({
   fontWeight: '600',
   color: 'black',
   paddingTop:'3%'
@@ -117,21 +115,18 @@ const PriseText = styled('p')({
 });
 const TimeText = styled('p')({
   fontWeight: '600',
-  fontSize: '14px',
   color: '#cccccc',
   display: 'flex',
   alignItems: 'center',
 });
 const TimeTextPink = styled('p')((props: { theme: ThemeProps }) => ({
   fontWeight: '500',
-  fontSize: '16px',
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   display: 'flex',
   alignItems: 'center',
   '@media (max-width: 660px)': {
-    fontSize: '14px',
     background: props.theme.palette.color.active,
   },
 }));
@@ -143,7 +138,6 @@ const DownArrowIcon = styled('img')({
 });
 const Settings = styled('p')({
   fontWeight: '600',
-  fontSize: '16px',
   marginLeft: '5%',
 });
 const FlexVIew = styled('div')({
@@ -157,9 +151,8 @@ const FlexRow = styled('div')({
   marginLeft: '5%',
   marginRight: '5%',
 });
-const AutoRout = styled('span')({
+const AutoRout = styled('p')({
   fontWeight: '500',
-  fontSize: '16px',
   color: '#b3b3b3',
   marginBottom: 5,
 });
@@ -185,21 +178,15 @@ const DivFormsCustom = styled('div')({
 });
 const Comper = styled('p')({
   fontWeight: '600',
-  fontSize: '14px',
   color: '#b3b3b3',
 });
 const GasPrice = styled('p')({
   fontWeight: '600',
-  fontSize: '14px',
   color: '#b3b3b3',
 });
-const Span = styled('span')({
+const Span = styled('p')({
   fontWeight: '500',
-  fontSize: '16px',
   color: '#b3b3b3',
-  '@media (max-width: 660px)': {
-    fontSize: '14px',
-  },
 });
 const TextTypeinput = styled('input')({
   backgroundColor: '#f7f7f7',

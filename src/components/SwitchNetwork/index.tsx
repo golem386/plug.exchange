@@ -12,14 +12,12 @@ const ButtonActive = styled(Button)((props: { theme: ThemeProps }) => ({
   fontSize: '16px',
   fontWeight: '600',
   color: '#FFFFFF',
-  fontStyle: 'Inter',
   textTransform: 'initial',
   marginLeft: '1%',
   marginRight: '1%',
   height: 52,
   width: '100%',
   '@media (max-width: 660px)': {
-    background: props.theme.palette.color.active,
     height: 36,
     paddingLeft: '10%',
     paddingRight: '7%',
@@ -30,7 +28,6 @@ const ButtonActive = styled(Button)((props: { theme: ThemeProps }) => ({
     fontWeight: '500',
     display: 'flex',
     alignItems: 'center',
-    textTransform: 'initial',
     width: '188px',
   },
 }));
@@ -44,16 +41,13 @@ const ImageIcon = styled('img')({
   },
 });
 const Title = styled('p')({
-  fontSize: '15px',
   fontWeight: '600',
 });
-const DropDownTitleIcon = styled('span')({
-  fontSize: '16px',
+const DropDownTitleIcon = styled('p')({
   fontWeight: '600',
   opacity: 0.65,
 });
-const SelectNetwork = styled('span')({
-  fontSize: '14px',
+const SelectNetwork = styled('p')({
   fontWeight: '500',
   opacity: 0.4,
 });

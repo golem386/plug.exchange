@@ -8,15 +8,15 @@ import * as echarts from 'echarts';
 import { Theme } from '@emotion/react';
 import { ThemeProps } from 'src/theme';
 
-const CurrencyTitle = styled('p')({
-  fontSize: 'calc(0.55em + 1vw)',
+const CurrencyTitle = styled('h2')({
+  // fontSize: 'calc(0.55em + 1vw)',
   fontWeight: '600',
   display: 'flex',
   marginTop: '12%',
 });
-const CurrencySubName = styled('span')({
+const CurrencySubName = styled('h4')({
   fontWeight: '600',
-  fontSize: 'calc(0.55em + 1vw)',
+  // fontSize: 'calc(0.55em + 1vw)',
   paddingLeft: 5,
   color: '#999999',
 });
@@ -26,16 +26,15 @@ const ShortIcon = styled('img')({
   marginLeft: '20px',
   marginRight: '20px',
 });
-const CurrencyTotalPrice = styled('span')(() => ({
+const CurrencyTotalPrice = styled('h1')(() => ({
   fontSize: '44px',
   fontWeight: '600',
   color: 'black',
 }));
-const CurrencyPriceChange = styled('span')((props:{theme:ThemeProps}) =>({
+const CurrencyPriceChange = styled('h3')((props: { theme: ThemeProps }) => ({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
-  fontSize: '16px',
   fontWeight: '600',
   marginLeft: '1.5%',
 }));
@@ -49,7 +48,7 @@ const PairLineChartData = styled('div')({
   width: '100%',
   marginTop: '10%',
 });
-const TabButton = styled(Tab)((props: { isActive:boolean; theme: ThemeProps }) => ({
+const TabButton = styled(Tab)((props: { isActive: boolean; theme: ThemeProps }) => ({
   borderRadius: '100px',
   fontWeight: '500',
   fontStyle: 'normal',
@@ -123,11 +122,11 @@ const PairLineChart = (props: PairLineChartProps) => {
     <PairLineChartMain>
       <>
         <CurrencyTitle>
-          {CoinDetail?.fullName}
-          <CurrencySubName>({CoinDetail?.name})</CurrencySubName>
+          Ethereum
+          <CurrencySubName>(ETH)</CurrencySubName>
           <ShortIcon src="/images/shortVartical.png" alt="ShortIcon" />
-          {receiveCoinDetail?.fullName}
-          <CurrencySubName>({receiveCoinDetail?.name})</CurrencySubName>
+          Tether 
+          <CurrencySubName>(USDT)</CurrencySubName>
         </CurrencyTitle>
         <CurrencyTotalPrice>$3,744.19</CurrencyTotalPrice>
         <br />

@@ -1,5 +1,6 @@
 import { styled } from '@mui/system';
 import React, { Component, useState } from 'react';
+import Buttons from 'src/components/Buttons';
 
 const Header = styled('div')({
   display: 'flex',
@@ -7,15 +8,11 @@ const Header = styled('div')({
   justifyContent: 'space-between',
 });
 
-const Title = styled('p')({
-  fontFamily: 'Inter',
-  fontSize: '24px',
+const Title = styled('h2')({
   fontWeight: '600',
 });
 
 const Wallate = styled('p')({
-  fontFamily: 'Inter',
-  fontSize: '16px',
   fontWeight: '600',
 });
 
@@ -31,8 +28,6 @@ const Coin = styled('div')({
 });
 
 const CoinName = styled('p')({
-  fontFamily: 'Inter',
-  fontSize: '16px',
   fontWeight: '600',
   opacity: 0.65,
   marginLeft: 10,
@@ -55,27 +50,23 @@ const CoinImg = styled('img')({
   marginLeft: 10,
   borderRadius: 100,
 });
-const ContinueBtn = styled('button')((props) =>({
-  height: 52,
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  borderRadius: 16,
-  color: 'white',
-  border: 'none',
-  width: '100%',
-}));
+
+const Btn = styled('div')({
+  marginLeft:'-30px'
+});
+
 
 const Close = styled('img')({
-  cursor:'pointer'
+  cursor: 'pointer'
 });
 
 const CopyText = styled('p')({
-  fontSize: '16px',
   fontWeight: '600',
   color: '#BB36FF',
 });
 interface ContinuewithWalletsProps {
   close: () => void;
-} 
+}
 const CrosschainWallets = (props: ContinuewithWalletsProps) => {
   const [copy, setCopy] = useState(false);
   const [copyto, setCopyto] = useState(false);
@@ -131,7 +122,13 @@ const CrosschainWallets = (props: ContinuewithWalletsProps) => {
         </Coin>
       </div>
       <br />
-      <ContinueBtn>Continue</ContinueBtn>
+      <Btn>
+        <Buttons
+          width='92%'
+          isActive={true}
+          onClick={() => { }}
+          title={"Continue"} />
+      </Btn>
     </>
   );
 };

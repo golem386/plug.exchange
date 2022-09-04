@@ -9,8 +9,7 @@ import Buttons from '../Buttons';
 import { ThemeProps } from 'src/theme';
 
 
-const Title = styled('div')({
-  fontSize: 18,
+const Title = styled('p')({
   fontWeight: '600',
   marginLeft: '5%'
 });
@@ -52,15 +51,13 @@ const Checkbox = styled('div')({
 
 
 const TermsAndConditionText = styled('p')({
-  fontSize: 15,
   fontWeight: '600',
   display: 'flex',
   alignItems: 'center',
   flexWrap: "wrap"
 });
 
-const TermsAndConditionPinkText = styled('span')((props: { theme: ThemeProps; }) => ({
-  fontSize: 15,
+const TermsAndConditionPinkText = styled('p')((props: { theme: ThemeProps; }) => ({
   fontWeight: '600',
   background: props.theme.palette.color.active,
   color: 'transparent',
@@ -80,7 +77,6 @@ const SelectImg = styled('img')((props: { isActive: boolean }) => ({
 }));
 
 const StyledButtonTitle = styled('p')({
-  fontSize: 16,
   fontWeight: '600',
   color: '#000000',
   opacity: 0.65
@@ -109,9 +105,8 @@ const Header = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-between'
 });
-const Heading = styled('div')({
+const Heading = styled('h2')({
   fontWeight: '600',
-  fontSize: '24px',
   marginLeft: 27,
   marginBottom: 10
 });
@@ -152,7 +147,7 @@ const WalletModal = () => {
 
   return (
     <>
-      <Modal isOpen={false} modalTitle="Connect Wallet" close={close}>
+      <Modal isOpen={false} modalTitle="" close={close}>
         <WalletModalDiv>
           <Header>
             <Heading>Connect Wallet</Heading>

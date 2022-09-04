@@ -59,7 +59,6 @@ const DataUpdat = styled('div')({
 const UpdateTitle = styled('p')({
   color: '#FF0000',
   fontWeight: '500',
-  fontSize: '16px',
 });
 const RefresBtn = styled(Button)({
   backgroundColor: 'white',
@@ -67,7 +66,6 @@ const RefresBtn = styled(Button)({
   color: '#595959',
   borderRadius: 100,
   fontWeight: '600',
-  fontSize: '16px',
   width: '93px',
   height: '36px',
   textTransform: 'inherit',
@@ -95,25 +93,24 @@ const CoinIcon = styled('img')({
 });
 const ShereIcon = styled('img')({
   paddingLeft: 10,
-  height: '18px',
-  width: '18px',
+  height: '15px',
+  width: '25px',
   opacity: '0.4',
   cursor: 'pointer'
 });
 const Text = styled('p')({
   textAlign: 'center',
   opacity: 0.4,
-  fontSize: '16px',
   fontWeight: '500',
+  display:'flex',
+  justifyContent:'center'
 });
 const TextDown = styled('p')({
   textAlign: 'center',
-  fontSize: '16px',
   fontWeight: '600',
 });
 const ChangeText = styled('span')((props:{theme: ThemeProps}) =>({
   textAlign: 'center',
-  fontSize: '16px',
   fontWeight: '600',
   background: props.theme.palette.color.active,
   color: 'transparent',
@@ -143,7 +140,6 @@ const DownArrowImg = styled('img')({
 });
 const CoinTitle = styled('p')({
   fontWeight: 600,
-  fontSize: '16px',
 });
 const DownArrowImgTop = styled('img')({
   height: 11,

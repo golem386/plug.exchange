@@ -1,15 +1,13 @@
 import { styled } from '@mui/system';
 import { CircularProgress } from '@mui/material';
 
-const Title = styled('p')({
+const Title = styled('h2')({
   fontWeight: '600',
-  fontSize: '24px',
   color: 'black',
   textAlign: 'center',
 });
 const SubTitle = styled('p')({
   fontWeight: '500',
-  fontSize: '16px',
   color: 'black',
   textAlign: 'center',
 });

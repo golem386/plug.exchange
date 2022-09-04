@@ -128,6 +128,9 @@ const typography: ThemeTypographyProps = {
     lineHeight: 22 / 14,
     fontSize: pxToRem(14),
   },
+  RoutTitle: {
+    fontSize: pxToRem(20),
+  },
   body1: {
     lineHeight: 1.5,
     fontSize: pxToRem(16),

@@ -21,19 +21,16 @@ const Copy = styled('div')({
   },
 });
 const Id = styled('p')({
-  fontSize: '16px',
   fontWeight: '600',
 });
 const Copied = styled('p')((props: { theme: ThemeProps }) => ({
-  fontSize: '16px',
   fontWeight: '600',
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
 }));
 
-const DropPrice = styled('span')({
-  fontSize: '14px',
+const DropPrice = styled('p')({
   fontWeight: '500',
   color: '#d4d4d4',
   marginLeft: 10,
@@ -59,8 +56,7 @@ const HistoryDiv = styled('div')({
   borderBottomLeftRadius: 16,
   borderBottomRightRadius: 16,
 });
-const HistoryTitle = styled('span')({
-  fontSize: '16px',
+const HistoryTitle = styled('p')({
   fontWeight: '600',
   color: 'black',
   marginLeft: 10,
@@ -72,13 +68,12 @@ const MainDiv = styled('div')({
   display: 'flex',
   cursor: 'pointer',
 });
-const CoinPrice = styled('span')({
+const CoinPrice = styled('p')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-evenly',
   backgroundColor: '#fafafa',
   padding: '0px 10px',
-  fontSize: '16px',
   fontWeight: '600',
   color: 'black',
   fontStyle: 'Inter',
@@ -104,7 +99,6 @@ const Into = styled('p')({
   marginLeft: 15,
   boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.1)',
   fontWeight: 600,
-  fontSize: 16,
   marginBottom: '6%',
   color: '#565656',
 });
@@ -158,7 +152,6 @@ const CoinDropIcon = styled('img')({
 });
 const Name = styled('p')({
   fontWeight: 600,
-  fontSize: 16,
   color: '#565656',
 });
 type DataObject = {

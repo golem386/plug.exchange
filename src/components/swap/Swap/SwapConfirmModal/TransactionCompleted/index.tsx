@@ -1,19 +1,18 @@
 import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import { ThemeProps } from 'src/theme';
+import Buttons from 'src/components/Buttons';
 
-const Title = styled('span')({
+const Title = styled('h2')({
   fontWeight: '600',
-  fontSize: '24px',
   color: 'black',
   textAlign: 'center',
   margin: 'auto',
   display: 'block',
   marginTop: 20,
 });
-const SubTitle = styled('span')({
+const SubTitle = styled('p')({
   fontWeight: '500',
-  fontSize: '16px',
   textAlign: 'center',
   color: '#DC7FB6',
   margin: 'auto',
@@ -26,14 +25,14 @@ const CompletedIcon = styled('img')({
   margin: 'auto',
   display: 'block',
 });
-const Buttons = styled(Button)((props: { theme: ThemeProps }) => ({
-  width: '100%',
-  borderRadius: 16,
-  background: props.theme.palette.color.active,
-  color: 'white',
-  textTransform: 'initial',
-  marginTop: 20,
-}));
+// const Buttons = styled(Button)((props: { theme: ThemeProps }) => ({
+//   width: '100%',
+//   borderRadius: 16,
+//   background: props.theme.palette.color.active,
+//   color: 'white',
+//   textTransform: 'initial',
+//   marginTop: 20,
+// }));
 const BtnIcon = styled('img')({
   height: '32px',
   width: '32px',
@@ -66,11 +65,18 @@ const TransactionCompleted = (props: TransactionCompletedProps) => {
       <CompletedIcon src="/images/completed.png" alt="Image" />
       <Title>Transaction Submitted</Title>
       <SubTitle>View on Explorer</SubTitle>
-      <Buttons>
+      {/* <Buttons>
         Add USDT to
         <BtnIcon src="/images/mataMask.png" alt="MataMask" />
         MetaMask
-      </Buttons>
+      </Buttons> */}
+       <Buttons
+              width='86%'
+              isActive={true}
+              onClick={() =>{}}
+              title={<div className='d-flex'>Add USDT to
+              {/* <BtnIcon src="/images/coin.png" alt="MataMask" /> */}
+              MetaMask</div>} />
     </TransactionCompletedModal>
   );
 };

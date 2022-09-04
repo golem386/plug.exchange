@@ -8,9 +8,7 @@ const Warning = styled('div')({
   alignItems: 'center',
 });
 
-const Text = styled('p')({
-  fontFamily: 'Inter',
-  fontSize: '18px',
+const Text = styled('h4')({
   fontWeight: '600',
   color: '#FF0000',
   marginLeft: 10,
@@ -21,15 +19,11 @@ const Header = styled('div')({
   justifyContent: 'space-between',
 });
 
-const Title = styled('p')({
-  fontFamily: 'Inter',
-  fontSize: '24px',
+const Title = styled('h2')({
   fontWeight: '600',
 });
 
 const Current = styled('p')({
-  fontFamily: 'Inter',
-  fontSize: '14px',
   fontWeight: '500',
   opacity: 0.5,
 });
@@ -85,16 +79,13 @@ const LoderDiv = styled('p')({
 const Loder = styled('div')({
   marginTop: '15%',
 });
-const Pr = styled('p')({
+const Pr = styled('h2')({
   textAlign: 'center',
   fontWeight: '600',
-  fontSize: '24px',
-  fontFamily: 'Inter',
 });
 const Discription = styled('p')({
   textAlign: 'center',
   fontWeight: '500',
-  fontSize: '16px',
   color: 'rgba(0, 0, 0, 0.65)',
 });
 

@@ -16,14 +16,12 @@ const SwapHeader = styled('div')({
   cursor: 'pointer',
   paddingTop: '5%',
 });
-const HeaderTitle = styled('span')({
-  fontSize: '16px',
+const HeaderTitle = styled('p')({
   fontWeight: '500',
   color: 'black',
   opacity: 0.65,
 });
-const Max = styled('span')((props:{theme: ThemeProps}) =>({
-  fontSize: '16px',
+const Max = styled('p')((props:{theme: ThemeProps}) =>({
   fontWeight: '500',
   background: props.theme.palette.color.active,
   color: 'transparent',
@@ -67,7 +65,6 @@ const SelectTokenImage = styled('img')({
 });
 const SelectTokenTitle = styled('p')({
   fontWeight: '600',
-  fontSize: '16px',
   color: '#595959',
   marginLeft: 10,
 });

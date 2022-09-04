@@ -22,20 +22,18 @@ const Form = styled('div')({
   marginTop: 20,
   paddingBottom:'40%'
 });
-const Error = styled('span')({
+const Error = styled('h1')({
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '72px',
 });
-const Pre = styled('span')({
+const Pre = styled('p')({
   fontFamily: 'Inter',
   fontWeight: '400',
-  fontSize: '16px',
 });
 const CustomButtonActive = styled('a')((props: { theme: ThemeProps; }) => ({
   borderRadius: 16,
   background: props.theme.palette.color.active,
-  fontSize: '16px',
   fontWeight: '600',
   color: '#FFFFFF',
   fontStyle: 'Inter',

@@ -20,16 +20,14 @@ const SwapTransactionDetailsItem = styled('div')({
   alignItems: 'center',
   display: 'flex',
 });
-const ItemText = styled('span')({
+const ItemText = styled('p')({
   padding: 10,
-  fontSize: '16px',
   fontWeight: '500',
   color: 'black',
   opacity: 0.65,
 });
-const ItemText2 = styled('span')({
+const ItemText2 = styled('p')({
   padding: 10,
-  fontSize: '16px',
   fontWeight: '500',
   color: '#010101',
 });

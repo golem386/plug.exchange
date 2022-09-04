@@ -3,8 +3,7 @@ import { MenuItem, useMediaQuery } from '@mui/material';
 import React from 'react';
 import { ThemeProps } from 'src/theme';
 
-const DropDownTitleIcon = styled('span')({
-  fontSize: '16px',
+const DropDownTitleIcon = styled('p')({
   fontWeight: '600',
   color: 'blak',
 });

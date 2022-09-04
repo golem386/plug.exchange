@@ -7,7 +7,6 @@ const ETH = styled('p')((props: { theme: ThemeProps }) => ({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
-  fontSize: 16,
   fontWeight: 500,
 }));
 const ImgVarticalShort = styled('img')({
@@ -31,6 +30,7 @@ const SwapRouterButton = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  marginTop:'5%'
 });
 const UsdtList = styled('div')({
   borderRadius: '16px',
@@ -48,16 +48,16 @@ const UsdtList = styled('div')({
     borderColor: '#BB36FF',
   },
 });
-const Title = styled('p')({
+const Title = styled('h3')((props:ThemeProps) =>({
   color: 'black',
-  fontSize: '20px',
+  fontSize: props.theme.typography.RoutTitle,
   fontWeight: 600,
-});
-const TitleDisebal = styled('p')({
+}));
+const TitleDisebal = styled('h3')((props:ThemeProps) => ({
   color: '#949494',
-  fontSize: '20px',
+  fontSize: props.theme.typography.RoutTitle,
   fontWeight: 600,
-});
+}));
 const CustomButtonActive = styled(Button)((props: { theme: ThemeProps }) => ({
   borderRadius: '100px',
   background: props.theme.palette.color.active,
@@ -81,15 +81,15 @@ const UsdtListItem = styled('div')({
   marginBottom:'3%',
   marginTop:'3%'
 });
-const Amount = styled('p')({
-  fontSize: '20px',
+const Amount = styled('h3')((props:ThemeProps) =>({
+  fontSize: props.theme.typography.RoutTitle,
   fontWeight: '600',
-});
-const AmountDisebal = styled('p')({
-  fontSize: '20px',
+}));
+const AmountDisebal = styled('h3')((props:ThemeProps) =>({
+  fontSize: props.theme.typography.RoutTitle,
   fontWeight: '600',
   color: '#949494',
-});
+}));
 const ListTile = styled('div')({
   display: 'flex',
   alignItems: 'center',

@@ -51,9 +51,8 @@ const Header = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-between',
 });
-const Title = styled('span')({
+const Title = styled('h2')({
   fontWeight: '600',
-  fontSize: '24px',
   marginLeft: '20px',
   marginTop: 20,
   marginBottom: 10,
@@ -79,8 +78,7 @@ const ToMain = styled('div')({
   padding: 20,
 });
 
-const FromText = styled('span')({
-  fontSize: 16,
+const FromText = styled('p')({
   fontWeight: 500,
   color: '#000000',
   opacity: 0.65,
@@ -131,28 +129,24 @@ const DroDownImg2 = styled('img')({
   height: '6.48px',
   width: '10.61px',
 });
-const Text = styled('span')({
+const Text = styled('h3')({
   fontWeight: 600,
-  fontSize: '18px',
   color: '#000000',
   opacity: 0.65,
 });
-const Text2 = styled('span')({
+const Text2 = styled('p')({
   fontWeight: 600,
-  fontSize: '16px',
   color: '#000000',
   opacity: 0.65,
 });
-const Text3 = styled('span')({
+const Text3 = styled('p')({
   fontWeight: 500,
-  fontSize: '16px',
   color: '#000000',
   opacity: 0.65,
 });
 
-const Max = styled('span')((props:{theme: ThemeProps}) => ({
+const Max = styled('p')((props:{theme: ThemeProps}) => ({
   fontWeight: 500,
-  fontSize: '16px',
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
@@ -267,17 +261,16 @@ const MainTitleView = styled('div')({
   marginRight: '5%',
   marginTop: '2.5%',
 });
-const Amount = styled('p')({
-  fontSize: '20px',
+const Amount = styled('p')((props:ThemeProps) =>({
+  fontSize: props.theme.typography.RoutTitle,
   fontWeight: '600',
-});
+}));
 const Div = styled('div')({
   display: 'flex',
   alignItems: 'center',
 });
-const Span = styled('span')({
+const Span = styled('p')({
   fontWeight: '500',
-  fontSize: '14px',
   color: '#949494',
   opacity: '0.4',
 });
@@ -297,11 +290,11 @@ const DownArrowImg = styled('img')({
   paddingLeft: 10,
 });
 
-const Title2 = styled('p')({
+const Title2 = styled('p')((props:ThemeProps) =>({
   color: 'black',
-  fontSize: '20px',
+  fontSize: props.theme.typography.RoutTitle,
   fontWeight: 600,
-});
+}));
 
 const DetailView = styled('div')({
   backgroundColor: '#F7F7F7',
@@ -317,15 +310,13 @@ const Expected = styled('div')({
   alignItems: 'center',
   display: 'flex',
 });
-const ItemText = styled('span')({
+const ItemText = styled('p')({
   padding: 10,
-  fontSize: '16px',
   fontWeight: '500',
   color: 'black',
 });
-const ItemText2 = styled('span')({
+const ItemText2 = styled('p')({
   padding: 10,
-  fontSize: '16px',
   fontWeight: '500',
   color: '#010101',
 });
