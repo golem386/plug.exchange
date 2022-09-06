@@ -1,6 +1,6 @@
 import { Container, Grid } from '@mui/material'
 import React, { Component } from 'react'
-import Buttons from 'src/components/Buttons';
+import Buttons from 'src/theme/Buttons';
 import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 import styled from 'styled-components';
 

@@ -4,9 +4,9 @@ import Modal from 'src/components/Modal';
 import HighSlippage from 'src/components/swap/Swap/SwapConfirmModal/HighSlippage';
 import ContinuewithWallets from '../../components/Crosschain/CrosschainWallets/CrosschainWallets';
 import Converting from '../../components/Crosschain/Converting/Converting';
-import Buttons from 'src/components/Buttons';
 import { ThemeProps } from 'src/theme';
 import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
+import Buttons from 'src/theme/Buttons';
 
 const data = [
   {
@@ -149,7 +149,6 @@ const Max = styled('p')((props:{theme: ThemeProps}) => ({
 
 const Balance = styled('span')({
   fontWeight: 500,
-  fontSize: '16px',
   color: '#000000',
   opacity: 0.65,
   marginTop: 20,
@@ -272,7 +271,6 @@ const ShowMore = styled('p')((props: { theme: ThemeProps}) => ({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
-  fontSize: '16px',
   fontWeight: '600',
   cursor: 'pointer',
   display: 'flex',

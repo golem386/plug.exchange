@@ -21,18 +21,15 @@ const List = styled('span')({
 });
 const TokenHeading = styled('span')({
   fontWeight: 600,
-  fontSize: 14,
   color: '#d7d7d7',
 });
 const ListTitle = styled('span')({
   fontWeight: 600,
-  fontSize: 14,
   color: 'black',
   marginLeft: 5,
 });
 const ListSubTitle = styled('span')({
   fontWeight: 600,
-  fontSize: 14,
   color: '#d7d7d7',
   marginLeft: 5,
 });

@@ -11,7 +11,6 @@ const BuyCryptoButton = styled(Button)((props: {isActive:boolean; theme: ThemePr
   '@media (max-width: 660px)': {
     borderRadius: 16,
     backgroundColor: 'rgba(0, 0, 0, 0.03)',
-    fontSize: '16px',
     fontWeight: '600',
     opacity: '0.65',
     textTransform: 'initial',

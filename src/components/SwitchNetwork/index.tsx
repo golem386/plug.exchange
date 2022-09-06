@@ -9,7 +9,6 @@ const ButtonActive = styled(Button)((props: { theme: ThemeProps }) => ({
   borderRadius: 16,
   background: props.theme.palette.color.active,
   padding: '0px 15px',
-  fontSize: '16px',
   fontWeight: '600',
   color: '#FFFFFF',
   textTransform: 'initial',

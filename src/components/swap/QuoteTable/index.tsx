@@ -127,7 +127,6 @@ const ShowMore = styled('p')((props: {theme: ThemeProps}) => ({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
-  fontSize: '16px',
   fontWeight: '600',
   cursor: 'pointer',
   display:'flex',
@@ -147,7 +146,6 @@ const DownArrowImgTop = styled('img')({
 });
 const MainTitle = styled('p')({
   fontWeight: '600',
-  fontSize: '16px',
 });
 
 const QuoteTablesMain = styled('div')({

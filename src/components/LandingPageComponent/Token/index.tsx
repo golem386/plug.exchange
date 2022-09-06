@@ -17,7 +17,6 @@ const Text = styled('p')({
 });
 
 const Pre = styled('p')({
-    fontSize: '18px',
     fontWeight: '400',
     color: '#666666',
     textAlign: 'center',

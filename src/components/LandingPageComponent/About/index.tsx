@@ -18,7 +18,6 @@ const Title = styled('h1')({
 
 
 const Text = styled('h1')({
-    fontSize: '18px',
     color: '#666666',
     marginLeft: '10%'
 });
@@ -30,7 +29,6 @@ const Trading = styled('button')({
     border: 'none',
     padding: 15,
     borderRadius: '10px',
-    fontSize: '16px',
     marginLeft: '10%',
     marginTop: '5%'
 });

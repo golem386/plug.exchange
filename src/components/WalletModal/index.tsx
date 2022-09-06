@@ -5,7 +5,7 @@ import Modal from '../Modal';
 import { useIsModalOpen, useToggleModal } from '../../store/app/hooks';
 import { ModalType } from 'src/store/app';
 import { styled } from '@mui/system';
-import Buttons from '../Buttons';
+import Buttons from '../../theme/Buttons';
 import { ThemeProps } from 'src/theme';
 import { StyledButton } from 'src/theme/globalStyleComponent';
 import IconGlobalStyleComponent from '../../theme/iconGlobalStyleComponent'
@@ -241,20 +241,14 @@ const WalletModal = () => {
               <TermsAndConditionPinkText>Privacy Policy</TermsAndConditionPinkText>
             </TermsAndConditionText>
           </Checkbox>
-          {/* {Check ? ( */}
-          <StyledButton isActive={parmition}>Connect Wallet</StyledButton>
-          {/* <Buttons
+          <Buttons
             width='87%'
             isActive={parmition}
             onClick={() => {
 
             }}
-            title='Connect Wallet' /> */}
-          {/* ) : (
-            <ConnectButton disabled={true} variant="text">
-              Connect Wallet
-            </ConnectButton>
-          )} */}
+            title='Connect Wallet' />
+        
         </WalletModalDiv>
       </Modal>
     </>

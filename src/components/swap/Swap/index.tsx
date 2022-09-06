@@ -17,7 +17,7 @@ import TransactionWaiting from './SwapConfirmModal/TransactionWaiting';
 import SwapHeader from './SwapHeader';
 import SwapRouter from './SwapRouter';
 import SwapTransactionDetails from './SwapTransactionDetails';
-import Buttons from '../../Buttons'
+import Buttons from '../../../theme/Buttons'
 import { ThemeProps } from 'src/theme';
 
 const SwapModal = styled('div')({
@@ -39,7 +39,6 @@ const ParmitionBtn = styled(Button)((props: { theme: ThemeProps }) => ({
   display: 'flex',
   alignItems: 'center',
   fontWeight: '600',
-  fontSize: '16px',
 }));
 
 const Boxs = styled('div')({

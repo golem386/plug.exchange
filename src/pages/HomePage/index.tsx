@@ -18,7 +18,6 @@ const Btn = styled('button')({
     width: '154px',
     fontWeight: '600',
     color: '#BB36FF',
-    fontSize: '16px',
     '&:hover': {
         background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
         color: 'white'

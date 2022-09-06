@@ -14,19 +14,16 @@ const AlertNotification = styled('div')({
 });
 const AlertTitle = styled('p')({
   marginLeft: 5,
-  fontSize: 16,
   fontWeight: '500',
   color: 'rgba(0, 0, 0, 0.65)',
 });
 const AlertTitleSuccess = styled('span')({
   marginLeft: 5,
-  fontSize: 16,
   fontWeight: '500',
   color: 'black',
 });
 const AlertTitleError = styled('span')({
   marginLeft: 5,
-  fontSize: 16,
   fontWeight: '500',
   color: 'red',
 });

@@ -60,7 +60,6 @@ const TextInputActive = styled('input')({
 });
 const Count = styled('p')({
   fontWeight: 600,
-  fontSize: '16px',
 });
 const ListMain = styled(ListItemButton)({
   display: 'flex',
@@ -69,13 +68,11 @@ const ListMain = styled(ListItemButton)({
 });
 const ListItemTextStyle = styled(ListItemText)({
   fontWeight: 600,
-  fontSize: '16px!important',
 });
 const Type = styled('span')({
   opacity: 0.5,
   marginRight: 10,
   fontWeight: 600,
-  fontSize: 16,
 });
 const ListRow = styled(ListItem)({
   height: 53,

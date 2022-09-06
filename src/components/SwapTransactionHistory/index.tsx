@@ -32,7 +32,6 @@ type SwapTransactionHistoryType = {
 
 const Button = styled('button')({
   borderRadius: '50px',
-  fontSize: '16px',
   fontWeight: '500',
   fontStyle: 'normal',
   opacity: '0.65',
@@ -51,7 +50,6 @@ const Button = styled('button')({
 const ActiveButton = styled('button')((props: { theme: ThemeProps }) => ({
   borderRadius: '50px',
   background: props.theme.palette.color.active,
-  fontSize: '16px',
   fontWeight: '500',
   color: 'white!important',
   fontStyle: 'normal',

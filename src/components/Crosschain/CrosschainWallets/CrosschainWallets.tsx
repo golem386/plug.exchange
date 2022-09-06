@@ -1,5 +1,6 @@
 import { styled } from '@mui/system';
 import React, { Component, useState } from 'react';
+import Buttons from 'src/theme/Buttons';
 import { StyledButton } from 'src/theme/globalStyleComponent';
 import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 
@@ -53,7 +54,7 @@ const CoinImg = styled('img')({
 });
 
 const Btn = styled('div')({
-  marginLeft: '0px'
+  marginLeft: '-30px'
 });
 
 
@@ -128,7 +129,7 @@ const CrosschainWallets = (props: ContinuewithWalletsProps) => {
             <CoinName>ETH</CoinName>
           </From>
           <From>
-          <IconGlobalStyleComponent
+            <IconGlobalStyleComponent
               onClick={() => {
                 setCopy(true);
               }}
@@ -154,7 +155,11 @@ const CrosschainWallets = (props: ContinuewithWalletsProps) => {
       </div>
       <br />
       <Btn>
-        <StyledButton isActive={true}>Continue</StyledButton>
+        <Buttons
+          width='92%'
+          isActive={true}
+          onClick={() => { }}
+          title={"Continue"} />
       </Btn>
     </>
   );

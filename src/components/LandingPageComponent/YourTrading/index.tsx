@@ -63,7 +63,6 @@ const Btn = styled('button')({
     border: 'none',
     borderRadius: '10px',
     fontWeight: '600',
-    fontSize: '15px',
 });
 
 const Trading = styled('button')({
@@ -74,7 +73,6 @@ const Trading = styled('button')({
     border: 'none',
     borderRadius: '10px',
     fontWeight: '600',
-    fontSize: '15px',
     color: 'white',
     display: 'flex',
     alignItems: 'center'

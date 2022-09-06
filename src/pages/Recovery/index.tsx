@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { styled } from '@mui/system';
 import { Button, FormControl, Menu, MenuItem, NativeSelect } from '@mui/material';
-import Buttons from 'src/components/Buttons';
 import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
+import Buttons from 'src/theme/Buttons';
 
 
 const RecoveryMain = styled('div')({

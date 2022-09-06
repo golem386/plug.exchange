@@ -13,9 +13,7 @@ const OrderBtn = styled(Button)((props: string | number | boolean) => ({
     marginLeft: '7%',
     textTransform: 'initial',
     opacity: props.isActive ? 1 : 0.4,
-    fontSize:'16px',
     fontWeight:'800',
-    fontStyle:"Inter"
 }));
 
 

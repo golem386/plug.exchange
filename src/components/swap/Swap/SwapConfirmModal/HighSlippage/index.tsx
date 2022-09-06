@@ -14,7 +14,6 @@ const Title = styled('span')({
 });
 const SubTitle = styled('span')({
   fontWeight: '500',
-  fontSize: '14px',
   textAlign: 'center',
   color: 'black',
   margin: 'auto',
@@ -62,7 +61,6 @@ const Parmition = styled('div')({
   marginLeft: '2%',
 });
 const ConditionPink = styled('span')((props:{theme: ThemeProps}) =>({
-  fontSize: '15px',
   fontWeight: '600',
   background: props.theme.palette.color.active,
   color: 'transparent',
@@ -70,7 +68,6 @@ const ConditionPink = styled('span')((props:{theme: ThemeProps}) =>({
   marginRight: 5,
 }));
 const Condition = styled('p')({
-  fontSize: '15px',
   fontWeight: '600',
   display: 'flex',
   alignItems: 'center',

@@ -2,8 +2,8 @@ import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import CurrencyInput from '../CurrencyInput';
 import CurrencyOutput from '../CurrencyOutput';
-import Buttons from 'src/components/Buttons';
 import { ThemeProps } from 'src/theme';
+import Buttons from 'src/theme/Buttons';
 
 const Header = styled('div')({
   display: 'flex',
@@ -25,7 +25,6 @@ const ETH = styled('span')((props: { theme: ThemeProps }) => ({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
-  fontSize: 16,
   fontWeight: 500,
 }));
 const ImgVarticalShort = styled('img')({
@@ -58,12 +57,10 @@ const ShortViewListItem = styled('div')({
 });
 const Text = styled('span')({
   color: '#b0b0b0',
-  fontSize: 16,
   fontWeight: 500,
 });
 const Price = styled('span')({
   color: 'black',
-  fontSize: 16,
   fontWeight: 500,
 });
 

@@ -56,7 +56,6 @@ const Btn = styled('button')({
   border: 'none',
   borderRadius: '10px',
   fontWeight: '600',
-  fontSize: '15px',
   '@media (max-width: 660px)': {
     marginBottom:'10%'
   }

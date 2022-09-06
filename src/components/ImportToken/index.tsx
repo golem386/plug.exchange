@@ -60,16 +60,13 @@ const TokenImg = styled('img')({
 });
 const TokenName = styled('span')({
   fontWeight: 600,
-  fontSize: 16,
 });
 const TokenCode = styled('span')({
   fontWeight: 600,
-  fontSize: 16,
   color: '#dbdbdb',
 });
 const TokenKey = styled('span')({
   fontWeight: 500,
-  fontSize: 16,
   color: '#dbdbdb',
   '@media (max-width: 660px)': {
     fontSize: 14,
@@ -107,7 +104,6 @@ const Pre = styled('span')({
   lineHeight: 1.5,
 });
 const ParmitionText = styled('span')({
-  fontSize: 16,
   fontWeight: 500,
   color: '#565656',
 });
@@ -123,7 +119,6 @@ const ImportTokenButton = styled(Button)((props:{theme: ThemeProps}) =>({
   borderRadius: 16,
   padding: 7,
   color: 'white',
-  fontSize: '16px',
   fontWeight: 600,
   textTransform: 'initial',
   height: '52px',
@@ -134,7 +129,6 @@ const ImportTokenDisabalButton = styled(Button)((props:{theme: ThemeProps}) =>({
   borderRadius: 16,
   padding: 7,
   color: 'white',
-  fontSize: '16px',
   fontWeight: 600,
   textTransform: 'initial',
   opacity: 0.3,

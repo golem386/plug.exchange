@@ -106,7 +106,6 @@ const FlexViewJustyfy = styled('div')({
 });
 const PriseText = styled('p')({
   fontWeight: '600',
-  fontSize: '16px',
   '@media (max-width: 660px)': {
     fontSize: '14px',
   },
@@ -196,7 +195,6 @@ const TextTypeinput = styled('input')({
   padding: 3,
   paddingLeft: 15,
   fontWeight: '600',
-  fontSize: '16px',
   '&:focus-visible': {
     border: 'none',
     outline: 'none',

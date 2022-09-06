@@ -7,7 +7,6 @@ export default function Button(theme) {
         root: {
           fontWeight: 600,
           lineHeight: 24 / 14,
-          fontSize: 16,
           textTransform: 'capitalize',
           padding: '10px 24px',
           borderRadius: 16,
