@@ -6,6 +6,7 @@ import ContinuewithWallets from '../../components/Crosschain/CrosschainWallets/C
 import Converting from '../../components/Crosschain/Converting/Converting';
 import Buttons from 'src/components/Buttons';
 import { ThemeProps } from 'src/theme';
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 
 const data = [
   {
@@ -57,13 +58,7 @@ const Title = styled('h2')({
   marginTop: 20,
   marginBottom: 10,
 });
-const Img = styled('img')({
-  height: '20px',
-  width: 20,
-  marginTop: 20,
-  marginRight: 20,
-  marginBottom: 10,
-});
+
 const From = styled('div')({
   backgroundColor: '#f7f7f7',
   padding: 20,
@@ -188,7 +183,6 @@ const Imput = styled('input')({
   borderRadius: 5,
   fontSize: '24px',
   fontWeight: '500',
-  fontStyle: 'Inter',
   color: 'black',
   '&:focus-visible': {
     border: 'none',
@@ -365,7 +359,8 @@ const Crosschain = () => {
         <Form>
           <Header>
             <Title>Swap</Title>
-            <Img src="/images/menu.png" />
+            {/* <Img src="/images/menu.png" /> */}
+            <IconGlobalStyleComponent ml={10} mr={30} height={20} width={20} img='/images/menu.png' opecity={0.5} />
           </Header>
           <From>
             <FromText>From Chain</FromText>
@@ -373,7 +368,8 @@ const Crosschain = () => {
               <Drop>
                 <DropImg src="/images/coin3.png" />
                 <Text>SOL</Text>
-                <DroDownImg src="/images/downArrow.png" />
+                {/* <DroDownImg src="/images/downArrow.png" /> */}
+                <IconGlobalStyleComponent ml={0} mr={0} height={8} width={12} img='/images/downArrow.png' opecity={0.5} />
               </Drop>
               <Balance>Balance: 8.017</Balance>
             </Header>
@@ -383,7 +379,7 @@ const Crosschain = () => {
               <Drop2>
                 <DropImg2 src="/images/coin3.png" />
                 <Text2>SOL</Text2>
-                <DroDownImg2 src="/images/downArrow.png" />
+                <IconGlobalStyleComponent ml={0} mr={0} height={8} width={12} img='/images/downArrow.png' opecity={0.5} />
               </Drop2>
             </InputMain>
           </From>
@@ -398,7 +394,7 @@ const Crosschain = () => {
                   <DropImg3 src="/images/coin3.png" />
                   <Content>
                     <Text>SOL</Text>
-                    <DroDownImg src="/images/downArrow.png" />
+                    <IconGlobalStyleComponent ml={0} mr={0} height={8} width={12} img='/images/downArrow.png' opecity={0.5} />
                   </Content>
                 </Drop3>
               </CoinDrop>
@@ -408,7 +404,7 @@ const Crosschain = () => {
                   <DropImg3 src="/images/coin3.png" />
                   <Content>
                     <Text>SOL</Text>
-                    <DroDownImg src="/images/downArrow.png" />
+                    <IconGlobalStyleComponent ml={0} mr={0} height={8} width={12} img='/images/downArrow.png' opecity={0.5} />
                   </Content>
                 </Drop4>
               </InputMain2>
@@ -501,7 +497,7 @@ const Crosschain = () => {
           <ItemText>Route</ItemText>
           <Routs>
             <RoutImg src="/images/coin3.png" />
-            <Vs src="/images/leftIcon.png" />
+            <IconGlobalStyleComponent ml={10} mr={10} height={15} width={18} img='/images/leftIcon.png' opecity={0.4} />
             <RoutImg src="/images/coin6.png" />
           </Routs>
         </Expected>

@@ -23,12 +23,10 @@ const Form = styled('div')({
   paddingBottom:'40%'
 });
 const Error = styled('h1')({
-  fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: '72px',
 });
 const Pre = styled('p')({
-  fontFamily: 'Inter',
   fontWeight: '400',
 });
 const CustomButtonActive = styled('a')((props: { theme: ThemeProps; }) => ({
@@ -36,7 +34,6 @@ const CustomButtonActive = styled('a')((props: { theme: ThemeProps; }) => ({
   background: props.theme.palette.color.active,
   fontWeight: '600',
   color: '#FFFFFF',
-  fontStyle: 'Inter',
   textTransform: 'initial',
   height: 52,
   width: '25%',

@@ -38,7 +38,6 @@ const Count = styled('div')({
 });
 const Item = styled('p')({
   fontWeight: 500,
-  fontFamily: 'Inter !important',
   color: '#918f92',
   marginRight: 10,
 });

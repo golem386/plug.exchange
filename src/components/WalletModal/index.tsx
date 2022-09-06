@@ -7,7 +7,8 @@ import { ModalType } from 'src/store/app';
 import { styled } from '@mui/system';
 import Buttons from '../Buttons';
 import { ThemeProps } from 'src/theme';
-
+import { StyledButton } from 'src/theme/globalStyleComponent';
+import IconGlobalStyleComponent from '../../theme/iconGlobalStyleComponent'
 
 const Title = styled('p')({
   fontWeight: '600',
@@ -21,7 +22,7 @@ const Wrapper = styled('div')({
   marginLeft: '3%'
 });
 
-const StyledButton = styled('button')((props: { theme: ThemeProps, isActive: boolean }) => ({
+const StyledButtons = styled('button')((props: { theme: ThemeProps, isActive: boolean }) => ({
   position: 'relative',
   borderWidth: '1.5px',
   borderStyle: 'solid',
@@ -110,11 +111,6 @@ const Heading = styled('h2')({
   marginLeft: 27,
   marginBottom: 10
 });
-const CloseButton = styled('img')({
-  marginRight: 27,
-  marginBottom: 10
-});
-
 
 const WalletModalDiv = styled('div')({
   backgroundColor: 'white',
@@ -151,7 +147,7 @@ const WalletModal = () => {
         <WalletModalDiv>
           <Header>
             <Heading>Connect Wallet</Heading>
-            <CloseButton src={'/images/cros.png'} />
+            <IconGlobalStyleComponent ml={10} mr={30} height={20} width={20} img='/images/cros.png' opecity={0.5} />
           </Header>
           <Over>
             <Main>
@@ -160,11 +156,11 @@ const WalletModal = () => {
                 <Wrapper>
                   {ConnectNetWorkOne.map((val, i) => {
                     return (
-                      <StyledButton isActive={Network === val.name ? WallerSelect : false} onClick={() => { setWallerSelect(true); setNetwork(val.name) }}>
+                      <StyledButtons isActive={Network === val.name ? WallerSelect : false} onClick={() => { setWallerSelect(true); setNetwork(val.name) }}>
                         <SelectImg isActive={Network === val.name ? WallerSelect : false} src="/images/select.png" alt="Select_Icon" />
                         <ImageIcon src={val.coin} alt="Coin" />
                         <StyledButtonTitle>{val.name}</StyledButtonTitle>
-                      </StyledButton>
+                      </StyledButtons>
                     );
                   })}
                 </Wrapper>
@@ -216,11 +212,11 @@ const WalletModal = () => {
               <Wrapper>
                 {ConnectWalletOne.map((val, i) => {
                   return (
-                    <StyledButton isActive={Wallet === val.name ? WallerSelect : false} onClick={() => { setWallerSelect(true); setWallet(val.name) }}>
+                    <StyledButtons isActive={Wallet === val.name ? WallerSelect : false} onClick={() => { setWallerSelect(true); setWallet(val.name) }}>
                       <SelectImg isActive={Wallet === val.name ? WallerSelect : false} src="/images/select.png" alt="Select_Icon" />
                       <ImageIcon src={val.coin} alt="Coin" />
                       <StyledButtonTitle>{val.name}</StyledButtonTitle>
-                    </StyledButton>
+                    </StyledButtons>
                   );
                 })}
               </Wrapper>
@@ -246,13 +242,14 @@ const WalletModal = () => {
             </TermsAndConditionText>
           </Checkbox>
           {/* {Check ? ( */}
-          <Buttons
+          <StyledButton isActive={parmition}>Connect Wallet</StyledButton>
+          {/* <Buttons
             width='87%'
             isActive={parmition}
             onClick={() => {
 
             }}
-            title='Connect Wallet' />
+            title='Connect Wallet' /> */}
           {/* ) : (
             <ConnectButton disabled={true} variant="text">
               Connect Wallet

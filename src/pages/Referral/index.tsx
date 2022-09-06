@@ -1,6 +1,7 @@
 import { Container, Grid } from '@mui/material'
 import React, { Component } from 'react'
 import Buttons from 'src/components/Buttons';
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 import styled from 'styled-components';
 
 const ReferModel = styled('div')({
@@ -134,7 +135,7 @@ const Referral = () => {
                                 <ItemText>Route</ItemText>
                                 <Routs>
                                     <RoutImg src="/images/coin3.png" />
-                                    <Vs src="/images/leftIcon.png" />
+                                    <IconGlobalStyleComponent ml={10} mr={10} height={15} width={18} img='/images/leftIcon.png' opecity={0.4} />
                                     <RoutImg src="/images/coin6.png" />
                                 </Routs>
                             </Expected>

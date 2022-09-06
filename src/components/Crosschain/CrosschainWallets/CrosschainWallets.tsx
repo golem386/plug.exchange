@@ -1,6 +1,7 @@
 import { styled } from '@mui/system';
 import React, { Component, useState } from 'react';
-import Buttons from 'src/components/Buttons';
+import { StyledButton } from 'src/theme/globalStyleComponent';
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 
 const Header = styled('div')({
   display: 'flex',
@@ -52,7 +53,7 @@ const CoinImg = styled('img')({
 });
 
 const Btn = styled('div')({
-  marginLeft:'-30px'
+  marginLeft: '0px'
 });
 
 
@@ -74,12 +75,16 @@ const CrosschainWallets = (props: ContinuewithWalletsProps) => {
     <>
       <Header>
         <Title>Continue with Wallets</Title>
-        <Close
-          src="/images/cros.png"
+        <IconGlobalStyleComponent
           onClick={() => {
             props.close();
           }}
-        />
+          ml={10}
+          mr={10}
+          height={20}
+          width={20}
+          img='/images/cros.png'
+          opecity={0.3} />
       </Header>
       <br />
       <div>
@@ -90,14 +95,27 @@ const CrosschainWallets = (props: ContinuewithWalletsProps) => {
             <CoinName>ETH</CoinName>
           </From>
           <From>
-            <img
-              src="/images/filecopy.png"
+            <IconGlobalStyleComponent
               onClick={() => {
                 setCopy(true);
               }}
-            />
+              ml={0}
+              mr={0}
+              height={25}
+              width={25}
+              img='/images/filecopy.png'
+              opecity={1} />
             <CoinName>{copy ? <CopyText>copy</CopyText> : '0x37...0420'}</CoinName>
-            <ShareIcon src="/images/shere.png" />
+            <IconGlobalStyleComponent
+              onClick={() => {
+                setCopy(true);
+              }}
+              ml={10}
+              mr={0}
+              height={18}
+              width={18}
+              img='/images/shere.png'
+              opecity={0.3} />
           </From>
         </Coin>
       </div>
@@ -110,24 +128,33 @@ const CrosschainWallets = (props: ContinuewithWalletsProps) => {
             <CoinName>ETH</CoinName>
           </From>
           <From>
-            <img
-              src="/images/filecopy.png"
+          <IconGlobalStyleComponent
               onClick={() => {
-                setCopyto(true);
+                setCopy(true);
               }}
-            />
+              ml={0}
+              mr={0}
+              height={25}
+              width={25}
+              img='/images/filecopy.png'
+              opecity={1} />
             <CoinName>{copyto ? <CopyText>copy</CopyText> : '0x37...0420'}</CoinName>
-            <ShareIcon src="/images/shere.png" />
+            <IconGlobalStyleComponent
+              onClick={() => {
+                setCopy(true);
+              }}
+              ml={10}
+              mr={0}
+              height={18}
+              width={18}
+              img='/images/shere.png'
+              opecity={0.3} />
           </From>
         </Coin>
       </div>
       <br />
       <Btn>
-        <Buttons
-          width='92%'
-          isActive={true}
-          onClick={() => { }}
-          title={"Continue"} />
+        <StyledButton isActive={true}>Continue</StyledButton>
       </Btn>
     </>
   );

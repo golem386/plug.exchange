@@ -2,6 +2,7 @@ import { styled } from '@mui/system';
 import { Slider } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { Component } from 'react';
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 
 const Warning = styled('div')({
   display: 'flex',
@@ -95,36 +96,50 @@ const SliderUi = styled(Slider)({
   width: '90%',
 });
 const Confirmations = styled('p')({
-    textAlign:'center'
-  });
+  textAlign: 'center'
+});
 
 
-const Solscan = styled(Slider)((props) =>({
-    // background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-    color: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-    backgroundClip: 'text',
+const Solscan = styled(Slider)((props) => ({
+  // background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  color: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  backgroundClip: 'text',
 }));
 
 const Close = styled('img')({
-  cursor:'pointer'
+  cursor: 'pointer'
 });
 interface ConvertingProps {
   close: () => void;
-} 
+}
 const Converting = (props: ConvertingProps) => {
   return (
     <>
       <Header>
         <Title>Converting</Title>
-        <Close
-          src="/images/cros.png"
+        <IconGlobalStyleComponent
           onClick={() => {
             props.close();
           }}
-        />
+          ml={10}
+          mr={10}
+          height={20}
+          width={20}
+          img='/images/cros.png'
+          opecity={0.3} />
       </Header>
       <Warning>
-        <img src="/images/info.png" />
+        {/* <img src="/images/info.png" /> */}
+        <IconGlobalStyleComponent
+          onClick={() => {
+            props.close();
+          }}
+          ml={0}
+          mr={0}
+          height={25}
+          width={25}
+          img='/images/info.png'
+          opecity={1} />
         <Text>Warning</Text>
       </Warning>
       <p>
@@ -140,7 +155,16 @@ const Converting = (props: ConvertingProps) => {
               <img src="/images/coin3.png" />
               <CoinTitle>SOL</CoinTitle>
             </Coin>
-            <img src="/images/LeftPink.png" />
+            <IconGlobalStyleComponent
+              onClick={() => {
+                props.close();
+              }}
+              ml={0}
+              mr={0}
+              height={18}
+              width={20}
+              img='/images/LeftPink.png'
+              opecity={1} />
             <Coin>
               <img src="/images/coin3.png" />
               <CoinTitle>SOL</CoinTitle>

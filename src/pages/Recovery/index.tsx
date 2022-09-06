@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { styled } from '@mui/system';
 import { Button, FormControl, Menu, MenuItem, NativeSelect } from '@mui/material';
 import Buttons from 'src/components/Buttons';
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 
 
 const RecoveryMain = styled('div')({
@@ -136,7 +137,7 @@ const Recovery = () => {
         <RecoveryModal>
           <Header>
             <Title>Token Recovery</Title>
-            <Img src='/images/About.svg' />
+            <IconGlobalStyleComponent ml={10} mr={10} height={20} width={20} img='/images/About.svg' opecity={0.3} />
           </Header>
           <br />
           <Subtitle>Source Chain</Subtitle>

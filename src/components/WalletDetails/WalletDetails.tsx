@@ -76,7 +76,6 @@ const CoinPrice = styled('p')({
   padding: '0px 10px',
   fontWeight: '600',
   color: 'black',
-  fontStyle: 'Inter',
   textTransform: 'initial',
   marginRight: '3%',
   borderRadius: 16,
