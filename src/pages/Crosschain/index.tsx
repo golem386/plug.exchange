@@ -5,8 +5,7 @@ import HighSlippage from 'src/components/swap/Swap/SwapConfirmModal/HighSlippage
 import ContinuewithWallets from '../../components/Crosschain/CrosschainWallets/CrosschainWallets';
 import Converting from '../../components/Crosschain/Converting/Converting';
 import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
-import Buttons from 'src/theme/Buttons';
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';import Buttons from 'src/theme/Buttons';
 
 const data = [
   {

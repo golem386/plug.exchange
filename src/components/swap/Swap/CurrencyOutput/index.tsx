@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import SwapArrow from '../SwapArrow';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 const Receive = styled('div')({
   backgroundColor: '#F7F7F7',
   marginTop: '10%',
@@ -105,7 +105,14 @@ const CurrencyOutput = (props: CurrencyOutputProps) => {
             <CoinImage src={ReceiveCoin?.image} alt="Icon" />
             <CoinTitle>{ReceiveCoin?.name}</CoinTitle>
             {
-              !props.Read ? null : <CoinDropIcon src="/images/downArrow.png" alt="DownArrow" />
+              !props.Read ? null : <IconGlobalStyleComponent
+              onClick={() => {}}
+              ml={20}
+              mr={0}
+              height={7}
+              width={10}
+              img='/images/downArrow.png'
+              opecity={0.3} />
             }
           </SelectToken>
         </FormControl>

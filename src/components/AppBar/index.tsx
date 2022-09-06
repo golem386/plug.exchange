@@ -166,14 +166,14 @@ const AppBar = () => {
                 <StyledButton isActive={window?.location?.pathname === '/swap'} href="/swap">
                   Swap
                 </StyledButton>
-                <StyledButton isActive={window?.location?.pathname === '/Recovery'} href="/Recovery">
+                {/* <StyledButton isActive={window?.location?.pathname === '/Recovery'} href="/Recovery">
                   {window?.location?.pathname === '/Recovery'}
                   Recovery
                 </StyledButton>
                 <StyledButton isActive={window?.location?.pathname === '/Referral'} href="/Referral">
                   {window?.location?.pathname === '/Referral'}
                   Referral
-                </StyledButton>
+                </StyledButton> */}
                 <StyledButton isActive={window?.location?.pathname === '/Crosschain'} href="/Crosschain">
                   {window?.location?.pathname === '/Crosschain' && <Img src="/images/chain.png" />}
                   Crosschain

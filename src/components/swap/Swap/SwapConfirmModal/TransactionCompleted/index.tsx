@@ -1,7 +1,7 @@
 import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import { ThemeProps } from 'src/theme';
-import Buttons from 'src/components/Buttons';
+import Buttons from 'src/theme/Buttons';
 
 const Title = styled('h2')({
   fontWeight: '600',

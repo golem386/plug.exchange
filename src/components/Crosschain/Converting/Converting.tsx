@@ -3,7 +3,6 @@ import { Slider } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { Component } from 'react';
 import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
-
 const Warning = styled('div')({
   display: 'flex',
   alignItems: 'center',

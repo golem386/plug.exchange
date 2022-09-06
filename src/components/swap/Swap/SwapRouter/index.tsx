@@ -2,7 +2,7 @@ import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import React from 'react';
 import { ThemeProps } from 'src/theme';
-
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 const ETH = styled('p')((props: { theme: ThemeProps }) => ({
   background: props.theme.palette.color.active,
   color: 'transparent',
@@ -30,7 +30,7 @@ const SwapRouterButton = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginTop:'5%'
+  marginTop: '5%'
 });
 const UsdtList = styled('div')({
   borderRadius: '16px',
@@ -39,21 +39,21 @@ const UsdtList = styled('div')({
   borderColor: 'rgba(0, 0, 0, 0.1)',
   borderStyle: 'solid',
   margin: 10,
-  marginLeft:'5%',
-  marginRight:'5%',
+  marginLeft: '5%',
+  marginRight: '5%',
   height: '92px',
-  cursor:'pointer',
+  cursor: 'pointer',
   '&:hover': {
     backgroundColor: '#ededed',
     borderColor: '#BB36FF',
   },
 });
-const Title = styled('h3')((props:ThemeProps) =>({
+const Title = styled('h3')((props: ThemeProps) => ({
   color: 'black',
   fontSize: props.theme.typography.RoutTitle,
   fontWeight: 600,
 }));
-const TitleDisebal = styled('h3')((props:ThemeProps) => ({
+const TitleDisebal = styled('h3')((props: ThemeProps) => ({
   color: '#949494',
   fontSize: props.theme.typography.RoutTitle,
   fontWeight: 600,
@@ -75,16 +75,16 @@ const UsdtListItem = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginLeft:'5%',
-  marginRight:'5%',
-  marginBottom:'3%',
-  marginTop:'3%'
+  marginLeft: '5%',
+  marginRight: '5%',
+  marginBottom: '3%',
+  marginTop: '3%'
 });
-const Amount = styled('h3')((props:ThemeProps) =>({
+const Amount = styled('h3')((props: ThemeProps) => ({
   fontSize: props.theme.typography.RoutTitle,
   fontWeight: '600',
 }));
-const AmountDisebal = styled('h3')((props:ThemeProps) =>({
+const AmountDisebal = styled('h3')((props: ThemeProps) => ({
   fontSize: props.theme.typography.RoutTitle,
   fontWeight: '600',
   color: '#949494',
@@ -96,7 +96,7 @@ const ListTile = styled('div')({
 const RoutButton = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  marginLeft:'5%'
+  marginLeft: '5%'
 });
 const Span = styled('span')({
   fontWeight: '500',
@@ -119,7 +119,7 @@ const Icon2 = styled('img')({
   marginRight: 5,
   cursor: 'pointer',
 });
-const IconHr = styled('img')((props: { theme: ThemeProps, isActive : boolean }) => ({
+const IconHr = styled('img')((props: { theme: ThemeProps, isActive: boolean }) => ({
   width: props.isActive === true ? 27 : 25,
   height: props.isActive === true ? 13 : 25,
   marginLeft: 5,
@@ -147,8 +147,8 @@ const Route = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginRight:'5%',
-  marginLeft:'5%'
+  marginRight: '5%',
+  marginLeft: '5%'
 });
 const CoinImg = styled('img')({
   height: '24px',
@@ -213,15 +213,23 @@ const SwapRouter = (props: SwapRouterProps) => {
       <SwapRouterButton>
         <ShortView>
           <ETH>1 ETH = 4,008.2766 USDT</ETH>
-          <ImgVarticalShort src="/images/shortVartical.png" />
+          <IconGlobalStyleComponent
+            onClick={() => { }}
+            ml={10}
+            mr={0}
+            height={15}
+            width={15}
+            img='/images/shortVartical.png'
+            opecity={1} />
         </ShortView>
-        <ImgDownArrow
-          onClick={() => {
-            setSlider(!Slider);
-          }}
-          src={Slider === true ? '/images/topArrow.png' : '/images/downArrow.png'}
-          alt="Image"
-        />
+        <IconGlobalStyleComponent
+          onClick={() => { setSlider(!Slider); }}
+          ml={0}
+          mr={30}
+          height={8}
+          width={11}
+          img={Slider === true ? '/images/topArrow.png' : '/images/downArrow.png'}
+          opecity={1} />
       </SwapRouterButton>
       {Slider === true ? (
         <>
@@ -253,18 +261,33 @@ const SwapRouter = (props: SwapRouterProps) => {
           </UsdtList>
           <AutoRoute>
             <RoutButton>
-              <Icon2 src="/images/trans.png" alt="Image" />
+              <IconGlobalStyleComponent
+                onClick={() => { }}
+                ml={0}
+                mr={10}
+                height={20}
+                width={20}
+                img='/images/trans.png'
+                opecity={1} />
               <AutoText>Auto Router</AutoText>
-              <QusetionIcon src="/images/puestion.svg" alt="image" />
+              {/* <QusetionIcon src="/images/puestion.svg" alt="image" /> */}
+              <IconGlobalStyleComponent
+                onClick={() => { }}
+                ml={10}
+                mr={0}
+                height={20}
+                width={20}
+                img='/images/puestion.svg'
+                opecity={0.3} />
             </RoutButton>
-              <IconHr
-                isActive={AddEntey}
-                onClick={() => {
-                  setAddEntey(!AddEntey);
-                }}
-                src={AddEntey === true ? "/images/hr.png" : "/images/plus.png"}
-                alt="image"
-              />
+            <IconGlobalStyleComponent
+              onClick={() => {setAddEntey(!AddEntey);}}
+              ml={0}
+              mr={20}
+              height={AddEntey ? 3 : 30}
+              width={AddEntey ? 15 : 30}
+              img={AddEntey === true ? "/images/hr.png" : "/images/plus.png"}
+              opecity={0.3} />
           </AutoRoute>
           {AddEntey === true ? (
             <Route>

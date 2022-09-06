@@ -28,7 +28,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <meta name="description" content="Plug Exchange" />
         </Head> 
         {
-          globalThis.window?.location?.pathname !== "/HomePage" && globalThis.window?.location?.pathname !== "/LandingPage" ? <>
+          globalThis.window?.location?.pathname !== "/HomePage" && globalThis.window?.location?.pathname !== "/LandingPage" && globalThis.window?.location?.pathname !== "/FaqPage" ? <>
             <AppBar />
             <WalletModal />
             <Component {...pageProps} />

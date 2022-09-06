@@ -7,7 +7,7 @@ import { Box, Tab, Tabs } from '@mui/material';
 import * as echarts from 'echarts';
 import { Theme } from '@emotion/react';
 import { ThemeProps } from 'src/theme';
-
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 const CurrencyTitle = styled('h2')({
   // fontSize: 'calc(0.55em + 1vw)',
   fontWeight: '600',
@@ -38,6 +38,10 @@ const CurrencyPriceChange = styled('h3')((props: { theme: ThemeProps }) => ({
   fontWeight: '600',
   marginLeft: '1.5%',
 }));
+const Btn = styled('div')({
+  marginTop:5
+});
+
 const PairLineChartMain = styled('div')({
   display: 'block',
   '@media (max-width: 660px)': {
@@ -124,8 +128,17 @@ const PairLineChart = (props: PairLineChartProps) => {
         <CurrencyTitle>
           Ethereum
           <CurrencySubName>(ETH)</CurrencySubName>
-          <ShortIcon src="/images/shortVartical.png" alt="ShortIcon" />
-          Tether 
+          <Btn>
+            <IconGlobalStyleComponent
+              onClick={() => { }}
+              ml={10}
+              mr={10}
+              height={20}
+              width={20}
+              img='/images/shortVartical.png'
+              opecity={1} />
+          </Btn>
+          Tether
           <CurrencySubName>(USDT)</CurrencySubName>
         </CurrencyTitle>
         <CurrencyTotalPrice>$3,744.19</CurrencyTotalPrice>
@@ -387,7 +400,7 @@ const PairLineChart = (props: PairLineChartProps) => {
           </Box>
         </PairLineChartData>
       </>
-    </PairLineChartMain>
+    </PairLineChartMain >
   );
 };
 

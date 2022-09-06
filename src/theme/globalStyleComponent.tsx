@@ -11,5 +11,4 @@ export const StyledButton = styled(Button)((props: StyledButtonProps) => ({
   color: props.isActive ? props.theme.palette.color.white : props.theme.palette.color.text,
   height: 52,
   border: props.isActive ? 'none' : '1px solid ' + props.theme.palette.color.border,
-  width:'100%'
 }));

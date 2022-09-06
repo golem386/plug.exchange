@@ -4,7 +4,7 @@ import { Button, Grid, List } from '@mui/material';
 import React, { useState } from 'react';
 import { data } from '../../../contexts/QuoteTableDATA';
 import { ThemeProps } from 'src/theme';
-
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 const QuoteTableblur = styled('div')({
   borderRadius: 24,
   filter: 'blur(5px)',
@@ -22,7 +22,7 @@ const PriceDetail = styled('div')({
   justifyContent: 'space-between',
   paddingLeft: '2%',
   paddingRight: '2%',
-  marginTop:'2%',
+  marginTop: '2%',
   borderBottomWidth: '1px',
   borderBottomStyle: 'solid',
   borderBottomColor: '#e0e0e0',
@@ -31,20 +31,20 @@ const PriceDetail = styled('div')({
 const MaxPriceDetail = styled('p')({
   color: 'rgba(0, 0, 0, 0.4)',
   fontWeight: '600',
-  marginTop:20,
-  display:'flex'
+  marginTop: 20,
+  display: 'flex'
 });
 const ImageSpan = styled('span')({
   color: 'black',
   paddingLeft: 5,
-  marginTop:10
+  marginTop: 10
 });
-const MainSpan = styled('span')((props:{theme: ThemeProps}) =>({
+const MainSpan = styled('span')((props: { theme: ThemeProps }) => ({
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   cursor: 'pointer',
-  display:'flex'
+  display: 'flex'
 }));
 const DataUpdat = styled('div')({
   backgroundColor: '#f0f0f0',
@@ -102,14 +102,14 @@ const Text = styled('p')({
   textAlign: 'center',
   opacity: 0.4,
   fontWeight: '500',
-  display:'flex',
-  justifyContent:'center'
+  display: 'flex',
+  justifyContent: 'center'
 });
 const TextDown = styled('p')({
   textAlign: 'center',
   fontWeight: '600',
 });
-const ChangeText = styled('span')((props:{theme: ThemeProps}) =>({
+const ChangeText = styled('span')((props: { theme: ThemeProps }) => ({
   textAlign: 'center',
   fontWeight: '600',
   background: props.theme.palette.color.active,
@@ -122,16 +122,16 @@ const ShortImage = styled('img')({
   width: 19,
   cursor: 'pointer'
 });
-const ShowMore = styled('p')((props: {theme: ThemeProps}) => ({
+const ShowMore = styled('p')((props: { theme: ThemeProps }) => ({
   textAlign: 'center',
   background: props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontWeight: '600',
   cursor: 'pointer',
-  display:'flex',
-  alignItems:'center',
-  justifyContent:'center'
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
 }));
 const DownArrowImg = styled('img')({
   height: 11,
@@ -146,6 +146,10 @@ const DownArrowImgTop = styled('img')({
 });
 const MainTitle = styled('p')({
   fontWeight: '600',
+});
+
+const Btn = styled('div')({
+  marginTop: 5
 });
 
 const QuoteTablesMain = styled('div')({
@@ -177,7 +181,14 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   1%
                   <ImageSpan>
-                    <img src="/images/downArrow.png" alt="DownArrow" />
+                    <IconGlobalStyleComponent
+                      onClick={() => { }}
+                      ml={5}
+                      mr={0}
+                      height={7}
+                      width={11}
+                      img='/images/downArrow.png'
+                      opecity={0.5} />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>
@@ -186,7 +197,14 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   206 GWEI
                   <ImageSpan>
-                    <img src="/images/downArrow.png" alt="DownArrow" />
+                    <IconGlobalStyleComponent
+                      onClick={() => { }}
+                      ml={5}
+                      mr={0}
+                      height={7}
+                      width={11}
+                      img='/images/downArrow.png'
+                      opecity={0.5} />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>
@@ -204,7 +222,14 @@ const QuoteTables = (props: QuoteTableProps) => {
                         <CoinHeader>
                           <CoinIcon src={val.icon} alt="icon" />
                           <CoinTitle>{val.name}</CoinTitle>
-                          <ShereIcon src="/images/shere.png" alt="icon" />
+                          <IconGlobalStyleComponent
+                            onClick={() => { }}
+                            ml={10}
+                            mr={10}
+                            height={15}
+                            width={15}
+                            img='/images/shere.png'
+                            opecity={0.5} />
                         </CoinHeader>
                         <Grid container spacing={0}>
                           <Grid item xs={4}>
@@ -215,7 +240,17 @@ const QuoteTables = (props: QuoteTableProps) => {
                           </Grid>
                           <Grid item xs={4}>
                             <Text>
-                              {val.shortname} <ShortImage src="/images/short.png" alt="icon" />
+                              {val.shortname}
+                              <Btn>
+                                <IconGlobalStyleComponent
+                                  onClick={() => { }}
+                                  ml={10}
+                                  mr={10}
+                                  height={15}
+                                  width={15}
+                                  img='/images/short.png'
+                                  opecity={0.5} />
+                              </Btn>
                             </Text>
                             <TextDown>{val.shortPrice}</TextDown>
                           </Grid>
@@ -241,7 +276,14 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   1%
                   <ImageSpan>
-                    <img src="/images/downArrow.png" alt="DownArrow" />
+                    <IconGlobalStyleComponent
+                      onClick={() => { }}
+                      ml={5}
+                      mr={0}
+                      height={7}
+                      width={11}
+                      img='/images/downArrow.png'
+                      opecity={0.5} />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>
@@ -250,7 +292,14 @@ const QuoteTables = (props: QuoteTableProps) => {
                 <MainSpan>
                   206 GWEI
                   <ImageSpan>
-                    <img src="/images/downArrow.png" alt="DownArrow" />
+                    <IconGlobalStyleComponent
+                      onClick={() => { }}
+                      ml={5}
+                      mr={0}
+                      height={7}
+                      width={11}
+                      img='/images/downArrow.png'
+                      opecity={0.5} />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>
@@ -268,7 +317,14 @@ const QuoteTables = (props: QuoteTableProps) => {
                         <CoinHeader>
                           <CoinIcon src={val.icon} alt="icon" />
                           <CoinTitle>{val.name}</CoinTitle>
-                          <ShereIcon src="/images/shere.png" alt="shere" />
+                          <IconGlobalStyleComponent
+                            onClick={() => { }}
+                            ml={10}
+                            mr={10}
+                            height={15}
+                            width={15}
+                            img='/images/shere.png'
+                            opecity={0.5} />
                         </CoinHeader>
                         <Grid container spacing={0}>
                           <Grid item xs={4}>
@@ -279,7 +335,17 @@ const QuoteTables = (props: QuoteTableProps) => {
                           </Grid>
                           <Grid item xs={4}>
                             <Text>
-                              {val.shortname} <ShortImage src="/images/short.png" alt="Short-Icon" />
+                              {val.shortname}
+                              <Btn>
+                                <IconGlobalStyleComponent
+                                  onClick={() => { }}
+                                  ml={10}
+                                  mr={10}
+                                  height={15}
+                                  width={15}
+                                  img='/images/short.png'
+                                  opecity={0.5} />
+                              </Btn>
                             </Text>
                             <TextDown>{val.shortPrice}</TextDown>
                           </Grid>

@@ -1,8 +1,7 @@
 import { Container, Grid } from '@mui/material'
 import React, { Component } from 'react'
 import Buttons from 'src/theme/Buttons';
-import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
-import styled from 'styled-components';
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';import styled from 'styled-components';
 
 const ReferModel = styled('div')({
     borderRadius: '24px',

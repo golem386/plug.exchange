@@ -3,7 +3,6 @@ import React, { Component, useState } from 'react';
 import Buttons from 'src/theme/Buttons';
 import { StyledButton } from 'src/theme/globalStyleComponent';
 import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
-
 const Header = styled('div')({
   display: 'flex',
   alignItems: 'center',

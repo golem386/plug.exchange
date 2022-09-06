@@ -19,7 +19,7 @@ import SwapRouter from './SwapRouter';
 import SwapTransactionDetails from './SwapTransactionDetails';
 import Buttons from '../../../theme/Buttons'
 import { ThemeProps } from 'src/theme';
-
+import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
 const SwapModal = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
@@ -225,7 +225,15 @@ const Swap = (props: SwapProps) => {
               SetParmition(true);
             }}
             title={<div className='d-flex'>Allow the Plug protocol{isMobile ? null : <br />} to use your ETH.
-              <Img src="/images/whiteQue.png" /></div>} />
+              <IconGlobalStyleComponent
+                onClick={() => { }}
+                ml={0}
+                mr={0}
+                height={20}
+                width={20}
+                img='/images/whiteQue.png'
+                opecity={1} />
+              </div>} />
 
         ) : null}
         {ConnectWallet?.name === '' && CoinNetwork?.name !== '' ? (
