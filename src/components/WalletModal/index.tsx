@@ -8,7 +8,7 @@ import { styled } from '@mui/system';
 import Buttons from '../../theme/Buttons';
 import { ThemeProps } from 'src/theme';
 import { StyledButton } from 'src/theme/globalStyleComponent';
-import IconGlobalStyleComponent from '../../theme/iconGlobalStyleComponent'
+import IconGlobalStyleComponent from '../../theme/GlobalComponent/iconGlobalStyleComponent'
 
 const Title = styled('p')({
   fontWeight: '600',

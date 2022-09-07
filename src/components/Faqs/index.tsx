@@ -3,7 +3,7 @@ import { Tab, Tabs } from '@material-ui/core';
 import { Box } from '@mui/material';
 import React, { Component } from 'react'
 import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 
 
 const Logo = styled('img')({
@@ -83,7 +83,7 @@ const Hr = styled('hr')({
     width: '40%',
     margin: 'auto',
     display: 'block',
-    opacity: 0.2
+    opacity: 0.2,
 });
 
 
@@ -103,6 +103,11 @@ const Input = styled('input')({
     border: 'none'
 });
 
+const Ans = styled('p')({
+    width: '30%',
+    display: 'block',
+    margin: 'auto'
+});
 
 
 
@@ -169,9 +174,20 @@ function a11yProps(i: number) {
 
 const Faqs = () => {
     const [value, setValue] = React.useState(0);
+    const [collapse, setCollapse] = React.useState<any>([]);
+    const [id, setid] = React.useState("")
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
+
+    const handle = (id: number) => {
+        setCollapse([...collapse, id]);
+    };
+    const handlebutton = (id: number) => {
+        const data = collapse.filter((item: any) => item !== id);
+        setCollapse(data);
+    };
+
     return (
         <div>
             <Logo src='/logo.png' />
@@ -218,16 +234,18 @@ const Faqs = () => {
                                         <Main key={i}>
                                             <Entry>
                                                 <IconGlobalStyleComponent
-                                                    onClick={() => { }}
+                                                    onClick={() => { setid(id === `collaps${i}` ? "" : `collaps${i}`) }}
                                                     ml={10}
                                                     mr={0}
                                                     height={40}
                                                     width={40}
-                                                    img='/images/plus.png'
-                                                    opecity={0.3} />
+                                                    img={id === `collaps${i}` ? '/images/collapsClose.png' : '/images/plus.png'}
+                                                    opecity={id === `collaps${i}` ? 1 : 0.3} />
                                                 <Information>{val}</Information>
                                             </Entry>
                                         </Main>
+                                        <Ans>{id === `collaps${i}` ? "If this happened to you do not despair, it's a common problem users face after bridging funds to a new network.<br />On every network you need to own the native gas token to pay for transaction fees. On Optimistic rollups like Arbitrum and Optimism the gas token is $ETH and on sidechains like Polygon and Gnosis chain the gas token is $MATIC and $xDAI respectively." : null}</Ans>
+                                        <br />
                                         <Hr />
                                     </>
                                 )
@@ -257,16 +275,18 @@ const Faqs = () => {
                                         <Main key={i}>
                                             <Entry>
                                                 <IconGlobalStyleComponent
-                                                    onClick={() => { }}
+                                                    onClick={() => { setid(id === `collaps${i}` ? "" : `collaps${i}`) }}
                                                     ml={10}
                                                     mr={0}
                                                     height={40}
                                                     width={40}
-                                                    img='/images/plus.png'
-                                                    opecity={0.3} />
+                                                    img={id === `collaps${i}` ? '/images/collapsClose.png' : '/images/plus.png'}
+                                                    opecity={id === `collaps${i}` ? 1 : 0.3} />
                                                 <Information>{val}</Information>
                                             </Entry>
                                         </Main>
+                                        <Ans>{id === `collaps${i}` ? "If this happened to you do not despair, it's a common problem users face after bridging funds to a new network.<br />On every network you need to own the native gas token to pay for transaction fees. On Optimistic rollups like Arbitrum and Optimism the gas token is $ETH and on sidechains like Polygon and Gnosis chain the gas token is $MATIC and $xDAI respectively." : null}</Ans>
+                                        <br />
                                         <Hr />
                                     </>
                                 )
@@ -294,16 +314,18 @@ const Faqs = () => {
                                         <Main key={i}>
                                             <Entry>
                                                 <IconGlobalStyleComponent
-                                                    onClick={() => { }}
+                                                    onClick={() => { setid(id === `collaps${i}` ? "" : `collaps${i}`) }}
                                                     ml={10}
                                                     mr={0}
                                                     height={40}
                                                     width={40}
-                                                    img='/images/plus.png'
-                                                    opecity={0.3} />
+                                                    img={id === `collaps${i}` ? '/images/collapsClose.png' : '/images/plus.png'}
+                                                    opecity={id === `collaps${i}` ? 1 : 0.3} />
                                                 <Information>{val}</Information>
                                             </Entry>
                                         </Main>
+                                        <Ans>{id === `collaps${i}` ? "If this happened to you do not despair, it's a common problem users face after bridging funds to a new network.<br />On every network you need to own the native gas token to pay for transaction fees. On Optimistic rollups like Arbitrum and Optimism the gas token is $ETH and on sidechains like Polygon and Gnosis chain the gas token is $MATIC and $xDAI respectively." : null}</Ans>
+                                        <br />
                                         <Hr />
                                     </>
                                 )

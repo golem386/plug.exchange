@@ -1,11 +1,11 @@
 export const DropDownData = [
   {
     name: 'Etherum',
-    coin: '/images/coin.png',
+    coin: '/images/chains/ethereum.png',
   },
   {
     name: 'Avalanche',
-    coin: '/images/coin2.png',
+    coin: '/images/coin3.png',
   },
   {
     name: 'Binance',
@@ -13,7 +13,7 @@ export const DropDownData = [
   },
   {
     name: 'Polygon',
-    coin: '/images/coin4.png',
+    coin: '/images/chains/polygon.png',
   },
   {
     name: 'Gnosis',
@@ -21,7 +21,7 @@ export const DropDownData = [
   },
   {
     name: 'Arbitrum',
-    coin: '/images/arbitrum.png',
+    coin: '/images/chains/arbitrum.png',
   },
 ];
 export const DropDownDataWallet = [

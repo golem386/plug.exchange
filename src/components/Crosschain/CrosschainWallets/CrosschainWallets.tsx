@@ -2,7 +2,7 @@ import { styled } from '@mui/system';
 import React, { Component, useState } from 'react';
 import Buttons from 'src/theme/Buttons';
 import { StyledButton } from 'src/theme/globalStyleComponent';
-import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 const Header = styled('div')({
   display: 'flex',
   alignItems: 'center',

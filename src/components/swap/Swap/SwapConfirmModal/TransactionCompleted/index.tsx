@@ -2,6 +2,7 @@ import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import { ThemeProps } from 'src/theme';
 import Buttons from 'src/theme/Buttons';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 
 const Title = styled('h2')({
   fontWeight: '600',
@@ -39,10 +40,7 @@ const BtnIcon = styled('img')({
   marginLeft: 3,
   marginRight: 3,
 });
-const CloseIcon = styled('img')({
-  height: '15px',
-  width: '15px',
-});
+
 const CloseImage = styled('div')({
   display: 'flex',
   justifyContent: 'flex-end',
@@ -60,7 +58,14 @@ const TransactionCompleted = (props: TransactionCompletedProps) => {
   return (
     <TransactionCompletedModal>
       <CloseImage>
-        <CloseIcon src="/images/cros.png" onClick={props.handleClose} alt="Icon" />
+        <IconGlobalStyleComponent
+          onClick={() => { props.handleClose }}
+          ml={0}
+          mr={0}
+          height={15}
+          width={15}
+          img='/images/cros.png'
+          opecity={1} />
       </CloseImage>
       <CompletedIcon src="/images/completed.png" alt="Image" />
       <Title>Transaction Submitted</Title>
@@ -70,13 +75,13 @@ const TransactionCompleted = (props: TransactionCompletedProps) => {
         <BtnIcon src="/images/mataMask.png" alt="MataMask" />
         MetaMask
       </Buttons> */}
-       <Buttons
-              width='86%'
-              isActive={true}
-              onClick={() =>{}}
-              title={<div className='d-flex'>Add USDT to
-              {/* <BtnIcon src="/images/coin.png" alt="MataMask" /> */}
-              MetaMask</div>} />
+      <Buttons
+        width='86%'
+        isActive={true}
+        onClick={() => { }}
+        title={<div className='d-flex'>Add USDT to
+          {/* <BtnIcon src="/images/coin.png" alt="MataMask" /> */}
+          MetaMask</div>} />
     </TransactionCompletedModal>
   );
 };

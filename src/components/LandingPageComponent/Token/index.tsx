@@ -22,7 +22,7 @@ const Pre = styled('p')({
     textAlign: 'center',
     marginTop: '1%',
     '@media (max-width: 660px)': {
-        paddingLeft:5
+        paddingLeft: 5
     }
 });
 
@@ -33,8 +33,8 @@ const Card = styled('div')({
     overflow: 'hidden',
     marginBottom: '15%',
     '@media (max-width: 660px)': {
-        height: '350px',
-        width: '350px',
+        height: 'auto',
+        width: '95vw',
         marginBottom: '3%',
     }
 });
@@ -47,8 +47,8 @@ const MinesCard = styled('div')({
     overflow: 'hidden',
     marginBottom: '15%',
     '@media (max-width: 660px)': {
-        height: '350px',
-        width: '350px',
+        height: 'auto',
+        width: '95vw',
         marginBottom: '3%',
     }
 });
@@ -116,6 +116,11 @@ const AddCard = styled('div')({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    '@media (max-width: 660px)': {
+        height: 'auto',
+        width: '95vw',
+        marginBottom: '3%',
+    }
 });
 
 

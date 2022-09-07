@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 const SwapHeader = styled('div')({
   display: 'flex',
   alignItems: 'center',

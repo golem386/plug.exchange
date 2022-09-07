@@ -16,6 +16,8 @@ const ButtonActive = styled(Button)((props: { theme: ThemeProps }) => ({
   marginRight: '1%',
   height: 52,
   width: '100%',
+  display:'flex',
+  alignItems:'center',
   '@media (max-width: 660px)': {
     height: 36,
     paddingLeft: '10%',
@@ -113,7 +115,7 @@ const CustomMenuItem2 = styled('div')({
 });
 const ImageIconDropDown = styled('img')({
   height: '36px',
-  width: '36px',
+  width: '45px',
   paddingRight: '10px',
 });
 const Right = styled('img')({

@@ -2,6 +2,7 @@ import { styled } from '@mui/system';
 import React, { useState } from 'react';
 import { Button, FormControlLabel, Radio } from '@mui/material';
 import { ThemeProps } from 'src/theme';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 
 const Title = styled('span')({
   fontWeight: '600',
@@ -26,7 +27,7 @@ const CompletedIcon = styled('img')({
   margin: 'auto',
   display: 'block',
 });
-const Buttons = styled(Button)((props:{theme: ThemeProps}) =>({
+const Buttons = styled(Button)((props: { theme: ThemeProps }) => ({
   borderRadius: 12,
   background: props.theme.palette.color.active,
   color: 'white',
@@ -35,7 +36,7 @@ const Buttons = styled(Button)((props:{theme: ThemeProps}) =>({
   margin: 'auto',
   opacity: 0.4,
 }));
-const ButtonsActive = styled(Button)((props:{theme: ThemeProps}) =>({
+const ButtonsActive = styled(Button)((props: { theme: ThemeProps }) => ({
   borderRadius: 12,
   background: props.theme.palette.color.active,
   color: 'white',
@@ -43,11 +44,7 @@ const ButtonsActive = styled(Button)((props:{theme: ThemeProps}) =>({
   display: 'block',
   margin: 'auto',
 }));
-const CloseIcon = styled('img')({
-  height: '15px',
-  width: '15px',
-  cursor: 'pointer',
-});
+
 const CloseImage = styled('div')({
   display: 'flex',
   justifyContent: 'flex-end',
@@ -60,7 +57,7 @@ const Parmition = styled('div')({
   alignItems: 'center',
   marginLeft: '2%',
 });
-const ConditionPink = styled('span')((props:{theme: ThemeProps}) =>({
+const ConditionPink = styled('span')((props: { theme: ThemeProps }) => ({
   fontWeight: '600',
   background: props.theme.palette.color.active,
   color: 'transparent',
@@ -84,7 +81,14 @@ const HighSlippage = (props: TransactionFailedProps) => {
   return (
     <HighSlippageModal>
       <CloseImage>
-        <CloseIcon src="/images/cros.png" onClick={props.handleClose} alt="Icon" />
+        <IconGlobalStyleComponent
+          onClick={() => { props.handleClose }}
+          ml={0}
+          mr={0}
+          height={15}
+          width={15}
+          img='/images/cros.png'
+          opecity={1} />
       </CloseImage>
       <CompletedIcon src="/images/highSlippage.png" alt="Image" />
       <Title>High Slippage Alert</Title>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { styled } from '@mui/system';
-import { ThemeProps } from 'styled-components';
+import { ThemeProps } from '..';
 
 const Img = styled('img')((props: StyledButtonProps) => ({
     opacity: props.opecityValue,

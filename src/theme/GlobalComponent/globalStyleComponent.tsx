@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { styled } from '@mui/system';
-import { ThemeProps } from '.';
+import { ThemeProps } from '..';
 interface StyledButtonProps {
   isActive: boolean;
   theme: ThemeProps;

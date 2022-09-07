@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux';
 import ImportToken from '../ImportToken';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 
 const CurrencyCard = styled('div')({
   borderRadius: '24px',
@@ -33,10 +34,7 @@ const SelectTokenMain = styled('div')({
   justifyContent: 'space-between',
   paddingLeft: 10,
 });
-const CloseIcon = styled(Button)({
-  fontSize: '24px',
-  fontWeight: 600,
-});
+
 const TextInputMain = styled('div')({
   display: 'flex',
   alignItems: 'center',
@@ -127,13 +125,15 @@ const CurrencyModal = (props: SelecttokenProps) => {
     <CurrencyCard style={{ height: isMobile ? '50%' : '540px' }}>
       <SelectTokenMain>
         <SelectTokenTitle>Select a Token</SelectTokenTitle>
-        <CloseIcon
-          onClick={() => {
-            onModal('Swap');
-          }}
-        >
-          <img src="/images/cros.png" alt="Cros" />
-        </CloseIcon>
+        <IconGlobalStyleComponent
+          onClick={() => { onModal('Swap'); }}
+          ml={0}
+          mr={0}
+          height={15}
+          width={15}
+          img='/images/cros.png'
+          opecity={0.3} />
+
       </SelectTokenMain>
       <TextInputMain>
         <SearchIcon
@@ -141,9 +141,9 @@ const CurrencyModal = (props: SelecttokenProps) => {
           onClick={
             props.select === 'PayToken'
               ? () => {
-                  handleOpen();
-                }
-              : () => {}
+                handleOpen();
+              }
+              : () => { }
           }
           alt="img"
           loading="lazy"
@@ -189,15 +189,15 @@ const CurrencyModal = (props: SelecttokenProps) => {
                   onModal('Swap');
                   props.select === 'PayToken'
                     ? onSelectIcon({
-                        name: val.type,
-                        image: val.icon,
-                        fullName: val.name,
-                      })
+                      name: val.type,
+                      image: val.icon,
+                      fullName: val.name,
+                    })
                     : onReceiveIcon({
-                        name: val.type,
-                        image: val.icon,
-                        fullName: val.name,
-                      });
+                      name: val.type,
+                      image: val.icon,
+                      fullName: val.name,
+                    });
                 }}
               >
                 <ListMain>

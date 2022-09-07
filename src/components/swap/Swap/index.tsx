@@ -19,7 +19,7 @@ import SwapRouter from './SwapRouter';
 import SwapTransactionDetails from './SwapTransactionDetails';
 import Buttons from '../../../theme/Buttons'
 import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 const SwapModal = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
@@ -91,7 +91,7 @@ const Swap = (props: SwapProps) => {
   const [TransactionFaildopen, setTransactionFaildopen] = useState(false);
   const [SwapConfirmModalopen, setSwapConfirmModalOpen] = useState(false);
   const [HighSlippageModalopen, setHighSlippageModalOpen] = useState(false);
-  const [Parmition, SetParmition] = useState(false);
+  const [Parmition, SetParmition] = useState(true);
 
   const closeModel = () => {
     setTransactionWaitingOpen(false);
@@ -217,7 +217,7 @@ const Swap = (props: SwapProps) => {
             />
           </Boxs>
         </Modal>
-        {!Parmition ? (
+        {/* {!Parmition ? (
           <Buttons
             width='86%'
             isActive={true}
@@ -235,14 +235,14 @@ const Swap = (props: SwapProps) => {
                 opecity={1} />
               </div>} />
 
-        ) : null}
+        ) : null} */}
         {ConnectWallet?.name === '' && CoinNetwork?.name !== '' ? (
           <WrongBtn>Wrong Network</WrongBtn>
         ) :
           <>
             <Buttons
               width='86%'
-              isActive={Parmition}
+              isActive={true}
               onClick={
                 Parmition ? ConnectWallet?.name !== '' && CoinNetwork?.name !== ''
                   ? () => {

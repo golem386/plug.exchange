@@ -1,6 +1,7 @@
 import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import { ThemeProps } from 'src/theme';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 
 const Title = styled('span')({
   fontWeight: '600',
@@ -35,11 +36,7 @@ const Buttons = styled(Button)((props: { theme: ThemeProps }) => ({
   display: 'block',
   margin: 'auto',
 }));
-const CloseIcon = styled('img')({
-  height: '15px',
-  width: '15px',
-  cursor: 'pointer',
-});
+
 const CloseImage = styled('div')({
   display: 'flex',
   justifyContent: 'flex-end',
@@ -58,7 +55,14 @@ const TransactionFailed = (props: TransactionFailedProps) => {
   return (
     <TransactionFailedModal>
       <CloseImage>
-        <CloseIcon src="/images/cros.png" onClick={props.handleClose} alt="Icon" />
+        <IconGlobalStyleComponent
+          onClick={() => { props.handleClose }}
+          ml={0}
+          mr={0}
+          height={15}
+          width={15}
+          img='/images/cros.png'
+          opecity={1} />
       </CloseImage>
       <CompletedIcon src="/images/Check.png" alt="Image" />
       <Title>Transaction Failed</Title>

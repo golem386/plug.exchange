@@ -6,7 +6,8 @@ import Settings from '../Settings';
 import AppFooter from '../AppFooter';
 import BuyCrypto from '../BuyCrypto';
 import SwitchNetwork from '../SwitchNetwork';
-import { StyledButton } from '../../theme/globalStyleComponent';
+import { StyledButton } from '../../theme/GlobalComponent/globalStyleComponent';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 
 const NavMainComponent = styled('div')({
   display: 'flex',
@@ -48,10 +49,6 @@ const NavGrids = styled(Grid)({
 });
 const LogoGrid = styled(Grid)({
   marginRight: 0,
-});
-const CloseIcon = styled('img')({
-  width: 15,
-  height: 15,
 });
 const SettingMenuOverLay = styled('div')({
   position: 'fixed',
@@ -202,7 +199,14 @@ const AppBar = () => {
             >
               <SettingMain>
                 <h4>Setting</h4>
-                <CloseIcon src="/images/cros.png" onClick={() => null} />
+                <IconGlobalStyleComponent
+                  onClick={() => { }}
+                  ml={0}
+                  mr={0}
+                  height={15}
+                  width={15}
+                  img='/images/cros.png'
+                  opecity={1} />
               </SettingMain>
             </Grid>
           </SettingMenuOverLay>

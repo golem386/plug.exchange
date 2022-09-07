@@ -2,7 +2,7 @@ import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import React from 'react';
 import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 const ETH = styled('p')((props: { theme: ThemeProps }) => ({
   background: props.theme.palette.color.active,
   color: 'transparent',

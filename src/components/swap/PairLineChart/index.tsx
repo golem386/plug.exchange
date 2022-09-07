@@ -7,7 +7,7 @@ import { Box, Tab, Tabs } from '@mui/material';
 import * as echarts from 'echarts';
 import { Theme } from '@emotion/react';
 import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/iconGlobalStyleComponent';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 const CurrencyTitle = styled('h2')({
   // fontSize: 'calc(0.55em + 1vw)',
   fontWeight: '600',
