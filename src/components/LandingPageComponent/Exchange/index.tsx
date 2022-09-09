@@ -5,8 +5,8 @@ import Sell from '../../LandingPageComponent/Sell'
 
 const Bg = styled('div')({
     backgroundImage: `url(${"/images/BG.png"})`,
-    // backgroundRepeat: 'no-repeat',
-    backgroundSize: '100vw',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
     paddingTop: '10%',
     paddingBottom: '10%'
 });

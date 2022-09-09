@@ -24,7 +24,10 @@ const Div = styled('div')({
     borderRadius: '24px',
     background: `url(${"/images/Coinsbg.png"})`,
     backgroundRepeat:'no-repeat',
-    marginRight: '20px'
+    marginRight: '20px',
+    '@media (max-width: 660px)': {
+        width:'85vw',
+    }
 });
 
 const Div2 = styled('div')({
