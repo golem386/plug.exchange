@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Grid, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/system';
 import WalletDetails from '../WalletDetails/WalletDetails';
@@ -87,6 +87,7 @@ const ConnectWalletMain = styled('div')({
   position: 'fixed',
   top: '25%',
   width: '93%',
+  marginLeft:13
 });
 const TitleView = styled('div')({
   display: 'flex',
@@ -119,13 +120,24 @@ const DivFlex = styled('div')({
   alignItems: 'center',
 });
 const BtnGroup = styled('div')({
-  backgroundColor: 'transparent',
+  backgroundColor: 'white',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-around',
   width: '100%',
-  marginTop: '10%',
+  position:'fixed',
+  zIndex:999,
+  bottom:0,
+  paddingBottom:'10%',
+  paddingTop:'10%'
 });
+
+
+const Logo = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+});
+
 const settingData = [
   { name: 'About' },
   { name: 'Help Center' },
@@ -136,18 +148,18 @@ const settingData = [
 
 const AppBar = () => {
   const isMobile = useMediaQuery('(min-width:660px)');
-
+  const [menu , setMenu] = useState(false)
   return (
     <>
       {/* mobile Navbar  */}
       {isMobile ? null : (
         <NavBar>
-          <div>
-            <NavImg src="/images/mMenu.png" onClick={() => null} />
+          <Logo>
             <NavImg src="/images/mlogo.png" />
-          </div>
+          </Logo>
           <DivFlex>
             <Settings settings={settingData} />
+            <NavImg src="/images/mMenu.png" onClick={() => {setMenu(true)}} />
           </DivFlex>
         </NavBar>
       )}
@@ -191,13 +203,16 @@ const AppBar = () => {
         // Mobile Main Content
         <>
           <SettingMenuOverLay
-          // style={{ display: SearchState ? 'block' : 'none' }}
+            // style={{ display: SearchState ? 'block' : 'none' }}
+            style={{ display: menu ? 'none' : 'none' }}
           >
             <Grid
               item
             // sm={CoinDetail?.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}
             >
-              <SettingMain>
+              <SettingMain
+                style={{ display: menu ? 'none' : 'none' }}
+              >
                 <h4>Setting</h4>
                 <IconGlobalStyleComponent
                   onClick={() => { }}
@@ -213,12 +228,15 @@ const AppBar = () => {
           {
             <ConnectWalletOverLay
               // style={{ display: MenuState ? 'block' : 'none' }}
+              style={{ display: menu ? 'block' : 'none' }}
               onClick={() => null}
             >
-              <ConnectWalletMain>
+              <ConnectWalletMain
+               style={{ display: menu ? 'block' : 'none' }}
+              >
                 <TitleView>
                   <ConnectWalletTitle>Connect Wallet</ConnectWalletTitle>
-                  <img src="/images/cros.png" onClick={() => { }} alt="Image" />
+                  <img src="/images/cros.png" onClick={() => { setMenu(false)}} alt="Image" />
                 </TitleView>
                 <BuyCrypto />
                 <AppFooter type="Mobile" />

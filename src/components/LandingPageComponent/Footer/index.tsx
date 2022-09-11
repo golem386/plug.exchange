@@ -9,7 +9,12 @@ const FooterDiv = styled('div')({
     backgroundColor: '#edebf0',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    '@media (max-width: 660px)': {
+        width:'100%',
+        paddingTop:'10%',
+        paddingBottom:'10%'
+    }
 });
 const H2 = styled('h2')({
     color: '#200440'
@@ -19,7 +24,11 @@ const H2 = styled('h2')({
 const Div = styled('div')({
     display: 'flex',
     alignItems: 'end',
-    justifyContent:'end'
+    justifyContent:'end',
+    '@media (max-width: 660px)': {
+        marginTop:20,
+        marginBottom:20
+    }
 });
 
 const Title = styled('p')({

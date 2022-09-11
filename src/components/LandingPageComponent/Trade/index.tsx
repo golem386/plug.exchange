@@ -9,6 +9,10 @@ const Main = styled('div')({
   marginLeft: '5%',
   marginRight: '7%',
   padding: '3%',
+  '@media (max-width: 660px)': {
+    width:'93vw',
+    marginLeft:15,
+}
 });
 
 const H1 = styled('h1')({

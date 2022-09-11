@@ -22,7 +22,10 @@ const RecoveryModal = styled('div')({
 
 const Pre = styled('div')({
   width: '68%',
-  marginBottom: '5%'
+  marginBottom: '5%',
+  '@media (max-width: 700px)': {
+    width: '90%',
+  }
 });
 
 const Header = styled('div')({

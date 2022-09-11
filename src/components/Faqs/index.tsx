@@ -42,36 +42,27 @@ const PairLineChartData = styled('div')({
     alignItems: 'center',
     justifyContent: 'center'
 });
-const TabButton = styled(Tab)((props: { isActive: boolean; theme: ThemeProps }) => ({
-    borderRadius: '100px',
-    fontWeight: '500',
-    fontStyle: 'normal',
-    textTransform: 'lowercase',
-    height: '36px',
-    width: '100px',
-    background: props.isActive ? props.theme.palette.color.active : '',
-    color: props.isActive ? 'white!important' : '',
-}));
-
-const TabBar = styled(Tabs)({
-    backgroundColor: '#f7f7f7',
-    borderRadius: '100px',
-    width: '37%',
-    marginLeft: '32%',
-});
 
 const Main = styled('div')({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     marginTop: 20,
-    marginBottom: 20
+    marginBottom: 20,
+    '@media (min-width: 700px)': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    '@media (max-width: 700px)': {
+        width: '100%'
+    }
 });
 
 const Entry = styled('div')({
     display: 'flex',
     alignItems: 'center',
-    width: '40%'
+    width: '40%',
+    '@media (max-width: 700px)': {
+        width: '100%'
+    }
 });
 
 
@@ -93,7 +84,10 @@ const InputType = styled('div')({
     width: '38%',
     borderRadius: 10,
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    '@media (max-width: 700px)': {
+        width: '100%'
+    }
 });
 
 const Input = styled('input')({
@@ -106,10 +100,41 @@ const Input = styled('input')({
 const Ans = styled('p')({
     width: '30%',
     display: 'block',
-    margin: 'auto'
+    margin: 'auto',
 });
 
 
+const Tebdiv = styled('div')({
+    '@media (min-width: 700px)': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    '@media (max-width: 700px)': {
+        width: '90%',
+        marginLeft:20
+    }
+});
+
+const CustomTabs = styled(Tabs)({
+    backgroundColor: 'rgba(0, 0, 0, 0.03) !important',
+    borderRadius: 100,
+    '@media (max-width: 700px)': {
+        width: '100%',
+    }
+});
+
+const CustomTab = styled(Tab)((props: { isActive: boolean; theme: ThemeProps }) => ({
+    borderRadius: '100px!important',
+    border: 'none!important',
+    textTransform: 'lowercase !important',
+    background: props.isActive ? props.theme.palette.color.active : '',
+    color: props.isActive ? 'white!important' : '',
+    fontWeight: '600!important',
+    '@media (max-width: 700px)': {
+        width: '33.33%',
+    }
+}));
 
 type SelectType = {
     name: String;
@@ -199,18 +224,17 @@ const Faqs = () => {
             <PairLineChartData>
                 <Box sx={{ width: '100%' }}>
                     <Box sx={{ borderBottom: 0, borderColor: 'divider' }}>
-                        <TabBar
-                            TabIndicatorProps={{
-                                style: { display: 'none' },
-                            }}
-                            value={value}
-                            onChange={handleChange}
-                        >
-                            <TabButton isActive={value === 0} label="Getting Started" {...a11yProps(0)} />
-                            <TabButton isActive={value === 1} label="Plug Protocol" {...a11yProps(1)} />
-
-                            <TabButton isActive={value === 2} label="Plug Exchange" {...a11yProps(2)} />
-                        </TabBar>
+                        <Tebdiv>
+                            <CustomTabs
+                                TabIndicatorProps={{
+                                    style: { display: 'none' },
+                                }}
+                                value={value} onChange={handleChange} aria-label="basic tabs example">
+                                <CustomTab isActive={value === 0} label="Item One" {...a11yProps(0)} />
+                                <CustomTab isActive={value === 1} label="Item Two" {...a11yProps(1)} />
+                                <CustomTab isActive={value === 2} label="Item Three" {...a11yProps(2)} />
+                            </CustomTabs>
+                        </Tebdiv>
                     </Box>
                     <TabPanel value={value} index={0}>
                         <Main>

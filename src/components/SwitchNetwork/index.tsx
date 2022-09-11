@@ -60,13 +60,14 @@ const CoinDropIcon = styled('img')({
 const CustomMenu = styled('div')({
   position: 'absolute',
   top: '110%',
-  left: '0%',
+  left: '-50%',
   borderRadius: 20,
   backgroundColor: 'white',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   '@media (max-width: 660px)': {
     position: 'fixed',
     top: '25%',
+    left:'0%',
     marginLeft: '2%',
     width: '96%',
   },

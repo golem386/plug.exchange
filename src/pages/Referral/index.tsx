@@ -14,7 +14,10 @@ const ReferModel2 = styled('div')({
     borderRadius: '24px',
     boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
     padding: '4%',
-    marginBottom:'20%'
+    marginBottom:'20%',
+    '@media (max-width: 700px)': {
+        width:'360px'
+    }
 });
 
 
@@ -101,7 +104,7 @@ const Referral = () => {
     return (
         <ContainerSpace>
             <Grid container spacing={2}>
-                <Grid item xs={4}>
+                <Grid item sm={4}>
                     <ReferModel>
                         <Img src='/images/shereLogo.png' />
                         <br />
@@ -117,7 +120,7 @@ const Referral = () => {
                         <Learn>Learn More</Learn>
                     </ReferModel>
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item sm={8}>
                     <ReferModel2>
                         <ItemText>Current referral tier</ItemText>
                         <h2>Copper</h2>

@@ -26,7 +26,8 @@ const Div = styled('div')({
     backgroundRepeat:'no-repeat',
     marginRight: '20px',
     '@media (max-width: 660px)': {
-        width:'85vw',
+        width:'93vw',
+        marginLeft:20
     }
 });
 
@@ -39,7 +40,11 @@ const Div2 = styled('div')({
     alignItems: 'center',
     justifyContent: 'center',
     padding: '2%',
-    paddingBottom: '8%'
+    paddingBottom: '8%',
+    '@media (max-width: 660px)': {
+        width:'93vw',
+        marginLeft:20
+    }
 });
 
 const Peregraph = styled('h3')({

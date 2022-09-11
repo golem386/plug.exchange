@@ -34,7 +34,7 @@ const Card = styled('div')({
     marginBottom: '15%',
     '@media (max-width: 660px)': {
         height: 'auto',
-        width: '95vw',
+        width: '92vw',
         marginBottom: '3%',
     }
 });
@@ -48,7 +48,7 @@ const MinesCard = styled('div')({
     marginBottom: '15%',
     '@media (max-width: 660px)': {
         height: 'auto',
-        width: '95vw',
+        width: '92vw',
         marginBottom: '3%',
     }
 });
@@ -118,7 +118,7 @@ const AddCard = styled('div')({
     justifyContent: 'center',
     '@media (max-width: 660px)': {
         height: 'auto',
-        width: '95vw',
+        width: '92vw',
         marginBottom: '3%',
     }
 });
