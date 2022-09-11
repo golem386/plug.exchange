@@ -45,6 +45,9 @@ const Form = styled('div')({
   width: '40%',
   borderRadius: 24,
   marginTop: '5%',
+  '@media (max-width: 660px)': {
+    width:'100%'
+}
 });
 const Header = styled('div')({
   display: 'flex',
@@ -295,6 +298,9 @@ const DetailView = styled('div')({
   padding: 10,
   borderBottomLeftRadius: 25,
   borderBottomRightRadius: 25,
+  '@media (max-width: 660px)': {
+    width:'100%'
+}
 });
 const Expected = styled('div')({
   justifyContent: 'space-between',

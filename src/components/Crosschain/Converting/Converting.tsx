@@ -1,8 +1,9 @@
 import { styled } from '@mui/system';
 import { Slider } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { Component } from 'react';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
+import React, { Component, useState } from 'react';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent'; import Buttons from 'src/theme/Buttons';
+;
 const Warning = styled('div')({
   display: 'flex',
   alignItems: 'center',
@@ -71,6 +72,14 @@ const PinkLoder = styled('p')({
   marginRight: 35,
   marginBottom: 5,
 });
+
+
+const Click = styled('p')({
+  color: '#BB36FF',
+  textAlign: 'center'
+});
+
+
 const LoderDiv = styled('p')({
   display: 'flex',
   alignItems: 'center',
@@ -108,10 +117,18 @@ const Solscan = styled(Slider)((props) => ({
 const Close = styled('img')({
   cursor: 'pointer'
 });
+
+const Success = styled('h2')({
+  fontWeight: '600',
+  textAlign: 'center',
+  marginTop: '20%'
+});
 interface ConvertingProps {
   close: () => void;
 }
 const Converting = (props: ConvertingProps) => {
+  const [click, setClick] = useState(false)
+  const [completed, setCompleted] = useState(false)
   return (
     <>
       <Header>
@@ -127,26 +144,31 @@ const Converting = (props: ConvertingProps) => {
           img='/images/cros.png'
           opecity={0.3} />
       </Header>
-      <Warning>
-        {/* <img src="/images/info.png" /> */}
-        <IconGlobalStyleComponent
-          onClick={() => {
-            props.close();
-          }}
-          ml={0}
-          mr={0}
-          height={25}
-          width={25}
-          img='/images/info.png'
-          opecity={1} />
-        <Text>Warning</Text>
-      </Warning>
-      <p>
-        When Solana transactions per second (TPS) drop below 2000 due to network congestion, it may cause delays or
-        cancellations.
-      </p>
-      <br />
-      <Current>Current TPS: 1470</Current>
+      {
+        completed ? null : <>
+          <Warning>
+            {/* <img src="/images/info.png" /> */}
+            <IconGlobalStyleComponent
+              onClick={() => {
+                props.close();
+              }}
+              ml={0}
+              mr={0}
+              height={25}
+              width={25}
+              img='/images/info.png'
+              opecity={1} />
+            <Text>Warning</Text>
+          </Warning>
+          <p>
+            When Solana transactions per second (TPS) drop below 2000 due to network congestion, it may cause delays or
+            cancellations.
+          </p>
+          <br />
+          <Current>Current TPS: 1470</Current>
+        </>
+      }
+
       <CardCenter>
         <Card>
           <Div>
@@ -170,27 +192,46 @@ const Converting = (props: ConvertingProps) => {
             </Coin>
           </Div>
           <Loder>
-            <LoderDiv>
-              <PinkLoder></PinkLoder>
-            </LoderDiv>
-            <LoderDiv>
-              <PinkRound></PinkRound>
-              <PinkRound></PinkRound>
-              <PinkRound></PinkRound>
-              <PinkRound></PinkRound>
-            </LoderDiv>
+            {
+              completed ? <LoderDiv>
+                <img src='./images/completed.svg' />
+              </LoderDiv> : <>
+                <LoderDiv>
+                  <PinkLoder></PinkLoder>
+                </LoderDiv>
+                <LoderDiv>
+                  <PinkRound></PinkRound>
+                  <PinkRound></PinkRound>
+                  <PinkRound></PinkRound>
+                  <PinkRound></PinkRound>
+                </LoderDiv>
+              </>
+            }
           </Loder>
           <br />
           <br />
-          <Confirmations>8/32 Confirmations</Confirmations>
-          <SliderUi defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
+          {
+            click ? completed ? <Click>View on Etherscan</Click> : <> <Confirmations onClick={() => { setCompleted(true) }}>8/32 Confirmations</Confirmations>
+              <SliderUi defaultValue={50} aria-label="Default" valueLabelDisplay="auto" /></> : <Click onClick={() => { setClick(true) }}>View on Solscan</Click>
+          }
         </Card>
       </CardCenter>
-      <Pr>43%</Pr>
-      <Discription>Please wait while converting SOL to ETH</Discription>
-      <Box>
-        <SliderUi defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
-      </Box>
+      {
+        completed ? <>
+          <Success>Swapped Successfully</Success>
+          <Buttons
+            width='85%'
+            isActive={true}
+            onClick={() => { }}
+            title="Done" />
+        </> : <>
+          <Pr>43%</Pr>
+          <Discription>Please wait while converting SOL to ETH</Discription>
+          <Box>
+            <SliderUi defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
+          </Box>
+        </>
+      }
     </>
   );
 };
