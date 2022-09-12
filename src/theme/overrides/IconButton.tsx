@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-export default function IconButton(theme) {
+export default function IconButton(theme: { palette: { action: { hover: any; }; }; }) {
   return {
     MuiIconButton: {
       variants: [

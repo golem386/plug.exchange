@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-export default function Autocomplete(theme) {
+export default function Autocomplete(theme: { customShadows: { z20: any; }; }) {
   return {
     MuiAutocomplete: {
       styleOverrides: {

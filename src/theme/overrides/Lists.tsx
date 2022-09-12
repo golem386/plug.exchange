@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-export default function Lists(theme) {
+export default function Lists(theme: { spacing: (arg0: number) => any; }) {
   return {
     MuiListItemIcon: {
       styleOverrides: {

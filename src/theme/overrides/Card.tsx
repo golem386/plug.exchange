@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-export default function Card(theme) {
+export default function Card(theme: { customShadows: { z16: any; }; shape: { borderRadiusMd: any; }; spacing: (arg0: number, arg1: number | undefined, arg2: number | undefined) => any; }) {
   return {
     MuiCard: {
       styleOverrides: {

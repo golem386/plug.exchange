@@ -1,6 +1,9 @@
 // ----------------------------------------------------------------------
 
-export default function Button(theme) {
+export default function Button(theme: {
+  palette: { action: { hover: any }; grey: any[] };
+  customShadows: { z8: any; primary: any; secondary: any };
+}) {
   return {
     MuiButton: {
       styleOverrides: {

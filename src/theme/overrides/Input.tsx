@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-export default function Input(theme) {
+export default function Input(theme: { palette: { text: { disabled: any; }; grey: any[]; action: { focus: any; disabledBackground: any; }; }; }) {
   return {
     MuiInputBase: {
       styleOverrides: {

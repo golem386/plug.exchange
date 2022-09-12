@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-export default function Typography(theme) {
+export default function Typography(theme: { spacing: (arg0: number) => any; }) {
   return {
     MuiTypography: {
       styleOverrides: {
