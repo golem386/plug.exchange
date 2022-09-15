@@ -4,22 +4,25 @@ import { Button, FormControlLabel, Radio } from '@mui/material';
 import { ThemeProps } from 'src/theme';
 import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 
-const Title = styled('span')({
+const Title = styled('h2')({
   fontWeight: '600',
-  fontSize: '24px',
-  color: 'red',
+  color: '#FF0000',
   textAlign: 'center',
   margin: 'auto',
   display: 'block',
   marginTop: 20,
 });
-const SubTitle = styled('span')({
+const SubTitle = styled('p')({
   fontWeight: '500',
   textAlign: 'center',
   color: 'black',
   margin: 'auto',
   display: 'block',
   marginTop: 10,
+  opacity:0.65,
+  marginLeft:10,
+  marginRight:10,
+  marginBottom:10
 });
 const CompletedIcon = styled('img')({
   height: '70px',
@@ -56,6 +59,7 @@ const Parmition = styled('div')({
   display: 'flex',
   alignItems: 'center',
   marginLeft: '2%',
+  marginBottom:20
 });
 const ConditionPink = styled('span')((props: { theme: ThemeProps }) => ({
   fontWeight: '600',
@@ -69,6 +73,7 @@ const Condition = styled('p')({
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
+  color:'rgba(0, 0, 0, 0.65)'
 });
 export type TransactionFailedProps = {
   handleClose: () => void;
@@ -107,7 +112,7 @@ const HighSlippage = (props: TransactionFailedProps) => {
         />
         <Condition>
           I accept the &nbsp; <ConditionPink>Terms of Services</ConditionPink>&
-          <ConditionPink>Privacy Policy</ConditionPink>
+          <ConditionPink>&nbsp;Privacy Policy</ConditionPink>
         </Condition>
       </Parmition>
       {Check ? <ButtonsActive onClick={props.handleClose}>Close</ButtonsActive> : <Buttons>Close</Buttons>}

@@ -47,7 +47,7 @@ const Boxs = styled('div')({
   paddingRight: 20,
   paddingLeft: 20,
   paddingTop: 10,
-  width: '450px',
+  width: '460px',
   height: 'auto',
   borderRadius: 10,
 });
