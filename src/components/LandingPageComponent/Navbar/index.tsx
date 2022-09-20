@@ -14,7 +14,7 @@ const Text = styled('h2')({
   marginLeft: 10,
 });
 
-const Logo = styled('h3')({
+const Logo = styled('span')({
   display: 'flex',
   alignItems: 'center',
 });

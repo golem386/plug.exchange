@@ -1,6 +1,7 @@
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
+
 import { Grid } from '@material-ui/core';
-import React from 'react'
+import React from 'react';
 
 const Main = styled('div')({
   backgroundColor: '#5D5FEF',
@@ -10,9 +11,9 @@ const Main = styled('div')({
   marginRight: '7%',
   padding: '3%',
   '@media (max-width: 660px)': {
-    width:'93vw',
-    marginLeft:15,
-}
+    width: '93vw',
+    marginLeft: 15,
+  },
 });
 
 const H1 = styled('h1')({
@@ -25,14 +26,12 @@ const H1 = styled('h1')({
   '@media (max-width: 660px)': {
     marginLeft: '20px',
     marginRight: '20px',
-  }
-  
+  },
 });
 
-
-const Checked = styled('p')({
+const Checked = styled('h2')({
   display: 'flex',
-  alignItems: 'center'
+  alignItems: 'center',
 });
 
 const Div = styled('div')({
@@ -40,14 +39,13 @@ const Div = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-around',
   marginLeft: '5%',
-  marginTop: '20px'
+  marginTop: '20px',
 });
-
 
 const Title = styled('p')({
   color: '#FFFFFF',
   fontWeight: '600',
-  marginLeft: 10
+  marginLeft: 10,
 });
 
 const Btn = styled('button')({
@@ -55,18 +53,18 @@ const Btn = styled('button')({
   marginLeft: '12%',
   marginTop: '10%',
   padding: '2%',
-  paddingLeft:'5%',
-  paddingRight:'5%',
+  paddingLeft: '5%',
+  paddingRight: '5%',
   border: 'none',
   borderRadius: '10px',
   fontWeight: '600',
   '@media (max-width: 660px)': {
-    marginBottom:'10%'
-  }
+    marginBottom: '10%',
+  },
 });
 
 const Img = styled('img')({
-  marginLeft:'4%',
+  marginLeft: '4%',
 });
 
 const Trade = () => {
@@ -77,33 +75,33 @@ const Trade = () => {
           <H1>Trade Directly from Your Own Wallet</H1>
           <Div>
             <Checked>
-              <img src='/images/Check.png' />
+              <img src="/images/Check.png" />
               <Title>No account required</Title>
             </Checked>
             <Checked>
-              <img src='/images/Check.png' />
+              <img src="/images/Check.png" />
               <Title>No trading limits</Title>
             </Checked>
           </Div>
           <Div>
             <Checked>
-              &nbsp;&nbsp;&nbsp;&nbsp;<img src='/images/Check.png' />
+              &nbsp;&nbsp;&nbsp;
+              <img src="/images/Check.png" />
               <Title>No deposit or withdrawal fees</Title>
             </Checked>
             <Checked>
-              <img src='/images/Check.png' />
+              <img src="/images/Check.png" />
               <Title>Fiat on-ramp</Title>
             </Checked>
           </Div>
           <Btn>Connect Wallet</Btn>
         </Grid>
         <Grid item sm={6}>
-            <Img src='/images/Beg.png' />
+          <Img src="/images/Beg.png" />
         </Grid>
       </Grid>
     </Main>
-  )
-}
+  );
+};
 
-
-export default Trade
+export default Trade;

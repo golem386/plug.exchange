@@ -1,72 +1,69 @@
-import { Grid, styled } from '@material-ui/core'
-import React from 'react'
-import Card from '../../LandingPageComponent/Card'
+import { Grid } from '@material-ui/core';
+import { styled } from '@mui/system';
+
+import React from 'react';
+import Card from '../../LandingPageComponent/Card';
 
 const Pre = styled('h2')({
   fontSize: '44px',
   fontWeight: 'bold',
   marginLeft: '15%',
-  marginTop:'-10%',
+  marginTop: '-10%',
   '@media (max-width: 660px)': {
     fontSize: '25px',
-    textAlign:'center',
+    textAlign: 'center',
     marginLeft: '0%',
-    marginTop:'20%',
-}
+    marginTop: '20%',
+  },
 });
 
 const Div = styled('div')({
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
 });
-
 
 const DivCard = styled('div')({
   backgroundColor: 'white',
   marginBottom: '20%',
-  paddingBottom:'5%',
-  borderRadius:'24px',
-  marginTop:'10%',
-  marginRight:'20%',
-  width:'87%',
+  paddingBottom: '5%',
+  borderRadius: '24px',
+  marginTop: '10%',
+  marginRight: '20%',
+  width: '87%',
   '@media (max-width: 660px)': {
-    width:'100%',
-  }
+    width: '100%',
+  },
 });
-
 
 const Images = styled('div')({
   display: 'flex',
   alignItems: 'center',
   marginLeft: 30,
-  paddingTop: 30
+  paddingTop: 30,
 });
 const CoinImg = styled('img')({
   width: '72px',
-  height: '72px'
+  height: '72px',
 });
 
 const CoinImg2 = styled('img')({
   width: '72px',
   height: '72px',
-  marginLeft: -20
+  marginLeft: -20,
 });
-
 
 const H1 = styled('h1')({
   marginLeft: 30,
-  marginTop: 20
+  marginTop: 20,
 });
-
 
 const Pr = styled('div')({
   marginLeft: 30,
   marginTop: 30,
   display: 'flex',
-  alignItems: 'center'
+  alignItems: 'center',
 });
-
 
 const Prdiv = styled('div')({
   backgroundColor: '#edebf0',
@@ -81,25 +78,22 @@ const Prtext = styled('h2')({
   textAlign: 'center',
 });
 
-
 const Type = styled('p')({
   color: '#200440',
   fontWeight: 'bold',
   textAlign: 'center',
 });
 
-
-
 const Grid1 = styled(Grid)({
-  display:'flex',
-  alignItems:'center',
-  justifyContent:'center'
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
 const Sell = () => {
   return (
     <>
-      <Grid1 container spacing={1} >
+      <Grid1 container spacing={1}>
         <Grid item sm={6}>
           <Div>
             <Pre>And Merges Them into One Trade, So You Save Time and Money</Pre>
@@ -130,9 +124,9 @@ const Sell = () => {
         </Grid>
       </Grid1>
       <hr />
-      <Card/>
+      <Card />
     </>
-  )
-}
+  );
+};
 
-export default Sell
+export default Sell;

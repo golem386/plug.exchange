@@ -42,7 +42,7 @@ const Subtitle = styled('p')({
   opacity: 0.65,
 });
 
-const Btn = styled('p')((props: { advBtn: boolean }) => ({
+const Btn = styled('div')((props: { advBtn: boolean }) => ({
   width: '100%',
   paddingTop: '2%',
   paddingBottom: '2%',
@@ -88,7 +88,7 @@ const Source = styled('p')({
   color: '#949494',
 });
 
-const SourceDiv = styled('p')({
+const SourceDiv = styled('div')({
   backgroundColor: '#f7f7f7',
   paddingTop: '2%',
   paddingBottom: '2%',
