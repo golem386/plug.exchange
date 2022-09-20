@@ -1,4 +1,5 @@
-import styled from '@emotion/styled';
+
+import { styled } from '@material-ui/core';
 import { Box, Tab, Tabs } from '@mui/material';
 import React from 'react';
 import { ThemeProps } from 'src/theme';

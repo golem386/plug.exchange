@@ -6,7 +6,7 @@ import Exchange from '../../components/LandingPageComponent/Exchange';
 import YourTrading from '../../components/LandingPageComponent/YourTrading';
 import Trade from '../../components/LandingPageComponent/Trade';
 import Footer from '../../components/LandingPageComponent/Footer';
-import styled from '@emotion/styled';
+import { styled } from '@material-ui/core';
 import { Container } from '@mui/material';
 
 const Div = styled(Container)({
