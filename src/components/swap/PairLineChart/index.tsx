@@ -12,10 +12,10 @@ const CurrencyTitle = styled('h2')({
   display: 'flex',
   marginTop: '12%',
 });
-const CurrencySubName = styled('h4')({
+const CurrencySubName = styled('span')({
   fontWeight: '600',
-  // fontSize: 'calc(0.55em + 1vw)',
   paddingLeft: 5,
+  fontSize:'1.5rem',
   color: '#999999',
 });
 const CurrencyTotalPrice = styled('h1')(() => ({
@@ -115,7 +115,7 @@ const PairLineChart = (_props: PairLineChartProps) => {
       <>
         <CurrencyTitle>
           Ethereum
-          <CurrencySubName>(ETH)</CurrencySubName>
+          <CurrencySubName>({"ETH"})</CurrencySubName>
           <Btn>
             <IconGlobalStyleComponent
               onClick={() => { }}
@@ -127,11 +127,11 @@ const PairLineChart = (_props: PairLineChartProps) => {
               opecity={1} />
           </Btn>
           Tether
-          <CurrencySubName>(USDT)</CurrencySubName>
+          <CurrencySubName>{"(USDT)"}</CurrencySubName>
         </CurrencyTitle>
         <CurrencyTotalPrice>$3,744.19</CurrencyTotalPrice>
         <br />
-        <CurrencyPriceChange>$16.93333 (+0.41%)</CurrencyPriceChange>
+        <CurrencyPriceChange>$16.93333 {"(+0.41%)"}</CurrencyPriceChange>
         <PairLineChartData>
           <Box sx={{ width: '100%' }}>
             <TabPanel value={value} index={0}>

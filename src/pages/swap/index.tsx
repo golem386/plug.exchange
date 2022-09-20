@@ -7,6 +7,7 @@ import QuoteTables from '../../components/swap/QuoteTable';
 import ReferralModal from '../../components/swap/Referral';
 import SwapMain from '../../components/swap/Swap';
 import TransactionSettings from '../../components/swap/Swap/TransactionSettings';
+import { useEffect, useState } from 'react';
 
 const MainDiv = styled('div')({
   marginLeft: '3%',
@@ -32,7 +33,9 @@ type ReduxState = {
 }
 const Swap = () => {
   // const isMobile = useMediaQuery('(min-width:660px)');
-  const Modal: string | boolean = useSelector((state: ReduxState) => state.modal);
+  const ModalTag: string | boolean = useSelector((state: ReduxState) => state.modal);
+  const [Modal, setModal] = useState('Connect Wallet');
+  useEffect(() => {setModal(ModalTag);}, [ModalTag]);
   return (
     <>
       <MainDiv>

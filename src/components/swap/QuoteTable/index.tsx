@@ -1,10 +1,10 @@
 // this is a QuoteTable file and Provide a table List and Data
 import { styled } from '@mui/system';
 import { Button, Grid, List } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { data } from '../../../contexts/QuoteTableDATA';
 import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
 const QuoteTableblur = styled('div')({
   borderRadius: 24,
   filter: 'blur(5px)',
@@ -32,12 +32,12 @@ const MaxPriceDetail = styled('p')({
   color: 'rgba(0, 0, 0, 0.4)',
   fontWeight: '600',
   marginTop: 20,
-  display: 'flex'
+  display: 'flex',
 });
 const ImageSpan = styled('span')({
   color: 'black',
   paddingLeft: 5,
-  marginTop: 10
+  marginTop: 10,
 });
 const MainSpan = styled('span')((props: { theme?: ThemeProps }) => ({
   background: props.theme && props.theme.palette.color.active,
@@ -96,7 +96,7 @@ const Text = styled('p')({
   opacity: 0.4,
   fontWeight: '500',
   display: 'flex',
-  justifyContent: 'center'
+  justifyContent: 'center',
 });
 const TextDown = styled('p')({
   textAlign: 'center',
@@ -128,7 +128,7 @@ const DownArrowImgTop = styled('img')({
   paddingLeft: 10,
 });
 const Btn = styled('div')({
-  marginTop: 5
+  marginTop: 5,
 });
 
 const QuoteTablesMain = styled('div')({
@@ -149,6 +149,12 @@ type QuoteTableProps = {
 const QuoteTables = (_props: QuoteTableProps) => {
   const [loardData, setLoardData] = useState<number>(1);
   const [blur, setBlur] = useState<Boolean>(true);
+  useEffect(() => {
+    setBlur(true);
+  }, []);
+  useEffect(() => {
+    setLoardData(1);
+  }, []);
   return (
     <QuoteTablesMain>
       <>
@@ -161,13 +167,14 @@ const QuoteTables = (_props: QuoteTableProps) => {
                   1%
                   <ImageSpan>
                     <IconGlobalStyleComponent
-                      onClick={() => { }}
+                      onClick={() => {}}
                       ml={5}
                       mr={0}
                       height={7}
                       width={11}
-                      img='/images/downArrow.png'
-                      opecity={0.5} />
+                      img="/images/downArrow.png"
+                      opecity={0.5}
+                    />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>
@@ -177,13 +184,14 @@ const QuoteTables = (_props: QuoteTableProps) => {
                   206 GWEI
                   <ImageSpan>
                     <IconGlobalStyleComponent
-                      onClick={() => { }}
+                      onClick={() => {}}
                       ml={5}
                       mr={0}
                       height={7}
                       width={11}
-                      img='/images/downArrow.png'
-                      opecity={0.5} />
+                      img="/images/downArrow.png"
+                      opecity={0.5}
+                    />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>
@@ -193,58 +201,59 @@ const QuoteTables = (_props: QuoteTableProps) => {
               <RefresBtn>Refresh</RefresBtn>
             </DataUpdat>
             <List aria-label="main mailbox folders">
-              {data.map((val, i) => {
-                return (
-                  <>
-                    {loardData > i ? (
-                      <ListItem>
-                        <CoinHeader>
-                          <CoinIcon src={val.icon} alt="icon" />
-                          <CoinTitle>{val.name}</CoinTitle>
-                          <IconGlobalStyleComponent
-                            onClick={() => { }}
-                            ml={10}
-                            mr={10}
-                            height={15}
-                            width={15}
-                            img='/images/shere.png'
-                            opecity={0.5} />
-                        </CoinHeader>
-                        <Grid container spacing={0}>
-                          <Grid item xs={4}>
-                            <Text>{val.get}</Text>
-                            <TextDown>
-                              {val.proce} <ChangeText>{val.pr}</ChangeText>
-                            </TextDown>
+              {data?.length > 0 &&
+                data.map((val, i) => {
+                  return (
+                    <>
+                      {loardData > i && (
+                        <ListItem key={i}>
+                          <CoinHeader>
+                            <CoinIcon src={val.icon} alt="icon" />
+                            <CoinTitle>{val.name}</CoinTitle>
+                            <IconGlobalStyleComponent
+                              onClick={() => {}}
+                              ml={10}
+                              mr={10}
+                              height={15}
+                              width={15}
+                              img="/images/shere.png"
+                              opecity={0.5}
+                            />
+                          </CoinHeader>
+                          <Grid container key={i} spacing={0}>
+                            <Grid item xs={4}>
+                              <Text>{val.get}</Text>
+                              <TextDown>
+                                {val.proce} <ChangeText>{val.pr}</ChangeText>
+                              </TextDown>
+                            </Grid>
+                            <Grid item xs={4}>
+                              <Text>
+                                {val.shortname}
+                                {/* <Btn>
+                                  <IconGlobalStyleComponent
+                                    onClick={() => {}}
+                                    ml={10}
+                                    mr={10}
+                                    height={15}
+                                    width={15}
+                                    img="/images/short.png"
+                                    opecity={0.5}
+                                  />
+                                </Btn> */}
+                              </Text>
+                              <TextDown>{val.shortPrice}</TextDown>
+                            </Grid>
+                            <Grid item xs={4}>
+                              <Text>{val.gasfee}</Text>
+                              <TextDown>{val.gesprice}</TextDown>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={4}>
-                            <Text>
-                              {val.shortname}
-                              <Btn>
-                                <IconGlobalStyleComponent
-                                  onClick={() => { }}
-                                  ml={10}
-                                  mr={10}
-                                  height={15}
-                                  width={15}
-                                  img='/images/short.png'
-                                  opecity={0.5} />
-                              </Btn>
-                            </Text>
-                            <TextDown>{val.shortPrice}</TextDown>
-                          </Grid>
-                          <Grid item xs={4}>
-                            <Text>{val.gasfee}</Text>
-                            <TextDown>{val.gesprice}</TextDown>
-                          </Grid>
-                        </Grid>
-                      </ListItem>
-                    ) : (
-                      ''
-                    )}
-                  </>
-                );
-              })}
+                        </ListItem>
+                      )}
+                    </>
+                  );
+                })}
             </List>
           </QuoteTableblur>
         ) : (
@@ -256,13 +265,14 @@ const QuoteTables = (_props: QuoteTableProps) => {
                   1%
                   <ImageSpan>
                     <IconGlobalStyleComponent
-                      onClick={() => { }}
+                      onClick={() => {}}
                       ml={5}
                       mr={0}
                       height={7}
                       width={11}
-                      img='/images/downArrow.png'
-                      opecity={0.5} />
+                      img="/images/downArrow.png"
+                      opecity={0.5}
+                    />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>
@@ -272,13 +282,14 @@ const QuoteTables = (_props: QuoteTableProps) => {
                   206 GWEI
                   <ImageSpan>
                     <IconGlobalStyleComponent
-                      onClick={() => { }}
+                      onClick={() => {}}
                       ml={5}
                       mr={0}
                       height={7}
                       width={11}
-                      img='/images/downArrow.png'
-                      opecity={0.5} />
+                      img="/images/downArrow.png"
+                      opecity={0.5}
+                    />
                   </ImageSpan>
                 </MainSpan>
               </MaxPriceDetail>
@@ -291,19 +302,20 @@ const QuoteTables = (_props: QuoteTableProps) => {
               {data.map((val, i) => {
                 return (
                   <>
-                    {loardData > i ? (
+                    {loardData > i && (
                       <ListItem>
                         <CoinHeader>
                           <CoinIcon src={val.icon} alt="icon" />
                           <CoinTitle>{val.name}</CoinTitle>
                           <IconGlobalStyleComponent
-                            onClick={() => { }}
+                            onClick={() => {}}
                             ml={10}
                             mr={10}
                             height={15}
                             width={15}
-                            img='/images/shere.png'
-                            opecity={0.5} />
+                            img="/images/shere.png"
+                            opecity={0.5}
+                          />
                         </CoinHeader>
                         <Grid container spacing={0}>
                           <Grid item xs={4}>
@@ -317,13 +329,14 @@ const QuoteTables = (_props: QuoteTableProps) => {
                               {val.shortname}
                               <Btn>
                                 <IconGlobalStyleComponent
-                                  onClick={() => { }}
+                                  onClick={() => {}}
                                   ml={10}
                                   mr={10}
                                   height={15}
                                   width={15}
-                                  img='/images/short.png'
-                                  opecity={0.5} />
+                                  img="/images/short.png"
+                                  opecity={0.5}
+                                />
                               </Btn>
                             </Text>
                             <TextDown>{val.shortPrice}</TextDown>
@@ -334,8 +347,6 @@ const QuoteTables = (_props: QuoteTableProps) => {
                           </Grid>
                         </Grid>
                       </ListItem>
-                    ) : (
-                      ''
                     )}
                   </>
                 );
@@ -344,16 +355,27 @@ const QuoteTables = (_props: QuoteTableProps) => {
           </CardCustom>
         )}
         <ShowMore
-          onClick={data.length === loardData || data.length + 1 === loardData ? () => {
-            setLoardData(1);
-            setBlur(true);
-          } : () => {
-            setLoardData(data.length > loardData ? loardData + 2 : loardData);
-            setBlur(false);
-          }}
+          onClick={
+            data.length === loardData || data.length + 1 === loardData
+              ? () => {
+                  setLoardData(1);
+                  setBlur(true);
+                }
+              : () => {
+                  setLoardData(data.length > loardData ? loardData + 2 : loardData);
+                  setBlur(false);
+                }
+          }
         >
-          {data.length === loardData || data.length + 1 === loardData ? "Hide Details" : "Show More Details"}
-          <DownArrowImgTop src={data.length === loardData || data.length + 1 === loardData ? "/images/hideDetail.png" : '/images/showMore.png'} alt="Hide" />
+          {data.length === loardData || data.length + 1 === loardData ? 'Hide Details' : 'Show More Details'}
+          <DownArrowImgTop
+            src={
+              data.length === loardData || data.length + 1 === loardData
+                ? '/images/hideDetail.png'
+                : '/images/showMore.png'
+            }
+            alt="Hide"
+          />
         </ShowMore>
       </>
     </QuoteTablesMain>
