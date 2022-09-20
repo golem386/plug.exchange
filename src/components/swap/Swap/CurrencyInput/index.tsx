@@ -1,10 +1,9 @@
 import { styled } from '@mui/system';
 import { FormControl } from '@mui/material';
-import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 //import { onModalOpen } from '../../../../store/Actions';
-import { AnyAction } from 'redux';
-import { ThunkDispatch } from 'redux-thunk';
+// import { AnyAction } from 'redux';
+// import { ThunkDispatch } from 'redux-thunk';
 import { ThemeProps } from 'src/theme';
 import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 const SwapHeader = styled('div')({
@@ -21,9 +20,9 @@ const HeaderTitle = styled('p')({
   color: 'black',
   opacity: 0.65,
 });
-const Max = styled('p')((props:{theme: ThemeProps}) =>({
+const Max = styled('p')((props: { theme?: ThemeProps }) => ({
   fontWeight: '500',
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
 }));
@@ -68,11 +67,7 @@ const SelectTokenTitle = styled('p')({
   color: '#595959',
   marginLeft: 10,
 });
-const CoinDropIcon = styled('img')({
-  height: '5.19px',
-  width: '8.49px',
-  marginLeft: 10,
-});
+
 
 export type CurrencyInputProps = {
   userInputTokenBalance: number | null;
@@ -88,13 +83,25 @@ type CoinDetailType = {
   image: String | string | any;
   fullName: String;
 };
-type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+type ReduxState = {
+  CoinDetail: {
+    name: string;
+    image: string;
+    fullName: string;
+  };
+  receiveCoinDetail: {
+    name: string;
+    image: string;
+    fullName: string;
+  };
+};
+// type AppDispatch = ThunkDispatch<ReduxState, string, AnyAction>;
 const CurrencyInput = (props: CurrencyInputProps) => {
-  const dispatch: AppDispatch = useDispatch();
-  const CoinDetail: CoinDetailType = useSelector((state: ArticleState) => state.CoinDetail);
+  // const dispatch: AppDispatch = useDispatch();
+  const CoinDetail: CoinDetailType = useSelector((state: ReduxState) => state.CoinDetail);
 
-  const onModal = (article: boolean | string) => {
-    dispatch(null);
+  const onModal = (_article: boolean | string) => {
+    // dispatch(null);
   };
   return (
     <>

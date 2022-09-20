@@ -1,10 +1,10 @@
 import { Grid, styled } from '@material-ui/core'
-import React, { Component } from 'react'
+import React from 'react'
 import Card from '../../LandingPageComponent/Card'
 
 const Pre = styled('h2')({
   fontSize: '44px',
-  fontWeight: '600',
+  fontWeight: 'bold',
   marginLeft: '15%',
   marginTop:'-10%',
   '@media (max-width: 660px)': {
@@ -77,15 +77,15 @@ const Prdiv = styled('div')({
 
 const Prtext = styled('h2')({
   color: '#5D5FEF',
-  fontWeight: '600',
-  textAlign: 'center'
+  fontWeight: 'bold',
+  textAlign: 'center',
 });
 
 
 const Type = styled('p')({
   color: '#200440',
-  fontWeight: '600',
-  textAlign: 'center'
+  fontWeight: 'bold',
+  textAlign: 'center',
 });
 
 
@@ -99,7 +99,7 @@ const Grid1 = styled(Grid)({
 const Sell = () => {
   return (
     <>
-      <Grid1 container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid1 container spacing={1} >
         <Grid item sm={6}>
           <Div>
             <Pre>And Merges Them into One Trade, So You Save Time and Money</Pre>

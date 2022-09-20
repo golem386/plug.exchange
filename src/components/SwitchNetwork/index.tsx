@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
 import { ThemeProps } from 'src/theme';
 
-const ButtonActive = styled(Button)((props: { theme: ThemeProps }) => ({
+const ButtonActive = styled(Button)((props: { theme?: ThemeProps }) => ({
   borderRadius: 16,
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   padding: '0px 15px',
   fontWeight: '600',
   color: '#FFFFFF',
@@ -16,8 +16,8 @@ const ButtonActive = styled(Button)((props: { theme: ThemeProps }) => ({
   marginRight: '1%',
   height: 52,
   width: '100%',
-  display:'flex',
-  alignItems:'center',
+  display: 'flex',
+  alignItems: 'center',
   '@media (max-width: 660px)': {
     height: 36,
     paddingLeft: '10%',
@@ -123,9 +123,14 @@ const Right = styled('img')({
   height: '8px',
   width: '11px',
 });
-
+type ReduxState = {
+ ConnectNetwork:{
+  coin:string,
+  name:string
+ } 
+}
 const SwitchNetwork = () => {
-  const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
+  const CoinNetwork: any = useSelector((state: ReduxState) => state.ConnectNetwork);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const openmenu = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -146,7 +151,7 @@ const SwitchNetwork = () => {
           <CustomMenuItem3>
             <SelectNetwork>Select a Network</SelectNetwork>
           </CustomMenuItem3>
-          {DropDownData.map((val, i) => {
+          {DropDownData.map((val) => {
             return (
               <CustomMenuItem>
                 <CustomMenuItem2>

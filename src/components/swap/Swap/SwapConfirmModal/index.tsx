@@ -1,5 +1,4 @@
 import { styled } from '@mui/system';
-import { Button } from '@mui/material';
 import CurrencyInput from '../CurrencyInput';
 import CurrencyOutput from '../CurrencyOutput';
 import { ThemeProps } from 'src/theme';
@@ -21,8 +20,8 @@ const Title = styled('p')({
   fontWeight: 600,
   fontSize: 24,
 });
-const ETH = styled('span')((props: { theme: ThemeProps }) => ({
-  background: props.theme.palette.color.active,
+const ETH = styled('span')((props: { theme?: ThemeProps }) => ({
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontWeight: 500,
@@ -100,16 +99,16 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
         userInputTokenBalance={null}
         showMaxButton={null}
         inputValue={null}
-        inputOnChangeHandler={null}
-        toggleCurrencyModal={null}
+        inputOnChangeHandler={() => {}}
+        toggleCurrencyModal={() => {}}
         selectedCurrency={null}
         Read={false}
       />
       <CurrencyOutput
-        inputOnChangeHandler={null}
+        inputOnChangeHandler={() => {}}
         inputValue={null}
         selectedCurrency={null}
-        toggleCurrencyModal={null}
+        toggleCurrencyModal={() => {}}
         Read={false}
       />
       <ShortView>
@@ -142,11 +141,7 @@ const SwapConfirmModal = (props: SwapConfirmModalProps) => {
           <Price>~$0.02</Price>
         </ShortViewListItem>
       </ShortViewList>
-      <Buttons
-        width='100%'
-        isActive={true}
-        onClick={() => { }}
-        title='Confirm Swap' />
+      <Buttons width="100%" isActive={true} onClick={() => {}} title="Confirm Swap" />
     </>
   );
 };

@@ -1,9 +1,9 @@
 import { styled } from '@mui/system';
 import { Slider } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { Component, useState } from 'react';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent'; import Buttons from 'src/theme/Buttons';
-;
+import React, { useState } from 'react';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
+import Buttons from 'src/theme/Buttons';
 const Warning = styled('div')({
   display: 'flex',
   alignItems: 'center',
@@ -73,12 +73,10 @@ const PinkLoder = styled('p')({
   marginBottom: 5,
 });
 
-
 const Click = styled('p')({
   color: '#BB36FF',
-  textAlign: 'center'
+  textAlign: 'center',
 });
-
 
 const LoderDiv = styled('p')({
   display: 'flex',
@@ -104,48 +102,36 @@ const SliderUi = styled(Slider)({
   width: '90%',
 });
 const Confirmations = styled('p')({
-  textAlign: 'center'
-});
-
-
-const Solscan = styled(Slider)((props) => ({
-  // background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  color: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
-  backgroundClip: 'text',
-}));
-
-const Close = styled('img')({
-  cursor: 'pointer'
+  textAlign: 'center',
 });
 
 const Success = styled('h2')({
   fontWeight: '600',
   textAlign: 'center',
-  marginTop: '20%'
+  marginTop: '20%',
 });
 interface ConvertingProps {
   close: () => void;
 }
 const Converting = (props: ConvertingProps) => {
-  const [click, setClick] = useState(false)
-  const [completed, setCompleted] = useState(false)
+  const [click, setClick] = useState(false);
+  const [completed, setCompleted] = useState(false);
   return (
     <>
       <Header>
         <Title>Converting</Title>
         <IconGlobalStyleComponent
-          onClick={() => {
-            props.close();
-          }}
+          onClick={props.close}
           ml={10}
           mr={10}
           height={20}
           width={20}
-          img='/images/cros.png'
-          opecity={0.3} />
+          img="/images/cros.png"
+          opecity={0.3}
+        />
       </Header>
-      {
-        completed ? null : <>
+      {completed ? null : (
+        <>
           <Warning>
             {/* <img src="/images/info.png" /> */}
             <IconGlobalStyleComponent
@@ -156,8 +142,9 @@ const Converting = (props: ConvertingProps) => {
               mr={0}
               height={25}
               width={25}
-              img='/images/info.png'
-              opecity={1} />
+              img="/images/info.png"
+              opecity={1}
+            />
             <Text>Warning</Text>
           </Warning>
           <p>
@@ -167,7 +154,7 @@ const Converting = (props: ConvertingProps) => {
           <br />
           <Current>Current TPS: 1470</Current>
         </>
-      }
+      )}
 
       <CardCenter>
         <Card>
@@ -184,18 +171,21 @@ const Converting = (props: ConvertingProps) => {
               mr={0}
               height={18}
               width={20}
-              img='/images/LeftPink.png'
-              opecity={1} />
+              img="/images/LeftPink.png"
+              opecity={1}
+            />
             <Coin>
               <img src="/images/coin3.png" />
               <CoinTitle>SOL</CoinTitle>
             </Coin>
           </Div>
           <Loder>
-            {
-              completed ? <LoderDiv>
-                <img src='./images/completed.svg' />
-              </LoderDiv> : <>
+            {completed ? (
+              <LoderDiv>
+                <img src="./images/completed.svg" />
+              </LoderDiv>
+            ) : (
+              <>
                 <LoderDiv>
                   <PinkLoder></PinkLoder>
                 </LoderDiv>
@@ -206,32 +196,51 @@ const Converting = (props: ConvertingProps) => {
                   <PinkRound></PinkRound>
                 </LoderDiv>
               </>
-            }
+            )}
           </Loder>
           <br />
           <br />
-          {
-            click ? completed ? <Click>View on Etherscan</Click> : <> <Confirmations onClick={() => { setCompleted(true) }}>8/32 Confirmations</Confirmations>
-              <SliderUi defaultValue={50} aria-label="Default" valueLabelDisplay="auto" /></> : <Click onClick={() => { setClick(true) }}>View on Solscan</Click>
-          }
+          {click ? (
+            completed ? (
+              <Click>View on Etherscan</Click>
+            ) : (
+              <>
+                {' '}
+                <Confirmations
+                  onClick={() => {
+                    setCompleted(true);
+                  }}
+                >
+                  8/32 Confirmations
+                </Confirmations>
+                <SliderUi defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
+              </>
+            )
+          ) : (
+            <Click
+              onClick={() => {
+                setClick(true);
+              }}
+            >
+              View on Solscan
+            </Click>
+          )}
         </Card>
       </CardCenter>
-      {
-        completed ? <>
+      {completed ? (
+        <>
           <Success>Swapped Successfully</Success>
-          <Buttons
-            width='85%'
-            isActive={true}
-            onClick={() => { }}
-            title="Done" />
-        </> : <>
+          <Buttons width="85%" isActive={true} onClick={() => {}} title="Done" />
+        </>
+      ) : (
+        <>
           <Pr>43%</Pr>
           <Discription>Please wait while converting SOL to ETH</Discription>
           <Box>
             <SliderUi defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
           </Box>
         </>
-      }
+      )}
     </>
   );
 };

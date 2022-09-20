@@ -1,5 +1,5 @@
 import { Container, Grid } from '@mui/material'
-import React, { Component } from 'react'
+import React from 'react'
 import Buttons from 'src/theme/Buttons';
 import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;import styled from 'styled-components';
 
@@ -79,25 +79,6 @@ const Routs = styled('div')({
 const RoutImg = styled('img')({
     height: 24,
     width: 24,
-});
-
-const Vs = styled('img')({
-    height: 15,
-    width: 16,
-    marginLeft: 5,
-    marginRight: 5,
-    opacity: 0.4,
-});
-
-const Boxs = styled('div')({
-    backgroundColor: 'white',
-    paddingBottom: 30,
-    paddingRight: 20,
-    paddingLeft: 20,
-    paddingTop: 10,
-    width: '450px',
-    height: 'auto',
-    borderRadius: 10,
 });
 
 const Referral = () => {

@@ -113,26 +113,16 @@ const ParmitionMain = styled('div')({
   marginLeft: 10,
   marginBottom: 20,
 });
-const ImportTokenButton = styled(Button)((props:{theme: ThemeProps}) =>({
+const ImportTokenButton = styled(Button)((props: { theme?: ThemeProps; isDisabled: boolean; }) => ({
   width: '100%',
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   borderRadius: 16,
   padding: 7,
   color: 'white',
   fontWeight: 600,
   textTransform: 'initial',
   height: '52px',
-}));
-const ImportTokenDisabalButton = styled(Button)((props:{theme: ThemeProps}) =>({
-  width: '100%',
-  background: props.theme.palette.color.active,
-  borderRadius: 16,
-  padding: 7,
-  color: 'white',
-  fontWeight: 600,
-  textTransform: 'initial',
-  opacity: 0.3,
-  height: '52px',
+  opacity: props.isDisabled ? 0.3 : 1,
 }));
 
 type Token = {};
@@ -143,7 +133,7 @@ export type ImportTokenProps = {
 };
 
 const ImportToken = (props: ImportTokenProps) => {
-  const [Check, setCheck] = React.useState<Boolean>(false);
+  const [Check, setCheck] = React.useState<boolean>(false);
   const isMobile = useMediaQuery('(min-width:660px)');
   return (
     <Box sx={isMobile ? style : style2}>
@@ -191,13 +181,9 @@ const ImportToken = (props: ImportTokenProps) => {
         />
         <ParmitionText>I understand and want to proceed.</ParmitionText>
       </ParmitionMain>
-      {Check ? (
-        <ImportTokenButton variant="text" onClick={() => {}}>
-          Import Token
-        </ImportTokenButton>
-      ) : (
-        <ImportTokenDisabalButton variant="text">Import Token</ImportTokenDisabalButton>
-      )}
+      <ImportTokenButton isDisabled={Check} variant="text">
+        Import Token
+      </ImportTokenButton>
     </Box>
   );
 };

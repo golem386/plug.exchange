@@ -1,12 +1,9 @@
 import { styled } from '@mui/system';
 import { useMediaQuery } from '@mui/material';
 import React from 'react';
-import { useDispatch } from 'react-redux';
 //import { connetNetwork, connetWallet } from '../../store/Actions';
 import { useSelector } from 'react-redux';
 import UserAssets from './UserAssets';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import SwapTransactionHistory from '../SwapTransactionHistory';
 import { ThemeProps } from 'src/theme';
 
@@ -23,9 +20,9 @@ const Copy = styled('div')({
 const Id = styled('p')({
   fontWeight: '600',
 });
-const Copied = styled('p')((props: { theme: ThemeProps }) => ({
+const Copied = styled('p')((props: { theme?: ThemeProps }) => ({
   fontWeight: '600',
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
 }));
@@ -153,10 +150,6 @@ const Name = styled('p')({
   fontWeight: 600,
   color: '#565656',
 });
-type DataObject = {
-  name: String;
-  coin: String;
-};
 type WalletDetailsProps = {
   account: string | null;
 };
@@ -164,9 +157,21 @@ const nullObj = {
   name: '',
   coin: '',
 };
-type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+type ReduxState = {
+  ConnectWallet: {
+    name: string;
+    image: string;
+    fullName: string;
+  };
+  ConnectNetwork: {
+    name: string;
+    image: string;
+    fullName: string;
+  };
+};
+// type AppDispatch = ThunkDispatch<ReduxState, string, AnyAction>;
 
-const WalletDetails = (props: WalletDetailsProps) => {
+const WalletDetails = (_props: WalletDetailsProps) => {
   const isMobile = useMediaQuery('(min-width:660px)');
   const [open, setOpen] = React.useState(false);
   const [CopyId, setCopy] = React.useState(false);
@@ -174,31 +179,31 @@ const WalletDetails = (props: WalletDetailsProps) => {
   const handleClose = () => {
     setOpen(false);
   };
-  const dispatch: AppDispatch = useDispatch();
+  // const dispatch: AppDispatch = useDispatch();
   const [anchorElPrice, setAnchorElPrice] = React.useState<null | HTMLElement>(null);
-  const CoinDetail: any = useSelector((state: ArticleState) => state.ConnectWallet);
-  const CoinNetwork: any = useSelector((state: ArticleState) => state.ConnectNetwork);
+  const CoinDetail: any = useSelector((state: ReduxState) => state.ConnectWallet);
+  const CoinNetwork: any = useSelector((state: ReduxState) => state.ConnectNetwork);
   const openmenuPrice = Boolean(anchorElPrice);
-  const [WalletData, setWallet] = React.useState<DataObject>(nullObj);
-  const [Check, setCheck] = React.useState<Boolean>(false);
-  const [NetworkData, setNetwork] = React.useState<DataObject>(nullObj);
+  // const [WalletData, setWallet] = React.useState<DataObject>(nullObj);
+  // const [Check, setCheck] = React.useState<Boolean>(false);
+  // const [NetworkData, setNetwork] = React.useState<DataObject>(nullObj);
   const handleClickPrice = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElPrice(event.currentTarget);
   };
   const handleClosemenuPrice = () => {
     setAnchorElPrice(null);
   };
-  const connetWalletData = (coin: any) => {
-    dispatch(null);
+  const connetWalletData = (_coin: any) => {
+    // dispatch(null);
   };
-  const connetNetworkData = (coin: any) => {
-    dispatch(null);
+  const connetNetworkData = (_coin: any) => {
+    // dispatch(null);
   };
   const DisConnectWallet = () => {
     handleClosemenuPrice();
-    setCheck(false);
-    setWallet(nullObj);
-    setNetwork(nullObj);
+    // setCheck(false);
+    // setWallet(nullObj);
+    // setNetwork(nullObj);
     connetWalletData(nullObj);
     connetNetworkData(nullObj);
   };

@@ -32,6 +32,7 @@
     "@web3-react/types": "^8.0.20-beta.0",
     "@web3-react/url": "^8.0.25-beta.0",
     "@web3-react/walletconnect": "^8.0.35-beta.0",
+    "@types/lodash": "^4.14.185",
     "echarts": "^5.3.2",
     "echarts-for-react": "^3.0.2",
     "echarts-for-react-typescript": "^1.2.5",

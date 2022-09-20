@@ -28,9 +28,9 @@ const CompletedIcon = styled('img')({
   margin: 'auto',
   display: 'block',
 });
-const Buttons = styled(Button)((props: { theme: ThemeProps }) => ({
+const Buttons = styled(Button)((props: { theme?: ThemeProps }) => ({
   borderRadius: 12,
-  background: props.theme.palette.color.active,
+  background:  props.theme && props.theme.palette.color.active,
   color: 'white',
   textTransform: 'initial',
   display: 'block',

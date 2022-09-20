@@ -50,9 +50,13 @@ type CoinNetworkType = {
   name: String | string;
   image: String | string;
 };
+type ReduxState = {
+  ConnectWallet: ConnectWalletType;
+  ConnectNetwork: CoinNetworkType;
+};
 const SwapTransactionDetails = (props: SwapTransactionDetailsProps) => {
-  const ConnectWallet: ConnectWalletType = useSelector((state: ArticleState) => state.ConnectWallet);
-  const CoinNetwork: CoinNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
+  const ConnectWallet: ConnectWalletType = useSelector((state: ReduxState) => state.ConnectWallet);
+  const CoinNetwork: CoinNetworkType = useSelector((state: ReduxState) => state.ConnectNetwork);
   return props.btnTitle === 'Connect Wallet' ? (
     ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? (
       <SwapTransactionDetailsModal>

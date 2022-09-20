@@ -1,11 +1,11 @@
 import { styled } from '@mui/system';
 import { useState } from 'react';
 import Modal from 'src/components/Modal';
-import HighSlippage from 'src/components/swap/Swap/SwapConfirmModal/HighSlippage';
 import ContinuewithWallets from '../../components/Crosschain/CrosschainWallets/CrosschainWallets';
 import Converting from '../../components/Crosschain/Converting/Converting';
 import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;import Buttons from 'src/theme/Buttons';
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
+import Buttons from 'src/theme/Buttons';
 
 const data = [
   {
@@ -46,8 +46,8 @@ const Form = styled('div')({
   borderRadius: 24,
   marginTop: '5%',
   '@media (max-width: 660px)': {
-    width:'100%'
-}
+    width: '100%',
+  },
 });
 const Header = styled('div')({
   display: 'flex',
@@ -118,14 +118,14 @@ const DropImg3 = styled('img')({
   left: -3,
 });
 
-const DroDownImg = styled('img')({
-  height: '7.78px',
-  width: '12.73px',
-});
-const DroDownImg2 = styled('img')({
-  height: '6.48px',
-  width: '10.61px',
-});
+// const DroDownImg = styled('img')({
+//   height: '7.78px',
+//   width: '12.73px',
+// });
+// const DroDownImg2 = styled('img')({
+//   height: '6.48px',
+//   width: '10.61px',
+// });
 const Text = styled('h3')({
   fontWeight: 600,
   color: '#000000',
@@ -142,9 +142,9 @@ const Text3 = styled('p')({
   opacity: 0.65,
 });
 
-const Max = styled('p')((props:{theme: ThemeProps}) => ({
+const Max = styled('p')((props: { theme?: ThemeProps }) => ({
   fontWeight: 500,
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
 }));
@@ -256,8 +256,8 @@ const MainTitleView = styled('div')({
   marginRight: '5%',
   marginTop: '2.5%',
 });
-const Amount = styled('p')((props:ThemeProps) =>({
-  fontSize: props.theme.typography.RoutTitle,
+const Amount = styled('p')((props: { theme?: ThemeProps }) => ({
+  fontSize: props.theme && props.theme.typography.routeTitle.fontSize,
   fontWeight: '600',
 }));
 const Div = styled('div')({
@@ -269,8 +269,8 @@ const Span = styled('p')({
   color: '#949494',
   opacity: '0.4',
 });
-const ShowMore = styled('p')((props: { theme: ThemeProps}) => ({
-  background: props.theme.palette.color.active,
+const ShowMore = styled('p')((props: { theme?: ThemeProps }) => ({
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontWeight: '600',
@@ -284,9 +284,9 @@ const DownArrowImg = styled('img')({
   paddingLeft: 10,
 });
 
-const Title2 = styled('p')((props:ThemeProps) =>({
+const Title2 = styled('p')((props: { theme?: ThemeProps }) => ({
   color: 'black',
-  fontSize: props.theme.typography.RoutTitle,
+  fontSize: props.theme && props.theme.typography.routeTitle.fontSize,
   fontWeight: 600,
 }));
 
@@ -299,8 +299,8 @@ const DetailView = styled('div')({
   borderBottomLeftRadius: 25,
   borderBottomRightRadius: 25,
   '@media (max-width: 660px)': {
-    width:'100%'
-}
+    width: '100%',
+  },
 });
 const Expected = styled('div')({
   justifyContent: 'space-between',
@@ -329,14 +329,6 @@ const RoutImg = styled('img')({
   width: 24,
 });
 
-const Vs = styled('img')({
-  height: 15,
-  width: 16,
-  marginLeft: 5,
-  marginRight: 5,
-  opacity: 0.4,
-});
-
 const Boxs = styled('div')({
   backgroundColor: 'white',
   paddingBottom: 30,
@@ -363,7 +355,7 @@ const Crosschain = () => {
           <Header>
             <Title>Swap</Title>
             {/* <Img src="/images/menu.png" /> */}
-            <IconGlobalStyleComponent ml={10} mr={30} height={20} width={20} img='/images/menu.png' opecity={0.5} />
+            <IconGlobalStyleComponent ml={10} mr={30} height={20} width={20} img="/images/menu.png" opecity={0.5} />
           </Header>
           <From>
             <FromText>From Chain</FromText>
@@ -372,7 +364,14 @@ const Crosschain = () => {
                 <DropImg src="/images/coin3.png" />
                 <Text>SOL</Text>
                 {/* <DroDownImg src="/images/downArrow.png" /> */}
-                <IconGlobalStyleComponent ml={0} mr={0} height={8} width={12} img='/images/downArrow.png' opecity={0.5} />
+                <IconGlobalStyleComponent
+                  ml={0}
+                  mr={0}
+                  height={8}
+                  width={12}
+                  img="/images/downArrow.png"
+                  opecity={0.5}
+                />
               </Drop>
               <Balance>Balance: 8.017</Balance>
             </Header>
@@ -382,7 +381,14 @@ const Crosschain = () => {
               <Drop2>
                 <DropImg2 src="/images/coin3.png" />
                 <Text2>SOL</Text2>
-                <IconGlobalStyleComponent ml={0} mr={0} height={8} width={12} img='/images/downArrow.png' opecity={0.5} />
+                <IconGlobalStyleComponent
+                  ml={0}
+                  mr={0}
+                  height={8}
+                  width={12}
+                  img="/images/downArrow.png"
+                  opecity={0.5}
+                />
               </Drop2>
             </InputMain>
           </From>
@@ -397,7 +403,14 @@ const Crosschain = () => {
                   <DropImg3 src="/images/coin3.png" />
                   <Content>
                     <Text>SOL</Text>
-                    <IconGlobalStyleComponent ml={0} mr={0} height={8} width={12} img='/images/downArrow.png' opecity={0.5} />
+                    <IconGlobalStyleComponent
+                      ml={0}
+                      mr={0}
+                      height={8}
+                      width={12}
+                      img="/images/downArrow.png"
+                      opecity={0.5}
+                    />
                   </Content>
                 </Drop3>
               </CoinDrop>
@@ -407,7 +420,14 @@ const Crosschain = () => {
                   <DropImg3 src="/images/coin3.png" />
                   <Content>
                     <Text>SOL</Text>
-                    <IconGlobalStyleComponent ml={0} mr={0} height={8} width={12} img='/images/downArrow.png' opecity={0.5} />
+                    <IconGlobalStyleComponent
+                      ml={0}
+                      mr={0}
+                      height={8}
+                      width={12}
+                      img="/images/downArrow.png"
+                      opecity={0.5}
+                    />
                   </Content>
                 </Drop4>
               </InputMain2>
@@ -500,7 +520,7 @@ const Crosschain = () => {
           <ItemText>Route</ItemText>
           <Routs>
             <RoutImg src="/images/coin3.png" />
-            <IconGlobalStyleComponent ml={10} mr={10} height={15} width={18} img='/images/leftIcon.png' opecity={0.4} />
+            <IconGlobalStyleComponent ml={10} mr={10} height={15} width={18} img="/images/leftIcon.png" opecity={0.4} />
             <RoutImg src="/images/coin6.png" />
           </Routs>
         </Expected>

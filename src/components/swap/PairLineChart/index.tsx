@@ -1,11 +1,9 @@
 // this is a PairLineChart file and Create a PairLineChart Design
 import { styled } from '@mui/system';
 import React from 'react';
-import { useSelector } from 'react-redux';
 import ReactEcharts from 'echarts-for-react';
 import { Box, Tab, Tabs } from '@mui/material';
 import * as echarts from 'echarts';
-import { Theme } from '@emotion/react';
 import { ThemeProps } from 'src/theme';
 import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 const CurrencyTitle = styled('h2')({
@@ -20,19 +18,13 @@ const CurrencySubName = styled('h4')({
   paddingLeft: 5,
   color: '#999999',
 });
-const ShortIcon = styled('img')({
-  height: '25px',
-  width: '25px',
-  marginLeft: '20px',
-  marginRight: '20px',
-});
 const CurrencyTotalPrice = styled('h1')(() => ({
   fontSize: '44px',
   fontWeight: '600',
   color: 'black',
 }));
-const CurrencyPriceChange = styled('h3')((props: { theme: ThemeProps }) => ({
-  background: props.theme.palette.color.active,
+const CurrencyPriceChange = styled('h3')((props: { theme?: ThemeProps }) => ({
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontWeight: '600',
@@ -52,14 +44,14 @@ const PairLineChartData = styled('div')({
   width: '100%',
   marginTop: '10%',
 });
-const TabButton = styled(Tab)((props: { isActive: boolean; theme: ThemeProps }) => ({
+const TabButton = styled(Tab)((props: { isActive: boolean; theme?: ThemeProps }) => ({
   borderRadius: '100px',
   fontWeight: '500',
   fontStyle: 'normal',
   textTransform: 'lowercase',
   height: '36px',
   width: '65px',
-  background: props.isActive ? props.theme.palette.color.active : '',
+  background: props.isActive && props.theme ? props.theme.palette.color.active : '',
   color: props.isActive ? 'white!important' : '',
 }));
 
@@ -72,11 +64,7 @@ const TabBar = styled(Tabs)({
     marginLeft: '20%',
   },
 });
-type SelectType = {
-  name: String;
-  image: String;
-  fullName: String;
-};
+
 type TabPanelProps = {
   children?: React.ReactNode;
   index: number;
@@ -115,13 +103,13 @@ type PairLineChartProps = {
   currentInterval: number | null;
   intervalHandler: () => void | null;
 };
-const PairLineChart = (props: PairLineChartProps) => {
+const PairLineChart = (_props: PairLineChartProps) => {
   const [value, setValue] = React.useState(0);
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-  const CoinDetail: SelectType = useSelector((state: ArticleState) => state.CoinDetail);
-  const receiveCoinDetail: SelectType = useSelector((state: ArticleState) => state.receiveCoinDetail);
+  // const CoinDetail: SelectType = useSelector((state: ReduxState) => state.CoinDetail);
+  // const receiveCoinDetail: SelectType = useSelector((state: ReduxState) => state.receiveCoinDetail);
   return (
     <PairLineChartMain>
       <>

@@ -1,6 +1,5 @@
 // this file is a UserAssets and Provide a List
 import { styled } from '@mui/system';
-import { useMediaQuery } from '@mui/material';
 import { DropDownDataWallet } from '../../contexts/ConnectWalletDATA';
 
 const NetWorth = styled('div')({
@@ -62,7 +61,7 @@ export type UserAssetsProps = {
   account: String;
 };
 
-const UserAssets = (props: UserAssetsProps) => {
+const UserAssets = (_props: UserAssetsProps) => {
   return (
     <>
       <NetWorth>
@@ -71,7 +70,7 @@ const UserAssets = (props: UserAssetsProps) => {
         <br />
         <TotalNetWorth>36.34 USDT</TotalNetWorth>
       </NetWorth>
-      {DropDownDataWallet.map((val, i) => {
+      {DropDownDataWallet.map((val, _i) => {
         return (
           <DropMain>
             <Detail>

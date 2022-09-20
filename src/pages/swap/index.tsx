@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import { Grid, useMediaQuery } from '@mui/material';
+import { Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
 import CurrencyModal from '../../components/CurrencyModal';
 import PairLineChart from '../../components/swap/PairLineChart';
@@ -27,10 +27,12 @@ const Quotadiv = styled('div')({
 const Resetmorediv = styled('div')({
   marginTop: '15%',
 });
-
+type ReduxState = {
+  modal:string
+}
 const Swap = () => {
-  const isMobile = useMediaQuery('(min-width:660px)');
-  const Modal: string | boolean = useSelector((state: ArticleState) => state.modal);
+  // const isMobile = useMediaQuery('(min-width:660px)');
+  const Modal: string | boolean = useSelector((state: ReduxState) => state.modal);
   return (
     <>
       <MainDiv>
@@ -40,13 +42,13 @@ const Swap = () => {
               <PairLineChart
                 inputCurrency={null}
                 outputCurrency={null}
-                switchCurrencyHandler={null}
+                switchCurrencyHandler={() => {}}
                 currencyPriceInUSD={null}
                 currencyPriceChangeInUSD={null}
                 currencyPriceChangePercentage={null}
                 pairOhlcData={null}
                 currentInterval={null}
-                intervalHandler={null}
+                intervalHandler={() => {}}
               />
               <Quotadiv>
                 <QuoteTables quotes={null} allowedSlippage={null} lastRefresh={null} userSelectedGasPrice={null} />
@@ -61,18 +63,18 @@ const Swap = () => {
                 <CurrencyModal
                   select="PayToken"
                   activeList={null}
-                  currencySearchHandler={null}
+                  currencySearchHandler={() => {}}
                   isOpen={null}
-                  actionHandler={null}
+                  actionHandler={() => {}}
                   activeTokenId={null}
                 />
               ) : Modal === 'ReceiveToken' ? (
                 <CurrencyModal
                   select="ReceiveToken"
                   activeList={null}
-                  currencySearchHandler={null}
+                  currencySearchHandler={() => {}}
                   isOpen={null}
-                  actionHandler={null}
+                  actionHandler={() => {}}
                   activeTokenId={null}
                 />
               ) : (

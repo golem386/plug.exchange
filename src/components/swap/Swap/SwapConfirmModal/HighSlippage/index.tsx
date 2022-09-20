@@ -30,18 +30,18 @@ const CompletedIcon = styled('img')({
   margin: 'auto',
   display: 'block',
 });
-const Buttons = styled(Button)((props: { theme: ThemeProps }) => ({
+const Buttons = styled(Button)((props: { theme?: ThemeProps }) => ({
   borderRadius: 12,
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   color: 'white',
   textTransform: 'initial',
   display: 'block',
   margin: 'auto',
   opacity: 0.4,
 }));
-const ButtonsActive = styled(Button)((props: { theme: ThemeProps }) => ({
+const ButtonsActive = styled(Button)((props: { theme?: ThemeProps }) => ({
   borderRadius: 12,
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   color: 'white',
   textTransform: 'initial',
   display: 'block',
@@ -61,9 +61,9 @@ const Parmition = styled('div')({
   marginLeft: '2%',
   marginBottom:20
 });
-const ConditionPink = styled('span')((props: { theme: ThemeProps }) => ({
+const ConditionPink = styled('span')((props: { theme?: ThemeProps }) => ({
   fontWeight: '600',
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   marginRight: 5,

@@ -42,13 +42,13 @@ const OverLay = styled('div')({
     backgroundColor: 'rgba(0,0,0,0.5)',
   },
 });
-const SettingMenuItem = styled(MenuItem)((props:{ theme: ThemeProps}) =>({
+const SettingMenuItem = styled(MenuItem)((props: { theme?: ThemeProps }) => ({
   paddingTop: 10,
   paddingBottom: 10,
   paddingRight: '50px',
   opacity: 0.65,
   '&:hover': {
-    background: props.theme.palette.color.active,
+    background: props.theme && props.theme.palette.color.active,
     color: 'transparent',
     backgroundClip: 'text',
     opacity: 1,

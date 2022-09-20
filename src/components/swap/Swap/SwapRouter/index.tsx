@@ -2,25 +2,13 @@ import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import React from 'react';
 import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
-const ETH = styled('p')((props: { theme: ThemeProps }) => ({
-  background: props.theme.palette.color.active,
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
+const ETH = styled('p')((props: { theme?: ThemeProps }) => ({
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontWeight: 500,
 }));
-const ImgVarticalShort = styled('img')({
-  height: '15px',
-  width: '15px',
-  marginLeft: 10,
-  cursor: 'pointer',
-});
-const ImgDownArrow = styled('img')({
-  height: '7.78px',
-  width: '12.73px',
-  marginRight: '7%',
-  cursor: 'pointer',
-});
 const ShortView = styled('div')({
   display: 'flex',
   alignItems: 'center',
@@ -30,7 +18,7 @@ const SwapRouterButton = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginTop: '5%'
+  marginTop: '5%',
 });
 const UsdtList = styled('div')({
   borderRadius: '16px',
@@ -48,29 +36,28 @@ const UsdtList = styled('div')({
     borderColor: '#BB36FF',
   },
 });
-const Title = styled('h3')((props: ThemeProps) => ({
+const Title = styled('h3')((props: { theme?: ThemeProps }) => ({
   color: 'black',
-  fontSize: props.theme.typography.RoutTitle,
+  fontSize: props.theme && props.theme.typography.routeTitle.fontSize,
   fontWeight: 600,
 }));
-const TitleDisebal = styled('h3')((props: ThemeProps) => ({
+const TitleDisebal = styled('h3')((props: { theme?: ThemeProps }) => ({
   color: '#949494',
-  fontSize: props.theme.typography.RoutTitle,
+  fontSize: props.theme && props.theme.typography.routeTitle.fontSize,
   fontWeight: 600,
 }));
-const CustomButtonActive = styled(Button)((props: { theme: ThemeProps }) => ({
+const CustomButtonActive = styled(Button)((props: { isCoin: boolean; theme?: ThemeProps }) => ({
   borderRadius: '100px',
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   padding: '3px 10px',
   fontSize: '14px',
   fontWeight: '600',
-  color: '#FFFFFF',
+  color: props.isCoin ? '#555555' : '#FFFFFF',
   textTransform: 'lowercase',
   marginLeft: 15,
   marginRight: 5,
   height: '28px',
 }));
-
 const UsdtListItem = styled('div')({
   display: 'flex',
   alignItems: 'center',
@@ -78,14 +65,14 @@ const UsdtListItem = styled('div')({
   marginLeft: '5%',
   marginRight: '5%',
   marginBottom: '3%',
-  marginTop: '3%'
+  marginTop: '3%',
 });
-const Amount = styled('h3')((props: ThemeProps) => ({
-  fontSize: props.theme.typography.RoutTitle,
+const Amount = styled('h3')((props: { theme?: ThemeProps }) => ({
+  fontSize: props.theme && props.theme.typography.routeTitle.fontSize,
   fontWeight: '600',
 }));
-const AmountDisebal = styled('h3')((props: ThemeProps) => ({
-  fontSize: props.theme.typography.RoutTitle,
+const AmountDisebal = styled('h3')((props: { theme?: ThemeProps }) => ({
+  fontSize: props.theme && props.theme.typography.routeTitle.fontSize,
   fontWeight: '600',
   color: '#949494',
 }));
@@ -96,7 +83,7 @@ const ListTile = styled('div')({
 const RoutButton = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  marginLeft: '5%'
+  marginLeft: '5%',
 });
 const Span = styled('span')({
   fontWeight: '500',
@@ -112,34 +99,17 @@ const AutoRoute = styled('div')({
   paddingRight: 15,
 });
 
-const Icon2 = styled('img')({
-  width: '20.5px',
-  height: '18px',
-  marginLeft: 5,
-  marginRight: 5,
-  cursor: 'pointer',
-});
-const IconHr = styled('img')((props: { theme: ThemeProps, isActive: boolean }) => ({
-  width: props.isActive === true ? 27 : 25,
-  height: props.isActive === true ? 13 : 25,
-  marginLeft: 5,
-  marginRight: '5%',
-  cursor: 'pointer',
-  padding: 5,
-  opacity: props.isActive ? '' : '0.5',
-}));
-
-const QusetionIcon = styled('img')({
-  width: '20px',
-  height: '20px',
-  marginLeft: 5,
-  marginRight: 5,
-  opacity: '0.4',
-});
-const AutoText = styled('p')((props: { theme: ThemeProps }) => ({
+// const QusetionIcon = styled('img')({
+//   width: '20px',
+//   height: '20px',
+//   marginLeft: 5,
+//   marginRight: 5,
+//   opacity: '0.4',
+// });
+const AutoText = styled('p')((props: { theme?: ThemeProps }) => ({
   fontSize: '16px',
   fontWeight: '600',
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
 }));
@@ -148,7 +118,7 @@ const Route = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-between',
   marginRight: '5%',
-  marginLeft: '5%'
+  marginLeft: '5%',
 });
 const CoinImg = styled('img')({
   height: '24px',
@@ -169,18 +139,7 @@ const CViewImgThree = styled('img')({
   width: '24px',
   marginRight: 20,
 });
-const CustomButtonActiveCoin = styled(Button)((props: { theme: ThemeProps }) => ({
-  borderRadius: '100px',
-  backgroundColor: props.theme.palette.color.active,
-  padding: '3px 10px',
-  fontSize: '14px',
-  fontWeight: '600',
-  color: '#555555',
-  textTransform: 'lowercase',
-  marginLeft: 5,
-  marginRight: 5,
-  height: '28px',
-}));
+
 const CView = styled('div')({
   display: 'flex',
   alignItems: 'center',
@@ -214,22 +173,26 @@ const SwapRouter = (props: SwapRouterProps) => {
         <ShortView>
           <ETH>1 ETH = 4,008.2766 USDT</ETH>
           <IconGlobalStyleComponent
-            onClick={() => { }}
+            onClick={() => {}}
             ml={10}
             mr={0}
             height={15}
             width={15}
-            img='/images/shortVartical.png'
-            opecity={1} />
+            img="/images/shortVartical.png"
+            opecity={1}
+          />
         </ShortView>
         <IconGlobalStyleComponent
-          onClick={() => { setSlider(!Slider); }}
+          onClick={() => {
+            setSlider(!Slider);
+          }}
           ml={0}
           mr={30}
           height={8}
           width={11}
           img={Slider === true ? '/images/topArrow.png' : '/images/downArrow.png'}
-          opecity={1} />
+          opecity={1}
+        />
       </SwapRouterButton>
       {Slider === true ? (
         <>
@@ -237,7 +200,7 @@ const SwapRouter = (props: SwapRouterProps) => {
             <UsdtListItem>
               <ListTile>
                 <Title>1inch</Title>
-                <CustomButtonActive>Save $12.20</CustomButtonActive>
+                <CustomButtonActive isCoin={false}>Save $12.20</CustomButtonActive>
               </ListTile>
               <Amount>2442.57</Amount>
             </UsdtListItem>
@@ -250,7 +213,7 @@ const SwapRouter = (props: SwapRouterProps) => {
             <UsdtListItem>
               <ListTile>
                 <TitleDisebal>1inch</TitleDisebal>
-                <CustomButtonActive>Save $12.20</CustomButtonActive>
+                <CustomButtonActive isCoin={false}>Save $12.20</CustomButtonActive>
               </ListTile>
               <AmountDisebal>2442.57</AmountDisebal>
             </UsdtListItem>
@@ -262,43 +225,48 @@ const SwapRouter = (props: SwapRouterProps) => {
           <AutoRoute>
             <RoutButton>
               <IconGlobalStyleComponent
-                onClick={() => { }}
+                onClick={() => {}}
                 ml={0}
                 mr={10}
                 height={20}
                 width={20}
-                img='/images/trans.png'
-                opecity={1} />
+                img="/images/trans.png"
+                opecity={1}
+              />
               <AutoText>Auto Router</AutoText>
               {/* <QusetionIcon src="/images/puestion.svg" alt="image" /> */}
               <IconGlobalStyleComponent
-                onClick={() => { }}
+                onClick={() => {}}
                 ml={10}
                 mr={0}
                 height={20}
                 width={20}
-                img='/images/puestion.svg'
-                opecity={0.3} />
+                img="/images/puestion.svg"
+                opecity={0.3}
+              />
             </RoutButton>
             <IconGlobalStyleComponent
-              onClick={() => {setAddEntey(!AddEntey);}}
+              onClick={() => {
+                setAddEntey(!AddEntey);
+              }}
               ml={0}
               mr={20}
               height={AddEntey ? 3 : 30}
               width={AddEntey ? 15 : 30}
-              img={AddEntey === true ? "/images/hr.png" : "/images/plus.png"}
-              opecity={0.3} />
+              img={AddEntey === true ? '/images/hr.png' : '/images/plus.png'}
+              opecity={0.3}
+            />
           </AutoRoute>
           {AddEntey === true ? (
             <Route>
               <CView>
                 <CoinImg src="/images/coin.png" alt="image" />
-                <CustomButtonActiveCoin>v3 - 100%</CustomButtonActiveCoin>
+                <CustomButtonActive isCoin={true}>v3 - 100%</CustomButtonActive>
               </CView>
               <CView>
                 <CViewImg src="/images/coin.png" alt="image" />
                 <CViewImgTow src="/images/coin3.png" alt="image" />
-                <CustomButtonActiveCoin>0.05%</CustomButtonActiveCoin>
+                <CustomButtonActive isCoin={true}>0.05%</CustomButtonActive>
               </CView>
               <CView>
                 <CViewImgThree src="/images/coin3.png" alt="image" />

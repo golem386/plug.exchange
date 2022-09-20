@@ -23,10 +23,6 @@ const HeaderTitle = styled('h2')({
   marginLeft: '5%',
 });
 
-const CloseBtn = styled('img')({
-  cursor: 'pointer',
-});
-
 export type ModalProps = {
   isOpen: boolean;
   modalTitle: string;

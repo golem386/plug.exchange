@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Navbar from '../../components/LandingPageComponent/Navbar'
 import About from '../../components/LandingPageComponent/About'
 import Token from '../../components/LandingPageComponent/Token'

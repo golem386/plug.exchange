@@ -1,11 +1,11 @@
 // this is a CurrencyOutput file and Provide a Currency Output value and input Design
 import { styled } from '@mui/system';
 import { FormControl } from '@mui/material';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import SwapArrow from '../SwapArrow';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+// import { ThunkDispatch } from 'redux-thunk';
+// import { AnyAction } from 'redux';
 import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 const Receive = styled('div')({
   backgroundColor: '#F7F7F7',
@@ -63,18 +63,25 @@ const CoinTitle = styled('p')({
   color: '#565656',
   marginLeft: 10,
 });
-const CoinDropIcon = styled('img')({
-  height: '5.19px',
-  width: '8.49px',
-  marginLeft: 10,
-});
 
+type ReduxState = {
+  CoinDetail: {
+    name: string;
+    image: string;
+    fullName: string;
+  };
+  receiveCoinDetail: {
+    name: string;
+    image: string;
+    fullName: string;
+  };
+};
 type ReceiveCoin = {
   name: string | String;
   image: string | String | any;
   fullName: string | String;
 };
-type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+// type AppDispatch = ThunkDispatch<ReduxState, string, AnyAction>;
 export type CurrencyOutputProps = {
   inputOnChangeHandler: () => void | null;
   inputValue: number | null;
@@ -83,11 +90,11 @@ export type CurrencyOutputProps = {
   Read?: boolean
 };
 const CurrencyOutput = (props: CurrencyOutputProps) => {
-  const dispatch: AppDispatch = useDispatch();
-  const ReceiveCoin: ReceiveCoin = useSelector((state: ArticleState) => state.receiveCoinDetail);
+  // const dispatch: AppDispatch = useDispatch();
+  const ReceiveCoin: ReceiveCoin = useSelector((state: ReduxState) => state.receiveCoinDetail);
 
-  const onModal = (article: boolean | string) => {
-    dispatch(null);
+  const onModal = (_article: boolean | string) => {
+    // dispatch(null);
   };
   return (
     <Receive>

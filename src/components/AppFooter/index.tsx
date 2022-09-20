@@ -1,7 +1,6 @@
 import {styled} from '@mui/system';
-import { Button, ButtonBaseProps, useMediaQuery } from '@mui/material';
+import { Button, useMediaQuery } from '@mui/material';
 import { ThemeProps } from 'src/theme';
-import { ReactElement } from 'react';
 
 const Footer = styled('div')({
   '@media (min-width: 660px)': {
@@ -12,26 +11,26 @@ const Footer = styled('div')({
   },
 });
 
-const IconButtom = styled(Button)((props: { theme: ThemeProps }) => ({
+const IconButtom = styled(Button)((props: { theme?: ThemeProps }) => ({
   borderRadius: 100,
   margin: 10,
-  backgroundColor: props.theme.palette.color.lightText,
+  backgroundColor: props.theme && props.theme.palette.color.lightText,
   padding: '20px 0px',
-  color: props.theme.palette.color.dark,
+  color: props.theme && props.theme.palette.color.dark,
   opacity: '0.65',
   '&:hover': {
-    background: props.theme.palette.color.active,
+    background: props.theme && props.theme.palette.color.active,
     opacity: '1',
   },
 }));
-const MenuItem = styled(Button)((props: { theme: ThemeProps }) => ({
+const MenuItem = styled(Button)((props: { theme?: ThemeProps }) => ({
   margin: 10,
   backgroundColor: 'transparent',
   padding: '20px 0px',
-  color: props.theme.palette.color.dark,
+  color: props.theme && props.theme.palette.color.dark,
   opacity: '0.65',
   '&:hover': {
-    backgroundColor: props.theme.palette.color.lightText,
+    backgroundColor: props.theme && props.theme.palette.color.lightText,
   },
 }));
 const IconSection = styled('div')({
@@ -57,7 +56,7 @@ const AppFooter = (props:AppfooterProps) => {
   const isMobile = useMediaQuery('(min-width:660px)');
   return (
     ((!isMobile && props.type === 'Mobile') ||
-    (props.type === 'Window' && isMobile )) && 
+    (props.type === 'Window' && isMobile )) ? 
       <Footer>
         <IconSection>
           <IconButtom>
@@ -79,7 +78,7 @@ const AppFooter = (props:AppfooterProps) => {
           <MenuItem>Careers</MenuItem>
         </FooterMenu>
       </Footer>
-    
+    : null
   );
 };
 

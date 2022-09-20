@@ -1,5 +1,4 @@
 import { styled } from '@mui/system';
-import { CircularProgress } from '@mui/material';
 
 const Title = styled('h2')({
   fontWeight: '600',
@@ -27,7 +26,7 @@ export type TransactionWaitingProps = {
   swapCurrency: string | null;
   receivedCurrency: string | null;
 };
-const TransactionWaiting = (props: TransactionWaitingProps) => {
+const TransactionWaiting = (_props: TransactionWaitingProps) => {
   return (
     <TransactionWaitingModal>
       <CircularProgressIcon src="/images/loader.png" />

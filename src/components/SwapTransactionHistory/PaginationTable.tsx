@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { styled } from '@mui/system';
 import { Box, FormControl, Grid, NativeSelect, useMediaQuery } from '@mui/material';
 
@@ -168,7 +168,7 @@ type PaginationTableProps = {
   data: any;
 };
 const PaginationTable = (props: PaginationTableProps) => {
-  const [page, setPage] = React.useState([]);
+  const [page, setPage] = React.useState<number[]>([]);
   const [start, setStart] = React.useState(0);
   const [end, setEnd] = React.useState(10);
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -178,7 +178,6 @@ const PaginationTable = (props: PaginationTableProps) => {
   useEffect(() => {
     const range = [];
     const num = Math.ceil(props.data.length / a);
-    let i = 1;
     for (let i = 1; i <= num; i++) {
       range.push(i);
     }
@@ -203,11 +202,11 @@ const PaginationTable = (props: PaginationTableProps) => {
   return (
     <>
       <Body>
-        {props.data.map((val, i) => {
+        {props.data.map((val: { Date: string; Transaction: any }, i:number) => {
           return start <= i && i + 1 <= a * currentPage ? (
             <>
               <Span>{val.Date}</Span>
-              {val.Transaction.map((data, ind) => {
+              {val.Transaction.map((data:any) => {
                 return (
                   <Table container columnSpacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
                     <Grid item lg={4} xs={isMobile ? 0 : 12}>

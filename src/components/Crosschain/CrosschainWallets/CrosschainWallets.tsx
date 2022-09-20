@@ -1,8 +1,7 @@
 import { styled } from '@mui/system';
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import Buttons from 'src/theme/Buttons';
-import { StyledButton } from 'src/theme/globalStyleComponent';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
 const Header = styled('div')({
   display: 'flex',
   alignItems: 'center',
@@ -39,12 +38,6 @@ const From = styled('div')({
   alignItems: 'center',
 });
 
-const ShareIcon = styled('img')({
-  height: 18,
-  width: 18,
-  opacity: 0.5,
-  marginLeft: 10,
-});
 const CoinImg = styled('img')({
   height: 36,
   width: 36,
@@ -56,11 +49,6 @@ const Btn = styled('div')({
   marginLeft: '-30px'
 });
 
-
-const Close = styled('img')({
-  cursor: 'pointer'
-});
-
 const CopyText = styled('p')({
   fontWeight: '600',
   color: '#BB36FF',
@@ -70,7 +58,7 @@ interface ContinuewithWalletsProps {
 }
 const CrosschainWallets = (props: ContinuewithWalletsProps) => {
   const [copy, setCopy] = useState(false);
-  const [copyto, setCopyto] = useState(false);
+  const [copyto] = useState(false);
   return (
     <>
       <Header>

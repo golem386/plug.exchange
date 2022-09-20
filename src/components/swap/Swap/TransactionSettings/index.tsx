@@ -1,10 +1,7 @@
 import { styled } from '@mui/system';
 import { Button, FormControlLabel, Radio } from '@mui/material';
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { Switch } from '@mui/material';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { ThemeProps } from 'src/theme';
 
 const TransactionSettingsModal = styled('div')({
@@ -116,15 +113,15 @@ const TimeText = styled('p')({
   display: 'flex',
   alignItems: 'center',
 });
-const TimeTextPink = styled('p')((props: { theme: ThemeProps }) => ({
+const TimeTextPink = styled('p')((props: { theme?: ThemeProps }) => ({
   fontWeight: '500',
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   display: 'flex',
   alignItems: 'center',
   '@media (max-width: 660px)': {
-    background: props.theme.palette.color.active,
+    background: props.theme && props.theme.palette.color.active,
   },
 }));
 const DownArrowIcon = styled('img')({
@@ -136,10 +133,6 @@ const DownArrowIcon = styled('img')({
 const Settings = styled('p')({
   fontWeight: '600',
   marginLeft: '5%',
-});
-const FlexVIew = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
 });
 const FlexRow = styled('div')({
   display: 'flex',
@@ -207,13 +200,13 @@ const CloseImage = styled('img')({
 export type TransactionSettingsProps = {
   isOpen: boolean | null;
 };
-type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+// type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 
-const TransactionSettings = (props: TransactionSettingsProps) => {
-  const dispatch: AppDispatch = useDispatch();
+const TransactionSettings = (_props: TransactionSettingsProps) => {
+  // const dispatch: AppDispatch = useDispatch();
   const [Slider, setSlider] = React.useState<Boolean>(false);
-  const onModal = (article: string | boolean) => {
-    dispatch(null);
+  const onModal = (_article: string | boolean) => {
+    // dispatch(null);
   };
   return (
     <TransactionSettingsModal>

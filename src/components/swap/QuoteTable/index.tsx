@@ -39,12 +39,12 @@ const ImageSpan = styled('span')({
   paddingLeft: 5,
   marginTop: 10
 });
-const MainSpan = styled('span')((props: { theme: ThemeProps }) => ({
-  background: props.theme.palette.color.active,
+const MainSpan = styled('span')((props: { theme?: ThemeProps }) => ({
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   cursor: 'pointer',
-  display: 'flex'
+  display: 'flex',
 }));
 const DataUpdat = styled('div')({
   backgroundColor: '#f0f0f0',
@@ -91,13 +91,6 @@ const CoinHeader = styled('div')({
 const CoinIcon = styled('img')({
   paddingRight: 10,
 });
-const ShereIcon = styled('img')({
-  paddingLeft: 10,
-  height: '15px',
-  width: '25px',
-  opacity: '0.4',
-  cursor: 'pointer'
-});
 const Text = styled('p')({
   textAlign: 'center',
   opacity: 0.4,
@@ -109,34 +102,24 @@ const TextDown = styled('p')({
   textAlign: 'center',
   fontWeight: '600',
 });
-const ChangeText = styled('span')((props: { theme: ThemeProps }) => ({
+const ChangeText = styled('span')((props: { theme?: ThemeProps }) => ({
   textAlign: 'center',
   fontWeight: '600',
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
 }));
-const ShortImage = styled('img')({
-  paddingLeft: 3,
-  height: 18,
-  width: 19,
-  cursor: 'pointer'
-});
-const ShowMore = styled('p')((props: { theme: ThemeProps }) => ({
+const ShowMore = styled('p')((props: { theme?: ThemeProps }) => ({
   textAlign: 'center',
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   fontWeight: '600',
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
 }));
-const DownArrowImg = styled('img')({
-  height: 11,
-  paddingLeft: 10,
-});
 const CoinTitle = styled('p')({
   fontWeight: 600,
 });
@@ -144,10 +127,6 @@ const DownArrowImgTop = styled('img')({
   height: 11,
   paddingLeft: 10,
 });
-const MainTitle = styled('p')({
-  fontWeight: '600',
-});
-
 const Btn = styled('div')({
   marginTop: 5
 });
@@ -167,7 +146,7 @@ type QuoteTableProps = {
   userSelectedGasPrice: number | null;
   quotes: Quotes[] | null;
 };
-const QuoteTables = (props: QuoteTableProps) => {
+const QuoteTables = (_props: QuoteTableProps) => {
   const [loardData, setLoardData] = useState<number>(1);
   const [blur, setBlur] = useState<Boolean>(true);
   return (

@@ -1,11 +1,8 @@
 // this is a swap index file and Provide a Swap modal layout
 import { styled } from '@mui/system';
-import { Button, useMediaQuery } from '@mui/material';
+import { Button } from '@mui/material';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { AnyAction } from 'redux';
-import { ThunkDispatch } from 'redux-thunk';
 import Modal from '../../Modal';
 import CurrencyInput from './CurrencyInput';
 import CurrencyOutput from './CurrencyOutput';
@@ -18,28 +15,13 @@ import SwapHeader from './SwapHeader';
 import SwapRouter from './SwapRouter';
 import SwapTransactionDetails from './SwapTransactionDetails';
 import Buttons from '../../../theme/Buttons'
-import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
+
 const SwapModal = styled('div')({
   borderRadius: '24px',
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
   width: '97%',
   marginTop: '12%',
 });
-
-const ParmitionBtn = styled(Button)((props: { theme: ThemeProps }) => ({
-  marginLeft: '7%',
-  marginRight: 15,
-  marginTop: 15,
-  width: '86%',
-  background: props.theme.palette.color.active,
-  color: 'white',
-  borderRadius: '12px',
-  textTransform: 'initial',
-  display: 'flex',
-  alignItems: 'center',
-  fontWeight: '600',
-}));
 
 const Boxs = styled('div')({
   backgroundColor: 'white',
@@ -61,12 +43,6 @@ const WrongBtn = styled(Button)({
   marginTop: '10%',
   textTransform: 'initial',
 });
-const Img = styled('img')({
-  height: 20,
-  width: 20,
-  marginLeft: 20,
-});
-
 type WalletType = {
   name: String;
   image: String;
@@ -80,18 +56,20 @@ type ConnectNetworkType = {
 export type SwapProps = {
   btnTitle: String;
 };
-type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+type ReduxState = {
+  ConnectWallet: WalletType;
+  CoinNetwork: ConnectNetworkType;
+};
 const Swap = (props: SwapProps) => {
-  const dispatch: AppDispatch = useDispatch();
-  const isMobile = useMediaQuery('(min-width:660px)');
-  const ConnectWallet: WalletType = useSelector((state: ArticleState) => state.ConnectWallet);
-  const CoinNetwork: ConnectNetworkType = useSelector((state: ArticleState) => state.ConnectNetwork);
+  // const dispatch: AppDispatch = useDispatch();
+  const ConnectWallet: WalletType = useSelector((state: ReduxState) => state.ConnectWallet);
+  const CoinNetwork: ConnectNetworkType = useSelector((state: ReduxState) => state.CoinNetwork);
   const [TransactionWaitingopen, setTransactionWaitingOpen] = useState(false);
   const [TransactionCompletedopen, setTransactionCompletedOpen] = useState(false);
   const [TransactionFaildopen, setTransactionFaildopen] = useState(false);
   const [SwapConfirmModalopen, setSwapConfirmModalOpen] = useState(false);
   const [HighSlippageModalopen, setHighSlippageModalOpen] = useState(false);
-  const [Parmition, SetParmition] = useState(true);
+  const [Parmition] = useState(true);
 
   const closeModel = () => {
     setTransactionWaitingOpen(false);
@@ -111,21 +89,21 @@ const Swap = (props: SwapProps) => {
   return (
     <>
       <SwapModal>
-        <SwapHeader transactionSettingHandler={null} />
+        <SwapHeader transactionSettingHandler={() => {}} />
         <CurrencyInput
           userInputTokenBalance={null}
           showMaxButton={null}
           inputValue={null}
-          inputOnChangeHandler={null}
-          toggleCurrencyModal={null}
+          inputOnChangeHandler={() => {}}
+          toggleCurrencyModal={() => {}}
           selectedCurrency="Max 0 ETH"
           Read={true}
         />
         <CurrencyOutput
-          inputOnChangeHandler={null}
+          inputOnChangeHandler={() => {}}
           inputValue={null}
           selectedCurrency={null}
-          toggleCurrencyModal={null}
+          toggleCurrencyModal={() => {}}
           Read={true}
         />
         <SwapRouter btnTitle={props.btnTitle} liquiditySources={null} router={null} />
@@ -154,7 +132,7 @@ const Swap = (props: SwapProps) => {
                 closeTransactionCompletedModel();
               }}
               transactionUrl={null}
-              watchAssetHandler={null}
+              watchAssetHandler={() => {}}
             />
           </Boxs>
         </Modal>
@@ -175,7 +153,7 @@ const Swap = (props: SwapProps) => {
               allowedSlippage={null}
               gasEstimateInUSD={null}
               priceImpact={null}
-              swapHandler={null}
+              swapHandler={() => {}}
               swapTXStatus={null}
               handleClose={() => {
                 closeSwapConfirmModalopenModel();
@@ -196,7 +174,7 @@ const Swap = (props: SwapProps) => {
                 closeTransactionFaildModel();
               }}
               transactionUrl={null}
-              watchAssetHandler={null}
+              watchAssetHandler={() => {}}
             />
           </Boxs>
         </Modal>
@@ -213,7 +191,7 @@ const Swap = (props: SwapProps) => {
                 closeHighSlippageModel();
               }}
               transactionUrl={null}
-              watchAssetHandler={null}
+              watchAssetHandler={() => {}}
             />
           </Boxs>
         </Modal>
@@ -238,33 +216,36 @@ const Swap = (props: SwapProps) => {
         ) : null} */}
         {ConnectWallet?.name === '' && CoinNetwork?.name !== '' ? (
           <WrongBtn>Wrong Network</WrongBtn>
-        ) :
+        ) : (
           <>
             <Buttons
-              width='86%'
+              width="86%"
               isActive={true}
               onClick={
-                Parmition ? ConnectWallet?.name !== '' && CoinNetwork?.name !== ''
-                  ? () => {
-                    setTransactionWaitingOpen(true);
-                    setTimeout(() => {
-                      setTransactionWaitingOpen(false);
-                      setTransactionCompletedOpen(true);
-                    }, 1000);
-                  }
-                  : () => {
-                    setSwapConfirmModalOpen(true);
-                    setTransactionFaildopen(true);
-                    setHighSlippageModalOpen(true);
-                    dispatch(null);
-                    setTimeout(() => {
-                      dispatch(null);
-                    }, 4000);
-                  } : () => { }
+                Parmition
+                  ? ConnectWallet?.name !== '' && CoinNetwork?.name !== ''
+                    ? () => {
+                        setTransactionWaitingOpen(true);
+                        setTimeout(() => {
+                          setTransactionWaitingOpen(false);
+                          setTransactionCompletedOpen(true);
+                        }, 1000);
+                      }
+                    : () => {
+                        setSwapConfirmModalOpen(true);
+                        setTransactionFaildopen(true);
+                        setHighSlippageModalOpen(true);
+                        // dispatch(null);
+                        setTimeout(() => {
+                          // dispatch(null);
+                        }, 4000);
+                      }
+                  : () => {}
               }
-              title={ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? 'Swap' : props.btnTitle} />
+              title={ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? 'Swap' : props.btnTitle}
+            />
           </>
-        }
+        )}
       </SwapModal>
       {props.btnTitle === 'Connect Wallet' ? (
         ConnectWallet?.name !== '' && CoinNetwork?.name !== '' ? (

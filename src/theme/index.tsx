@@ -13,7 +13,7 @@ import shadows, { customShadows, ThemeCustomShadowsProps } from './shadows';
 // ----------------------------------------------------------------------
 
 ThemeConfig.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 export interface ThemeProps {
   palette: ThemePaletteProps;
@@ -22,19 +22,19 @@ export interface ThemeProps {
   shadows: string[];
   customShadows: ThemeCustomShadowsProps;
 }
-export default function ThemeConfig({ children } : any) {
-  const themeOptions = useMemo(
+export default function ThemeConfig({ children }: any) {
+  const themeOptions: any = useMemo(
     () => ({
       palette,
       shape,
       typography,
       shadows,
-      customShadows
+      customShadows,
     }),
-    []
+    [],
   );
 
-  const theme = createTheme(themeOptions);
+  const theme = createTheme(themeOptions, []);
   theme.components = componentsOverride(theme);
 
   return (

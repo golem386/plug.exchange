@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { ConnectNetWorkOne, ConnectWalletOne } from '../../contexts/ConnectWalletDATA';
-import { Button, FormControlLabel, Radio } from '@mui/material';
+import { FormControlLabel, Radio } from '@mui/material';
 import Modal from '../Modal';
-import { useIsModalOpen, useToggleModal } from '../../store/app/hooks';
-import { ModalType } from 'src/store/app';
+import {  useToggleModal } from '../../store/app/hooks';
 import { styled } from '@mui/system';
 import Buttons from '../../theme/Buttons';
 import { ThemeProps } from 'src/theme';
-import { StyledButton } from 'src/theme/globalStyleComponent';
 import IconGlobalStyleComponent from '../../theme/GlobalComponent/iconGlobalStyleComponent'
 
 const Title = styled('p')({
@@ -22,12 +20,12 @@ const Wrapper = styled('div')({
   marginLeft: '3%'
 });
 
-const StyledButtons = styled('button')((props: { theme: ThemeProps, isActive: boolean }) => ({
+const StyledButtons = styled('button')((props: { theme?: ThemeProps; isActive: boolean }) => ({
   position: 'relative',
   borderWidth: '1.5px',
   borderStyle: 'solid',
-  borderColor: props.isActive ? props.theme.palette.color.active : '#e0e0e0',
-  background: props.isActive ? props.theme.palette.color.active : '#e0e0e0',
+  borderColor: props.isActive && props.theme ? props.theme.palette.color.active : '#e0e0e0',
+  background: props.isActive && props.theme? props.theme.palette.color.active : '#e0e0e0',
   display: 'flex',
   alignItems: 'center',
   borderRadius: 10,
@@ -58,9 +56,9 @@ const TermsAndConditionText = styled('p')({
   flexWrap: "wrap"
 });
 
-const TermsAndConditionPinkText = styled('p')((props: { theme: ThemeProps; }) => ({
+const TermsAndConditionPinkText = styled('p')((props: { theme?: ThemeProps }) => ({
   fontWeight: '600',
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   color: 'transparent',
   backgroundClip: 'text',
   marginRight: 5,
@@ -139,7 +137,7 @@ const WalletModal = () => {
   const [Network, setNetwork] = useState('')
   const close = useToggleModal(null);
 
-  let isOpen = useIsModalOpen(ModalType.WALLET_MODAL);
+  // let isOpen = useIsModalOpen(ModalType.WALLET_MODAL);
 
   return (
     <>
@@ -154,7 +152,7 @@ const WalletModal = () => {
               <Title>Choose Network</Title>
               <ButtonGroup>
                 <Wrapper>
-                  {ConnectNetWorkOne.map((val, i) => {
+                  {ConnectNetWorkOne.map((val) => {
                     return (
                       <StyledButtons isActive={Network === val.name ? WallerSelect : false} onClick={() => { setWallerSelect(true); setNetwork(val.name) }}>
                         <SelectImg isActive={Network === val.name ? WallerSelect : false} src="/images/select.png" alt="Select_Icon" />
@@ -210,7 +208,7 @@ const WalletModal = () => {
             <Title>Choose Wallet</Title>
             <ButtonGroup>
               <Wrapper>
-                {ConnectWalletOne.map((val, i) => {
+                {ConnectWalletOne.map((val) => {
                   return (
                     <StyledButtons isActive={Wallet === val.name ? WallerSelect : false} onClick={() => { setWallerSelect(true); setWallet(val.name) }}>
                       <SelectImg isActive={Wallet === val.name ? WallerSelect : false} src="/images/select.png" alt="Select_Icon" />

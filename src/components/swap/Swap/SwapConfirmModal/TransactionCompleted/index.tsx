@@ -1,6 +1,4 @@
 import { styled } from '@mui/system';
-import { Button } from '@mui/material';
-import { ThemeProps } from 'src/theme';
 import Buttons from 'src/theme/Buttons';
 import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 
@@ -34,13 +32,6 @@ const CompletedIcon = styled('img')({
 //   textTransform: 'initial',
 //   marginTop: 20,
 // }));
-const BtnIcon = styled('img')({
-  height: '32px',
-  width: '32px',
-  marginLeft: 3,
-  marginRight: 3,
-});
-
 const CloseImage = styled('div')({
   display: 'flex',
   justifyContent: 'flex-end',

@@ -76,6 +76,9 @@ export interface ThemeTypographyProps {
   overline: TypographyOverlineProps;
   button: TypographyButtonProps;
   a: TypographyButtonProps;
+  routeTitle: {
+    fontSize: string;
+  };
 }
 const typography: ThemeTypographyProps = {
   fontFamily: FONT_PRIMARY,
@@ -128,7 +131,7 @@ const typography: ThemeTypographyProps = {
     lineHeight: 22 / 14,
     fontSize: pxToRem(14),
   },
-  RoutTitle: {
+  routeTitle: {
     fontSize: pxToRem(20),
   },
   body1: {

@@ -1,13 +1,17 @@
 import { styled } from '@mui/system';
 import { Button } from '@mui/material';
-import React, { Component } from 'react';
+import React from 'react';
 import { ThemeProps } from 'src/theme';
-const BuyCryptoButton = styled(Button)((props: {isActive:boolean; theme: ThemeProps;}) => ({
-  background: props.isActive ? props.theme.palette.color.active : props.theme.palette.color.lightText,
-  color: props.isActive ? props.theme.palette.color.white : props.theme.palette.color.text,
+const BuyCryptoButton = styled(Button)((props: { isActive: boolean; theme?: ThemeProps }) => ({
+  background:
+    props.isActive && props.theme
+      ? props.theme.palette.color.active
+      : props.theme && props.theme.palette.color.lightText,
+  color:
+    props.isActive && props.theme ? props.theme.palette.color.white : props.theme && props.theme.palette.color.text,
   height: 52,
   width: '137px',
-  border: props.isActive ? 'none' : '1px solid ' + props.theme.palette.color.border,
+  border: !props.isActive && props.theme ? '1px solid ' + props.theme.palette.color.border : 'none',
   '@media (max-width: 660px)': {
     borderRadius: 16,
     backgroundColor: 'rgba(0, 0, 0, 0.03)',

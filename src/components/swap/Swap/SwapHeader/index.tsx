@@ -1,7 +1,4 @@
 import { styled } from '@mui/system';
-import { useDispatch } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 
 const SwapCardHeader = styled('div')({
   display: 'flex',
@@ -20,12 +17,12 @@ const SwapTitle = styled('h2')({
 export type SwapHeaderProps = {
   transactionSettingHandler: () => void | null;
 };
-type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+// type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
 
-const SwapHeader = (props: SwapHeaderProps) => {
-  const dispatch: AppDispatch = useDispatch();
-  const onModal = (article: string | boolean) => {
-    dispatch(null);
+const SwapHeader = (_props: SwapHeaderProps) => {
+  // const dispatch: AppDispatch = useDispatch();
+  const onModal = (_article: string | boolean) => {
+    // dispatch(null);
   };
   return (
     <SwapCardHeader>

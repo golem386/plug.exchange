@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Container } from '@mui/system';
-import React, { Component } from 'react'
+import React from 'react'
 import { Grid } from '@mui/material';
 
 

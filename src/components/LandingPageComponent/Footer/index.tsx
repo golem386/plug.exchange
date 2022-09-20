@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Grid } from '@material-ui/core';
-import React, { Component } from 'react'
+import React from 'react'
 
 
 const FooterDiv = styled('div')({

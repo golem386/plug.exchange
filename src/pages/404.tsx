@@ -1,6 +1,5 @@
 import { styled } from '@mui/system';
 import { Grid } from '@mui/material';
-import Link from 'next/link';
 import { ThemeProps } from 'src/theme';
 
 const Div = styled('div')({
@@ -29,15 +28,14 @@ const Error = styled('h1')({
 const Pre = styled('p')({
   fontWeight: '400',
 });
-const CustomButtonActive = styled('a')((props: { theme: ThemeProps; }) => ({
+const CustomButtonActive = styled('a')((props: { theme?: ThemeProps }) => ({
   borderRadius: 16,
-  background: props.theme.palette.color.active,
+  background: props.theme && props.theme.palette.color.active,
   fontWeight: '600',
   color: '#FFFFFF',
   textTransform: 'initial',
   height: 52,
   width: '25%',
-  marginTop: 20,
   padding: '15px 15px',
 }));
 

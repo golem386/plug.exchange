@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { styled } from '@mui/system';
 import ReactEcharts from 'echarts-for-react';
 import * as echarts from 'echarts';

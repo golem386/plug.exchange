@@ -48,7 +48,12 @@ const Notification = () => {
     vertical: 'top',
     horizontal: 'center',
   });
-  const Alert: any = useSelector((state: ArticleState) => state.Alert);
+  type ReduxState = {
+    Alert: {
+      type: string;
+    };
+  };
+  const Alert: any = useSelector((state: ReduxState) => state.Alert);
   //const { vertical, horizontal, open } = state;
   React.useEffect(() => {
     setState(Alert);

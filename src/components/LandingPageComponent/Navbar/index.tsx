@@ -1,6 +1,6 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/system';
-import ConnectButton from './ConnectButton'
+import ConnectButton from './ConnectButton';
 import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
 const Nav = styled('div')({
   padding: 15,
@@ -27,8 +27,8 @@ const Explore = styled('p')({
   borderRadius: '100%',
   padding: 7,
   '@media (max-width: 1199px)': {
-    display: 'none'
-  }
+    display: 'none',
+  },
 });
 
 const Input = styled('input')({
@@ -37,8 +37,8 @@ const Input = styled('input')({
   backgroundColor: 'transparent',
   width: '350px',
   '@media (max-width: 1199px)': {
-    display: 'none'
-  }
+    display: 'none',
+  },
 });
 
 const Inputtype = styled('div')({
@@ -49,8 +49,8 @@ const Inputtype = styled('div')({
   paddingLeft: '2%',
   borderRadius: '12px',
   '@media (max-width: 1199px)': {
-    display: 'none'
-  }
+    display: 'none',
+  },
 });
 
 const Img = styled('img')({
@@ -60,67 +60,65 @@ const Img = styled('img')({
 
 const Dark = styled('img')({
   '@media (max-width: 1199px)': {
-    display: 'none'
-  }
+    display: 'none',
+  },
 });
-
 
 const Serchdiv = styled('div')({
   display: 'flex',
   width: '50%',
   justifyContent: 'space-between',
-  alignItems: 'center'
+  alignItems: 'center',
 });
 
-const Menu = styled('div')((props:any) =>({
+const Menu = styled('div')((props: { isActive: boolean }) => ({
   position: 'absolute',
   backgroundColor: 'white',
   height: '100%',
   width: '100vw',
   padding: '20px',
-  display:'none',
+  display: 'none',
   '@media (max-width: 1199px)': {
-    display: props.isActive ? 'block' : 'none'
-  }
+    display: props.isActive ? 'block' : 'none',
+  },
 }));
 
 const MenuItem = styled('a')({
   textDecoration: 'none',
   color: '#666666',
   fontWeight: '600',
-  fontSize: 18
+  fontSize: 18,
 });
 
 const List = styled('li')({
   listStyle: 'none',
   marginTop: 5,
-  padding: 10
+  padding: 10,
 });
 
 const BtnNone = styled('div')({
   display: 'block',
   '@media (max-width: 1199px)': {
-    display: 'none'
-  }
+    display: 'none',
+  },
 });
 
 const ToggleButton = styled('div')({
   display: 'none',
   '@media (max-width: 1199px)': {
-    display: 'block'
-  }
+    display: 'block',
+  },
 });
 
 const LogoImg = styled('img')({
   display: 'block',
   '@media (max-width: 1199px)': {
-    display: 'none'
-  }
+    display: 'none',
+  },
 });
 
-
 const Navbar = () => {
-  const [navbar, setNavbar] = useState(false)
+  const [navbar, setNavbar] = useState(false);
   return (
     <>
       <Nav>
@@ -149,28 +147,71 @@ const Navbar = () => {
             height={navbar ? 20 : 40}
             width={navbar ? 20 : 40}
             img={navbar ? '/images/cros.png' : '/images/mMenu.png'}
-            opecity={1} />
+            opecity={1}
+          />
         </ToggleButton>
       </Nav>
       <Menu isActive={navbar}>
         <ul>
           <List>
-            <MenuItem href='/#' onClick={(e) =>{e.preventDefault()}}>Home</MenuItem>
+            <MenuItem
+              href="/#"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              Home
+            </MenuItem>
           </List>
           <List>
-            <MenuItem href='/#' onClick={(e) =>{e.preventDefault()}}>Explore</MenuItem>
+            <MenuItem
+              href="/#"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              Explore
+            </MenuItem>
           </List>
           <List>
-            <MenuItem href='/#' onClick={(e) =>{e.preventDefault()}}>Request New Features</MenuItem>
+            <MenuItem
+              href="/#"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              Request New Features
+            </MenuItem>
           </List>
           <List>
-            <MenuItem href='/#' onClick={(e) =>{e.preventDefault()}}>Buy Crypto with Fiat</MenuItem>
+            <MenuItem
+              href="/#"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              Buy Crypto with Fiat
+            </MenuItem>
           </List>
           <List>
-            <MenuItem href='/#' onClick={(e) =>{e.preventDefault()}}>Blog</MenuItem>
+            <MenuItem
+              href="/#"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              Blog
+            </MenuItem>
           </List>
           <List>
-            <MenuItem href='/#' onClick={(e) =>{e.preventDefault()}}>Help Center</MenuItem>
+            <MenuItem
+              href="/#"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              Help Center
+            </MenuItem>
           </List>
         </ul>
         <ConnectButton />

@@ -1,9 +1,9 @@
 // this is a SwapArrow file and Provide a Short Arrow Change Data
 import { styled } from '@mui/system';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+// import { useDispatch } from 'react-redux';
+// import { ThunkDispatch } from 'redux-thunk';
+// import { AnyAction } from 'redux';
 
 const CoinChangeIcon = styled('img')({
   backgroundColor: 'white',
@@ -23,16 +23,28 @@ type CoinDetail = {
 export type SwapArrowProps = {
   switchCurrencyHandler: Function | null;
 };
-type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
-const SwapArrow = (props: SwapArrowProps) => {
-  const dispatch: AppDispatch = useDispatch();
-  const CoinDetail: CoinDetail = useSelector((state: ArticleState) => state.CoinDetail);
-  const ReceiveCoin: CoinDetail = useSelector((state: ArticleState) => state.receiveCoinDetail);
-  const onSelectIcon = (coin: CoinDetail) => {
-    dispatch(null);
+type ReduxState = {
+  CoinDetail: {
+    name: string;
+    image: string;
+    fullName: string;
   };
-  const onReceiveIcon = (coin: CoinDetail) => {
-    dispatch(null);
+  receiveCoinDetail: {
+    name: string;
+    image: string;
+    fullName: string;
+  };
+};
+// type AppDispatch = ThunkDispatch<ReduxState, string, AnyAction>;
+const SwapArrow = (_props: SwapArrowProps) => {
+  // const dispatch: AppDispatch = useDispatch();
+  const CoinDetail: CoinDetail = useSelector((state: ReduxState) => state.CoinDetail);
+  const ReceiveCoin: CoinDetail = useSelector((state: ReduxState) => state.receiveCoinDetail);
+  const onSelectIcon = (_coin: CoinDetail) => {
+    // dispatch(null);
+  };
+  const onReceiveIcon = (_coin: CoinDetail) => {
+    // dispatch(null);
   };
   const onChangeToken = () => {
     onSelectIcon(ReceiveCoin);

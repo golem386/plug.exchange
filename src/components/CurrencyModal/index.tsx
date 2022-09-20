@@ -1,6 +1,5 @@
 import { styled } from '@mui/system';
 import {
-  Button,
   List,
   ListItem,
   ListItemButton,
@@ -11,11 +10,8 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { list } from '../../contexts/SelectTokenDATA';
-import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import ImportToken from '../ImportToken';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
 
 const CurrencyCard = styled('div')({
@@ -102,24 +98,36 @@ export type SelecttokenProps = {
   actionHandler: () => void | null;
   activeTokenId: string | null;
 };
-type AppDispatch = ThunkDispatch<ArticleState, string, AnyAction>;
+type ReduxState = {
+  CoinDetail: {
+    name: string;
+    image: string;
+    fullName: string;
+  }
+  receiveCoinDetail:{
+    name: string;
+    image: string;
+    fullName: string;
+  };
+};
+// type AppDispatch = ThunkDispatch<ReduxState, string, AnyAction>;
 const CurrencyModal = (props: SelecttokenProps) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const dispatch: AppDispatch = useDispatch();
-  const onModal = (modal: string | boolean) => {
-    dispatch(null);
+  // const dispatch: AppDispatch = useDispatch();
+  const onModal = (_modal: string | boolean) => {
+    // dispatch(null);
   };
-  const onSelectIcon = (coin: SelectType) => {
-    dispatch(null);
+  const onSelectIcon = (_coin: SelectType) => {
+    // dispatch(null);
   };
-  const onReceiveIcon = (coin: SelectType) => {
-    dispatch(null);
+  const onReceiveIcon = (_coin: SelectType) => {
+    // dispatch(null);
   };
-  const CoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.CoinDetail);
-  const receiveCoinDetail: SelectTypeState = useSelector((state: ArticleState) => state.receiveCoinDetail);
+  const CoinDetail: SelectTypeState = useSelector((state: ReduxState) => state.CoinDetail);
+  const receiveCoinDetail: SelectTypeState = useSelector((state: ReduxState) => state.receiveCoinDetail);
   const isMobile = useMediaQuery('(min-width:660px)');
   return (
     <CurrencyCard style={{ height: isMobile ? '50%' : '540px' }}>
@@ -181,7 +189,7 @@ const CurrencyModal = (props: SelecttokenProps) => {
         </List>
       ) : (
         <List>
-          {list.map((val, i) => {
+          {list.map((val, _i) => {
             return (
               <ListRow
                 disablePadding

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Grid, useMediaQuery } from '@mui/material';
+import { Grid, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/system';
 import WalletDetails from '../WalletDetails/WalletDetails';
 import Settings from '../Settings';
@@ -7,7 +7,8 @@ import AppFooter from '../AppFooter';
 import BuyCrypto from '../BuyCrypto';
 import SwitchNetwork from '../SwitchNetwork';
 import { StyledButton } from '../../theme/GlobalComponent/globalStyleComponent';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
+import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
+;
 
 const NavMainComponent = styled('div')({
   display: 'flex',
@@ -22,12 +23,12 @@ const Imgs = styled('img')({
   height: 43,
   marginTop: 5,
 });
-const WrongNetworkButton = styled(Button)({
-  background: 'red',
-  '&:hover': {
-    backgroundColor: 'red',
-  },
-});
+// const WrongNetworkButton = styled(Button)({
+//   background: 'red',
+//   '&:hover': {
+//     backgroundColor: 'red',
+//   },
+// });
 const ButtonGrid = styled(Grid)({
   display: 'flex',
   justifyContent: 'space-evenly',
@@ -215,7 +216,7 @@ const AppBar = () => {
               >
                 <h4>Setting</h4>
                 <IconGlobalStyleComponent
-                  onClick={() => { }}
+                  // onClick={() => {}}
                   ml={0}
                   mr={0}
                   height={15}

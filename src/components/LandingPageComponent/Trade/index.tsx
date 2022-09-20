@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { Container, Grid } from '@material-ui/core';
-import React, { Component } from 'react'
+import { Grid } from '@material-ui/core';
+import React from 'react'
 
 const Main = styled('div')({
   backgroundColor: '#5D5FEF',
@@ -72,7 +72,7 @@ const Img = styled('img')({
 const Trade = () => {
   return (
     <Main>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid container>
         <Grid item sm={6}>
           <H1>Trade Directly from Your Own Wallet</H1>
           <Div>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Faqs from '../../components/Faqs'
 const FaqPages = () => {
     return (
