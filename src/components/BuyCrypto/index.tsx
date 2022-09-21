@@ -1,7 +1,7 @@
 import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 import React from 'react';
-import { ThemeProps } from 'src/theme';
+import { ThemeProps } from 'theme';
 const BuyCryptoButton = styled(Button)((props: { isActive: boolean; theme?: ThemeProps }) => ({
   background:
     props.isActive && props.theme

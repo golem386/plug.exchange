@@ -1,11 +1,11 @@
 import { styled } from '@mui/system';
 import { useState } from 'react';
-import Modal from 'src/components/Modal';
+import Modal from 'components/Modal';
 import ContinuewithWallets from '../../components/Crosschain/CrosschainWallets/CrosschainWallets';
 import Converting from '../../components/Crosschain/Converting/Converting';
-import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
-import Buttons from 'src/theme/Buttons';
+import { ThemeProps } from 'theme';
+import IconGlobalStyleComponent from 'theme/GlobalComponent/iconGlobalStyleComponent';
+import Buttons from 'theme/Buttons';
 
 const data = [
   {

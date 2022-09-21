@@ -1,5 +1,5 @@
 import { Button, styled } from '@mui/material';
-import { ThemeProps } from 'src/theme';
+import { ThemeProps } from 'theme';
 
 const ReferralModalMain = styled('div')({
   display: 'flex',

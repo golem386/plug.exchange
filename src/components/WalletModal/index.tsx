@@ -2,22 +2,22 @@ import React, { useState } from 'react';
 import { ConnectNetWorkOne, ConnectWalletOne } from '../../contexts/ConnectWalletDATA';
 import { FormControlLabel, Radio } from '@mui/material';
 import Modal from '../Modal';
-import {  useToggleModal } from '../../store/app/hooks';
+import { useToggleModal } from '../../store/app/hooks';
 import { styled } from '@mui/system';
 import Buttons from '../../theme/Buttons';
-import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from '../../theme/GlobalComponent/iconGlobalStyleComponent'
+import { ThemeProps } from 'theme';
+import IconGlobalStyleComponent from '../../theme/GlobalComponent/iconGlobalStyleComponent';
 
 const Title = styled('p')({
   fontWeight: '600',
-  marginLeft: '5%'
+  marginLeft: '5%',
 });
 
 const Wrapper = styled('div')({
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
-  marginLeft: '3%'
+  marginLeft: '3%',
 });
 
 const StyledButtons = styled('button')((props: { theme?: ThemeProps; isActive: boolean }) => ({
@@ -25,7 +25,7 @@ const StyledButtons = styled('button')((props: { theme?: ThemeProps; isActive: b
   borderWidth: '1.5px',
   borderStyle: 'solid',
   borderColor: props.isActive && props.theme ? props.theme.palette.color.active : '#e0e0e0',
-  background: props.isActive && props.theme? props.theme.palette.color.active : '#e0e0e0',
+  background: props.isActive && props.theme ? props.theme.palette.color.active : '#e0e0e0',
   display: 'flex',
   alignItems: 'center',
   borderRadius: 10,
@@ -45,15 +45,14 @@ const Checkbox = styled('div')({
   alignItems: 'center',
   marginLeft: '5%',
   marginTop: '2%',
-  marginBottom: '3%'
+  marginBottom: '3%',
 });
-
 
 const TermsAndConditionText = styled('p')({
   fontWeight: '600',
   display: 'flex',
   alignItems: 'center',
-  flexWrap: "wrap"
+  flexWrap: 'wrap',
 });
 
 const TermsAndConditionPinkText = styled('p')((props: { theme?: ThemeProps }) => ({
@@ -65,20 +64,19 @@ const TermsAndConditionPinkText = styled('p')((props: { theme?: ThemeProps }) =>
   marginLeft: 5,
 }));
 
-const SelectImg = styled('img')((props: { isActive: boolean }) => ({
+const SelectImg = styled('img')(() => ({
   position: 'absolute',
   left: '45px',
   top: '70%',
   transform: 'translate(-50%, -50%)',
   height: 15,
   width: 15,
-  display: props.isActive ? 'block' : 'none',
 }));
 
 const StyledButtonTitle = styled('p')({
   fontWeight: '600',
   color: '#000000',
-  opacity: 0.65
+  opacity: 0.65,
 });
 
 const ImageIcon = styled('img')({
@@ -102,12 +100,12 @@ const Main = styled('div')({
 const Header = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
 });
 const Heading = styled('h2')({
   fontWeight: '600',
   marginLeft: 27,
-  marginBottom: 10
+  marginBottom: 10,
 });
 
 const WalletModalDiv = styled('div')({
@@ -131,21 +129,21 @@ const WalletModalDiv = styled('div')({
 
 const WalletModal = () => {
   // for close the wallet modal
-  const [WallerSelect, setWallerSelect] = useState(false)
-  const [parmition, setParmition] = useState(false)
-  const [Wallet, setWallet] = useState('')
-  const [Network, setNetwork] = useState('')
+  const [WallerSelect, setWallerSelect] = useState(false);
+  const [parmition, setParmition] = useState(false);
+  const [Wallet, setWallet] = useState('');
+  const [Network, setNetwork] = useState('');
   const close = useToggleModal(null);
 
   // let isOpen = useIsModalOpen(ModalType.WALLET_MODAL);
 
   return (
     <>
-      <Modal isOpen={false} modalTitle="" close={close}>
+      <Modal isOpen={false} modalTitle="" close={close} >
         <WalletModalDiv>
           <Header>
             <Heading>Connect Wallet</Heading>
-            <IconGlobalStyleComponent ml={10} mr={30} height={20} width={20} img='/images/cros.png' opecity={0.5} />
+            <IconGlobalStyleComponent ml={10} mr={30} height={20} width={20} img="/images/cros.png" opecity={0.5} />
           </Header>
           <Over>
             <Main>
@@ -154,8 +152,14 @@ const WalletModal = () => {
                 <Wrapper>
                   {ConnectNetWorkOne.map((val) => {
                     return (
-                      <StyledButtons isActive={Network === val.name ? WallerSelect : false} onClick={() => { setWallerSelect(true); setNetwork(val.name) }}>
-                        <SelectImg isActive={Network === val.name ? WallerSelect : false} src="/images/select.png" alt="Select_Icon" />
+                      <StyledButtons
+                        isActive={Network === val.name ? WallerSelect : false}
+                        onClick={() => {
+                          setWallerSelect(true);
+                          setNetwork(val.name);
+                        }}
+                      >
+                        {Network === val.name && <SelectImg src="/images/select.png" alt="Select_Icon" />}
                         <ImageIcon src={val.coin} alt="Coin" />
                         <StyledButtonTitle>{val.name}</StyledButtonTitle>
                       </StyledButtons>
@@ -210,8 +214,14 @@ const WalletModal = () => {
               <Wrapper>
                 {ConnectWalletOne.map((val) => {
                   return (
-                    <StyledButtons isActive={Wallet === val.name ? WallerSelect : false} onClick={() => { setWallerSelect(true); setWallet(val.name) }}>
-                      <SelectImg isActive={Wallet === val.name ? WallerSelect : false} src="/images/select.png" alt="Select_Icon" />
+                    <StyledButtons
+                      isActive={Wallet === val.name ? WallerSelect : false}
+                      onClick={() => {
+                        setWallerSelect(true);
+                        setWallet(val.name);
+                      }}
+                    >
+                      {Network === val.name && <SelectImg src="/images/select.png" alt="Select_Icon" />}
                       <ImageIcon src={val.coin} alt="Coin" />
                       <StyledButtonTitle>{val.name}</StyledButtonTitle>
                     </StyledButtons>
@@ -226,10 +236,10 @@ const WalletModal = () => {
                 <Radio
                   onClick={() => {
                     // setCheck(!Check);
-                    setParmition(!parmition)
+                    setParmition(!parmition);
                   }}
                   checked={parmition}
-                // checked={Check ? true : false}
+                  // checked={Check ? true : false}
                 />
               }
               label=""
@@ -239,14 +249,7 @@ const WalletModal = () => {
               <TermsAndConditionPinkText>Privacy Policy</TermsAndConditionPinkText>
             </TermsAndConditionText>
           </Checkbox>
-          <Buttons
-            width='87%'
-            isActive={parmition}
-            onClick={() => {
-
-            }}
-            title='Connect Wallet' />
-        
+          <Buttons width="87%" isActive={parmition} onClick={() => {}} title="Connect Wallet" />
         </WalletModalDiv>
       </Modal>
     </>

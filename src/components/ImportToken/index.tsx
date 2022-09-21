@@ -3,7 +3,7 @@ import { styled } from '@mui/system';
 import { Button, FormControlLabel, Radio, useMediaQuery } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import { ThemeProps } from 'src/theme';
+import { ThemeProps } from 'theme';
 
 const style = {
   position: 'absolute',

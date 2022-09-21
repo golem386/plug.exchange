@@ -4,8 +4,8 @@ import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import { Box, Tab, Tabs } from '@mui/material';
 import * as echarts from 'echarts';
-import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
+import { ThemeProps } from 'theme';
+import IconGlobalStyleComponent from 'theme/GlobalComponent/iconGlobalStyleComponent';;
 const CurrencyTitle = styled('h2')({
   // fontSize: 'calc(0.55em + 1vw)',
   fontWeight: '600',

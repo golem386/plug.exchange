@@ -3,8 +3,8 @@ import { styled } from '@mui/system';
 import { Button, Grid, List } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { data } from '../../../contexts/QuoteTableDATA';
-import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
+import { ThemeProps } from 'theme';
+import IconGlobalStyleComponent from 'theme/GlobalComponent/iconGlobalStyleComponent';
 const QuoteTableblur = styled('div')({
   borderRadius: 24,
   filter: 'blur(5px)',

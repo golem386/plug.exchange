@@ -32,7 +32,7 @@ const Div = styled('div')({
 });
 
 const Title = styled('p')({
-    fontWeight: '700',
+    fontWeight: 'bold',
     color: '#666666',
     marginLeft: 10,
     marginRight: 10

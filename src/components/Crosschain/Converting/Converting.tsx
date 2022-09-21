@@ -2,8 +2,8 @@ import { styled } from '@mui/system';
 import { Slider } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
-import Buttons from 'src/theme/Buttons';
+import IconGlobalStyleComponent from 'theme/GlobalComponent/iconGlobalStyleComponent';
+import Buttons from 'theme/Buttons';
 const Warning = styled('div')({
   display: 'flex',
   alignItems: 'center',

@@ -7,8 +7,8 @@ import AppFooter from '../AppFooter';
 import BuyCrypto from '../BuyCrypto';
 import SwitchNetwork from '../SwitchNetwork';
 import { StyledButton } from '../../theme/GlobalComponent/globalStyleComponent';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
-;
+import IconGlobalStyleComponent from '../../theme/GlobalComponent/iconGlobalStyleComponent';
+import { useRouter } from 'next/router';
 
 const NavMainComponent = styled('div')({
   display: 'flex',
@@ -88,7 +88,7 @@ const ConnectWalletMain = styled('div')({
   position: 'fixed',
   top: '25%',
   width: '93%',
-  marginLeft:13
+  marginLeft: 13,
 });
 const TitleView = styled('div')({
   display: 'flex',
@@ -126,13 +126,12 @@ const BtnGroup = styled('div')({
   alignItems: 'center',
   justifyContent: 'space-around',
   width: '100%',
-  position:'fixed',
-  zIndex:999,
-  bottom:0,
-  paddingBottom:'10%',
-  paddingTop:'10%'
+  position: 'fixed',
+  zIndex: 999,
+  bottom: 0,
+  paddingBottom: '10%',
+  paddingTop: '10%',
 });
-
 
 const Logo = styled('div')({
   display: 'flex',
@@ -149,18 +148,24 @@ const settingData = [
 
 const AppBar = () => {
   const isMobile = useMediaQuery('(min-width:660px)');
-  const [menu , setMenu] = useState(false)
+  const [menu, setMenu] = useState(false);
+  const router = useRouter();
   return (
     <>
       {/* mobile Navbar  */}
-      {isMobile ? null : (
+      {!isMobile && (
         <NavBar>
           <Logo>
             <NavImg src="/images/mlogo.png" />
           </Logo>
           <DivFlex>
             <Settings settings={settingData} />
-            <NavImg src="/images/mMenu.png" onClick={() => {setMenu(true)}} />
+            <NavImg
+              src="/images/mMenu.png"
+              onClick={() => {
+                setMenu(true);
+              }}
+            />
           </DivFlex>
         </NavBar>
       )}
@@ -173,26 +178,17 @@ const AppBar = () => {
                 <Imgs src="/logo.png" alt="logo" />
               </LogoGrid>
               <ButtonGrid item sm={8}>
-                <StyledButton isActive={window?.location?.pathname === '/swap'} href="/swap">
+                <StyledButton isActive={router.pathname === '/swap'} href="/swap">
                   Swap
                 </StyledButton>
-                {/* <StyledButton isActive={window?.location?.pathname === '/Recovery'} href="/Recovery">
-                  {window?.location?.pathname === '/Recovery'}
-                  Recovery
-                </StyledButton>
-                <StyledButton isActive={window?.location?.pathname === '/Referral'} href="/Referral">
-                  {window?.location?.pathname === '/Referral'}
-                  Referral
-                </StyledButton> */}
-                <StyledButton isActive={window?.location?.pathname === '/Crosschain'} href="/Crosschain">
-                  {window?.location?.pathname === '/Crosschain' && <Img src="/images/chain.png" />}
+                <StyledButton isActive={router.pathname === '/Crosschain'} href="/Crosschain">
+                  {router.pathname === '/Crosschain' && <Img src="/images/chain.png" />}
                   Crosschain
                 </StyledButton>
                 <BuyCrypto />
-                <StyledButton isActive={false} onClick={() => null}>
+                <StyledButton isActive={false} onClick={() => {}}>
                   Connect Wallet
                 </StyledButton>
-                {/* )} */}
                 <SwitchNetwork />
 
                 <Settings settings={settingData} />
@@ -209,41 +205,42 @@ const AppBar = () => {
           >
             <Grid
               item
-            // sm={CoinDetail?.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}
+              // sm={CoinDetail?.name === '' && CoinNetwork.name === '' ? 6.8 : 4.5}
             >
-              <SettingMain
-                style={{ display: menu ? 'none' : 'none' }}
-              >
+              <SettingMain style={{ display: menu ? 'none' : 'none' }}>
                 <h4>Setting</h4>
                 <IconGlobalStyleComponent
-                  // onClick={() => {}}
                   ml={0}
                   mr={0}
                   height={15}
                   width={15}
-                  img='/images/cros.png'
-                  opecity={1} />
+                  img="/images/cros.png"
+                  opecity={1}
+                />
               </SettingMain>
             </Grid>
           </SettingMenuOverLay>
-          {
+          
             <ConnectWalletOverLay
               // style={{ display: MenuState ? 'block' : 'none' }}
               style={{ display: menu ? 'block' : 'none' }}
-              onClick={() => null}
             >
-              <ConnectWalletMain
-               style={{ display: menu ? 'block' : 'none' }}
-              >
+              <ConnectWalletMain style={{ display: menu ? 'block' : 'none' }}>
                 <TitleView>
                   <ConnectWalletTitle>Connect Wallet</ConnectWalletTitle>
-                  <img src="/images/cros.png" onClick={() => { setMenu(false)}} alt="Image" />
+                  <img
+                    src="/images/cros.png"
+                    onClick={() => {
+                      setMenu(false);
+                    }}
+                    alt="Image"
+                  />
                 </TitleView>
                 <BuyCrypto />
                 <AppFooter type="Mobile" />
               </ConnectWalletMain>
             </ConnectWalletOverLay>
-          }
+          
         </>
       )}
       {/* for mobile Connect Wallete */}

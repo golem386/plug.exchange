@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { styled } from '@mui/system';
 import ConnectButton from './ConnectButton';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
+import IconGlobalStyleComponent from 'theme/GlobalComponent/iconGlobalStyleComponent';
 const Nav = styled('div')({
   padding: 15,
   boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',

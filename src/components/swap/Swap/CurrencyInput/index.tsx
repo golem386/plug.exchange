@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 //import { onModalOpen } from '../../../../store/Actions';
 // import { AnyAction } from 'redux';
 // import { ThunkDispatch } from 'redux-thunk';
-import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
+import { ThemeProps } from 'theme';
+import IconGlobalStyleComponent from 'theme/GlobalComponent/iconGlobalStyleComponent';;
 const SwapHeader = styled('div')({
   display: 'flex',
   alignItems: 'center',

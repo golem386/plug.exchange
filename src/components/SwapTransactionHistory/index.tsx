@@ -1,6 +1,6 @@
 import { styled } from '@mui/system';
 import React from 'react';
-import { ThemeProps } from 'src/theme';
+import { ThemeProps } from 'theme';
 import { HistoryDATA, HistorySwapDATA } from '../../contexts/HistoryDATA';
 import Modal from '../Modal';
 import PaginationTable from './PaginationTable';

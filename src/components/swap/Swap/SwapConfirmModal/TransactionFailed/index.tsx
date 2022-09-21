@@ -1,7 +1,7 @@
 import { styled } from '@mui/system';
 import { Button } from '@mui/material';
-import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
+import { ThemeProps } from 'theme';
+import IconGlobalStyleComponent from 'theme/GlobalComponent/iconGlobalStyleComponent';;
 
 const Title = styled('span')({
   fontWeight: '600',

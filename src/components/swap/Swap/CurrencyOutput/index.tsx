@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import SwapArrow from '../SwapArrow';
 // import { ThunkDispatch } from 'redux-thunk';
 // import { AnyAction } from 'redux';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
+import IconGlobalStyleComponent from 'theme/GlobalComponent/iconGlobalStyleComponent';;
 const Receive = styled('div')({
   backgroundColor: '#F7F7F7',
   marginTop: '10%',

@@ -2,8 +2,8 @@
 import { styled } from '@material-ui/core';
 import { Box, Tab, Tabs } from '@mui/material';
 import React from 'react';
-import { ThemeProps } from 'src/theme';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
+import { ThemeProps } from 'theme';
+import IconGlobalStyleComponent from 'theme/GlobalComponent/iconGlobalStyleComponent';
 
 const Logo = styled('img')({
   margin: 'auto',
@@ -19,7 +19,7 @@ const Text = styled('p')({
   color: '#BB36FF',
   marginLeft: 10,
   marginRight: 10,
-  fontWeight: '600',
+  fontWeight: 'bold',
 });
 const H1 = styled('h1')({
   textAlign: 'center',
@@ -30,7 +30,7 @@ const P = styled('p')({
   color: 'black',
   marginLeft: 10,
   marginRight: 10,
-  fontWeight: '400',
+  fontWeight: 'bold',
   textAlign: 'center',
   opacity: 0.3,
 });
@@ -123,9 +123,9 @@ const CustomTabs = styled(Tabs)({
 const CustomTab = styled(Tab)(( props: { isActive: boolean; theme?: ThemeProps }) => ({
   borderRadius: '100px!important',
   border: 'none!important',
-  background: props.isActive && props.theme ? props.theme.palette.color.active : '',
+  background: props.isActive && props.theme ? props.theme.palette.color?.active : '',
   color: props.isActive ? 'white!important' : '',
-  fontWeight: '600!important',
+  fontWeight: 'bold',
   '@media (max-width: 700px)': {
     width: '33.33%',
   },

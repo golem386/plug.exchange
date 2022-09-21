@@ -1,8 +1,8 @@
 import React from 'react';
 import { styled } from '@mui/system';
 import { Menu, MenuItem } from '@mui/material';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';
-import Buttons from 'src/theme/Buttons';
+import IconGlobalStyleComponent from 'theme/GlobalComponent/iconGlobalStyleComponent';
+import Buttons from 'theme/Buttons';
 
 const RecoveryMain = styled('div')({
   display: 'flex',

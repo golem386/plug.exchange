@@ -1,8 +1,8 @@
 import { styled } from '@mui/system';
 import CurrencyInput from '../CurrencyInput';
 import CurrencyOutput from '../CurrencyOutput';
-import { ThemeProps } from 'src/theme';
-import Buttons from 'src/theme/Buttons';
+import { ThemeProps } from 'theme';
+import Buttons from 'theme/Buttons';
 
 const Header = styled('div')({
   display: 'flex',

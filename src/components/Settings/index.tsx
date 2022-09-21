@@ -1,7 +1,7 @@
 import { styled } from '@mui/system';
 import { MenuItem, useMediaQuery } from '@mui/material';
 import React from 'react';
-import { ThemeProps } from 'src/theme';
+import { ThemeProps } from 'theme';
 
 const DropDownTitleIcon = styled('p')({
   fontWeight: '600',

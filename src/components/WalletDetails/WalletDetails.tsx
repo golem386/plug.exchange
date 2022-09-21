@@ -5,7 +5,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import UserAssets from './UserAssets';
 import SwapTransactionHistory from '../SwapTransactionHistory';
-import { ThemeProps } from 'src/theme';
+import { ThemeProps } from 'theme';
 
 const Copy = styled('div')({
   paddingLeft: '10px',
@@ -65,7 +65,7 @@ const MainDiv = styled('div')({
   display: 'flex',
   cursor: 'pointer',
 });
-const CoinPrice = styled('p')({
+const CoinPrice = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-evenly',

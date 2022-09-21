@@ -3,7 +3,7 @@ import { Button, MenuItem } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { DropDownData } from '../../contexts/ConnectWalletDATA';
-import { ThemeProps } from 'src/theme';
+import { ThemeProps } from 'theme';
 
 const ButtonActive = styled(Button)((props: { theme?: ThemeProps }) => ({
   borderRadius: 16,

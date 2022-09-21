@@ -2,7 +2,7 @@ import { styled } from '@mui/system';
 import { Button, FormControlLabel, Radio } from '@mui/material';
 import React from 'react';
 import { Switch } from '@mui/material';
-import { ThemeProps } from 'src/theme';
+import { ThemeProps } from 'theme';
 
 const TransactionSettingsModal = styled('div')({
   borderRadius: '24px',

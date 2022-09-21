@@ -12,7 +12,7 @@ import React from 'react';
 import { list } from '../../contexts/SelectTokenDATA';
 import { useSelector } from 'react-redux';
 import ImportToken from '../ImportToken';
-import IconGlobalStyleComponent from 'src/theme/GlobalComponent/iconGlobalStyleComponent';;
+import IconGlobalStyleComponent from 'theme/GlobalComponent/iconGlobalStyleComponent';;
 
 const CurrencyCard = styled('div')({
   borderRadius: '24px',

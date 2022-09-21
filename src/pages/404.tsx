@@ -1,6 +1,6 @@
 import { styled } from '@mui/system';
 import { Grid } from '@mui/material';
-import { ThemeProps } from 'src/theme';
+import { ThemeProps } from 'theme';
 
 const Div = styled('div')({
   marginLeft: '5%',
