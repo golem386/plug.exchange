@@ -26,6 +26,6 @@
     "incremental": true,
     "resolveJsonModule": true
   },
-  "include": ["./src/pages", "./src/next-env.d.ts", "src/components/Converting"],
+  "include": ["./src/pages", "./src/next-env.d.ts", "./src/next-app-env.d.ts"],
   "exclude": ["./node_modules"]
 }

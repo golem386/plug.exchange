@@ -1,108 +1,51 @@
-import { MetaMask } from '@web3-react/metamask';
-import { WalletConnect } from '@web3-react/walletconnect';
-import { CoinbaseWallet } from '@web3-react/coinbase-wallet';
-import { EIP1193 } from '@web3-react/eip1193';
+import { CHAINS, SUPPORTED_CHAIN_IDS } from 'config/chains';
+import { APP_LOGO, APP_NAME } from 'config';
+
+// connectors
+import { InjectedConnector } from '@web3-react/injected-connector';
 import { BscConnector } from '@binance-chain/bsc-connector';
-import Fortmatic from 'fortmatic';
+import { CoinbaseConnector } from './CoinbaseConnector';
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
+import { FortmaticConnector } from '@web3-react/fortmatic-connector';
 import { MewConnectConnector } from '@myetherwallet/mewconnect-connector';
-import { Venly } from '@venly/web3-provider';
-import { initializeConnector } from '@web3-react/core';
 
-// metamask provider
-export const metamask = initializeConnector<MetaMask>(
-  (actions) =>
-    new MetaMask({
-      actions,
-    }),
+export let supportedChainIds = Object.keys(SUPPORTED_CHAIN_IDS).map((key) =>
+  parseInt(SUPPORTED_CHAIN_IDS[parseInt(key)]),
 );
+let rpcUrls = {} as { [chainId: number]: string };
 
-// coinbase wallet
-export const coinbase = initializeConnector<CoinbaseWallet>(
-  (actions) =>
-    new CoinbaseWallet({
-      actions,
-      options: {
-        url: '',
-        appName: 'Plug Exchange',
-        appLogoUrl: '',
-        reloadOnDisconnect: false,
-      },
-    }),
-);
+for (let k = 0; k < supportedChainIds.length; k++) {
+  rpcUrls[supportedChainIds[k]] = CHAINS[supportedChainIds[k]]?.rpc_url;
+}
 
-// bsc wallet
-export const bscWallet = initializeConnector<EIP1193>(
-  (actions) =>
-    new EIP1193({
-      actions,
-      provider: new BscConnector({
-        supportedChainIds: [],
-      }).getProvider(),
-    }),
-);
+export const injectedEIP1193 = new InjectedConnector({
+  supportedChainIds,
+});
 
-// wallet connect
-export const wc = initializeConnector<WalletConnect>(
-  (actions) =>
-    new WalletConnect({
-      actions,
-      options: {
-        rpc: '',
-        qrcode: true,
-        bridge: '',
-        qrcodeModalOptions: {
-          desktopLinks: [
-            'ledger',
-            'tokenary',
-            'wallet',
-            'wallet 3',
-            'secuX',
-            'ambire',
-            'wallet3',
-            'apolloX',
-            'zerion',
-            'sequence',
-            'punkWallet',
-            'kryptoGO',
-            'nft',
-            'riceWallet',
-            'vision',
-            'keyring',
-          ],
-          mobileLinks: ['rainbow', 'metamask', 'argent', 'trust', 'imtoken', 'pillar'],
-        },
-      },
-    }),
-);
+export const binanceWallet = new BscConnector({
+  supportedChainIds,
+});
 
-// fortmatic
-export const fortmaticWallet = initializeConnector<EIP1193>(
-  (actions) => new EIP1193({ actions, provider: new Fortmatic('').getProvider() }),
-);
+export const coinbase = new CoinbaseConnector({
+  url: CHAINS[1].rpc_url,
+  appName: APP_NAME,
+  appLogoUrl: APP_LOGO,
+  supportedChainIds,
+});
 
-// my ether wallet
-export const mew = initializeConnector<EIP1193>(
-  (actions) =>
-    new EIP1193({
-      actions,
-      provider: new MewConnectConnector({
-        url: '',
-        windowClosedError: true,
-      }).getProvider(),
-    }),
-);
+export const walletConnect = new WalletConnectConnector({
+  supportedChainIds,
+  qrcode: true,
+  bridge: 'https://bridge.walletconnect.org',
+  rpc: rpcUrls,
+});
 
-// akrane
-export const akrane = initializeConnector<EIP1193>(
-  (actions) =>
-    new EIP1193({
-      actions,
-      provider: Venly.createProviderEngine({
-        clientId: 'YOUR_CLIENT_ID',
-        environment: 'staging', //optional, production by default
-        signMethod: 'POPUP', //optional, REDIRECT by default
-        bearerTokenProvider: () => 'obtained_bearer_token', //optional, default undefined
-        skipAuthentication: false,
-      }),
-    }),
-);
+export const fortmatic = new FortmaticConnector({
+  apiKey: '',
+  chainId: SUPPORTED_CHAIN_IDS.Mainnet,
+});
+
+export const mew = new MewConnectConnector({
+  url: CHAINS[SUPPORTED_CHAIN_IDS.Mainnet]?.rpc_url,
+  windowClosedError: true,
+});

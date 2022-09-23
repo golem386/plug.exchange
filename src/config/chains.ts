@@ -19,74 +19,73 @@ export type ChainInfo = {
   [chainId: number]: Chain;
 };
 
-export const SUPPORTED_CHAIN_IDS = [1, 3, 56, 137, 43114, 250, 10, 42161];
+export enum SUPPORTED_CHAIN_IDS {
+  Mainnet = 1,
+  Goerli = 5,
+  Binance = 56,
+  Polygon = 137,
+  Avalanche = 43114,
+  Fantom = 250,
+  Arbitrum = 10,
+  Optimism = 42161,
+}
 
 export const CHAINS: ChainInfo = {
-  /** mainnet */
-  1: {
+  [SUPPORTED_CHAIN_IDS.Mainnet]: {
     name: 'Ethereum',
-    icon: '/images/ethereum.png',
+    icon: '/images/chains/ethereum.png',
     rpc_url: process.env.NEXT_PUBLIC_MAINNET_RPC_URL,
     nativeCurrency: 'ETH',
     exploler: 'https://etherscan.io/',
   },
-  /** ropsten */
-  3: {
-    name: 'Ropsten',
-    icon: '/images/ethereum.png',
-    rpc_url: process.env.NEXT_PUBLIC_ROPSTEN_RPC_URL,
-    nativeCurrency: 'Ropsten ETH',
-    exploler: 'https://ropsten.etherscan.io/',
+  [SUPPORTED_CHAIN_IDS.Goerli]: {
+    name: 'Ethereum Goerli',
+    icon: '/images/chains/ethereum.png',
+    rpc_url: process.env.NEXT_PUBLIC_GOERLI_RPC_URL,
+    nativeCurrency: 'Goerli ETH',
+    exploler: 'https://goerli.etherscan.io/',
     exclude: true,
   },
-  /** bsc mainnet */
-  56: {
+  [SUPPORTED_CHAIN_IDS.Binance]: {
     name: 'BSC',
-    icon: '/images/smartchain.png',
+    icon: '/images/chains/smartchain.png',
     rpc_url: process.env.NEXT_PUBLIC_BSC_RPC_URL,
     nativeCurrency: 'BSC',
     exploler: 'https://bscscan.com/',
   },
-  /** polygon mainnet */
-  137: {
+  [SUPPORTED_CHAIN_IDS.Polygon]: {
     name: 'Polygon',
-    icon: '/images/polygon.png',
+    icon: '/images/chains/polygon.png',
     rpc_url: process.env.NEXT_PUBLIC_POLYGON_RPC_URL,
     nativeCurrency: 'MATIC',
     exploler: 'https://polygonscan.com/',
   },
-  /** avalanche mainnet */
-  43114: {
+  [SUPPORTED_CHAIN_IDS.Avalanche]: {
     name: 'Avalanche',
-    icon: '/images/avalanche.png',
+    icon: '/images/chains/avalanche.png',
     rpc_url: process.env.NEXT_PUBLIC_AVALANCHE_RPC_URL,
     nativeCurrency: 'MATIC',
     exploler: 'https://snowtrace.io/',
   },
-  /** fantom mainnet */
-  250: {
+  [SUPPORTED_CHAIN_IDS.Fantom]: {
     name: 'Fantom',
-    icon: '/images/fantom.png',
+    icon: '/images/chains/fantom.png',
     rpc_url: process.env.NEXT_PUBLIC_FANTOM_RPC_URL,
     nativeCurrency: 'FTM',
     exploler: 'https://ftmscan.com/',
   },
-  /** optimism mainnet */
-  10: {
+  [SUPPORTED_CHAIN_IDS.Optimism]: {
     name: 'Optimism',
-    icon: '/images/optimism.png',
+    icon: '/images/chains/optimism.png',
     rpc_url: process.env.NEXT_PUBLIC_OPTIMISM_RPC_URL,
     nativeCurrency: 'OP',
     exploler: 'https://optimistic.etherscan.io/',
   },
-  /** arbitrum mainnet */
-  42161: {
+  [SUPPORTED_CHAIN_IDS.Arbitrum]: {
     name: 'Arbitrum',
-    icon: '/images/arbitrum.png',
+    icon: '/images/chains/arbitrum.png',
     rpc_url: process.env.NEXT_PUBLIC_ARBITRUM_RPC_URL,
     nativeCurrency: 'ETH',
     exploler: 'https://arbiscan.io/',
   },
 };
-
-export const MAINNET = 1;

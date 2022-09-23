@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ConnectNetWorkOne, ConnectWalletOne } from '../../contexts/ConnectWalletDATA';
 import { FormControlLabel, Radio } from '@mui/material';
 import Modal from '../Modal';
 import { useToggleModal } from '../../store/app/hooks';
@@ -7,6 +6,8 @@ import { styled } from '@mui/system';
 import Buttons from '../../theme/Buttons';
 import { ThemeProps } from 'theme';
 import IconGlobalStyleComponent from '../../theme/GlobalComponent/iconGlobalStyleComponent';
+import { CHAINS } from 'config/chains';
+import wallets from 'config/wallets';
 
 const Title = styled('p')({
   fontWeight: '600',
@@ -84,7 +85,6 @@ const ImageIcon = styled('img')({
   width: 35,
   marginRight: 10,
 });
-const Over = styled('div')({});
 
 const ButtonGroup = styled('div')({
   marginTop: '3%',
@@ -139,29 +139,31 @@ const WalletModal = () => {
 
   return (
     <>
-      <Modal isOpen={false} modalTitle="" close={close} >
+      <Modal isOpen={false} modalTitle="" close={close}>
         <WalletModalDiv>
           <Header>
             <Heading>Connect Wallet</Heading>
             <IconGlobalStyleComponent ml={10} mr={30} height={20} width={20} img="/images/cros.png" opecity={0.5} />
           </Header>
-          <Over>
+          <>
             <Main>
               <Title>Choose Network</Title>
               <ButtonGroup>
                 <Wrapper>
-                  {ConnectNetWorkOne.map((val) => {
+                  {Object.keys(CHAINS).map((chainId) => {
+                    let network = CHAINS[parseInt(chainId)];
+
                     return (
                       <StyledButtons
-                        isActive={Network === val.name ? WallerSelect : false}
+                        isActive={Network === network.name ? WallerSelect : false}
                         onClick={() => {
                           setWallerSelect(true);
-                          setNetwork(val.name);
+                          setNetwork(network.name);
                         }}
                       >
-                        {Network === val.name && <SelectImg src="/images/select.png" alt="Select_Icon" />}
-                        <ImageIcon src={val.coin} alt="Coin" />
-                        <StyledButtonTitle>{val.name}</StyledButtonTitle>
+                        {Network === network.name && <SelectImg src="/images/select.png" alt="Select_Icon" />}
+                        <ImageIcon src={network.icon} alt="Coin" />
+                        <StyledButtonTitle>{network.name}</StyledButtonTitle>
                       </StyledButtons>
                     );
                   })}
@@ -212,24 +214,26 @@ const WalletModal = () => {
             <Title>Choose Wallet</Title>
             <ButtonGroup>
               <Wrapper>
-                {ConnectWalletOne.map((val) => {
+                {Object.keys(wallets).map((walletName) => {
+                  let wallet = wallets[walletName];
+
                   return (
                     <StyledButtons
-                      isActive={Wallet === val.name ? WallerSelect : false}
+                      isActive={Wallet === wallet.walletName ? WallerSelect : false}
                       onClick={() => {
                         setWallerSelect(true);
-                        setWallet(val.name);
+                        setWallet(wallet.walletName);
                       }}
                     >
-                      {Network === val.name && <SelectImg src="/images/select.png" alt="Select_Icon" />}
-                      <ImageIcon src={val.coin} alt="Coin" />
-                      <StyledButtonTitle>{val.name}</StyledButtonTitle>
+                      {Network === wallet.walletName && <SelectImg src="/images/select.png" alt="Select_Icon" />}
+                      <ImageIcon src={wallet.walletIcon} alt="Coin" />
+                      <StyledButtonTitle>{wallet.walletName}</StyledButtonTitle>
                     </StyledButtons>
                   );
                 })}
               </Wrapper>
             </ButtonGroup>
-          </Over>
+          </>
           <Checkbox>
             <FormControlLabel
               control={

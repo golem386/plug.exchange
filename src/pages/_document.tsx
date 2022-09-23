@@ -1,6 +1,9 @@
 import React from 'react';
-import { ServerStyleSheets } from '@material-ui/core/styles';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import createEmotionServer from '@emotion/server/create-instance';
+import createEmotionCache from 'createEmotionCache';
+import { ServerStyleSheets } from '@material-ui/core';
+
 class MyDocument extends Document {
   render() {
     return (
@@ -12,6 +15,9 @@ class MyDocument extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
           <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
           <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+          <meta name="emotion-insertion-point" content="" />
+          {/** @ts-ignore */}
+          {this.props.emotionStyleTags}
         </Head>
         <body>
           <Main />
@@ -22,24 +28,40 @@ class MyDocument extends Document {
   }
 }
 
-// `getInitialProps` belongs to `_document` (instead of `_app`),
-// it's compatible with server-side generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
-  // Render app and page and get the context of the page with collected side effects.
   const sheets = new ServerStyleSheets();
+
   const originalRenderPage = ctx.renderPage;
+
+  // You can consider sharing the same emotion cache between all the SSR requests to speed up performance.
+  // However, be aware that it can have global side effects.
+  const cache = createEmotionCache();
+  const { extractCriticalToChunks } = createEmotionServer(cache);
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+      enhanceApp: (App: any) =>
+        function EnhanceApp(props) {
+          return sheets.collect(<App emotionCache={cache} {...props} />);
+        },
     });
 
   const initialProps = await Document.getInitialProps(ctx);
+  // This is important. It prevents emotion to render invalid HTML.
+  // See https://github.com/mui/material-ui/issues/26561#issuecomment-855286153
+  const emotionStyles = extractCriticalToChunks(initialProps.html);
+  const emotionStyleTags = emotionStyles.styles.map((style) => (
+    <style
+      data-emotion={`${style.key} ${style.ids.join(' ')}`}
+      key={style.key}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{ __html: style.css }}
+    />
+  ));
 
   return {
     ...initialProps,
-    // Styles fragment is rendered after the app and page rendering finish.
-    styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+    styles: [...emotionStyleTags, sheets.getStyleElement()],
   };
 };
 
